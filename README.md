@@ -25,3 +25,13 @@
 云同步、远端报告及远程音频服务仍需独立验收；本版本不承诺完全离线，也不代表与问真官方全部规则和服务等价。两张缺失原图的提示位于基础知识的地理对应图和懒人表的干支对应表。
 
 详见 [v1.0.1 发布说明](RELEASE_NOTES-v1.0.1.md)。Releases 同时提供 `SHA256SUMS.txt`，用于核对下载文件。
+
+<!-- mingli-updates -->
+## 应用内更新
+
+最新安装包：[命理排盘 v1.0.2](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.2)。
+
+首次请安装带更新功能的版本。以后打开 APP 或回到前台会检查正式 Release；可在“版本更新”开启后台提醒，下载安装需要手机确认。
+
+本地项目使用 `npm run release:android -- --version 下一版号 --notes-file 更新说明.md` 构建、签名并发布完整 Release。仅推送源码不会触发手机 APK 更新。
+<!-- /mingli-updates -->
