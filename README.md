@@ -29,7 +29,7 @@
 <!-- mingli-updates -->
 ## 应用内更新
 
-最新安装包：[造化元钥 v1.0.6](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.6)。
+最新安装包：[造化元钥 v1.0.7](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.7)。
 
 首次请安装带更新功能的版本。以后打开 APP 或回到前台会检查正式 Release；可在“版本更新”开启后台提醒，下载安装需要手机确认。
 
