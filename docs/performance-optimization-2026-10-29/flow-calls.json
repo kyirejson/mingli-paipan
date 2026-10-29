@@ -1,0 +1,22 @@
+{
+  "updates": [
+    {
+      "date": "2026-11-07",
+      "fullHoroscopeCalls": 1
+    },
+    {
+      "date": "2026-11-08",
+      "fullHoroscopeCalls": 1
+    },
+    {
+      "date": "2026-11-09",
+      "fullHoroscopeCalls": 1
+    }
+  ],
+  "caches": {
+    "years": 1,
+    "yearly": 1,
+    "daily": 2,
+    "hourly": 10
+  }
+}

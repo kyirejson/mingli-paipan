@@ -1,0 +1,16 @@
+[
+  {
+    "title": "",
+    "id": "",
+    "url": "http://localhost:9988/static/newguji/index.html",
+    "display": "inline",
+    "onScreen": false
+  },
+  {
+    "title": "",
+    "id": "bzppIframe",
+    "url": "http://localhost:9988/",
+    "display": "none",
+    "onScreen": false
+  }
+]

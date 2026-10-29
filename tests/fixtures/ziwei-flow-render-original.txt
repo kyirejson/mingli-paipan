@@ -1,0 +1,56 @@
+  function ziweiFlowYearRange(chart, year) {
+    var decades=chart.decadalList(), current=decades.find(function(d){return year>=d.yearRange[0]&&year<=d.yearRange[1];});
+    if(current)return current.yearRange.slice();
+    if(!decades.length)return [year,year+9];
+    var first=decades[0],start=first.yearRange[0];
+    if(year<start)return [start-first.ageRange[0]+1,start-1];
+    start+=Math.floor((year-start)/10)*10;
+    return [start,start+9];
+  }
+function originalFlows(h, r, full) {
+        var self = this, chart = r.chart, c, horoscope;
+        try {
+          horoscope = getCachedHoroscope(chart, this.flowDate, this.flowHour);
+        } catch (_) {
+          return h("p", { class: "fa-caption" }, ["请选择有效的限流日期"]);
+        }
+        var flowKey = [this.flowDate, this.flowHour, full ? 1 : 0].join('|');
+        chart._cachedFlowRows = chart._cachedFlowRows || {};
+        var cachedData = chart._cachedFlowRows[flowKey];
+        var rows;
+        if (cachedData) {
+          rows = cachedData.rows;
+        } else {
+          c = E.calendar(this.flowDate + " 12:00");
+          var lunar = c.lunar, year = lunar.getYear(), month = lunar.getMonth(), day = lunar.getDay();
+          var decades = chart.decadalList(), yearRange = ziweiFlowYearRange(chart, year), months = chart.monthlyList(year), currentMonth = months.find(function(x) {
+            return x.month === Math.abs(month) && x.isLeapMonth === month < 0 && day >= x.dayRange[0] && day <= x.dayRange[1];
+          });
+          var days = currentMonth ? currentMonth.dayRange[1] : 30;
+          rows = [
+            { scope: "decadal", label: "大限", items: decades.map(function(d) {
+              return { label: d.ageRange.join("～"), gz: d.heavenlyStem + d.earthlyBranch, date: E.lunarSolar(d.yearRange[0], 1, 1), index: d.index };
+            }) },
+            { scope: "yearly", label: "流年", items: Array.from({ length: yearRange[1] - yearRange[0] + 1 }, function(_, i) {
+              var y = yearRange[0] + i, date = E.lunarSolar(y, 1, 1), info = getCachedHoroscope(chart, date, self.flowHour).yearly;
+              return { label: String(y), gz: info.heavenlyStem + info.earthlyBranch, date: date, year: y };
+            }) }
+          ];
+          if (full) rows.push(
+            { scope: "monthly", label: "流月", items: months.map(function(m) {
+                return { label: (m.isLeapMonth ? "闰" : "") + m.month + "月" + (m.part === "normal" ? "" : m.part === "first" ? "前" : "后"), gz: m.heavenlyStem + m.earthlyBranch, date: E.lunarSolar(year, m.isLeapMonth ? -m.month : m.month, m.dayRange[0]), current: m === currentMonth };
+            }) },
+            { scope: "daily", label: "流日", items: Array.from({ length: days }, function(_, i) {
+              var date = E.lunarSolar(year, month, i + 1), info = getCachedHoroscope(chart, date, self.flowHour).daily;
+              return { label: i + 1 + "日", gz: info.heavenlyStem + info.earthlyBranch, date: date, dayNum: i + 1 };
+            }) },
+            { scope: "hourly", label: "流时", items: Array.from({ length: 13 }, function(_, i) {
+              var info = getCachedHoroscope(chart, self.flowDate, i).hourly;
+              return { label: i === 12 ? "晚子" : E.ZHI[i] + "时", gz: info.heavenlyStem + info.earthlyBranch, hour: i, date: self.flowDate };
+            }) }
+          );
+          chart._cachedFlowRows[flowKey] = { rows: rows, year: year, day: day };
+          cachedData = chart._cachedFlowRows[flowKey];
+        }
+return cachedData;
+}

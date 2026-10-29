@@ -1,0 +1,1 @@
+function(t,e){var n=t,i=Rr.STAR_ALIASES[t];if(i)return i;for(var u=0,a=Object.entries(_u);u<a.length;u++)for(var s=a[u],o=s[1],g=0,E=Object.entries(o.translation);g<E.length;g++){var c=E[g],r=c[0],p=c[1];if((e&&r.includes(e)||!e)&&p===t)return n=r,n}return n}

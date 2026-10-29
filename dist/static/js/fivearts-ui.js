@@ -574,16 +574,6 @@
     }
     return chart._cachedPalaceStars[key];
   }
-  // Keep the annual columns anchored to their decade, including years before the first decade.
-  function ziweiFlowYearRange(chart, year) {
-    var decades=chart.decadalList(), current=decades.find(function(d){return year>=d.yearRange[0]&&year<=d.yearRange[1];});
-    if(current)return current.yearRange.slice();
-    if(!decades.length)return [year,year+9];
-    var first=decades[0],start=first.yearRange[0];
-    if(year<start)return [start-first.ageRange[0]+1,start-1];
-    start+=Math.floor((year-start)/10)*10;
-    return [start,start+9];
-  }
   // Cache by chart identity and exact flow time; chart switching never changes it.
   var horoscopeCache = new WeakMap();
   function getCachedHoroscope(chart, date, hour) {
@@ -845,6 +835,7 @@
         this._rafId = null;
         this._slideTimer = null;
         this._prepareTimer = null;
+        this._prepareIdle = null;
         this.$watch(function() {
           var i = this.owner.infoData;
           return [this.owner.$route.fullPath, this.owner.chartPending, i && i.solarTime, i && i.sunTime, i && i.strSunTime, i && i.sex, this.owner.caseGuid, ui.flow].join("|");
@@ -857,7 +848,7 @@
         this._cache.clear();
         if (this._rafId) cancelAnimationFrame(this._rafId);
         clearTimeout(this._slideTimer);
-        if (global.cancelIdleCallback) global.cancelIdleCallback(this._prepareTimer);
+        if (this._prepareIdle && global.cancelIdleCallback) global.cancelIdleCallback(this._prepareIdle);
         clearTimeout(this._prepareTimer);
       },
       methods: {
@@ -899,16 +890,25 @@
           finally{if(sourceKey===this.sourceKey)this.assistantBusy=false;}
         },
         prepareNextPane: function() {
-          var self = this, idle = global.requestIdleCallback || function(cb) { return setTimeout(cb, 80); };
-          this._prepareTimer = idle(function() {
-            if (self._isDestroyed) return;
-            if (!self._isDragging && !self._slideTimer) {
-              var next = ui.preferences.order.find(function(k) { return !self.renderedTabs[k]; });
-              if (!next) return;
-              V.set(self.renderedTabs, next, true);
+          var self=this;
+          clearTimeout(this._prepareTimer);
+          if(this._prepareIdle&&global.cancelIdleCallback)global.cancelIdleCallback(this._prepareIdle);
+          this._prepareIdle=null;
+          this._prepareTimer=setTimeout(function(){
+            self._prepareTimer=null;
+            if(self._isDestroyed||!self.session||document.hidden)return;
+            if(self._isDragging||self._slideTimer){self.prepareNextPane();return;}
+            var order=ui.preferences.order,index=order.indexOf(self.active),next=order[(index+1)%order.length];
+            if(!next||self.renderedTabs[next])return;
+            function prepare(deadline){
+              self._prepareIdle=null;
+              if(self._isDestroyed||document.hidden)return;
+              if(self._isDragging||self._slideTimer||(deadline&&deadline.timeRemaining()<8)){self.prepareNextPane();return;}
+              V.set(self.renderedTabs,next,true);
             }
-            self.$nextTick(function() { self.prepareNextPane(); });
-          }, {timeout:500});
+            if(global.requestIdleCallback)self._prepareIdle=global.requestIdleCallback(prepare);
+            else prepare();
+          },600);
         },
         settleSlide: function() {
           var track = this.$refs.sliderTrack;
@@ -918,6 +918,7 @@
             track.style.transition = 'none';
             track.style.transform = 'translateX(' + -(ui.preferences.order.indexOf(this.active)*20) + '%)';
           }
+          this.prepareNextPane();
         },
         syncSession: function() {
           var o = this.owner, i = o.infoData;
@@ -958,6 +959,7 @@
           this.ziweiFlying = false;
           this.ziweiPalace = -1;
           if (guid) saveSession(existing);
+          this.prepareNextPane();
         },
         result: function(type) {
           var s = this.session;
@@ -1081,50 +1083,13 @@
           saveSession(s);
         },
 renderZiweiFlows: function(h, r, full) {
-        var self = this, chart = r.chart, c, horoscope;
+        var self = this, chart = r.chart, horoscope;
         try {
           horoscope = getCachedHoroscope(chart, this.flowDate, this.flowHour);
         } catch (_) {
           return h("p", { class: "fa-caption" }, ["请选择有效的限流日期"]);
         }
-        var flowKey = [this.flowDate, this.flowHour, full ? 1 : 0].join('|');
-        chart._cachedFlowRows = chart._cachedFlowRows || {};
-        var cachedData = chart._cachedFlowRows[flowKey];
-        var rows;
-        if (cachedData) {
-          rows = cachedData.rows;
-        } else {
-          c = E.calendar(this.flowDate + " 12:00");
-          var lunar = c.lunar, year = lunar.getYear(), month = lunar.getMonth(), day = lunar.getDay();
-          var decades = chart.decadalList(), yearRange = ziweiFlowYearRange(chart, year), months = chart.monthlyList(year), currentMonth = months.find(function(x) {
-            return x.month === Math.abs(month) && x.isLeapMonth === month < 0 && day >= x.dayRange[0] && day <= x.dayRange[1];
-          });
-          var days = currentMonth ? currentMonth.dayRange[1] : 30;
-          rows = [
-            { scope: "decadal", label: "大限", items: decades.map(function(d) {
-              return { label: d.ageRange.join("～"), gz: d.heavenlyStem + d.earthlyBranch, date: E.lunarSolar(d.yearRange[0], 1, 1), index: d.index };
-            }) },
-            { scope: "yearly", label: "流年", items: Array.from({ length: yearRange[1] - yearRange[0] + 1 }, function(_, i) {
-              var y = yearRange[0] + i, date = E.lunarSolar(y, 1, 1), info = getCachedHoroscope(chart, date, self.flowHour).yearly;
-              return { label: String(y), gz: info.heavenlyStem + info.earthlyBranch, date: date, year: y };
-            }) }
-          ];
-          if (full) rows.push(
-            { scope: "monthly", label: "流月", items: months.map(function(m) {
-                return { label: (m.isLeapMonth ? "闰" : "") + m.month + "月" + (m.part === "normal" ? "" : m.part === "first" ? "前" : "后"), gz: m.heavenlyStem + m.earthlyBranch, date: E.lunarSolar(year, m.isLeapMonth ? -m.month : m.month, m.dayRange[0]), current: m === currentMonth };
-            }) },
-            { scope: "daily", label: "流日", items: Array.from({ length: days }, function(_, i) {
-              var date = E.lunarSolar(year, month, i + 1), info = getCachedHoroscope(chart, date, self.flowHour).daily;
-              return { label: i + 1 + "日", gz: info.heavenlyStem + info.earthlyBranch, date: date, dayNum: i + 1 };
-            }) },
-            { scope: "hourly", label: "流时", items: Array.from({ length: 13 }, function(_, i) {
-              var info = getCachedHoroscope(chart, self.flowDate, i).hourly;
-              return { label: i === 12 ? "晚子" : E.ZHI[i] + "时", gz: info.heavenlyStem + info.earthlyBranch, hour: i, date: self.flowDate };
-            }) }
-          );
-          chart._cachedFlowRows[flowKey] = { rows: rows, year: year, day: day };
-          cachedData = chart._cachedFlowRows[flowKey];
-        }
+        var cachedData=global.WZBZFlowData.get(chart,this.flowDate,this.flowHour,full,r.flowRules),rows=cachedData.rows;
         return h("div", { class: "fa-ziwei-flows" }, [
           rows.map(function(row) {
             return h("div", { key:row.scope, class: "fa-flow-row", attrs:{'data-flow-scope':row.scope} }, [h("strong", [row.label]), h("div", {class:'fa-flow-items'}, row.items.map(function(item) {

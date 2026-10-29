@@ -1,0 +1,1392 @@
+{
+  "environment": {
+    "browser": "Chrome/140.0.7339.210",
+    "cpuSlowdown": 4,
+    "viewport": "430x932",
+    "android": false
+  },
+  "startup": {
+    "navigation": [
+      {
+        "domContentLoaded": 2997.89999999851,
+        "load": 3829.7999999970198,
+        "transfer": 9209
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 1936
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 3796
+      }
+    ],
+    "long": [
+      {
+        "start": 325.29999999701977,
+        "duration": 111
+      },
+      {
+        "start": 922.7999999970198,
+        "duration": 107
+      },
+      {
+        "start": 1432.8999999985099,
+        "duration": 451
+      },
+      {
+        "start": 2221,
+        "duration": 95
+      },
+      {
+        "start": 2321.2999999970198,
+        "duration": 679
+      },
+      {
+        "start": 3014.5,
+        "duration": 91
+      },
+      {
+        "start": 3275.6999999955297,
+        "duration": 500
+      }
+    ]
+  },
+  "resultReadyMs": 15485,
+  "initial": {
+    "sinceClick": 17082.40000000596,
+    "panes": [
+      "bazi",
+      "ziwei",
+      "qimen",
+      "liuyao",
+      "meihua"
+    ],
+    "dom": 2122,
+    "paneNodes": {
+      "bazi": 382,
+      "ziwei": 802,
+      "qimen": 171,
+      "liuyao": 355,
+      "meihua": 301
+    },
+    "heap": 51900075,
+    "long": [
+      {
+        "start": 325.29999999701977,
+        "duration": 111
+      },
+      {
+        "start": 922.7999999970198,
+        "duration": 107
+      },
+      {
+        "start": 1432.8999999985099,
+        "duration": 451
+      },
+      {
+        "start": 2221,
+        "duration": 95
+      },
+      {
+        "start": 2321.2999999970198,
+        "duration": 679
+      },
+      {
+        "start": 3014.5,
+        "duration": 91
+      },
+      {
+        "start": 3275.6999999955297,
+        "duration": 500
+      },
+      {
+        "start": 4330.29999999702,
+        "duration": 1362
+      },
+      {
+        "start": 5712.5,
+        "duration": 170
+      },
+      {
+        "start": 6181.69999999553,
+        "duration": 1121
+      },
+      {
+        "start": 7446.5,
+        "duration": 54
+      },
+      {
+        "start": 7589.39999999851,
+        "duration": 338
+      },
+      {
+        "start": 7927.89999999851,
+        "duration": 13258
+      },
+      {
+        "start": 21242.19999999553,
+        "duration": 72
+      },
+      {
+        "start": 21768.59999999404,
+        "duration": 633
+      },
+      {
+        "start": 22465.5,
+        "duration": 65
+      }
+    ]
+  },
+  "switching": {
+    "frames": [
+      33.27599999999802,
+      216.70000000000073,
+      116.70000000000073,
+      66.59999999999854,
+      33.30000000000291,
+      16.69999999999709,
+      33.30000000000291,
+      16.69999999999709,
+      33.30000000000291,
+      50.099999999998545,
+      83.29999999999927,
+      33.29999999999927,
+      33.30000000000291,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      50,
+      100,
+      100,
+      33.39999999999782,
+      149.90000000000146,
+      100.09999999999854,
+      66.60000000000218,
+      50,
+      50,
+      16.69999999999709,
+      16.700000000000728,
+      33.29999999999927,
+      16.700000000000728,
+      33.29999999999927,
+      16.600000000002183,
+      16.799999999999272,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      50,
+      16.69999999999709,
+      16.700000000000728,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.799999999999272,
+      16.5,
+      16.799999999999272,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.599999999998545,
+      16.799999999999272,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999709,
+      16.600000000002183,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.80000000000291,
+      16.69999999999709,
+      16.600000000002183,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.599999999998545
+    ],
+    "renders": {
+      "FiveArtsResultHost": 10
+    },
+    "long": [
+      {
+        "start": 325.29999999701977,
+        "duration": 111
+      },
+      {
+        "start": 922.7999999970198,
+        "duration": 107
+      },
+      {
+        "start": 1432.8999999985099,
+        "duration": 451
+      },
+      {
+        "start": 2221,
+        "duration": 95
+      },
+      {
+        "start": 2321.2999999970198,
+        "duration": 679
+      },
+      {
+        "start": 3014.5,
+        "duration": 91
+      },
+      {
+        "start": 3275.6999999955297,
+        "duration": 500
+      },
+      {
+        "start": 4330.29999999702,
+        "duration": 1362
+      },
+      {
+        "start": 5712.5,
+        "duration": 170
+      },
+      {
+        "start": 6181.69999999553,
+        "duration": 1121
+      },
+      {
+        "start": 7446.5,
+        "duration": 54
+      },
+      {
+        "start": 7589.39999999851,
+        "duration": 338
+      },
+      {
+        "start": 7927.89999999851,
+        "duration": 13258
+      },
+      {
+        "start": 21242.19999999553,
+        "duration": 72
+      },
+      {
+        "start": 21768.59999999404,
+        "duration": 633
+      },
+      {
+        "start": 22465.5,
+        "duration": 65
+      },
+      {
+        "start": 23844.59999999404,
+        "duration": 79
+      },
+      {
+        "start": 24092.29999999702,
+        "duration": 95
+      }
+    ]
+  },
+  "flow": {
+    "flowCacheEntries": 7,
+    "palaceCacheEntries": 12,
+    "heap": 75833438,
+    "renders": {
+      "FiveArtsResultHost": 11,
+      "ziwei": 6
+    },
+    "updatesMs": [
+      5125.60000000149,
+      4902.60000000149,
+      5777.29999999702,
+      4684,
+      9929.10000000149,
+      5286.79999999702
+    ]
+  },
+  "finalMetrics": [
+    {
+      "name": "Timestamp",
+      "value": 54509.276835
+    },
+    {
+      "name": "AudioHandlers",
+      "value": 0
+    },
+    {
+      "name": "AudioWorkletProcessors",
+      "value": 0
+    },
+    {
+      "name": "Documents",
+      "value": 15
+    },
+    {
+      "name": "Frames",
+      "value": 7
+    },
+    {
+      "name": "JSEventListeners",
+      "value": 585
+    },
+    {
+      "name": "LayoutObjects",
+      "value": 3720
+    },
+    {
+      "name": "MediaKeySessions",
+      "value": 0
+    },
+    {
+      "name": "MediaKeys",
+      "value": 0
+    },
+    {
+      "name": "Nodes",
+      "value": 4958
+    },
+    {
+      "name": "Resources",
+      "value": 124
+    },
+    {
+      "name": "ContextLifecycleStateObservers",
+      "value": 26
+    },
+    {
+      "name": "V8PerContextDatas",
+      "value": 9
+    },
+    {
+      "name": "WorkerGlobalScopes",
+      "value": 0
+    },
+    {
+      "name": "UACSSResources",
+      "value": 0
+    },
+    {
+      "name": "RTCPeerConnections",
+      "value": 0
+    },
+    {
+      "name": "ResourceFetchers",
+      "value": 15
+    },
+    {
+      "name": "AdSubframes",
+      "value": 0
+    },
+    {
+      "name": "DetachedScriptStates",
+      "value": 9
+    },
+    {
+      "name": "ArrayBufferContents",
+      "value": 2
+    },
+    {
+      "name": "LayoutCount",
+      "value": 65
+    },
+    {
+      "name": "RecalcStyleCount",
+      "value": 168
+    },
+    {
+      "name": "LayoutDuration",
+      "value": 0.366999
+    },
+    {
+      "name": "RecalcStyleDuration",
+      "value": 0.485548
+    },
+    {
+      "name": "DevToolsCommandDuration",
+      "value": 36.008148
+    },
+    {
+      "name": "ScriptDuration",
+      "value": 2.22112
+    },
+    {
+      "name": "V8CompileDuration",
+      "value": 0.009346
+    },
+    {
+      "name": "TaskDuration",
+      "value": 58.908319
+    },
+    {
+      "name": "TaskOtherDuration",
+      "value": 19.817158
+    },
+    {
+      "name": "ThreadTime",
+      "value": 13.328706
+    },
+    {
+      "name": "ProcessTime",
+      "value": 174.862728
+    },
+    {
+      "name": "JSHeapUsedSize",
+      "value": 60283224
+    },
+    {
+      "name": "JSHeapTotalSize",
+      "value": 79953920
+    },
+    {
+      "name": "FirstMeaningfulPaint",
+      "value": 54450.483097
+    },
+    {
+      "name": "DomContentLoaded",
+      "value": 54449.685552
+    },
+    {
+      "name": "NavigationStart",
+      "value": 54446.689152
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://localhost:9989/",
+      "type": "Document",
+      "start": 54446.690292,
+      "ms": 321.8510000006063,
+      "bytes": 9097
+    },
+    {
+      "url": "http://localhost:9989/static/js/synonymSource.js",
+      "type": "Script",
+      "start": 54447.088808,
+      "ms": 27.611999998043757,
+      "bytes": 3504
+    },
+    {
+      "url": "http://localhost:9989/static/js/lunar.js",
+      "type": "Script",
+      "start": 54447.090407,
+      "ms": 510.0839999940945,
+      "bytes": 444676
+    },
+    {
+      "url": "http://localhost:9989/static/js/tiku-data.js",
+      "type": "Script",
+      "start": 54447.091986,
+      "ms": 679.3130000005476,
+      "bytes": 571371
+    },
+    {
+      "url": "http://localhost:9989/static/js/wzbz-native-bridge.js",
+      "type": "Script",
+      "start": 54447.092357,
+      "ms": 671.4879999999539,
+      "bytes": 75042
+    },
+    {
+      "url": "http://localhost:9989/static/js/local-backup.js",
+      "type": "Script",
+      "start": 54447.092963,
+      "ms": 671.7889999999898,
+      "bytes": 6536
+    },
+    {
+      "url": "http://localhost:9989/static/css/app.da84e71dd162dad291259e3c8f4ff06c.css",
+      "type": "Stylesheet",
+      "start": 54447.093894,
+      "ms": 181.0680000053253,
+      "bytes": 156698
+    },
+    {
+      "url": "http://localhost:9989/static/css/wzbz-updater.css",
+      "type": "Stylesheet",
+      "start": 54447.095375,
+      "ms": 343.30400000180816,
+      "bytes": 2607
+    },
+    {
+      "url": "http://localhost:9989/static/js/wzbz-updater.js",
+      "type": "Script",
+      "start": 54447.096811,
+      "ms": 660.4129999977886,
+      "bytes": 9062
+    },
+    {
+      "url": "http://localhost:9989/static/css/wzbz-chart.css",
+      "type": "Stylesheet",
+      "start": 54447.09819,
+      "ms": 337.64700000028824,
+      "bytes": 710
+    },
+    {
+      "url": "http://localhost:9989/static/js/wzbz-chart.js",
+      "type": "Script",
+      "start": 54447.09841,
+      "ms": 662.4890000020969,
+      "bytes": 1848
+    },
+    {
+      "url": "http://localhost:9989/static/js/wzbz-home-clock.js",
+      "type": "Script",
+      "start": 54447.098989,
+      "ms": 820.5930000040098,
+      "bytes": 2552
+    },
+    {
+      "url": "http://localhost:9989/static/js/paper-forest.js",
+      "type": "Script",
+      "start": 54447.099915,
+      "ms": 979.0419999990263,
+      "bytes": 20886
+    },
+    {
+      "url": "http://localhost:9989/static/js/paper-forest-details.js",
+      "type": "Script",
+      "start": 54447.100878,
+      "ms": 979.2840000009164,
+      "bytes": 18967
+    },
+    {
+      "url": "http://localhost:9989/static/js/time-policy.js",
+      "type": "Script",
+      "start": 54447.102046,
+      "ms": 984.2470000003232,
+      "bytes": 1302
+    },
+    {
+      "url": "http://localhost:9989/static/js/fivearts-engine.js",
+      "type": "Script",
+      "start": 54447.102199,
+      "ms": 993.4639999992214,
+      "bytes": 1000084
+    },
+    {
+      "url": "http://localhost:9989/static/js/divination-calendar-fix.js",
+      "type": "Script",
+      "start": 54447.102318,
+      "ms": 984.6299999990151,
+      "bytes": 1182
+    },
+    {
+      "url": "http://localhost:9989/assistant-config.js",
+      "type": "Script",
+      "start": 54447.103898,
+      "ms": 1132.4699999968288,
+      "bytes": 271
+    },
+    {
+      "url": "http://localhost:9989/static/js/fivearts-ui.js",
+      "type": "Script",
+      "start": 54447.10488,
+      "ms": 1295.431999998982,
+      "bytes": 83621
+    },
+    {
+      "url": "http://localhost:9989/static/css/fivearts.css",
+      "type": "Stylesheet",
+      "start": 54447.106178,
+      "ms": 325.06499999726657,
+      "bytes": 38676
+    },
+    {
+      "url": "http://localhost:9989/static/css/paper-forest.css",
+      "type": "Stylesheet",
+      "start": 54447.106531,
+      "ms": 330.4150000039954,
+      "bytes": 44171
+    },
+    {
+      "url": "http://localhost:9989/static/css/paper-forest-details.css",
+      "type": "Stylesheet",
+      "start": 54447.107615,
+      "ms": 335.0369999971008,
+      "bytes": 15156
+    },
+    {
+      "url": "http://localhost:9989/static/js/manifest.79b86b6f2b52848d3421.js",
+      "type": "Script",
+      "start": 54447.108703,
+      "ms": 1783.2830000043032,
+      "bytes": 4191
+    },
+    {
+      "url": "http://localhost:9989/static/js/vendor1.30e353299956cb57bec3.js",
+      "type": "Script",
+      "start": 54447.109757,
+      "ms": 1785.052999999607,
+      "bytes": 170203
+    },
+    {
+      "url": "http://localhost:9989/static/js/app.e1599cf50c8877aa6044.js",
+      "type": "Script",
+      "start": 54447.110885,
+      "ms": 1799.232999997912,
+      "bytes": 1117817
+    },
+    {
+      "url": "http://localhost:9989/static/js/55.16ca9598510ce7ee0665.js",
+      "type": "Script",
+      "start": 54449.524593,
+      "ms": 23.317999999562744,
+      "bytes": 1288
+    },
+    {
+      "url": "http://localhost:9989/static/js/0.a486dd08135e63953ff2.js",
+      "type": "Script",
+      "start": 54449.545948,
+      "ms": 354.27599999820814,
+      "bytes": 2989605
+    },
+    {
+      "url": "http://localhost:9989/static/js/51.67dc31c5560206b51d24.js",
+      "type": "Script",
+      "start": 54449.547437,
+      "ms": 325.84499999939,
+      "bytes": 8597
+    },
+    {
+      "url": "http://localhost:9989/static/js/47.0e70cded17517b7ba7e8.js",
+      "type": "Script",
+      "start": 54449.549464,
+      "ms": 407.56499999406515,
+      "bytes": 24174
+    },
+    {
+      "url": "http://localhost:9989/static/js/57.6067bbafa16020ff788e.js",
+      "type": "Script",
+      "start": 54449.627031,
+      "ms": 331.5669999938109,
+      "bytes": 3590
+    },
+    {
+      "url": "http://localhost:9989/static/js/67.dcfd5962d6aa4316c301.js",
+      "type": "Script",
+      "start": 54449.64626,
+      "ms": 478.2070000001113,
+      "bytes": 8103
+    },
+    {
+      "url": "http://localhost:9989/static/update-info.json",
+      "type": "Fetch",
+      "start": 54449.809445,
+      "ms": 59.85299999883864,
+      "bytes": 288
+    },
+    {
+      "url": "http://localhost:9989/static/js/2.22f599c1df781213e096.js",
+      "type": "Script",
+      "start": 54450.66875,
+      "ms": 327.08800000546034,
+      "bytes": 596971
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/getbasebz8.php",
+      "type": "XHR",
+      "start": 54452.547447,
+      "ms": 322.6790000044275,
+      "bytes": 1524
+    },
+    {
+      "url": "http://localhost:9989/static/img/text_txjy_02.037e276.png",
+      "type": "Image",
+      "start": 54453.455667,
+      "ms": 10.684000000765081,
+      "bytes": 6480
+    },
+    {
+      "url": "http://localhost:9989/static/img/text_txjy_02.8be6aab.png",
+      "type": "Image",
+      "start": 54453.461486,
+      "ms": 320.1130000015837,
+      "bytes": 6361
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/getbasebz8.php",
+      "type": "XHR",
+      "start": 54453.989107,
+      "ms": 288.7719999998808,
+      "bytes": 1543
+    },
+    {
+      "url": "http://localhost:9989/static/js/fivearts-readings.js",
+      "type": "Script",
+      "start": 54467.447248,
+      "ms": 327.2780000042985,
+      "bytes": 538149
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/index.html",
+      "type": "Document",
+      "start": 54467.886701,
+      "ms": 147.03199999348726,
+      "bytes": 2250
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/chunk-vendors.js",
+      "type": "Script",
+      "start": 54468.080704,
+      "ms": 332.67699999851175,
+      "bytes": 144798
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/index.js",
+      "type": "Script",
+      "start": 54468.084141,
+      "ms": 328.35399999748915,
+      "bytes": 78069
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/chunk-vendors.css",
+      "type": "Stylesheet",
+      "start": 54468.085141,
+      "ms": 119.63299999479204,
+      "bytes": 150147
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/index.css",
+      "type": "Stylesheet",
+      "start": 54468.085551,
+      "ms": 322.1910000065691,
+      "bytes": 12726
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/bg_head.png",
+      "type": "Image",
+      "start": 54469.025977,
+      "ms": 7.592000001750421,
+      "bytes": 3007
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/qiongtongbaojian_selected.png",
+      "type": "Image",
+      "start": 54469.058513,
+      "ms": 326.20199999655597,
+      "bytes": 24404
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/ditiansui_selected.png",
+      "type": "Image",
+      "start": 54469.060581,
+      "ms": 326.52100000268547,
+      "bytes": 20934
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/sanmingtonghui_selected.png",
+      "type": "Image",
+      "start": 54469.063176,
+      "ms": 333.2869999940158,
+      "bytes": 22495
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/bazitiyao_selected.png",
+      "type": "Image",
+      "start": 54469.065498,
+      "ms": 330.49199999368284,
+      "bytes": 23563
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/zipingzhenquan_selected.png",
+      "type": "Image",
+      "start": 54469.068268,
+      "ms": 327.08999999886146,
+      "bytes": 20812
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/yuanhaiziping_selected.png",
+      "type": "Image",
+      "start": 54469.071696,
+      "ms": 641.7940000028466,
+      "bytes": 22834
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/tianyuanwuxian_selected.png",
+      "type": "Image",
+      "start": 54469.073089,
+      "ms": 643.9220000029309,
+      "bytes": 22108
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/shenfengtongkao_selected.png",
+      "type": "Image",
+      "start": 54469.075011,
+      "ms": 642.6040000005742,
+      "bytes": 23604
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/qianliminggao_selected.png",
+      "type": "Image",
+      "start": 54469.076669,
+      "ms": 650.643000000855,
+      "bytes": 23122
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/wuxingjingji_selected.png",
+      "type": "Image",
+      "start": 54469.078015,
+      "ms": 650.4370000038762,
+      "bytes": 23057
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/lixuzhongmingshu_selected.png",
+      "type": "Image",
+      "start": 54469.079341,
+      "ms": 650.1160000043456,
+      "bytes": 24385
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/icon_question.png",
+      "type": "Image",
+      "start": 54469.080796,
+      "ms": 304.6119999999064,
+      "bytes": 502
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch",
+      "start": 54469.214876,
+      "ms": 165.62200000043958,
+      "bytes": 5518
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch",
+      "start": 54469.219117,
+      "ms": 139.37299999815878,
+      "bytes": 5518
+    },
+    {
+      "url": "blob:http://localhost:9989/fc353475-f21d-4f87-b462-4d0f8adb0c54",
+      "type": "Document",
+      "start": 54469.412338,
+      "ms": 1.4499999961117283,
+      "bytes": 0
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet",
+      "start": 54469.53085,
+      "ms": 34.07599999627564,
+      "bytes": 2237
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script",
+      "start": 54469.534834,
+      "ms": 60.43900000076974,
+      "bytes": 84686
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image",
+      "start": 54469.536199,
+      "ms": 27.624999995168764,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image",
+      "start": 54469.537001,
+      "ms": 59.11000000196509,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image",
+      "start": 54469.537574,
+      "ms": 127.73699999524979,
+      "bytes": 762
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image",
+      "start": 54469.538377,
+      "ms": 127.34700000146404,
+      "bytes": 1110
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image",
+      "start": 54469.538932,
+      "ms": 181.72799999592826,
+      "bytes": 888
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image",
+      "start": 54469.539678,
+      "ms": 180.36700000084238,
+      "bytes": 1196
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image",
+      "start": 54469.540258
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image",
+      "start": 54469.540971
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image",
+      "start": 54469.542
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image",
+      "start": 54469.542817
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image",
+      "start": 54469.555584
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image",
+      "start": 54469.556258
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script",
+      "start": 54469.571655
+    },
+    {
+      "url": "blob:http://localhost:9989/53077042-22fa-41cc-9f96-6aad84ff4865",
+      "type": "Document",
+      "start": 54469.646451,
+      "ms": 1.401000001351349,
+      "bytes": 0
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet",
+      "start": 54469.791358,
+      "ms": 44.96300000027986,
+      "bytes": 2237
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script",
+      "start": 54469.796831,
+      "ms": 56.97599999984959,
+      "bytes": 84686
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image",
+      "start": 54469.800196,
+      "ms": 36.610000002838206,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image",
+      "start": 54469.802459,
+      "ms": 68.04800000099931,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image",
+      "start": 54469.804754,
+      "ms": 106.62299999967217,
+      "bytes": 762
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image",
+      "start": 54469.806284,
+      "ms": 105.58100000343984,
+      "bytes": 1110
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image",
+      "start": 54469.807188,
+      "ms": 146.7869999978575,
+      "bytes": 888
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image",
+      "start": 54469.807722,
+      "ms": 171.36000000027707,
+      "bytes": 1196
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image",
+      "start": 54469.811033,
+      "ms": 233.89400000451133,
+      "bytes": 913
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image",
+      "start": 54469.813486,
+      "ms": 232.24699999991572,
+      "bytes": 1741
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image",
+      "start": 54469.814323,
+      "ms": 231.04199999943376,
+      "bytes": 1014
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image",
+      "start": 54469.815568,
+      "ms": 255.38900000537978,
+      "bytes": 1706
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image",
+      "start": 54469.829407,
+      "ms": 244.8530000037863,
+      "bytes": 870
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image",
+      "start": 54469.831519,
+      "ms": 239.01699999987613,
+      "bytes": 1232
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script",
+      "start": 54469.864696,
+      "ms": 233.9780000038445,
+      "bytes": 1672
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/icon_warning_tips.png",
+      "type": "Image",
+      "start": 54470.249258,
+      "ms": 38.74499999801628,
+      "bytes": 2125
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch",
+      "start": 54470.398293,
+      "ms": 81.81300000433112,
+      "bytes": 5518
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch",
+      "start": 54470.400533,
+      "ms": 65.39099999645259,
+      "bytes": 5518
+    },
+    {
+      "url": "blob:http://localhost:9989/8924ebcc-0a02-4c34-ab56-dc8d132b799a",
+      "type": "Document",
+      "start": 54470.4851,
+      "ms": 1.5290000010281801,
+      "bytes": 0
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet",
+      "start": 54470.568843,
+      "ms": 43.87200000201119,
+      "bytes": 2237
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script",
+      "start": 54470.571891,
+      "ms": 52.620000002207235,
+      "bytes": 84686
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image",
+      "start": 54470.572321,
+      "ms": 43.03500000241911,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image",
+      "start": 54470.572496,
+      "ms": 39.80500000034226,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image",
+      "start": 54470.572715,
+      "ms": 81.96399999724235,
+      "bytes": 762
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image",
+      "start": 54470.573083,
+      "ms": 79.65399999375222,
+      "bytes": 1110
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image",
+      "start": 54470.573803,
+      "ms": 120.21999999706168,
+      "bytes": 888
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image",
+      "start": 54470.575127,
+      "ms": 193.12700000591576,
+      "bytes": 1196
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image",
+      "start": 54470.575506,
+      "ms": 193.16599999729078,
+      "bytes": 913
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image",
+      "start": 54470.575638
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image",
+      "start": 54470.575723
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image",
+      "start": 54470.575796
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image",
+      "start": 54470.582265
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image",
+      "start": 54470.586567
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script",
+      "start": 54470.61122
+    },
+    {
+      "url": "blob:http://localhost:9989/71569c96-49bc-4c15-a24b-68faca3b0411",
+      "type": "Document",
+      "start": 54470.734946,
+      "ms": 1.4460000020335428,
+      "bytes": 0
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet",
+      "start": 54470.825445,
+      "ms": 47.00800000136951,
+      "bytes": 2237
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script",
+      "start": 54470.838005,
+      "ms": 49.68400000507245,
+      "bytes": 84686
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image",
+      "start": 54470.839634,
+      "ms": 33.92199999507284,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image",
+      "start": 54470.840012,
+      "ms": 33.157999998365995,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image",
+      "start": 54470.840197,
+      "ms": 85.14999999897555,
+      "bytes": 762
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image",
+      "start": 54470.840295,
+      "ms": 85.4269999981625,
+      "bytes": 1110
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image",
+      "start": 54470.840655,
+      "ms": 125.37999999767635,
+      "bytes": 888
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image",
+      "start": 54470.840789,
+      "ms": 138.02099999884376,
+      "bytes": 1196
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image",
+      "start": 54470.841083,
+      "ms": 177.05500000010943,
+      "bytes": 913
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image",
+      "start": 54470.843034,
+      "ms": 176.10300000524148,
+      "bytes": 1741
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image",
+      "start": 54470.843391,
+      "ms": 225.6310000011581,
+      "bytes": 1014
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image",
+      "start": 54470.845107,
+      "ms": 224.25300000031712,
+      "bytes": 1706
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image",
+      "start": 54470.855744,
+      "ms": 212.88300000014715,
+      "bytes": 870
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image",
+      "start": 54470.856741,
+      "ms": 211.48799999355106,
+      "bytes": 1232
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script",
+      "start": 54470.876707,
+      "ms": 220.9099999963655,
+      "bytes": 1672
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/icon_warning_tips.png",
+      "type": "Image",
+      "start": 54471.18688,
+      "ms": 45.678999995288905,
+      "bytes": 2125
+    }
+  ]
+}

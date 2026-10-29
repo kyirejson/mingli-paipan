@@ -1,0 +1,78 @@
+{
+  "before": {
+    "readyMs": [
+      16731,
+      15485
+    ],
+    "dom": [
+      2122,
+      2122
+    ],
+    "flowUpdateMs": {
+      "samples": 12,
+      "median": 5150.650000002235,
+      "min": 4684,
+      "max": 11527.30000000447
+    },
+    "initialLongestTaskMs": [
+      13980,
+      13258
+    ],
+    "switching": [
+      {
+        "frameCount": 94,
+        "medianIntervalMs": 16.700000000000728,
+        "p95IntervalMs": 133.40000000000146,
+        "maxIntervalMs": 266.59999999999854
+      },
+      {
+        "frameCount": 147,
+        "medianIntervalMs": 16.700000000000728,
+        "p95IntervalMs": 66.59999999999854,
+        "maxIntervalMs": 216.70000000000073
+      }
+    ]
+  },
+  "after": {
+    "readyMs": [
+      2234,
+      1975
+    ],
+    "dom": [
+      1328,
+      1328
+    ],
+    "flowUpdateMs": {
+      "samples": 12,
+      "median": 193.94999999925494,
+      "min": 131.29999999701977,
+      "max": 243.70000000298023
+    },
+    "initialLongestTaskMs": [
+      1668,
+      759
+    ],
+    "switching": [
+      {
+        "frameCount": 126,
+        "medianIntervalMs": 16.69999999999891,
+        "p95IntervalMs": 116.59999999999854,
+        "maxIntervalMs": 250
+      },
+      {
+        "frameCount": 92,
+        "medianIntervalMs": 16.700000000000728,
+        "p95IntervalMs": 150,
+        "maxIntervalMs": 266.7000000000007
+      }
+    ]
+  },
+  "flowMedianReductionPercent": 96.23445584539483,
+  "caveats": [
+    "Chrome desktop CPU slowdown 4x, 430x932, not Android",
+    "Two independent reload samples each; synthetic birth 2026-10-29 12:00",
+    "Result-host readiness includes network and main-thread prewarming delay, not first visible frame",
+    "Switching includes first visits and has not demonstrated stable frame-time improvement",
+    "Heap figures are not used as memory-leak or memory-reduction evidence"
+  ]
+}

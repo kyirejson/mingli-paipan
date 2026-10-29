@@ -1,0 +1,1146 @@
+{
+  "startup": {
+    "navigation": [
+      {
+        "domContentLoaded": 1982.3000000044703,
+        "load": 2388.39999999851,
+        "transfer": 9209
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 1596
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 2392
+      }
+    ],
+    "long": [
+      {
+        "start": 1916.1000000014901,
+        "duration": 67
+      },
+      {
+        "start": 2314.39999999851,
+        "duration": 68
+      },
+      {
+        "start": 2933.60000000149,
+        "duration": 94
+      }
+    ]
+  },
+  "resultReadyMs": 3952,
+  "initial": {
+    "sinceClick": 5492.20000000298,
+    "panes": [
+      "bazi",
+      "ziwei",
+      "qimen",
+      "liuyao",
+      "meihua"
+    ],
+    "dom": 2137,
+    "paneNodes": {
+      "bazi": 384,
+      "ziwei": 813,
+      "qimen": 171,
+      "liuyao": 357,
+      "meihua": 301
+    },
+    "heap": 41137721,
+    "long": [
+      {
+        "start": 1916.1000000014901,
+        "duration": 67
+      },
+      {
+        "start": 2314.39999999851,
+        "duration": 68
+      },
+      {
+        "start": 2933.60000000149,
+        "duration": 94
+      },
+      {
+        "start": 4132.60000000149,
+        "duration": 185
+      },
+      {
+        "start": 4472,
+        "duration": 64
+      },
+      {
+        "start": 4536.30000000447,
+        "duration": 3299
+      },
+      {
+        "start": 8372.80000000447,
+        "duration": 128
+      }
+    ]
+  },
+  "switching": {
+    "frames": [
+      16.701999999999316,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      33.29999999999927,
+      16.700000000000728,
+      50,
+      33.29999999999927,
+      16.700000000000728,
+      33.29999999999927,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.799999999999272,
+      16.5,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.5,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.600000000000364,
+      16.799999999999272,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.700000000000728,
+      16.600000000000364,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364
+    ],
+    "renders": {
+      "FiveArtsResultHost": 10
+    },
+    "long": [
+      {
+        "start": 1916.1000000014901,
+        "duration": 67
+      },
+      {
+        "start": 2314.39999999851,
+        "duration": 68
+      },
+      {
+        "start": 2933.60000000149,
+        "duration": 94
+      },
+      {
+        "start": 4132.60000000149,
+        "duration": 185
+      },
+      {
+        "start": 4472,
+        "duration": 64
+      },
+      {
+        "start": 4536.30000000447,
+        "duration": 3299
+      },
+      {
+        "start": 8372.80000000447,
+        "duration": 128
+      }
+    ]
+  },
+  "requests": [
+    {
+      "url": "http://localhost:9988/",
+      "type": "Document",
+      "start": 52447.943943,
+      "ms": 308.00599999929545,
+      "bytes": 9122
+    },
+    {
+      "url": "http://localhost:9988/static/js/synonymSource.js",
+      "type": "Script",
+      "start": 52448.276904,
+      "ms": 3.235000003769528,
+      "bytes": 3529
+    },
+    {
+      "url": "http://localhost:9988/static/js/lunar.js",
+      "type": "Script",
+      "start": 52448.277909,
+      "ms": 546.0860000021057,
+      "bytes": 436163
+    },
+    {
+      "url": "http://localhost:9988/static/js/tiku-data.js",
+      "type": "Script",
+      "start": 52448.278325,
+      "ms": 624.6390000014799,
+      "bytes": 571396
+    },
+    {
+      "url": "http://localhost:9988/static/js/wzbz-native-bridge.js",
+      "type": "Script",
+      "start": 52448.278732,
+      "ms": 623.1170000028214,
+      "bytes": 75067
+    },
+    {
+      "url": "http://localhost:9988/static/js/local-backup.js",
+      "type": "Script",
+      "start": 52448.279219,
+      "ms": 621.1940000066534,
+      "bytes": 6561
+    },
+    {
+      "url": "http://localhost:9988/static/css/app.da84e71dd162dad291259e3c8f4ff06c.css",
+      "type": "Stylesheet",
+      "start": 52448.279475,
+      "ms": 236.19199999666307,
+      "bytes": 156723
+    },
+    {
+      "url": "http://localhost:9988/static/css/wzbz-updater.css",
+      "type": "Stylesheet",
+      "start": 52448.28023,
+      "ms": 312.766000002739,
+      "bytes": 2621
+    },
+    {
+      "url": "http://localhost:9988/static/js/wzbz-updater.js",
+      "type": "Script",
+      "start": 52448.280867,
+      "ms": 621.6219999987516,
+      "bytes": 8982
+    },
+    {
+      "url": "http://localhost:9988/static/css/wzbz-chart.css",
+      "type": "Stylesheet",
+      "start": 52448.281299,
+      "ms": 314.20000000071013,
+      "bytes": 735
+    },
+    {
+      "url": "http://localhost:9988/static/js/wzbz-chart.js",
+      "type": "Script",
+      "start": 52448.28176,
+      "ms": 620.4910000014934,
+      "bytes": 1873
+    },
+    {
+      "url": "http://localhost:9988/static/js/wzbz-home-clock.js",
+      "type": "Script",
+      "start": 52448.282159,
+      "ms": 849.0049999963958,
+      "bytes": 2521
+    },
+    {
+      "url": "http://localhost:9988/static/js/paper-forest.js",
+      "type": "Script",
+      "start": 52448.282555,
+      "ms": 926.9350000031409,
+      "bytes": 20911
+    },
+    {
+      "url": "http://localhost:9988/static/js/paper-forest-details.js",
+      "type": "Script",
+      "start": 52448.282781,
+      "ms": 926.394000001892,
+      "bytes": 18992
+    },
+    {
+      "url": "http://localhost:9988/static/js/time-policy.js",
+      "type": "Script",
+      "start": 52448.283172,
+      "ms": 926.7399999953341,
+      "bytes": 1309
+    },
+    {
+      "url": "http://localhost:9988/static/js/fivearts-engine.js",
+      "type": "Script",
+      "start": 52448.283387,
+      "ms": 928.0989999970188,
+      "bytes": 1000109
+    },
+    {
+      "url": "http://localhost:9988/static/js/divination-calendar-fix.js",
+      "type": "Script",
+      "start": 52448.283766,
+      "ms": 926.3710000013816,
+      "bytes": 1207
+    },
+    {
+      "url": "http://localhost:9988/assistant-config.js",
+      "type": "Script",
+      "start": 52448.283978,
+      "ms": 1152.8330000001006,
+      "bytes": 230
+    },
+    {
+      "url": "http://localhost:9988/static/js/fivearts-ui.js",
+      "type": "Script",
+      "start": 52448.284185,
+      "ms": 1231.485000003886,
+      "bytes": 83646
+    },
+    {
+      "url": "http://localhost:9988/static/css/fivearts.css",
+      "type": "Stylesheet",
+      "start": 52448.284589,
+      "ms": 310.392999999749,
+      "bytes": 38701
+    },
+    {
+      "url": "http://localhost:9988/static/css/paper-forest.css",
+      "type": "Stylesheet",
+      "start": 52448.284979,
+      "ms": 310.8360000042012,
+      "bytes": 43815
+    },
+    {
+      "url": "http://localhost:9988/static/css/paper-forest-details.css",
+      "type": "Stylesheet",
+      "start": 52448.285187,
+      "ms": 311.08300000050804,
+      "bytes": 15181
+    },
+    {
+      "url": "http://localhost:9988/static/js/manifest.79b86b6f2b52848d3421.js",
+      "type": "Script",
+      "start": 52448.285394,
+      "ms": 1474.34400000202,
+      "bytes": 4216
+    },
+    {
+      "url": "http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js",
+      "type": "Script",
+      "start": 52448.285594,
+      "ms": 1552.2510000009788,
+      "bytes": 170216
+    },
+    {
+      "url": "http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js",
+      "type": "Script",
+      "start": 52448.285794,
+      "ms": 1553.5299999974086,
+      "bytes": 1117842
+    },
+    {
+      "url": "http://localhost:9988/static/js/55.16ca9598510ce7ee0665.js",
+      "type": "Script",
+      "start": 52449.901506,
+      "ms": 319.87500000104774,
+      "bytes": 1313
+    },
+    {
+      "url": "http://localhost:9988/static/js/0.a486dd08135e63953ff2.js",
+      "type": "Script",
+      "start": 52449.903514,
+      "ms": 345.7970000017667,
+      "bytes": 2989630
+    },
+    {
+      "url": "http://localhost:9988/static/js/51.67dc31c5560206b51d24.js",
+      "type": "Script",
+      "start": 52449.904517,
+      "ms": 318.6700000005658,
+      "bytes": 8622
+    },
+    {
+      "url": "http://localhost:9988/static/js/47.0e70cded17517b7ba7e8.js",
+      "type": "Script",
+      "start": 52449.905568,
+      "ms": 317.4220000000787,
+      "bytes": 24199
+    },
+    {
+      "url": "http://localhost:9988/static/js/57.6067bbafa16020ff788e.js",
+      "type": "Script",
+      "start": 52449.911029,
+      "ms": 312.3779999950784,
+      "bytes": 3615
+    },
+    {
+      "url": "http://localhost:9988/static/js/67.dcfd5962d6aa4316c301.js",
+      "type": "Script",
+      "start": 52449.912534,
+      "ms": 311.05899999965914,
+      "bytes": 8128
+    },
+    {
+      "url": "http://localhost:9988/static/update-info.json",
+      "type": "Fetch",
+      "start": 52450.557337,
+      "ms": 308.07500000082655,
+      "bytes": 313
+    },
+    {
+      "url": "http://localhost:9988/static/js/2.22f599c1df781213e096.js",
+      "type": "Script",
+      "start": 52450.560576,
+      "ms": 306.1239999951795,
+      "bytes": 596996
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/getbasebz8.php",
+      "type": "XHR",
+      "start": 52451.859961,
+      "ms": 214.81199999834644,
+      "bytes": 1531
+    },
+    {
+      "url": "http://localhost:9988/static/img/text_txjy_02.037e276.png",
+      "type": "Image",
+      "start": 52452.170814,
+      "ms": 2.7709999994840473,
+      "bytes": 6505
+    },
+    {
+      "url": "http://localhost:9988/static/img/text_txjy_02.8be6aab.png",
+      "type": "Image",
+      "start": 52452.171218,
+      "ms": 310.6039999984205,
+      "bytes": 6386
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/getbasebz8.php",
+      "type": "XHR",
+      "start": 52452.260421,
+      "ms": 154.69799999846146,
+      "bytes": 1532
+    },
+    {
+      "url": "http://localhost:9988/static/js/fivearts-readings.js",
+      "type": "Script",
+      "start": 52455.67887,
+      "ms": 643.2189999977709,
+      "bytes": 538172
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/index.html",
+      "type": "Document",
+      "start": 52455.788003,
+      "ms": 195.7990000009886,
+      "bytes": 2214
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/chunk-vendors.js",
+      "type": "Script",
+      "start": 52455.997073,
+      "ms": 315.018000001146,
+      "bytes": 144823
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/index.js",
+      "type": "Script",
+      "start": 52455.998587,
+      "ms": 312.4469999966095,
+      "bytes": 78094
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/chunk-vendors.css",
+      "type": "Stylesheet",
+      "start": 52455.999158,
+      "ms": 93.45200000097975,
+      "bytes": 150172
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/index.css",
+      "type": "Stylesheet",
+      "start": 52456.000189,
+      "ms": 245.65399999846704,
+      "bytes": 12739
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/bg_head.png",
+      "type": "Image",
+      "start": 52456.429618,
+      "ms": 3.1499999968218617,
+      "bytes": 3032
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/qiongtongbaojian_selected.png",
+      "type": "Image",
+      "start": 52456.436392,
+      "ms": 308.78399999346584,
+      "bytes": 24429
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/ditiansui_selected.png",
+      "type": "Image",
+      "start": 52456.43682,
+      "ms": 309.320000000298,
+      "bytes": 20959
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/sanmingtonghui_selected.png",
+      "type": "Image",
+      "start": 52456.437023,
+      "ms": 309.6210000003339,
+      "bytes": 22520
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/bazitiyao_selected.png",
+      "type": "Image",
+      "start": 52456.438001,
+      "ms": 308.32699999882607,
+      "bytes": 23588
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/zipingzhenquan_selected.png",
+      "type": "Image",
+      "start": 52456.438235,
+      "ms": 308.3059999989928,
+      "bytes": 20837
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/yuanhaiziping_selected.png",
+      "type": "Image",
+      "start": 52456.438833,
+      "ms": 609.7179999997024,
+      "bytes": 22859
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/tianyuanwuxian_selected.png",
+      "type": "Image",
+      "start": 52456.439421,
+      "ms": 612.5299999985145,
+      "bytes": 22133
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/shenfengtongkao_selected.png",
+      "type": "Image",
+      "start": 52456.439653,
+      "ms": 613.5020000001532,
+      "bytes": 23629
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/qianliminggao_selected.png",
+      "type": "Image",
+      "start": 52456.440049,
+      "ms": 616.4019999996526,
+      "bytes": 23147
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/wuxingjingji_selected.png",
+      "type": "Image",
+      "start": 52456.440433,
+      "ms": 615.1829999944312,
+      "bytes": 23082
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/lixuzhongmingshu_selected.png",
+      "type": "Image",
+      "start": 52456.440488,
+      "ms": 616.3430000015069,
+      "bytes": 24410
+    },
+    {
+      "url": "http://localhost:9988/static/newguji/images/icon_question.png",
+      "type": "Image",
+      "start": 52456.441055,
+      "ms": 303.93099999491824,
+      "bytes": 527
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch",
+      "start": 52456.482261,
+      "ms": 125.11400000221329,
+      "bytes": 5518
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch",
+      "start": 52456.483493,
+      "ms": 117.11500000092201,
+      "bytes": 5518
+    },
+    {
+      "url": "blob:http://localhost:9988/d2c31b5d-f16d-4f8d-9030-27ab0b413f15",
+      "type": "Document",
+      "start": 52456.613875,
+      "ms": 0.7289999994100071,
+      "bytes": 0
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet",
+      "start": 52456.632909,
+      "ms": 22.938000001886394,
+      "bytes": 2237
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script",
+      "start": 52456.633697
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image",
+      "start": 52456.634714,
+      "ms": 21.24300000286894,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image",
+      "start": 52456.635123,
+      "ms": 20.550000001094304,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image",
+      "start": 52456.635344
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image",
+      "start": 52456.636185
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image",
+      "start": 52456.638635
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image",
+      "start": 52456.638832
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image",
+      "start": 52456.638855
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image",
+      "start": 52456.639035
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image",
+      "start": 52456.639054
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image",
+      "start": 52456.639232
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image",
+      "start": 52456.640255
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image",
+      "start": 52456.640437
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script",
+      "start": 52456.644307
+    },
+    {
+      "url": "blob:http://localhost:9988/f0768a8f-2146-49f1-bb2b-b2cf1c75df1e",
+      "type": "Document",
+      "start": 52456.660976,
+      "ms": 0.6360000043059699,
+      "bytes": 0
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet",
+      "start": 52456.689412,
+      "ms": 56.10999999771593,
+      "bytes": 2237
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script",
+      "start": 52456.690213,
+      "ms": 51.13100000016857,
+      "bytes": 84686
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image",
+      "start": 52456.690429,
+      "ms": 23.743999998259824,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image",
+      "start": 52456.690643,
+      "ms": 23.656999997911043,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image",
+      "start": 52456.691562,
+      "ms": 54.4099999970058,
+      "bytes": 762
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image",
+      "start": 52456.691964,
+      "ms": 53.6839999986114,
+      "bytes": 1110
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image",
+      "start": 52456.692387,
+      "ms": 83.9510000005248,
+      "bytes": 888
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image",
+      "start": 52456.692995,
+      "ms": 84.29600000090431,
+      "bytes": 1196
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image",
+      "start": 52456.693381,
+      "ms": 126.18099999963306,
+      "bytes": 913
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image",
+      "start": 52456.693587,
+      "ms": 126.07199999911245,
+      "bytes": 1741
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image",
+      "start": 52456.694004,
+      "ms": 125.30200000037439,
+      "bytes": 1014
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image",
+      "start": 52456.694202,
+      "ms": 125.26300000172341,
+      "bytes": 1706
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image",
+      "start": 52456.695215,
+      "ms": 145.11599999968894,
+      "bytes": 870
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image",
+      "start": 52456.695398,
+      "ms": 144.66199999878881,
+      "bytes": 1232
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script",
+      "start": 52456.697416,
+      "ms": 143.16300000064075,
+      "bytes": 1672
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/icon_warning_tips.png",
+      "type": "Image",
+      "start": 52456.805001,
+      "ms": 35.4460000016843,
+      "bytes": 2125
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch",
+      "start": 52457.096063,
+      "ms": 71.41600000613835,
+      "bytes": 5518
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch",
+      "start": 52457.098662,
+      "ms": 70.18500000413042,
+      "bytes": 5518
+    },
+    {
+      "url": "blob:http://localhost:9988/2d25c528-5587-4e32-9049-eb0e4affe497",
+      "type": "Document",
+      "start": 52457.211234
+    },
+    {
+      "url": "blob:http://localhost:9988/8f103724-5aaa-4a7f-ab78-668b62ad2874",
+      "type": "Document",
+      "start": 52457.222244,
+      "ms": 0.8280000038212165,
+      "bytes": 0
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet",
+      "start": 52457.267234
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script",
+      "start": 52457.268218
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image",
+      "start": 52457.268453
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image",
+      "start": 52457.269049
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image",
+      "start": 52457.269876
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image",
+      "start": 52457.270485
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image",
+      "start": 52457.270684
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image",
+      "start": 52457.270867
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image",
+      "start": 52457.270891
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image",
+      "start": 52457.271069
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image",
+      "start": 52457.271089
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image",
+      "start": 52457.271474
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image",
+      "start": 52457.27351
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image",
+      "start": 52457.273887
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script",
+      "start": 52457.275934
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet",
+      "start": 52457.305052,
+      "ms": 39.79899999831105,
+      "bytes": 2237
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script",
+      "start": 52457.305731,
+      "ms": 206.1360000006971,
+      "bytes": 84686
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image",
+      "start": 52457.306778,
+      "ms": 39.66300000320189,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image",
+      "start": 52457.307196,
+      "ms": 46.561999995901715,
+      "bytes": 995
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image",
+      "start": 52457.308058,
+      "ms": 81.12699999765027,
+      "bytes": 762
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image",
+      "start": 52457.308478,
+      "ms": 80.85199999914039,
+      "bytes": 1110
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image",
+      "start": 52457.309055,
+      "ms": 124.50199999875622,
+      "bytes": 888
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image",
+      "start": 52457.309254,
+      "ms": 169.47000000072876,
+      "bytes": 1196
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image",
+      "start": 52457.309281,
+      "ms": 202.96199999575038,
+      "bytes": 913
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image",
+      "start": 52457.309469,
+      "ms": 244.56600000121398,
+      "bytes": 1741
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image",
+      "start": 52457.309902,
+      "ms": 244.28900000202702,
+      "bytes": 1014
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image",
+      "start": 52457.310153,
+      "ms": 290.9510000026785,
+      "bytes": 1706
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image",
+      "start": 52457.311567,
+      "ms": 288.9590000049793,
+      "bytes": 870
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image",
+      "start": 52457.311764,
+      "ms": 292.064000001119,
+      "bytes": 1232
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script",
+      "start": 52457.314636,
+      "ms": 332.1109999960754,
+      "bytes": 1672
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/icon_warning_tips.png",
+      "type": "Image",
+      "start": 52457.65391,
+      "ms": 39.85899999679532,
+      "bytes": 2125
+    }
+  ]
+}
