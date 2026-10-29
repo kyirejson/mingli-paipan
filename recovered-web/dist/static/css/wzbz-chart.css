@@ -1,0 +1,4 @@
+/* Keep incomplete or previous chart data out of the first paint. */
+.chart-status{position:fixed;inset:calc(var(--statusHeight,0px) + 48px) 0 0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--bg-color,var(--pf-paper));color:var(--pf-caption);font-size:15px}
+.chart-status button{padding:9px 24px;border:1px solid var(--pf-accent);border-radius:18px;background:transparent;color:inherit;font:inherit}
+.chart-pending .wzbz_main_wrapper{visibility:hidden}
