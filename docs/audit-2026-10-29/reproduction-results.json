@@ -1,0 +1,109 @@
+{
+  "lateZi": {
+    "calendar": {
+      "pillars": [
+        "丙午",
+        "戊戌",
+        "丙子",
+        "庚子"
+      ],
+      "hourVoid": "辰巳"
+    },
+    "qimen": {
+      "pillars": [
+        "丙午",
+        "戊戌",
+        "丙子",
+        "庚子"
+      ],
+      "hourVoid": "辰巳",
+      "activeGz": "庚子"
+    },
+    "liuyao": {
+      "pillars": [
+        "丙午",
+        "戊戌",
+        "丙子",
+        "戊子"
+      ],
+      "hourVoid": "午未"
+    },
+    "meihua": {
+      "pillars": [
+        "丙午",
+        "戊戌",
+        "丙子",
+        "戊子"
+      ],
+      "hourVoid": "午未"
+    }
+  },
+  "failedSave": {
+    "saveSessionReturned": false,
+    "modalClosed": true,
+    "notices": [
+      "已应用六爻起局设置"
+    ]
+  },
+  "ziweiTimeSource": {
+    "clockTime": "2000-01-01 00:30",
+    "displayedTrueSolarTime": "1999-12-31 23:00",
+    "engineInput": "2000-01-01 00:30",
+    "note": "Isolated source-function reproduction, not an end-to-end location-setting test."
+  },
+  "famousCases": {
+    "total": 58,
+    "futureYears": [
+      {
+        "name": "崇祯",
+        "time": "2091-02-09 06:00",
+        "era": "明朝"
+      },
+      {
+        "name": "武则天",
+        "time": "2064-03-01 20:00",
+        "era": "唐朝"
+      },
+      {
+        "name": "忽必烈",
+        "time": "2055-10-06 18:00",
+        "era": "元朝"
+      },
+      {
+        "name": "朱元璋",
+        "time": "2048-11-03 14:00",
+        "era": "明朝"
+      },
+      {
+        "name": "秦桧",
+        "time": "2051-01-30 12:00",
+        "era": "南宋"
+      },
+      {
+        "name": "关羽",
+        "time": "2080-08-28 16:00",
+        "era": "三国"
+      },
+      {
+        "name": "苏东坡",
+        "time": "2057-01-06 06:00",
+        "era": "北宋"
+      },
+      {
+        "name": "张三丰",
+        "time": "2078-07-20 02:00",
+        "era": "元朝"
+      },
+      {
+        "name": "佛印禅师",
+        "time": "2052-06-27 02:00",
+        "era": "北宋"
+      },
+      {
+        "name": "刘伯温",
+        "time": "2031-07-14 12:00",
+        "era": "明朝"
+      }
+    ]
+  }
+}

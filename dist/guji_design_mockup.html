@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>智能古籍参考 - 界面设计稿</title>
+  <style>
+    :root {
+      --pf-paper: #f7f3eb;
+      --pf-surface: #fdfcf9;
+      --pf-surface-2: #f2ece0;
+      --pf-line: #ded3c1;
+      --pf-line-dark: #bfae93;
+      --pf-ink: #221f1a;
+      --pf-caption: #5c5549;
+      --pf-subtle: #8a7e6d;
+      --pf-accent: #264a38;
+      --pf-accent-light: #ebf3ee;
+      --pf-cinnabar: #b5382b;
+      --pf-gold: #9e762c;
+      --pf-gold-bg: #fbf5e8;
+      --pf-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+      --pf-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #e5ded3;
+      font-family: var(--pf-sans);
+      color: var(--pf-ink);
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .device-frame {
+      width: 480px;
+      background: var(--pf-paper);
+      border-radius: 36px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.18), 0 0 0 12px #2b2824, 0 0 0 14px #423d37;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    /* 顶部状态栏与导航 */
+    .status-bar {
+      height: 44px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--pf-ink);
+    }
+
+    .nav-header {
+      padding: 6px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--pf-line);
+      background: var(--pf-paper);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-back {
+      font-size: 20px;
+      color: var(--pf-accent);
+      cursor: pointer;
+    }
+
+    .nav-title-group h2 {
+      font-family: var(--pf-serif);
+      font-size: 19px;
+      color: var(--pf-accent);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-title-group p {
+      font-size: 11px;
+      color: var(--pf-subtle);
+      margin-top: 2px;
+    }
+
+    .nav-seal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid var(--pf-cinnabar);
+      color: var(--pf-cinnabar);
+      padding: 2px 6px;
+      font-family: var(--pf-serif);
+      font-size: 11px;
+      font-weight: bold;
+      border-radius: 3px;
+      letter-spacing: 1px;
+    }
+
+    /* 内容滚动主区 */
+    .main-scroll {
+      flex: 1;
+      padding: 16px 16px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* 1. 经典古籍书函书架栏 (11部古籍横滑) */
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .section-title h3 {
+      font-family: var(--pf-serif);
+      font-size: 14px;
+      color: var(--pf-accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title h3::before {
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 13px;
+      background: var(--pf-accent);
+      border-radius: 2px;
+    }
+
+    .section-title span {
+      font-size: 11px;
+      color: var(--pf-subtle);
+    }
+
+    .book-shelf-wrapper {
+      position: relative;
+      margin: 0 -4px;
+    }
+
+    .book-shelf {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 4px 4px 10px;
+      scrollbar-width: none;
+    }
+    .book-shelf::-webkit-scrollbar { display: none; }
+
+    /* 线装书卡片 */
+    .book-card {
+      flex: 0 0 78px;
+      height: 106px;
+      background: var(--pf-surface-2);
+      border: 1px solid var(--pf-line-dark);
+      border-radius: 4px 6px 6px 4px;
+      position: relative;
+      display: flex;
+      box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      overflow: hidden;
+    }
+
+    /* 线装书装订线与包角 */
+    .book-card::before {
+      content: "";
+      width: 14px;
+      height: 100%;
+      background: #e2d7c3;
+      border-right: 1px dashed #aa9a82;
+      box-shadow: inset 2px 0 3px rgba(0,0,0,0.05);
+    }
+
+    .book-label {
+      flex: 1;
+      padding: 8px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .book-title-vertical {
+      writing-mode: vertical-rl;
+      font-family: var(--pf-serif);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--pf-ink);
+    }
+
+    .book-status {
+      font-size: 9px;
+      color: var(--pf-subtle);
+    }
+
+    /* 选中高亮书卡 */
+    .book-card.active {
+      background: #fbf7ee;
+      border-color: var(--pf-accent);
+      box-shadow: 0 4px 12px rgba(38,74,56,0.18);
+      transform: translateY(-2px);
+    }
+
+    .book-card.active::before {
+      background: #2b4f3b;
+      border-right: 1px dashed #e6ded0;
+    }
+
+    .book-card.active .book-title-vertical {
+      color: var(--pf-accent);
+      font-weight: 700;
+    }
+
+    .book-card.active .book-status {
+      color: var(--pf-cinnabar);
+      font-weight: bold;
+    }
+
+    /* 2. 调候用神与先贤纲领提要（古籍版心导读） */
+    .summary-card {
+      background: var(--pf-surface);
+      border: 1px solid var(--pf-line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      position: relative;
+      background-image: 
+        linear-gradient(to right, transparent 15px, var(--pf-line) 15px, var(--pf-line) 16px, transparent 16px),
+        linear-gradient(to left, transparent 15px, var(--pf-line) 15px, var(--pf-line) 16px, transparent 16px);
+    }
+
+    .banxin-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--pf-line);
+      padding-bottom: 10px;
+    }
+
+    .banxin-title {
+      font-family: var(--pf-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--pf-accent);
+      letter-spacing: 1px;
+    }
+
+    .banxin-badge {
+      font-size: 11px;
+      padding: 1px 6px;
+      background: var(--pf-gold-bg);
+      color: var(--pf-gold);
+      border: 1px solid rgba(158,118,44,0.3);
+      border-radius: 3px;
+    }
+
+    .essence-grid {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 8px 12px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .essence-label {
+      color: var(--pf-subtle);
+      font-weight: 500;
+    }
+
+    .essence-value {
+      color: var(--pf-ink);
+    }
+
+    .essence-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    .chip {
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-family: var(--pf-serif);
+      border: 1px solid var(--pf-line);
+      background: var(--pf-paper);
+    }
+
+    .chip.matched {
+      background: var(--pf-accent-light);
+      border-color: var(--pf-accent);
+      color: var(--pf-accent);
+      font-weight: 600;
+    }
+
+    /* 3. 研读模式选项卡 (古籍经文 / 白话译文 / 先贤原评 / 对照) */
+    .tabs-pill-row {
+      display: flex;
+      background: var(--pf-surface-2);
+      padding: 3px;
+      border-radius: 6px;
+      border: 1px solid var(--pf-line);
+    }
+
+    .tab-pill {
+      flex: 1;
+      text-align: center;
+      padding: 6px 0;
+      font-size: 12px;
+      color: var(--pf-caption);
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .tab-pill.active {
+      background: var(--pf-surface);
+      color: var(--pf-accent);
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    /* 4. 朱丝栏古典经文与笺注区 */
+    .classic-reading-card {
+      background: var(--pf-surface);
+      border: 2px solid #bfae93;
+      border-radius: 8px;
+      padding: 16px 18px;
+      position: relative;
+      box-shadow: inset 0 0 0 3px var(--pf-surface), inset 0 0 0 4px var(--pf-line);
+    }
+
+    .jing-box {
+      margin-bottom: 16px;
+      border-bottom: 1px dashed var(--pf-line);
+      padding-bottom: 14px;
+    }
+
+    .jing-tag {
+      display: inline-block;
+      font-family: var(--pf-serif);
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--pf-cinnabar);
+      border: 1px solid var(--pf-cinnabar);
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .jing-text {
+      font-family: var(--pf-serif);
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--pf-ink);
+      text-indent: 2em;
+      letter-spacing: 0.5px;
+    }
+
+    .zhu-box {
+      background: #faf6ee;
+      border-left: 3px solid var(--pf-gold);
+      padding: 10px 12px;
+      border-radius: 0 4px 4px 0;
+      margin-top: 10px;
+    }
+
+    .zhu-header {
+      font-size: 11px;
+      color: var(--pf-gold);
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .zhu-text {
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: var(--pf-caption);
+    }
+
+    /* 5. 经典名造命例对照卡片 */
+    .case-card {
+      background: var(--pf-surface);
+      border: 1px solid var(--pf-line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .case-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--pf-line);
+      padding-bottom: 8px;
+    }
+
+    .case-title {
+      font-family: var(--pf-serif);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--pf-accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .case-bazi-row {
+      display: flex;
+      gap: 12px;
+      background: var(--pf-paper);
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid var(--pf-line);
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .case-pillar {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .case-pillar-name {
+      font-size: 10px;
+      color: var(--pf-subtle);
+    }
+
+    .case-pillar-gz {
+      font-family: var(--pf-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--pf-cinnabar);
+      letter-spacing: 1px;
+    }
+
+    .case-comment {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--pf-caption);
+    }
+
+    .case-comment strong {
+      color: var(--pf-accent);
+    }
+
+    /* 底部操作与对照栏 */
+    .bottom-bar {
+      height: 52px;
+      background: var(--pf-surface);
+      border-top: 1px solid var(--pf-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 16px;
+    }
+
+    .action-btn {
+      flex: 1;
+      height: 36px;
+      margin: 0 6px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-family: var(--pf-serif);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-secondary {
+      background: var(--pf-paper);
+      border: 1px solid var(--pf-line);
+      color: var(--pf-accent);
+    }
+
+    .btn-primary {
+      background: var(--pf-accent);
+      border: 1px solid var(--pf-accent);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="device-frame">
+  <!-- 状态栏 -->
+  <div class="status-bar">
+    <span>9:41</span>
+    <span>造化元钥 · 智能古籍参考</span>
+    <span>100%</span>
+  </div>
+
+  <!-- 顶部导航 -->
+  <div class="nav-header">
+    <div class="nav-left">
+      <span class="nav-back">‹</span>
+      <div class="nav-title-group">
+        <h2>智能古籍参考</h2>
+        <p>通会先贤精要 · 参验古今命理</p>
+      </div>
+    </div>
+    <div class="nav-seal">善本典藏</div>
+  </div>
+
+  <!-- 主滚动区域 -->
+  <div class="main-scroll">
+    
+    <!-- 1. 十一部经典古籍书架栏 -->
+    <div>
+      <div class="section-title">
+        <h3>十一经典古籍卷库</h3>
+        <span>左右滑动换书 (1/11) ›</span>
+      </div>
+      <div class="book-shelf-wrapper">
+        <div class="book-shelf">
+          <div class="book-card active">
+            <div class="book-label">
+              <span class="book-title-vertical">造化元钥</span>
+              <span class="book-status">研读中</span>
+            </div>
+          </div>
+          <div class="book-card">
+            <div class="book-label">
+              <span class="book-title-vertical">滴天髓</span>
+              <span class="book-status">命中5条</span>
+            </div>
+          </div>
+          <div class="book-card">
+            <div class="book-label">
+              <span class="book-title-vertical">三命通会</span>
+              <span class="book-status">命中12条</span>
+            </div>
+          </div>
+          <div class="book-card">
+            <div class="book-label">
+              <span class="book-title-vertical">子平真诠</span>
+              <span class="book-status">格局论断</span>
+            </div>
+          </div>
+          <div class="book-card">
+            <div class="book-label">
+              <span class="book-title-vertical">穷通宝鉴</span>
+              <span class="book-status">调候总诀</span>
+            </div>
+          </div>
+          <div class="book-card">
+            <div class="book-label">
+              <span class="book-title-vertical">渊海子平</span>
+              <span class="book-status">五行渊源</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 古籍版心·调候纲领提要 -->
+    <div class="summary-card">
+      <div class="banxin-header">
+        <span class="banxin-title">《造化元钥》卷五 · 论丁生戌月</span>
+        <span class="banxin-badge">本造匹配</span>
+      </div>
+      <div class="essence-grid">
+        <span class="essence-label">【调候主旨】</span>
+        <span class="essence-value">三秋丁火退气，九月伤官乘权。<strong>专用甲木引丁，庚金劈甲</strong>。</span>
+        
+        <span class="essence-label">【用神提要】</span>
+        <div class="essence-chips">
+          <span class="chip matched">主用：甲木 (正印)</span>
+          <span class="chip">次用：庚金 (正财)</span>
+          <span class="chip matched">佐用：丙火 (劫财)</span>
+        </div>
+
+        <span class="essence-label">【原局契合】</span>
+        <span class="essence-value" style="color:var(--pf-accent);font-weight:600;">
+          丙火高透年干，支藏甲木丁火，得比劫相扶。
+        </span>
+      </div>
+    </div>
+
+    <!-- 3. 研读模式切换 -->
+    <div class="tabs-pill-row">
+      <div class="tab-pill active">古籍经文</div>
+      <div class="tab-pill">先贤评注</div>
+      <div class="tab-pill">同构名造 (7)</div>
+      <div class="tab-pill">白话译文</div>
+    </div>
+
+    <!-- 4. 双边朱丝栏经典经文细读卡 -->
+    <div class="classic-reading-card">
+      <div class="jing-box">
+        <span class="jing-tag">元钥原文</span>
+        <p class="jing-text">
+          三秋丁火，阴柔退气，专用甲木。金虽乘旺司权，无伤丁之理，仍取庚劈甲，为引火之物，又借丙暖金晒甲，凡两丙夹丁者，夏月忌之，余月不忌。
+        </p>
+      </div>
+
+      <div class="zhu-box">
+        <div class="zhu-header">
+          <span>◆ 徐乐吾先贤按语</span>
+        </div>
+        <p class="zhu-text">
+          九月戌土司权，火土两燥，丁火入墓库而衰退。非甲木无以破土生丁，无庚劈甲则木火难发。本造干透丙戊，支会寅午戌，火局有根，最宜甲木引生。
+        </p>
+      </div>
+    </div>
+
+    <!-- 5. 经典名造命例对照卡片 -->
+    <div class="case-card">
+      <div class="case-header">
+        <span class="case-title">📜 先贤考订命造 · 杜受田命</span>
+        <span style="font-size:11px;color:var(--pf-cinnabar);font-weight:bold;">官至大学士</span>
+      </div>
+      
+      <div class="case-bazi-row">
+        <div class="case-pillar">
+          <span class="case-pillar-name">年柱</span>
+          <span class="case-pillar-gz">丁未</span>
+        </div>
+        <div class="case-pillar">
+          <span class="case-pillar-name">月柱</span>
+          <span class="case-pillar-gz">庚戌</span>
+        </div>
+        <div class="case-pillar">
+          <span class="case-pillar-name">日柱</span>
+          <span class="case-pillar-gz">丁卯</span>
+        </div>
+        <div class="case-pillar">
+          <span class="case-pillar-name">时柱</span>
+          <span class="case-pillar-gz">辛亥</span>
+        </div>
+      </div>
+
+      <p class="case-comment">
+        <strong>评注考析：</strong>雍正五年九月十四日亥时。杜受田命：支成木局，用财破印泄伤，官至大学士，帝王之师。此造正合“九月丁火借木生辉”之妙断。
+      </p>
+    </div>
+
+  </div>
+
+  <!-- 底部固定栏 -->
+  <div class="bottom-bar">
+    <div class="action-btn btn-secondary">收录至笔记</div>
+    <div class="action-btn btn-secondary">逐字校对</div>
+    <div class="action-btn btn-primary">切换至《滴天髓》</div>
+  </div>
+</div>
+
+</body>
+</html>

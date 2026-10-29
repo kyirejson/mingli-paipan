@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-29",
+  "source_hashes": {
+    "dist/static/js/fivearts-ui.js": "9796ea276632a0b1e38277be57133617fe0eb6b1320f6722f6eaa42347f8a466",
+    "dist/static/js/fivearts-engine.js": "9ebe177dba7143595bd08bc1d74153bf16969e6aaddb05748189f7c718e2b066",
+    "dist/static/js/divination-calendar-fix.js": "26d647e6bf878051be4d1c174fd1c09eaafe7ee172c279eee8fcdc20f5eaaa3e",
+    "dist/static/js/paper-forest-details.js": "50b4e59b3e4038b7ca3c78665ba3317e559900c26e405175841caef9ae91dc14",
+    "dist/static/js/wzbz-native-bridge.js": "e7bb3a9b57cbe9ad01d51e85211521bcf1da1d54958d68b50e071f5f658302de",
+    "scripts/dev-server.py": "cf2eb4351a2bd2772ba36d449ae33aa8d98f67ee0cf28a28797a89f673a2f177"
+  },
+  "original_engineering_files": {
+    ".git": false,
+    "package.json": false,
+    "android": false,
+    "gradlew": false
+  },
+  "tests": {
+    "divination_pass": 22,
+    "assistant_mock_pass": 2,
+    "live_assistant_verified": false,
+    "emulator_available_this_audit": false
+  },
+  "apk": {
+    "bytes": 36139742,
+    "sha256": "6a3a46ac195af466cc065ea7e972ece56a7af7ca18f01504bc3d3137ddaa469a",
+    "credential_pattern_matching_files": [],
+    "has_assistant_fetch": true
+  },
+  "github": {
+    "new": {
+      "tag_name": "v1.0.8-new-signature",
+      "prerelease": true,
+      "draft": false,
+      "html_url": "https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.8-new-signature",
+      "assets": [
+        {
+          "name": "zaohua-yuanyue-v1.0.8-new-signature.apk",
+          "size": 36139742,
+          "digest": "sha256:6a3a46ac195af466cc065ea7e972ece56a7af7ca18f01504bc3d3137ddaa469a"
+        }
+      ]
+    },
+    "stable": {
+      "tag_name": "v1.0.7",
+      "prerelease": false,
+      "draft": false,
+      "html_url": "https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.7",
+      "assets": [
+        {
+          "name": "mingli-paipan-v1.0.7.apk",
+          "size": 36083976,
+          "digest": "sha256:f4df9d5bd9cdb975b28813aa62ae42f08379a5b074c0b8c3a643936e4f80ed0f"
+        },
+        {
+          "name": "update.json",
+          "size": 236,
+          "digest": "sha256:b1d76c57bb7f73a33df5a5c2a0f59bde6432d8b58b611a43bf14c79da6b8642e"
+        }
+      ]
+    }
+  }
+}

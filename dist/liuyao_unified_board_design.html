@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六爻排盘 - 紧凑一体化卦台（无独立格子·变卦墨黑·仅本卦动爻红）</title>
+<style>
+  :root {
+    /* 严格遵循当前 Paper Forest 东方纸林视觉渲染体系 */
+    --pf-bg: #f9f8f4;              /* 素雅宣纸底色 */
+    --pf-surface: #ffffff;         /* 纸白卡片底色 */
+    --pf-line: #e8e2d8;            /* 淡墨细分界线 */
+    --pf-line-dark: #d5ccbe;       /* 较深分界线 */
+    --pf-accent: #2c3e50;          /* 黛青墨黑正文（清晰饱满，不发灰） */
+    --pf-clay: #8c5339;            /* 赤土赭石（六神、世应、用神） */
+    --pf-clay-tint: rgba(140, 83, 57, 0.08); /* 选中温润宣纸微黄色 */
+    --pf-danger: #b83b26;          /* 古法朱砂红（动爻、生克刑破） */
+    --pf-green: #2e7d32;           /* 典雅竹青绿（伏神） */
+    --pf-caption: #7f8c8d;         /* 沉静灰字 */
+    --pf-life: #526b7a;            /* 黛蓝长生字 */
+    --pf-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --pf-serif: "Songti SC", "SimSun", "STSong", "Noto Serif CJK SC", serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #eae6df;
+    font-family: var(--pf-font);
+    color: var(--pf-accent);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header-card {
+    width: 1100px;
+    background: var(--pf-surface);
+    border-radius: 12px;
+    padding: 18px 26px;
+    box-shadow: 0 4px 20px rgba(44,62,80,0.04);
+    border: 1px solid var(--pf-line);
+    border-left: 6px solid var(--pf-clay);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-card h1 {
+    font-size: 19px;
+    font-family: var(--pf-serif);
+    color: var(--pf-accent);
+    margin-bottom: 3px;
+  }
+  .header-card p {
+    font-size: 13px;
+    color: var(--pf-caption);
+  }
+  .pill-badge {
+    padding: 6px 14px;
+    background: var(--pf-clay-tint);
+    color: var(--pf-clay);
+    font-weight: 600;
+    font-size: 12.5px;
+    border-radius: 6px;
+    border: 1px solid rgba(140,83,57,0.3);
+  }
+
+  /* 主设计内容区域 */
+  .main-layout {
+    width: 1100px;
+    display: grid;
+    grid-template-columns: 430px 640px;
+    gap: 30px;
+    align-items: start;
+  }
+
+  /* 手机模型 */
+  .phone-frame {
+    background: var(--pf-surface);
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(44, 62, 80, 0.1);
+    overflow: hidden;
+    border: 1px solid var(--pf-line);
+    position: relative;
+  }
+
+  .phone-top-bar {
+    background: #faf8f5;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--pf-line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--pf-caption);
+  }
+  .phone-top-bar b {
+    color: var(--pf-accent);
+    font-size: 13.5px;
+    font-family: var(--pf-serif);
+  }
+
+  .phone-inner {
+    background: var(--pf-bg);
+    padding: 12px 14px 24px;
+  }
+
+  /* 1. 四柱信息卡片 */
+  .bazi-info-card {
+    background: var(--pf-surface);
+    border: 1px solid var(--pf-line);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 11px;
+    color: var(--pf-caption);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .bazi-info-card b {
+    color: var(--pf-accent);
+  }
+
+  /* 2. 经典典籍三 Tab 切换器 */
+  .classic-switch {
+    display: flex;
+    border: 1px solid var(--pf-line);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: var(--pf-surface);
+  }
+  .classic-item {
+    flex: 1;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    color: var(--pf-caption);
+    border-right: 1px solid var(--pf-line);
+    cursor: pointer;
+  }
+  .classic-item:last-child { border-right: none; }
+  .classic-item.active {
+    background: var(--pf-clay);
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  /* 3. 本变两卦 卦头 */
+  .gua-title-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    padding: 8px 0 10px;
+    border-bottom: 1px solid var(--pf-line-dark);
+  }
+  .gua-title-row h3 {
+    font-size: 15px;
+    font-family: var(--pf-serif);
+    color: var(--pf-accent);
+  }
+  .gua-title-row small {
+    font-size: 10px;
+    color: var(--pf-caption);
+  }
+
+  /* =================================================================== */
+  /* 4. 核心：一体化六爻卦台（取消独立的单个格子盒子！整体连贯） */
+  /* =================================================================== */
+  .liuyao-unified-board {
+    background: var(--pf-surface);
+    border: 1px solid var(--pf-line);
+    border-top: none; /* 紧接卦头，融为一体 */
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+  }
+
+  /* 单爻行：仅通过极细浅线分割，无独立卡片边框 */
+  .yao-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--pf-line);
+    height: 46px; /* 紧凑黄金高度 */
+    transition: background 0.15s ease;
+  }
+  .yao-row:last-child {
+    border-bottom: none;
+  }
+  /* 当前选中的用神爻高亮：本卦左侧温润微黄底 + 3px 赭石细边条 */
+  .yao-row.is-selected .yao-half.main-half {
+    background: var(--pf-clay-tint);
+    box-shadow: inset 3px 0 0 var(--pf-clay);
+  }
+
+  .yao-half {
+    padding: 3px 7px 3px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .yao-half.main-half {
+    border-right: 1px dashed var(--pf-line);
+  }
+  .yao-half.changed-half {
+    background: transparent; /* 保持与本卦一致的底色，不搞多余灰底 */
+  }
+
+  /* --- 顶行：生克评注（对标参考图置顶） --- */
+  .status-line {
+    font-size: 10px;
+    line-height: 14px;
+    min-height: 14px;
+    font-weight: 500;
+    color: var(--pf-danger); /* 古法朱砂红生克 */
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .status-line.dimmed {
+    color: var(--pf-caption);
+    font-weight: normal;
+  }
+
+  /* --- 主行：文字与爻象横向严密对齐（参考图核心布局） --- */
+  .main-flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1px;
+    line-height: 18px;
+  }
+
+  /* 左侧区块：六亲干支 + 伏神/六神 */
+  .col-ganzhi-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 62px;
+  }
+  /* 无论是本卦还是变卦，干支字色均采用清晰饱满的墨黑正色！绝不发灰！ */
+  .txt-ganzhi {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--pf-accent); /* 饱满墨黑 */
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+  }
+  /* 变卦六亲干支正下方：六神（赭石红） */
+  .txt-sixgod-sub {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--pf-clay);
+    line-height: 12px;
+  }
+  /* 本卦六亲干支正下方：伏神（竹青绿） */
+  .txt-fushen-sub {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--pf-green);
+    line-height: 12px;
+  }
+
+  /* 用神徽标紧随本卦干支（用/忌/仇/闲） */
+  .badge-yongshen {
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0 2px;
+    flex-shrink: 0;
+  }
+  .badge-yongshen.yong { color: var(--pf-clay); }
+  .badge-yongshen.xian { color: var(--pf-caption); }
+
+  /* 五行 + 旺衰长生 垂直紧凑双叠 */
+  .col-elem-life {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    flex-shrink: 0;
+  }
+  /* 变卦五行同样是饱满墨黑！ */
+  .txt-elem {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--pf-accent); /* 墨黑五行 */
+    font-family: var(--pf-serif);
+    line-height: 13px;
+  }
+  .txt-life {
+    font-size: 9px;
+    color: var(--pf-life);
+    line-height: 11px;
+    white-space: nowrap;
+  }
+
+  /* 爻象符号居中（仅本卦动爻为红，变卦爻象一律为正常深黑） */
+  .col-yao-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    margin: 0 4px;
+    flex-shrink: 0;
+  }
+  .bar-solid-yang {
+    width: 34px;
+    height: 6.5px;
+    background: var(--pf-accent); /* 正常深黑 */
+    border-radius: 1px;
+  }
+  .bar-solid-yin {
+    width: 34px;
+    height: 6.5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .bar-solid-yin span {
+    width: 14.5px;
+    height: 6.5px;
+    background: var(--pf-accent); /* 正常深黑 */
+    border-radius: 1px;
+  }
+
+  /* 核心规则：仅本卦动爻标红！ */
+  .bar-solid-yang.is-moving {
+    background: var(--pf-danger) !important; /* 仅本卦动爻为朱砂红 */
+  }
+
+  /* 世 / 应 紧随爻象右侧 */
+  .txt-shiying {
+    font-size: 11.5px;
+    font-family: var(--pf-serif);
+    font-weight: 700;
+    width: 14px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .txt-shiying.shi { color: var(--pf-danger); }
+  .txt-shiying.ying { color: var(--pf-clay); }
+
+
+  /* =================================================================== */
+  /* 右侧系统级设计拆解与改版对比规范 */
+  /* =================================================================== */
+  .notes-column {
+    background: var(--pf-surface);
+    border: 1px solid var(--pf-line);
+    border-radius: 18px;
+    padding: 22px 24px;
+    box-shadow: 0 6px 24px rgba(44, 62, 80, 0.05);
+  }
+  .notes-title {
+    font-size: 17px;
+    font-family: var(--pf-serif);
+    color: var(--pf-accent);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--pf-line);
+    margin-bottom: 14px;
+  }
+
+  .design-card {
+    background: #faf8f5;
+    border: 1px solid var(--pf-line);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+  }
+  .design-card h3 {
+    font-size: 13.5px;
+    color: var(--pf-clay);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .design-card p, .design-card li {
+    font-size: 12px;
+    color: #4b5563;
+    line-height: 1.65;
+  }
+  .design-card ul {
+    margin-left: 18px;
+    margin-top: 4px;
+  }
+  .design-card b {
+    color: var(--pf-accent);
+  }
+
+  .param-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 11.5px;
+  }
+  .param-grid th, .param-grid td {
+    padding: 6px 8px;
+    border: 1px solid var(--pf-line);
+    text-align: left;
+  }
+  .param-grid th {
+    background: #f3efe7;
+    color: var(--pf-accent);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 顶部横幅 -->
+  <div class="header-card">
+    <div>
+      <h1>六爻排盘界面“紧凑一体化卦台”重构设计稿</h1>
+      <p>取消独立格子 · 变卦恢复饱满墨黑 · 仅本卦动爻标红 · 移除下方当前用神卡片</p>
+    </div>
+    <div class="pill-badge">
+      一体化通栏卦台 · 46px 紧凑高度
+    </div>
+  </div>
+
+  <div class="main-layout">
+
+    <!-- 左侧：真机排盘效果模拟（火风鼎 之 火水未济） -->
+    <div class="phone-frame">
+      <div class="phone-top-bar">
+        <span>‹ 案例1</span>
+        <b>火风鼎 之 火水未济</b>
+        <span>设置</span>
+      </div>
+
+      <div class="phone-inner">
+
+        <!-- 四柱信息 -->
+        <div class="bazi-info-card">
+          <b>公历 2026/03/17 11:20</b> 丙午年 辛卯月 戊申日 戊午时<br>
+          旬空：寅卯 (日空) · 月建：卯木 · 日辰：申金
+        </div>
+
+        <!-- 经典典籍三 Tab 切换器 -->
+        <div class="classic-switch">
+          <div class="classic-item active">火珠林</div>
+          <div class="classic-item">海底眼</div>
+          <div class="classic-item">黄金策</div>
+        </div>
+
+        <!-- 卦名头 -->
+        <div class="gua-title-row">
+          <div><h3>火风鼎</h3><small>本卦 · 离宫火 · 二世</small></div>
+          <div><h3>火水未济</h3><small>变卦 · 离宫火 · 三世</small></div>
+        </div>
+
+        <!-- 一体化连贯六爻卦台（彻底取消独立的单个格子盒子！） -->
+        <div class="liuyao-unified-board">
+
+          <!-- 上九（第六爻） -->
+          <div class="yao-row">
+            <!-- 本卦左半 -->
+            <div class="yao-half main-half">
+              <div class="status-line">月生 · 日长生</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">兄弟己巳</span>
+                </div>
+                <span class="badge-yongshen xian">闲</span>
+                <div class="col-elem-life">
+                  <span class="txt-elem">火</span>
+                  <span class="txt-life">旺,临</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yang"></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+            <!-- 变卦右半（文字与爻象均为正常墨黑！不发灰！） -->
+            <div class="yao-half changed-half">
+              <div class="status-line dimmed">静</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">兄弟己巳</span>
+                  <span class="txt-sixgod-sub">玄武</span>
+                </div>
+                <div class="col-elem-life">
+                  <span class="txt-elem">火</span>
+                  <span class="txt-life">旺,临</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yang"></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 六五（第五爻） -->
+          <div class="yao-row">
+            <div class="yao-half main-half">
+              <div class="status-line">月克 · 日休</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">子孙己未</span>
+                </div>
+                <span class="badge-yongshen xian">闲</span>
+                <div class="col-elem-life">
+                  <span class="txt-elem">土</span>
+                  <span class="txt-life">休,沐</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yin"><span></span><span></span></div>
+                </div>
+                <span class="txt-shiying ying">应</span>
+              </div>
+            </div>
+            <div class="yao-half changed-half">
+              <div class="status-line dimmed">静</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">子孙己未</span>
+                  <span class="txt-sixgod-sub">白虎</span>
+                </div>
+                <div class="col-elem-life">
+                  <span class="txt-elem">土</span>
+                  <span class="txt-life">休,沐</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yin"><span></span><span></span></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 九四（第四爻） -->
+          <div class="yao-row">
+            <div class="yao-half main-half">
+              <div class="status-line">月破 · 日比</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">妻财己酉</span>
+                </div>
+                <span class="badge-yongshen xian">闲</span>
+                <div class="col-elem-life">
+                  <span class="txt-elem">金</span>
+                  <span class="txt-life">囚,旺</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yang"></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+            <div class="yao-half changed-half">
+              <div class="status-line dimmed">静</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">妻财己酉</span>
+                  <span class="txt-sixgod-sub">螣蛇</span>
+                </div>
+                <div class="col-elem-life">
+                  <span class="txt-elem">金</span>
+                  <span class="txt-life">囚,旺</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yang"></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 九三（第三爻 · 仅本卦动爻标红！变卦为正常黑色！） -->
+          <div class="yao-row is-selected">
+            <div class="yao-half main-half">
+              <div class="status-line">月冲 · 动化回头克</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi" style="color:var(--pf-clay);">妻财辛酉</span>
+                </div>
+                <span class="badge-yongshen yong">用</span>
+                <div class="col-elem-life">
+                  <span class="txt-elem">金</span>
+                  <span class="txt-life">囚,旺</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <!-- 只有本卦动爻标红！ -->
+                  <div class="bar-solid-yang is-moving"></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+            <div class="yao-half changed-half">
+              <div class="status-line" style="color:var(--pf-danger);">变回头克</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <!-- 变卦干支正常墨黑！ -->
+                  <span class="txt-ganzhi">父母戊午</span>
+                  <span class="txt-sixgod-sub">勾陈</span>
+                </div>
+                <div class="col-elem-life">
+                  <!-- 变卦五行正常墨黑！ -->
+                  <span class="txt-elem">火</span>
+                  <span class="txt-life">旺,病</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <!-- 变卦爻象为正常深黑！不标红！ -->
+                  <div class="bar-solid-yin"><span></span><span></span></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 九二（第二爻） -->
+          <div class="yao-row">
+            <div class="yao-half main-half">
+              <div class="status-line">月死 · 日生</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">官鬼辛亥</span>
+                </div>
+                <span class="badge-yongshen xian">闲</span>
+                <div class="col-elem-life">
+                  <span class="txt-elem">水</span>
+                  <span class="txt-life">休,生</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yang"></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+            <div class="yao-half changed-half">
+              <div class="status-line dimmed">静</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">官鬼辛亥</span>
+                  <span class="txt-sixgod-sub">朱雀</span>
+                </div>
+                <div class="col-elem-life">
+                  <span class="txt-elem">水</span>
+                  <span class="txt-life">休,生</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yang"></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 初六（第一爻 · 带伏神！） -->
+          <div class="yao-row">
+            <div class="yao-half main-half">
+              <div class="status-line">月克 · 日休</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">子孙辛丑</span>
+                  <span class="txt-fushen-sub">父母 己卯 木</span>
+                </div>
+                <span class="badge-yongshen xian">闲</span>
+                <div class="col-elem-life">
+                  <span class="txt-elem">土</span>
+                  <span class="txt-life">死,墓</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yin"><span></span><span></span></div>
+                </div>
+                <span class="txt-shiying shi">世</span>
+              </div>
+            </div>
+            <div class="yao-half changed-half">
+              <div class="status-line dimmed">静</div>
+              <div class="main-flex-row">
+                <div class="col-ganzhi-group">
+                  <span class="txt-ganzhi">子孙辛丑</span>
+                  <span class="txt-sixgod-sub">青龙</span>
+                </div>
+                <div class="col-elem-life">
+                  <span class="txt-elem">土</span>
+                  <span class="txt-life">死,墓</span>
+                </div>
+                <div class="col-yao-symbol">
+                  <div class="bar-solid-yin"><span></span><span></span></div>
+                </div>
+                <span class="txt-shiying"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- 右侧：设计原理与本次改动点说明 -->
+    <div class="notes-column">
+      <div class="notes-title">
+        ✨ 针对您反馈的核心改动落地说明
+      </div>
+
+      <div class="design-card">
+        <h3>📦 1. 取消“每个爻装一个独立格子”</h3>
+        <ul>
+          <li><b>彻底消除独立卡片感</b>：去除了每个爻独立的白底卡片边框、圆角与间距。</li>
+          <li><b>一体化连贯卦台</b>：整卦自上而下统一包裹在一个通栏容器内，爻与爻之间仅用一条 <code>1px solid var(--pf-line)</code> 的淡墨平滑细线划分，形成东方周易“初至上浑然一体”的纯正卦象感。</li>
+        </ul>
+      </div>
+
+      <div class="design-card">
+        <h3>🖋️ 2. 变卦颜色恢复正常墨黑（绝不发灰）</h3>
+        <ul>
+          <li><b>清晰饱满字色</b>：去除了之前的半透明度（opacity）与淡灰色，变卦的六亲干支（<code>兄弟己巳</code>、<code>父母戊午</code>等）、五行（<code>火</code>、<code>土</code>等）与爻象符号，<b>均采用与本卦完全一致的黛青墨黑（<code>#2c3e50</code>，600字重）</b>。</li>
+          <li><b>背景底色纯正</b>：变卦背景与本卦完全一致，不做生硬的灰色区分。</li>
+        </ul>
+      </div>
+
+      <div class="design-card">
+        <h3>🔴 3. 仅本卦动爻标红，变卦爻象保持深黑</h3>
+        <ul>
+          <li><b>本卦动爻（九三）</b>：爻符采用醒目的朱砂红长条（<code>var(--pf-danger): #b83b26</code>），突出“动则生变”。</li>
+          <li><b>变卦对应爻（父母午火）</b>：爻符为<b>正常的深黑色双断阴爻条</b>，文字亦为正常墨黑，完全契合传统易学“本卦发动为朱红，变卦结果归正色”的规矩。</li>
+        </ul>
+      </div>
+
+      <div class="design-card">
+        <h3>🚫 4. 彻底移除下方多余的用神解说卡片</h3>
+        <ul>
+          <li>删除了排盘下方的“当前用神：第 3 爻 妻财辛酉金”卡片，保持整个排盘区界面干净利索、整齐纯粹。</li>
+        </ul>
+      </div>
+
+      <div class="design-card">
+        <h3>📊 5. 元素对照一览</h3>
+        <table class="param-grid">
+          <thead>
+            <tr>
+              <th>元素</th>
+              <th>本卦呈现</th>
+              <th>变卦呈现</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>六亲干支</b></td>
+              <td>墨黑加粗 13.5px（下附绿字伏神）</td>
+              <td><b>墨黑加粗 13.5px（下附赭石六神）</b></td>
+            </tr>
+            <tr>
+              <td><b>五行</b></td>
+              <td>墨黑 12.5px（下附长生小字）</td>
+              <td><b>墨黑 12.5px（下附长生小字）</b></td>
+            </tr>
+            <tr>
+              <td><b>动爻爻符</b></td>
+              <td><b style="color:var(--pf-danger);">朱砂红实心条</b></td>
+              <td><b>正常墨黑实心阴爻</b></td>
+            </tr>
+            <tr>
+              <td><b>静爻爻符</b></td>
+              <td>正常墨黑条</td>
+              <td><b>正常墨黑条</b></td>
+            </tr>
+            <tr>
+              <td><b>爻间分割</b></td>
+              <td colspan="2"><b>仅极细淡墨线相隔，无独立格子</b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

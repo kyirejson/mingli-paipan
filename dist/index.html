@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="pf-theme">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="shortcut icon" type="image/ico" href="./static/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="./static/wzbz_logo.png">
+  <title>造化元钥</title>
+  <style>
+    .van-popover__content {
+      max-height: 40vh;
+      overflow: auto !important;
+    }
+    .van-popover__action {
+      width: auto !important;
+      white-space: nowrap;
+    }
+    #bookIframe,
+    #bookLoading {
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding-top: var(--statusHeight);
+      padding-bottom: var(--bottomHeight);
+      background-color: white;
+      border: none;
+      outline: none;
+      z-index: 999;
+    }
+    #bookLoading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .bookLoading_hide {
+      display: none !important;
+      z-index: -1 !important;
+    }
+    .hideClass {
+      display: none !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      opacity: 0 !important;
+      z-index: -9999 !important;
+      position: fixed !important;
+      transform: translate(-10000px, -10000px) !important;
+    }
+    body {
+      overflow: hidden;
+    }
+  
+.titlebox_vip, .openvaip-card, .needvipblock, .btnopenvip, .btnopenviptips, .row_header_lock, .cardd_vip, .setting_header_vip, .novipblock, .searchResult_tabs_icon_vip {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+
+.wzbz_header_title_right_img .top,
+.wzbz_header_title_right_img img[src*="huiuyuan"],
+.titlebox_vip,
+.openvaip-card,
+.needvipblock,
+.btnopenvip,
+.btnopenviptips,
+.row_header_lock,
+.cardd_vip,
+.setting_header_vip,
+.novipblock,
+.searchResult_tabs_icon_vip,
+.searchResult_list_novip_wrapper,
+.searchResult_list_novip {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+</style>
+  <script src="./static/js/synonymSource.js"></script>
+  <script src="./static/js/lunar.js"></script>
+  <script src="./static/js/tiku-data.js"></script>
+  <script src="./static/js/wzbz-native-bridge.js"></script>
+  <script src="./static/js/local-backup.js"></script>
+  <link href="./static/css/app.da84e71dd162dad291259e3c8f4ff06c.css" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/wzbz-updater.css">
+  <script src="./static/js/wzbz-updater.js"></script>
+  <link rel="stylesheet" href="./static/css/wzbz-chart.css">
+  <script src="./static/js/wzbz-chart.js"></script>
+  <script src="./static/js/wzbz-home-clock.js"></script>
+  <script src="./static/js/paper-forest.js"></script>
+  <script src="./static/js/paper-forest-details.js"></script>
+  <script src="./static/js/time-policy.js"></script>
+  <script src="./static/js/fivearts-engine.js"></script>
+  <script src="./static/js/divination-calendar-fix.js"></script>
+  <script src="./assistant-config.js"></script>
+  <script src="./static/js/fivearts-ui.js"></script>
+  <link rel="stylesheet" href="./static/css/fivearts.css">
+  <link rel="stylesheet" href="./static/css/paper-forest.css">
+  <link rel="stylesheet" href="./static/css/paper-forest-details.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.hwversion = 0;
+    function handleTag() {
+      var key = 'tag';
+      var value = '';
+      try {
+        var urlObj = new URL(location.href);
+        value = urlObj.searchParams.get(key) || '';
+        if (!value) {
+          var hash = urlObj.hash;
+          if (hash.indexOf('?') >= 0) {
+            var queryStr = hash.split('?')[1];
+            var params = new URLSearchParams(queryStr);
+            value = params.get(key) || '';
+          }
+        }
+      } catch (e) {}
+      return value;
+    }
+    window.handleTag = handleTag;
+
+    // Keep the same document alive while a book opens another app screen.
+    (function() {
+      var suspended = null;
+      function getStore() {
+        var app = document.getElementById('app');
+        return app && app.__vue__ && app.__vue__.$store;
+      }
+      function getNodes() {
+        var store = getStore();
+        var book = store && store.state && store.state.book;
+        return {
+          store: store,
+          iframe: document.getElementById('bookIframe') ||
+            (store && store.getters && store.getters.bookIframe) ||
+            (book && book.bookIframe) || (suspended && suspended.iframe),
+          loading: document.getElementById('bookLoading') ||
+            (book && book.bookLoading) || (suspended && suspended.loading)
+        };
+      }
+      function saveStyle(node) {
+        return node && { display: node.style.display, pointerEvents: node.style.pointerEvents };
+      }
+      function hide(node) {
+        if (node) {
+          node.style.display = 'none';
+          node.style.pointerEvents = 'none';
+        }
+      }
+      function restore(node, style) {
+        if (!node) return;
+        if (!document.body.contains(node)) document.body.appendChild(node);
+        style = style || saveStyle(node);
+        node.style.display = style.display !== 'none' ? style.display : '';
+        node.style.pointerEvents = style.pointerEvents !== 'none' ? style.pointerEvents : '';
+      }
+      window.__WZBZ_BOOK_IFRAME__ = {
+        suspend: function() {
+          var nodes = getNodes();
+          if (!nodes.iframe) return false;
+          if (!suspended || suspended.iframe !== nodes.iframe) {
+            suspended = {
+              iframe: nodes.iframe,
+              iframeStyle: saveStyle(nodes.iframe),
+              loading: nodes.loading,
+              loadingStyle: saveStyle(nodes.loading)
+            };
+          }
+          nodes.iframe.classList.add('hideClass');
+          hide(nodes.iframe);
+          // Leave the loading class under Vuex/onload control while hidden.
+          hide(nodes.loading);
+          return true;
+        },
+        resume: function() {
+          var nodes = getNodes();
+          if (!nodes.iframe) return false;
+          var snapshot = suspended && suspended.iframe === nodes.iframe ? suspended : null;
+          restore(nodes.iframe, snapshot && snapshot.iframeStyle);
+          nodes.iframe.classList.remove('hideClass');
+          restore(nodes.loading, snapshot && snapshot.loadingStyle);
+          suspended = null;
+          return true;
+        },
+        close: function() {
+          var nodes = getNodes();
+          var book = nodes.store && nodes.store.state && nodes.store.state.book;
+          var frames = [nodes.iframe, book && book.bookIframe, suspended && suspended.iframe];
+          var loaders = [nodes.loading, book && book.bookLoading, suspended && suspended.loading];
+          var hadReader = !!nodes.iframe;
+          if (nodes.store) nodes.store.dispatch('book/closeBookIframe');
+          frames.forEach(function(iframe, index) {
+            if (iframe && frames.indexOf(iframe) === index) {
+              iframe.onload = null;
+              iframe.remove();
+              iframe.src = 'about:blank';
+            }
+          });
+          loaders.forEach(function(loading, index) {
+            if (loading && loaders.indexOf(loading) === index) loading.remove();
+          });
+          localStorage.removeItem('wzbz_bookIframe');
+          suspended = null;
+          return hadReader;
+        }
+      };
+      function syncBookIframeState() {
+        var path = location.hash.split('?')[0];
+        var isBook = /\/(?:wzbook|school\/my)(?:\/|$)/i.test(path);
+        window.__WZBZ_BOOK_IFRAME__[isBook ? 'resume' : 'suspend']();
+      }
+      window.addEventListener('hashchange', syncBookIframeState);
+      window.addEventListener('popstate', syncBookIframeState);
+    })();
+  </script>
+  <script type="text/javascript" src="./static/js/manifest.79b86b6f2b52848d3421.js" defer="defer"></script>
+  <script type="text/javascript" src="./static/js/vendor1.30e353299956cb57bec3.js" defer="defer"></script>
+  <script type="text/javascript" src="./static/js/app.e1599cf50c8877aa6044.js" defer="defer"></script>
+</body>
+</html>

@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>六爻排盘界面紧凑化 UI 设计提案</title>
+<style>
+  :root {
+    --pf-bg: #f9f8f4;
+    --pf-surface: #ffffff;
+    --pf-card: #fcfbf9;
+    --pf-line: #e3ded6;
+    --pf-line-dark: #cfc8bd;
+    --pf-accent: #2c3e50;
+    --pf-clay: #8c5339;
+    --pf-clay-light: #f5eeea;
+    --pf-danger: #c0392b;
+    --pf-danger-light: #fdf2f1;
+    --pf-success: #2e7d32;
+    --pf-caption: #7f8c8d;
+    --pf-text: #2c3e50;
+    --pf-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --pf-serif: "Songti SC", "SimSun", "STSong", serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #eef2f5;
+    font-family: var(--pf-font);
+    color: var(--pf-text);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .header-banner {
+    width: 1200px;
+    background: var(--pf-surface);
+    border-radius: 12px;
+    padding: 24px 32px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 6px solid var(--pf-clay);
+  }
+  .header-banner h1 {
+    font-size: 22px;
+    color: var(--pf-accent);
+    margin-bottom: 6px;
+  }
+  .header-banner p {
+    font-size: 13px;
+    color: var(--pf-caption);
+  }
+  .header-tags {
+    display: flex;
+    gap: 10px;
+  }
+  .tag {
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 6px;
+    background: #f0f3f6;
+    color: var(--pf-accent);
+  }
+  .tag.active {
+    background: var(--pf-clay-light);
+    color: var(--pf-clay);
+    border: 1px solid var(--pf-clay);
+  }
+
+  /* 主对比网格 */
+  .grid-container {
+    width: 1200px;
+    display: grid;
+    grid-template-columns: 360px 400px 400px;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .phone-mockup {
+    background: var(--pf-surface);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    border: 1px solid var(--pf-line);
+    position: relative;
+  }
+
+  .mockup-header {
+    background: #faf8f5;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--pf-line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mockup-title {
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .badge-current {
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .badge-rec {
+    background: #dcfce7;
+    color: #166534;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  .badge-alt {
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  /* 模拟器内容区 */
+  .mockup-body {
+    padding: 12px 14px;
+    background: var(--pf-bg);
+  }
+
+  /* 卦头公共信息 */
+  .gua-meta-box {
+    background: var(--pf-surface);
+    border: 1px solid var(--pf-line);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    color: var(--pf-caption);
+    line-height: 1.6;
+  }
+  .gua-meta-box b {
+    color: var(--pf-accent);
+  }
+
+  /* 本卦/变卦名 */
+  .gua-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    padding: 8px 0;
+    border-bottom: 2px solid var(--pf-line-dark);
+    background: var(--pf-surface);
+    border-radius: 8px 8px 0 0;
+  }
+  .gua-header h3 {
+    font-size: 15px;
+    font-family: var(--pf-serif);
+    color: var(--pf-accent);
+    margin-bottom: 2px;
+  }
+  .gua-header small {
+    font-size: 10px;
+    color: var(--pf-caption);
+  }
+
+  /* 阴阳爻样式 */
+  .yao-bar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7px;
+    vertical-align: middle;
+  }
+  .yao-bar.yang {
+    background: var(--pf-accent);
+    border-radius: 2px;
+  }
+  .yao-bar.yin {
+    background: transparent;
+  }
+  .yao-bar.yin i {
+    width: 44%;
+    height: 100%;
+    background: var(--pf-accent);
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .moving-circle {
+    color: var(--pf-danger);
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 2px;
+  }
+  .moving-cross {
+    color: var(--pf-danger);
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 2px;
+  }
+
+  /* ==================== 1. 当前版本（松散堆叠） ==================== */
+  .current-row {
+    background: var(--pf-surface);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--pf-line);
+    min-height: 86px;
+    position: relative;
+  }
+  .current-half {
+    padding: 7px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .current-half:first-child {
+    border-right: 1px solid var(--pf-line);
+  }
+  .current-half.selected {
+    background: #fbf7ee;
+  }
+  .curr-status {
+    font-size: 9px;
+    color: var(--pf-danger);
+    min-height: 20px;
+    line-height: 1.25;
+  }
+  .curr-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  .curr-main strong { font-weight: 600; }
+  .curr-main .yao-bar { width: 30px; }
+  .curr-main .shiying { color: var(--pf-clay); font-size: 10px; font-weight: bold; }
+  .curr-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--pf-caption);
+  }
+  .curr-info .god { color: var(--pf-accent); font-weight: 500; }
+  .curr-fushen {
+    font-size: 9px;
+    color: var(--pf-clay);
+  }
+
+  /* ==================== 2. 方案 A：致密双行流（推荐） ==================== */
+  /* 单爻高度 44px！高密度、强对齐、易读 */
+  .compact-a-container {
+    background: var(--pf-surface);
+    border-left: 1px solid var(--pf-line);
+    border-right: 1px solid var(--pf-line);
+    border-bottom: 1px solid var(--pf-line);
+  }
+  .compact-a-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--pf-line);
+    height: 44px;
+    transition: background 0.15s;
+    cursor: pointer;
+  }
+  .compact-a-row:last-child {
+    border-bottom: none;
+  }
+  .compact-a-row:hover {
+    background: #faf7f2;
+  }
+  .compact-a-row.selected {
+    background: #fdf9f0;
+    box-shadow: inset 3px 0 0 var(--pf-clay);
+  }
+  .compact-a-half {
+    padding: 3px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1px;
+    overflow: hidden;
+  }
+  .compact-a-half:first-child {
+    border-right: 1px solid var(--pf-line);
+  }
+  /* 第一行：核心主爻行 */
+  .a-main-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .a-left-cluster {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .a-god {
+    font-size: 11px;
+    color: var(--pf-caption);
+    width: 22px;
+    font-weight: 500;
+  }
+  .a-role-ganzhi {
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    color: var(--pf-accent);
+  }
+  .a-elem {
+    font-size: 10px;
+    color: var(--pf-clay);
+  }
+  .a-right-cluster {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .a-yao-wrap {
+    width: 32px;
+  }
+  .a-shiying {
+    font-size: 10px;
+    color: var(--pf-clay);
+    font-weight: 700;
+    width: 12px;
+    text-align: center;
+  }
+  .a-mark {
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--pf-danger);
+    width: 12px;
+    text-align: center;
+  }
+  /* 第二行：评注与长生行 */
+  .a-sub-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 9.5px;
+    color: var(--pf-caption);
+    line-height: 14px;
+  }
+  .a-status-tag {
+    color: var(--pf-danger);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 110px;
+  }
+  .a-fushen-tag {
+    color: #b45309;
+    background: #fef3c7;
+    padding: 0 3px;
+    border-radius: 2px;
+    font-size: 9px;
+  }
+  .a-life-tag {
+    color: #64748b;
+  }
+
+  /* ==================== 3. 方案 B：传统贯通单行表（极致紧凑） ==================== */
+  /* 单爻高度仅 34px！如古籍卦台，一眼通览 */
+  .compact-b-container {
+    background: var(--pf-surface);
+    border: 1px solid var(--pf-line);
+    border-top: none;
+  }
+  .compact-b-row {
+    display: grid;
+    grid-template-columns: 28px 1fr 1fr;
+    border-bottom: 1px solid var(--pf-line);
+    height: 35px;
+    align-items: center;
+    padding: 0 4px;
+  }
+  .compact-b-row:last-child {
+    border-bottom: none;
+  }
+  .compact-b-row.selected {
+    background: #fbf7ee;
+  }
+  .b-god-col {
+    font-size: 11px;
+    color: var(--pf-caption);
+    font-weight: 500;
+    text-align: center;
+    border-right: 1px solid var(--pf-line);
+    padding-right: 2px;
+  }
+  .b-main-col {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+    font-size: 12px;
+  }
+  .b-main-col:first-of-type {
+    border-right: 1px dashed var(--pf-line);
+  }
+  .b-sub-badge {
+    font-size: 8.5px;
+    color: var(--pf-danger);
+    background: var(--pf-danger-light);
+    padding: 0 2px;
+    border-radius: 2px;
+    margin-left: 2px;
+  }
+
+  /* 尺寸标注与对比卡片 */
+  .spec-card {
+    margin-top: 12px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 12px 14px;
+    border: 1px solid var(--pf-line);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .spec-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #eee;
+  }
+  .spec-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .spec-item strong {
+    color: var(--pf-accent);
+  }
+  .diff-bad {
+    color: #e11d48;
+    font-weight: 600;
+  }
+  .diff-good {
+    color: #16a34a;
+    font-weight: 600;
+  }
+
+  /* 底部总结与设计逻辑说明 */
+  .design-rationale {
+    width: 1200px;
+    background: var(--pf-surface);
+    border-radius: 12px;
+    padding: 24px 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .rationale-block h4 {
+    font-size: 15px;
+    color: var(--pf-clay);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rationale-block p, .rationale-block li {
+    font-size: 12.5px;
+    color: #4b5563;
+    line-height: 1.65;
+  }
+  .rationale-block ul {
+    margin-left: 18px;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 顶部标题横幅 -->
+  <div class="header-banner">
+    <div>
+      <h1>六爻排盘界面“紧凑化重构”高保真 UI 对比设计稿</h1>
+      <p>基于当前模拟器真实卦例（案例1：火风鼎 之 火水未济）现场实测与对比设计</p>
+    </div>
+    <div class="header-tags">
+      <div class="tag">原版：89px/爻 (极度分散)</div>
+      <div class="tag active">方案A：44px/爻 (推荐·紧凑双行)</div>
+      <div class="tag">方案B：35px/爻 (极致·贯通单行)</div>
+    </div>
+  </div>
+
+  <!-- 主三列对比 -->
+  <div class="grid-container">
+
+    <!-- 1. 当前版本（问题剖析） -->
+    <div class="phone-mockup">
+      <div class="mockup-header">
+        <div class="mockup-title">
+          <span>当前原始布局</span>
+          <span class="badge-current">现状实测</span>
+        </div>
+        <span style="font-size:11px;color:#e11d48;font-weight:600;">总高 ~534px</span>
+      </div>
+      <div class="mockup-body">
+        <div class="gua-meta-box">
+          <b>公历 2026/03/17 11:20</b> 丙午年 辛卯月 戊申日 戊午时<br>
+          旬空：寅卯 (日空) · 月建：卯 · 日辰：申
+        </div>
+
+        <div class="gua-header">
+          <div>
+            <h3>火风鼎</h3>
+            <small>本卦 · 离宫火 · 二世</small>
+          </div>
+          <div>
+            <h3>火水未济</h3>
+            <small>变卦 · 离宫火 · 三世</small>
+          </div>
+        </div>
+
+        <!-- 当前 6 爻（高达 89px/爻） -->
+        <!-- 上九 -->
+        <div class="current-row">
+          <div class="current-half">
+            <div class="curr-status">月生 · 日长生</div>
+            <div class="curr-main">
+              <strong>兄弟巳火</strong>
+              <div class="yao-bar yang" style="width:28px;"></div>
+              <span class="shiying"></span>
+            </div>
+            <div class="curr-info"><span class="god">玄武</span><small>旺 · 临官</small></div>
+          </div>
+          <div class="current-half">
+            <div class="curr-status">静</div>
+            <div class="curr-main">
+              <strong>兄弟巳火</strong>
+              <div class="yao-bar yang" style="width:28px;"></div>
+            </div>
+            <div class="curr-info"><span class="god">玄武</span><small>旺 · 临官</small></div>
+          </div>
+        </div>
+
+        <!-- 六五 -->
+        <div class="current-row">
+          <div class="current-half">
+            <div class="curr-status">月克 · 日休</div>
+            <div class="curr-main">
+              <strong>子孙未土</strong>
+              <div class="yao-bar yin" style="width:28px;"><i></i><i></i></div>
+              <span class="shiying">应</span>
+            </div>
+            <div class="curr-info"><span class="god">白虎</span><small>休 · 沐浴</small></div>
+          </div>
+          <div class="current-half">
+            <div class="curr-status">静</div>
+            <div class="curr-main">
+              <strong>子孙未土</strong>
+              <div class="yao-bar yin" style="width:28px;"><i></i><i></i></div>
+            </div>
+            <div class="curr-info"><span class="god">白虎</span><small>休 · 沐浴</small></div>
+          </div>
+        </div>
+
+        <!-- 九四 -->
+        <div class="current-row">
+          <div class="current-half">
+            <div class="curr-status">月破 · 日比</div>
+            <div class="curr-main">
+              <strong>妻财酉金</strong>
+              <div class="yao-bar yang" style="width:28px;"></div>
+              <span class="shiying"></span>
+            </div>
+            <div class="curr-info"><span class="god">螣蛇</span><small>囚 · 帝旺</small></div>
+          </div>
+          <div class="current-half">
+            <div class="curr-status">静</div>
+            <div class="curr-main">
+              <strong>妻财酉金</strong>
+              <div class="yao-bar yang" style="width:28px;"></div>
+            </div>
+            <div class="curr-info"><span class="god">螣蛇</span><small>囚 · 帝旺</small></div>
+          </div>
+        </div>
+
+        <!-- 九三（动爻） -->
+        <div class="current-row">
+          <div class="current-half selected">
+            <div class="curr-status">月冲 · 动化回头生</div>
+            <div class="curr-main">
+              <strong style="color:var(--pf-clay);">妻财酉金</strong>
+              <div class="yao-bar yang" style="width:28px;background:var(--pf-danger);"></div>
+              <span class="moving-circle">○</span>
+            </div>
+            <div class="curr-info"><span class="god">勾陈</span><small>囚 · 帝旺</small></div>
+          </div>
+          <div class="current-half">
+            <div class="curr-status">变出回头生</div>
+            <div class="curr-main">
+              <strong>父母午火</strong>
+              <div class="yao-bar yin" style="width:28px;"><i></i><i></i></div>
+            </div>
+            <div class="curr-info"><span class="god">勾陈</span><small>旺 · 病</small></div>
+          </div>
+        </div>
+
+        <!-- 九二 -->
+        <div class="current-row">
+          <div class="current-half">
+            <div class="curr-status">月死 · 日生</div>
+            <div class="curr-main">
+              <strong>官鬼亥水</strong>
+              <div class="yao-bar yang" style="width:28px;"></div>
+              <span class="shiying"></span>
+            </div>
+            <div class="curr-info"><span class="god">朱雀</span><small>休 · 长生</small></div>
+          </div>
+          <div class="current-half">
+            <div class="curr-status">静</div>
+            <div class="curr-main">
+              <strong>官鬼亥水</strong>
+              <div class="yao-bar yang" style="width:28px;"></div>
+            </div>
+            <div class="curr-info"><span class="god">朱雀</span><small>休 · 长生</small></div>
+          </div>
+        </div>
+
+        <!-- 初六 -->
+        <div class="current-row">
+          <div class="current-half">
+            <div class="curr-status">月克 · 日休</div>
+            <div class="curr-main">
+              <strong>子孙丑土</strong>
+              <div class="yao-bar yin" style="width:28px;"><i></i><i></i></div>
+              <span class="shiying">世</span>
+            </div>
+            <div class="curr-info"><span class="god">青龙</span><small>死 · 墓</small></div>
+            <div class="curr-fushen">伏 父母卯木 ▅▅ ▅▅</div>
+          </div>
+          <div class="current-half">
+            <div class="curr-status">静</div>
+            <div class="curr-main">
+              <strong>子孙丑土</strong>
+              <div class="yao-bar yin" style="width:28px;"><i></i><i></i></div>
+            </div>
+            <div class="curr-info"><span class="god">青龙</span><small>死 · 墓</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-card">
+        <div class="spec-item"><span>单爻高度</span><span class="diff-bad">89px (过大)</span></div>
+        <div class="spec-item"><span>六爻总高度</span><span class="diff-bad">534px (占满且需滚动)</span></div>
+        <div class="spec-item"><span>信息层级</span><span>4 行垂直散落，眼球跳跃</span></div>
+        <div class="spec-item"><span>卦象连贯感</span><span>爻符断裂，整体形散</span></div>
+      </div>
+    </div>
+
+
+    <!-- 2. 方案 A：专业致密双行流（推荐！） -->
+    <div class="phone-mockup" style="border: 2px solid var(--pf-clay);">
+      <div class="mockup-header" style="background:#fdfaf6;">
+        <div class="mockup-title">
+          <span style="color:var(--pf-clay);">方案 A：专业致密双行流</span>
+          <span class="badge-rec">强烈推荐</span>
+        </div>
+        <span style="font-size:11px;color:#16a34a;font-weight:700;">总高仅 264px (-51%)</span>
+      </div>
+      <div class="mockup-body">
+        <div class="gua-meta-box">
+          <b>丙午年 辛卯月 戊申日 戊午时</b> (日空: 寅卯)<br>
+          月建：卯木 · 日辰：申金 · 旺相休囚：木旺火相
+        </div>
+
+        <div class="gua-header">
+          <div>
+            <h3>火风鼎</h3>
+            <small>本卦 · 离宫火 · 二世</small>
+          </div>
+          <div>
+            <h3>火水未济</h3>
+            <small>变卦 · 离宫火 · 三世</small>
+          </div>
+        </div>
+
+        <div class="compact-a-container">
+
+          <!-- 上九 -->
+          <div class="compact-a-row">
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god">玄武</span>
+                  <span class="a-role-ganzhi">兄弟巳火</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yang a-yao-wrap"></span>
+                  <span class="a-mark"></span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">旺 · 临官</span>
+                <span class="a-status-tag">月生·日长生</span>
+              </div>
+            </div>
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god" style="color:#a0aec0;">玄武</span>
+                  <span class="a-role-ganzhi" style="color:#64748b;">兄弟巳火</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yang a-yao-wrap" style="opacity:0.75;"></span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">静爻</span>
+                <span style="color:#94a3b8;">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 六五 -->
+          <div class="compact-a-row">
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god">白虎</span>
+                  <span class="a-role-ganzhi">子孙未土</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yin a-yao-wrap"><i></i><i></i></span>
+                  <span class="a-mark"></span>
+                  <span class="a-shiying">应</span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">休 · 沐浴</span>
+                <span class="a-status-tag">月克·日休</span>
+              </div>
+            </div>
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god" style="color:#a0aec0;">白虎</span>
+                  <span class="a-role-ganzhi" style="color:#64748b;">子孙未土</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yin a-yao-wrap" style="opacity:0.75;"><i></i><i></i></span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">静爻</span>
+                <span style="color:#94a3b8;">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 九四 -->
+          <div class="compact-a-row">
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god">螣蛇</span>
+                  <span class="a-role-ganzhi">妻财酉金</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yang a-yao-wrap"></span>
+                  <span class="a-mark"></span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">囚 · 帝旺</span>
+                <span class="a-status-tag">月破·日比</span>
+              </div>
+            </div>
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god" style="color:#a0aec0;">螣蛇</span>
+                  <span class="a-role-ganzhi" style="color:#64748b;">妻财酉金</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yang a-yao-wrap" style="opacity:0.75;"></span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">静爻</span>
+                <span style="color:#94a3b8;">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 九三（动爻） -->
+          <div class="compact-a-row selected">
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god" style="color:var(--pf-clay);font-weight:700;">勾陈</span>
+                  <span class="a-role-ganzhi" style="color:var(--pf-danger);font-weight:700;">妻财酉金</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yang a-yao-wrap" style="background:var(--pf-danger);"></span>
+                  <span class="a-mark">○</span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">囚 · 帝旺</span>
+                <span class="a-status-tag" style="font-weight:bold;">月冲·动化回头生</span>
+              </div>
+            </div>
+            <div class="compact-a-half" style="background:#fffcf7;">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god">勾陈</span>
+                  <span class="a-role-ganzhi" style="color:var(--pf-clay);font-weight:600;">父母午火</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yin a-yao-wrap" style="background:transparent;"><i style="background:var(--pf-danger);"></i><i style="background:var(--pf-danger);"></i></span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">旺 · 病</span>
+                <span class="a-status-tag">变出回头生</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 九二 -->
+          <div class="compact-a-row">
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god">朱雀</span>
+                  <span class="a-role-ganzhi">官鬼亥水</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yang a-yao-wrap"></span>
+                  <span class="a-mark"></span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">休 · 长生</span>
+                <span class="a-status-tag">月死·日生</span>
+              </div>
+            </div>
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god" style="color:#a0aec0;">朱雀</span>
+                  <span class="a-role-ganzhi" style="color:#64748b;">官鬼亥水</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yang a-yao-wrap" style="opacity:0.75;"></span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">静爻</span>
+                <span style="color:#94a3b8;">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 初六 -->
+          <div class="compact-a-row">
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god">青龙</span>
+                  <span class="a-role-ganzhi">子孙丑土</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yin a-yao-wrap"><i></i><i></i></span>
+                  <span class="a-mark"></span>
+                  <span class="a-shiying">世</span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-fushen-tag">伏 卯木父母</span>
+                <span class="a-status-tag">月克·日休</span>
+              </div>
+            </div>
+            <div class="compact-a-half">
+              <div class="a-main-line">
+                <div class="a-left-cluster">
+                  <span class="a-god" style="color:#a0aec0;">青龙</span>
+                  <span class="a-role-ganzhi" style="color:#64748b;">子孙丑土</span>
+                </div>
+                <div class="a-right-cluster">
+                  <span class="yao-bar yin a-yao-wrap" style="opacity:0.75;"><i></i><i></i></span>
+                  <span class="a-shiying"></span>
+                </div>
+              </div>
+              <div class="a-sub-line">
+                <span class="a-life-tag">静爻</span>
+                <span style="color:#94a3b8;">—</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="spec-card">
+        <div class="spec-item"><span>单爻高度</span><span class="diff-good">44px (减少 51%)</span></div>
+        <div class="spec-item"><span>六爻总高度</span><span class="diff-good">264px (一屏尽收眼底)</span></div>
+        <div class="spec-item"><span>信息整合</span><span>主行(干支爻象) + 辅行(评注长生)</span></div>
+        <div class="spec-item"><span>伏神处理</span><span>内嵌初爻副行胶囊徽标，不占单行</span></div>
+      </div>
+    </div>
+
+
+    <!-- 3. 方案 B：传统贯通单行流（极致紧凑） -->
+    <div class="phone-mockup">
+      <div class="mockup-header">
+        <div class="mockup-title">
+          <span>方案 B：传统贯通单行流</span>
+          <span class="badge-alt">极简极致</span>
+        </div>
+        <span style="font-size:11px;color:#0284c7;font-weight:700;">总高 210px (-61%)</span>
+      </div>
+      <div class="mockup-body">
+        <div class="gua-meta-box">
+          <b>丙午年 辛卯月 戊申日 戊午时</b> (日空: 寅卯)<br>
+          火风鼎 之 火水未济 (二世化三世)
+        </div>
+
+        <div class="gua-header" style="grid-template-columns: 28px 1fr 1fr;">
+          <div style="font-size:11px;color:var(--pf-caption);line-height:30px;">六神</div>
+          <div><h3>本卦·鼎</h3></div>
+          <div><h3>变卦·未济</h3></div>
+        </div>
+
+        <div class="compact-b-container">
+          <!-- 上九 -->
+          <div class="compact-b-row">
+            <div class="b-god-col">玄武</div>
+            <div class="b-main-col">
+              <span>兄弟巳火</span>
+              <div class="yao-bar yang" style="width:26px;"></div>
+              <span style="font-size:9px;color:#64748b;">旺</span>
+            </div>
+            <div class="b-main-col">
+              <div class="yao-bar yang" style="width:26px;opacity:0.7;"></div>
+              <span style="color:#64748b;">兄弟巳火</span>
+            </div>
+          </div>
+
+          <!-- 六五 -->
+          <div class="compact-b-row">
+            <div class="b-god-col">白虎</div>
+            <div class="b-main-col">
+              <span>子孙未土 <b style="color:var(--pf-clay);font-size:10px;">应</b></span>
+              <div class="yao-bar yin" style="width:26px;"><i></i><i></i></div>
+              <span style="font-size:9px;color:#64748b;">休</span>
+            </div>
+            <div class="b-main-col">
+              <div class="yao-bar yin" style="width:26px;opacity:0.7;"><i></i><i></i></div>
+              <span style="color:#64748b;">子孙未土</span>
+            </div>
+          </div>
+
+          <!-- 九四 -->
+          <div class="compact-b-row">
+            <div class="b-god-col">螣蛇</div>
+            <div class="b-main-col">
+              <span>妻财酉金 <span class="b-sub-badge">月破</span></span>
+              <div class="yao-bar yang" style="width:26px;"></div>
+              <span style="font-size:9px;color:#64748b;">囚</span>
+            </div>
+            <div class="b-main-col">
+              <div class="yao-bar yang" style="width:26px;opacity:0.7;"></div>
+              <span style="color:#64748b;">妻财酉金</span>
+            </div>
+          </div>
+
+          <!-- 九三（动） -->
+          <div class="compact-b-row selected">
+            <div class="b-god-col" style="color:var(--pf-clay);font-weight:bold;">勾陈</div>
+            <div class="b-main-col">
+              <span style="color:var(--pf-danger);font-weight:600;">妻财酉金 <span class="b-sub-badge">动</span></span>
+              <div class="yao-bar yang" style="width:26px;background:var(--pf-danger);"></div>
+              <span style="color:var(--pf-danger);font-weight:bold;font-size:12px;">○</span>
+            </div>
+            <div class="b-main-col" style="background:#fffcf7;">
+              <div class="yao-bar yin" style="width:26px;"><i style="background:var(--pf-danger);"></i><i style="background:var(--pf-danger);"></i></div>
+              <span style="color:var(--pf-danger);font-weight:600;">父母午火</span>
+            </div>
+          </div>
+
+          <!-- 九二 -->
+          <div class="compact-b-row">
+            <div class="b-god-col">朱雀</div>
+            <div class="b-main-col">
+              <span>官鬼亥水</span>
+              <div class="yao-bar yang" style="width:26px;"></div>
+              <span style="font-size:9px;color:#64748b;">生</span>
+            </div>
+            <div class="b-main-col">
+              <div class="yao-bar yang" style="width:26px;opacity:0.7;"></div>
+              <span style="color:#64748b;">官鬼亥水</span>
+            </div>
+          </div>
+
+          <!-- 初六 -->
+          <div class="compact-b-row">
+            <div class="b-god-col">青龙</div>
+            <div class="b-main-col">
+              <span>子孙丑土 <b style="color:var(--pf-clay);font-size:10px;">世</b></span>
+              <div class="yao-bar yin" style="width:26px;"><i></i><i></i></div>
+              <span style="font-size:9px;color:#b45309;">伏卯</span>
+            </div>
+            <div class="b-main-col">
+              <div class="yao-bar yin" style="width:26px;opacity:0.7;"><i></i><i></i></div>
+              <span style="color:#64748b;">子孙丑土</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="spec-card">
+        <div class="spec-item"><span>单爻高度</span><span class="diff-good">35px (减少 61%)</span></div>
+        <div class="spec-item"><span>六爻总高度</span><span class="diff-good">210px (极致致密)</span></div>
+        <div class="spec-item"><span>经典排盘感</span><span>贯通三列单行，古法卦台风</span></div>
+        <div class="spec-item"><span>适用场景</span><span>追求最纯粹易学看卦速度、少看繁杂长文</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 底部系统设计阐述 -->
+  <div class="design-rationale">
+    <div class="rationale-block">
+      <h4>💡 1. 痛点根因与空间重构</h4>
+      <p>目前版本强制设置了 <code>min-height: 87px</code>，并将【状态评注】、【干支主爻】、【六神旺衰】、【伏神】4 项内容纵向单行死板堆叠，导致单爻高度虚高、爻与爻断裂，整卦被拉长到 530px+，一屏看不全。</p>
+      <ul>
+        <li><b>空间压缩率达 51%~61%</b>：将单爻高度从 89px 压缩至 <b>44px（方案A）</b> 或 <b>35px（方案B）</b>。</li>
+        <li><b>整卦完整入屏</b>：六爻总高度由 534px 骤降至 <b>264px</b>，起卦信息、本变两卦、用神判定免滚动一屏总览。</li>
+      </ul>
+    </div>
+
+    <div class="rationale-block">
+      <h4>📐 2. 方案 A（推荐）致密双行结构</h4>
+      <p>兼顾信息完备度与移动端触控易读性，分为主辅双行：</p>
+      <ul>
+        <li><b>主行（高 24px）</b>：【六神】+【六亲干支】+【爻象符号 ▅▅▅/▅▅ ▅▅】+【动爻标记 ○/×】+【世应】横向等距排列。</li>
+        <li><b>辅行（高 16px）</b>：【旺衰长生】+【月破/日冲/回头生等生克微注】，以弱色（9.5px）紧贴下方，主次分明。</li>
+        <li><b>伏神微徽标</b>：初爻伏神直接内嵌于辅行左侧，显示如 <code>[伏 卯木父母]</code>，彻底消灭额外撑高的空行。</li>
+      </ul>
+    </div>
+
+    <div class="rationale-block">
+      <h4>🎯 3. 视觉与交互体验优化</h4>
+      <p>强化六爻“聚气成象”与用神判读体验：</p>
+      <ul>
+        <li><b>爻象符号加粗居中</b>：本卦与变卦的阴阳爻象严密对应，垂直间隙收缩至 4px，一眼清晰辨认“鼎”与“未济”卦形。</li>
+        <li><b>动爻视觉焦点</b>：动爻整行采用柔和朱红/暖色背景，○阳动 / ×阴动 明确醒目，变出之爻同步暖色提示。</li>
+        <li><b>用神点选反馈</b>：点击单爻整体触发用神切换，行高适中且有轻微内凹边线反馈（<code>inset 3px var(--pf-clay)</code>）。</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
