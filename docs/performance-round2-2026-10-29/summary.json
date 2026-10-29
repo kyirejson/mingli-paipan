@@ -1,0 +1,153 @@
+{
+  "before": {
+    "resultReadyMs": [
+      3071,
+      909
+    ],
+    "initialDOM": [
+      1328,
+      1328
+    ],
+    "quizLoadedOnHome": [
+      true,
+      true
+    ],
+    "readerRequestsBeforeInteraction": [
+      80,
+      66
+    ],
+    "firstVisitUpdateLayoutMs": {
+      "ziwei": [
+        22.900000005960464,
+        3.5999999940395355
+      ],
+      "qimen": [
+        295.29999999701977,
+        76.60000000149012
+      ],
+      "liuyao": [
+        386.6000000014901,
+        38
+      ],
+      "meihua": [
+        1021,
+        12.600000001490116
+      ]
+    },
+    "repeatUpdateLayoutMs": [
+      [
+        9.799999997019768,
+        19.600000001490116,
+        14.799999997019768,
+        17.200000002980232,
+        10
+      ],
+      [
+        7.100000001490116,
+        6.600000001490116,
+        11.600000001490116,
+        12.799999997019768,
+        10.200000002980232
+      ]
+    ],
+    "raf": [
+      {
+        "median": 8.399999999997817,
+        "p95": 166.70000000000073,
+        "max": 1358.3999999999978
+      },
+      {
+        "median": 8.300000000001091,
+        "p95": 16.69999999999891,
+        "max": 133.30000000000018
+      }
+    ],
+    "consoleOrRuntimeErrors": [
+      0,
+      1
+    ]
+  },
+  "after": {
+    "resultReadyMs": [
+      605,
+      801
+    ],
+    "initialDOM": [
+      1328,
+      1328
+    ],
+    "quizLoadedOnHome": [
+      false,
+      false
+    ],
+    "readerRequestsBeforeInteraction": [
+      0,
+      0
+    ],
+    "firstVisitUpdateLayoutMs": {
+      "ziwei": [
+        2.600000001490116,
+        7.600000001490116
+      ],
+      "qimen": [
+        9.399999998509884,
+        9.900000005960464
+      ],
+      "liuyao": [
+        14.900000005960464,
+        16.100000001490116
+      ],
+      "meihua": [
+        9.600000001490116,
+        9.599999994039536
+      ]
+    },
+    "repeatUpdateLayoutMs": [
+      [
+        9.299999997019768,
+        1.3999999985098839,
+        1.5,
+        13.899999998509884,
+        1.3000000044703484
+      ],
+      [
+        2.2000000029802322,
+        4.200000002980232,
+        1.8000000044703484,
+        1.3999999985098839,
+        1.5
+      ]
+    ],
+    "raf": [
+      {
+        "median": 8.300000000000182,
+        "p95": 8.5,
+        "max": 33.399999999999636
+      },
+      {
+        "median": 8.300000000000182,
+        "p95": 8.5,
+        "max": 50.100000000000364
+      }
+    ],
+    "consoleOrRuntimeErrors": [
+      0,
+      0
+    ]
+  },
+  "environment": {
+    "baseline": "d5d3435",
+    "browser": "Chrome/140.0.7339.210",
+    "cpuSlowdown": 4,
+    "viewport": "430x932",
+    "birth": "2026-10-29 12:00",
+    "android": false,
+    "caveats": [
+      "Only two reload samples per build; no guaranteed percent improvement",
+      "Update-layout timing excludes scheduled animation and display presentation",
+      "System date not frozen; measurements crossed Oct 29/30",
+      "First baseline run and repeat differ substantially; JIT/network/background activity not fully controlled",
+      "Ziwei was prewarmed in these final samples; not a cold Ziwei first-use measurement"
+    ]
+  }
+}

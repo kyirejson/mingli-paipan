@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checks": [
+    "no quiz or reader loading on chart creation",
+    "reader opens on request",
+    "Qintian arrow dimensions",
+    "actual touch swipe",
+    "latest rapid selection wins",
+    "quiz actual lesson and question UI",
+    "quiz loaded once per document",
+    "failed resource returns 503 and retries successfully"
+  ],
+  "arrow": {
+    "viewBox": "0 0 399 537.796875",
+    "heads": 9
+  },
+  "questions": 63,
+  "errors": []
+}

@@ -4,7 +4,7 @@
   "private": true,
   "description": "Recovered app assets with explicit APK reconstruction tooling",
   "scripts": {
-    "test": "node --test tests/divination-regression.cjs tests/divination-exhaustive.cjs tests/divination-extended.cjs tests/reliability-regression.cjs tests/ziwei-performance-regression.cjs",
+    "test": "node --test tests/divination-regression.cjs tests/divination-exhaustive.cjs tests/divination-extended.cjs tests/reliability-regression.cjs tests/ziwei-performance-regression.cjs tests/loading-interaction-regression.cjs",
     "preview": "python scripts/dev-server.py"
   },
   "engines": { "node": ">=22" }

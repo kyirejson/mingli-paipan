@@ -821,7 +821,7 @@
           var index = order.indexOf(this.active);
           if (index === -1) index = 0;
           return {
-            transform: "translateX(" + -(index * 20) + "%)",
+            transform: "translate3d(" + -(index * 20) + "%, 0, 0)",
             transition: "none"
           };
         }
@@ -836,6 +836,8 @@
         this._slideTimer = null;
         this._prepareTimer = null;
         this._prepareIdle = null;
+        this._mountFrame = null;
+        this._slideRequest = 0;
         this.$watch(function() {
           var i = this.owner.infoData;
           return [this.owner.$route.fullPath, this.owner.chartPending, i && i.solarTime, i && i.sunTime, i && i.strSunTime, i && i.sex, this.owner.caseGuid, ui.flow].join("|");
@@ -847,6 +849,8 @@
       beforeDestroy: function() {
         this._cache.clear();
         if (this._rafId) cancelAnimationFrame(this._rafId);
+        if (this._mountFrame) cancelAnimationFrame(this._mountFrame);
+        this._slideRequest++;
         clearTimeout(this._slideTimer);
         if (this._prepareIdle && global.cancelIdleCallback) global.cancelIdleCallback(this._prepareIdle);
         clearTimeout(this._prepareTimer);
@@ -898,11 +902,12 @@
             self._prepareTimer=null;
             if(self._isDestroyed||!self.session||document.hidden)return;
             if(self._isDragging||self._slideTimer){self.prepareNextPane();return;}
-            var order=ui.preferences.order,index=order.indexOf(self.active),next=order[(index+1)%order.length];
+            var session=self.session,active=self.active,order=ui.preferences.order,index=order.indexOf(active),next=order[(index+1)%order.length];
             if(!next||self.renderedTabs[next])return;
             function prepare(deadline){
               self._prepareIdle=null;
               if(self._isDestroyed||document.hidden)return;
+              if(self.session!==session||self.active!==active||self._mountFrame){self.prepareNextPane();return;}
               if(self._isDragging||self._slideTimer||(deadline&&deadline.timeRemaining()<8)){self.prepareNextPane();return;}
               V.set(self.renderedTabs,next,true);
             }
@@ -916,7 +921,7 @@
           this._slideTimer = null;
           if (track) {
             track.style.transition = 'none';
-            track.style.transform = 'translateX(' + -(ui.preferences.order.indexOf(this.active)*20) + '%)';
+            track.style.transform = 'translate3d(' + -(ui.preferences.order.indexOf(this.active)*20) + '%, 0, 0)';
           }
           this.prepareNextPane();
         },
@@ -924,6 +929,8 @@
           var o = this.owner, i = o.infoData;
           if (o.isComp || !/^\/main\/paipan(?:$|[/?])/.test(o.$route.path)) return;
           if (o.chartPending) {
+            if(this._mountFrame){cancelAnimationFrame(this._mountFrame);this._mountFrame=null;}
+            this._slideRequest++;
             this.session = null;
             this.sourceKey = '';
             this.active = ui.preferences.defaultChart;
@@ -935,6 +942,8 @@
           if (!time.includes(" ")) time += " 00:00";
           var guid = o.caseGuid || "", key = [guid, time, i.sex, ui.flow].join("|");
           if (key === this.sourceKey) return;
+          if(this._mountFrame){cancelAnimationFrame(this._mountFrame);this._mountFrame=null;}
+          this._slideRequest++;
           this.sourceKey = key;
           this.assistantOpen=false;this.assistantMessages=[];this.assistantQuestion='';this.assistantError='';this.assistantBusy=false;
           var existing = sessions.get(key);
@@ -975,27 +984,44 @@
         },
         slideTo: function(index) {
           if (this._rafId) { cancelAnimationFrame(this._rafId); this._rafId = null; }
+          if (this._mountFrame) { cancelAnimationFrame(this._mountFrame); this._mountFrame = null; }
+          clearTimeout(this._prepareTimer);
+          if(this._prepareIdle&&global.cancelIdleCallback)global.cancelIdleCallback(this._prepareIdle);
+          this._prepareIdle=null;
+          clearTimeout(this._slideTimer);
+          this._slideTimer=null;
+          var self=this,request=++this._slideRequest;
           var order = ui.preferences.order;
           index = Math.max(0, Math.min(order.length - 1, index));
           var targetTab = order[index];
-          if (!this.renderedTabs[targetTab]) {
+          var needsMount=!this.renderedTabs[targetTab];
+          if (needsMount) {
             V.set(this.renderedTabs, targetTab, true);
           }
           this._dragOffset = 0;
           this._isDragging = false;
-          var track = this.$refs.sliderTrack;
-          var basePercent = -(index * 20);
-          if (track) {
-            track.style.transition = "transform 0.22s cubic-bezier(0.22, 1, 0.36, 1)";
-            track.style.transform = "translate3d(" + basePercent + "%, 0, 0)";
+          function beginSlide() {
+            if(self._isDestroyed||request!==self._slideRequest)return;
+            self._mountFrame=null;
+            var track=self.$refs.sliderTrack;
+            if(track){
+              track.style.transition="transform 0.22s cubic-bezier(0.22, 1, 0.36, 1)";
+              track.style.transform="translate3d("+-(index*20)+"%, 0, 0)";
+            }
+            self.active=targetTab;
+            ui.active=targetTab;
+            self._slideTimer=setTimeout(function(){self.settleSlide();},280);
           }
-          this.active = targetTab;
-          ui.active = targetTab;
-          var self = this;
-          clearTimeout(this._slideTimer);
-          this._slideTimer = setTimeout(function() {
-            self.settleSlide();
-          }, 280);
+          if(needsMount){
+            // Let Vue mount and the browser paint the target before starting its animation.
+            this.$nextTick(function(){
+              if(self._isDestroyed||request!==self._slideRequest)return;
+              self._mountFrame=requestAnimationFrame(function(){
+                if(self._isDestroyed||request!==self._slideRequest)return;
+                self._mountFrame=requestAnimationFrame(beginSlide);
+              });
+            });
+          }else beginSlide();
         },
         change: function(type) {
           var order = ui.preferences.order;
@@ -1006,6 +1032,11 @@
         },
         touchStart: function(e) {
           if (ui.popup || e.touches.length !== 1 || e.target.closest("input,textarea,select,.fa-choices,.fa-flow-row,.tab_block,.fa-sort-list,.navigation-foot")) return;
+          clearTimeout(this._prepareTimer);
+          if(this._prepareIdle&&global.cancelIdleCallback)global.cancelIdleCallback(this._prepareIdle);
+          this._prepareIdle=null;
+          if(this._mountFrame){cancelAnimationFrame(this._mountFrame);this._mountFrame=null;}
+          this._slideRequest++;
           this._touch = { startX: e.touches[0].clientX, startY: e.touches[0].clientY, time: Date.now(), direction: null };
           this._dragOffset = 0;
           this._isDragging = false;
@@ -1020,11 +1051,6 @@
                 this._isDragging = true;
                 clearTimeout(this._slideTimer);
                 this._slideTimer = null;
-                var order = ui.preferences.order, curIdx = order.indexOf(this.active);
-                var adj = dx < 0 ? curIdx + 1 : curIdx - 1;
-                if (adj >= 0 && adj < order.length && !this.renderedTabs[order[adj]]) {
-                  V.set(this.renderedTabs, order[adj], true);
-                }
               } else {
                 this._touch.direction = "vertical";
               }

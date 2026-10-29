@@ -1314,15 +1314,27 @@
     return origDispatch(cfg);
   }
 
-  window.__WZBZ_AXIOS_INTERCEPT__ = function(cfg, origDispatch) {
+  function localDispatchFailure(cfg, error) {
+    if (!error.localCode) return Promise.reject(error);
+    error.isAxiosError = true;
+    error.config = cfg;
+    error.response = { status:error.localCode, config:cfg, data:{ code:error.localCode, data:null, isSuccess:false, message:error.message, localOnly:true } };
+    return Promise.reject(error);
+  }
+  function runLocalDispatch(cfg, origDispatch) {
     try { return dispatchLocal(cfg, origDispatch); }
-    catch (error) {
-      if (!error.localCode) return Promise.reject(error);
-      error.isAxiosError = true;
-      error.config = cfg;
-      error.response = { status:error.localCode, config:cfg, data:{ code:error.localCode, data:null, isSuccess:false, message:error.message, localOnly:true } };
-      return Promise.reject(error);
+    catch (error) { return localDispatchFailure(cfg, error); }
+  }
+  window.__WZBZ_AXIOS_INTERCEPT__ = function(cfg, origDispatch) {
+    var url = String(cfg && cfg.url || '');
+    if (!window.__WZBZ_TILIN_ALL__ && ['getQuestionsOfLevel', 'getQuestions.php', 'postSubmitLevel'].some(function(path) { return url.indexOf(path) >= 0; })) {
+      return window.WZBZAssets.ensure('quiz').then(function() {
+        return runLocalDispatch(cfg, origDispatch);
+      }, function() {
+        return localDispatchFailure(cfg, localError(503, '题库加载失败，请重试'));
+      });
     }
+    return runLocalDispatch(cfg, origDispatch);
   };
 
   // Intercept window.fetch for static/data/<year>-<month>.json (加减日时 JJRS calendar grid)

@@ -1,0 +1,11 @@
+{
+  "file": "release\\android\\zaohua-v1.0.11.apk",
+  "bytes": 36144258,
+  "sha256": "60db711a87c702636fedeb4b02fc6b08b04773f3545ccdc8b9f99ce3e2f9fe3b",
+  "version": {
+    "version": "1.0.11",
+    "versionCode": 12,
+    "repository": "https://github.com/kyirejson/mingli-paipan"
+  },
+  "verifiedChangedAssets": 7
+}

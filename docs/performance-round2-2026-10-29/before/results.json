@@ -1,0 +1,1323 @@
+{
+  "environment": {
+    "browser": "Chrome/140.0.7339.210",
+    "cpuSlowdown": 4,
+    "viewport": "430x932",
+    "android": false
+  },
+  "origin": "http://localhost:9989",
+  "home": {
+    "paint": [
+      {
+        "name": "first-paint",
+        "start": 2528
+      },
+      {
+        "name": "first-contentful-paint",
+        "start": 5236
+      }
+    ],
+    "dom": 151,
+    "quizLoaded": true
+  },
+  "resultReadyMs": 3071,
+  "initial": {
+    "panes": [
+      "bazi",
+      "ziwei"
+    ],
+    "dom": 1328,
+    "long": [
+      {
+        "start": 787.7000000029802,
+        "duration": 186
+      },
+      {
+        "start": 1390.7000000029802,
+        "duration": 54
+      },
+      {
+        "start": 1446.8000000044703,
+        "duration": 68
+      },
+      {
+        "start": 1729.5,
+        "duration": 699
+      },
+      {
+        "start": 2470.4000000059605,
+        "duration": 53
+      },
+      {
+        "start": 2766.4000000059605,
+        "duration": 153
+      },
+      {
+        "start": 2929.60000000149,
+        "duration": 1003
+      },
+      {
+        "start": 3951.3000000044703,
+        "duration": 91
+      },
+      {
+        "start": 4099.5,
+        "duration": 1023
+      },
+      {
+        "start": 5673.60000000149,
+        "duration": 1750
+      },
+      {
+        "start": 7479.60000000149,
+        "duration": 236
+      },
+      {
+        "start": 8018.20000000298,
+        "duration": 1473
+      },
+      {
+        "start": 9630.80000000447,
+        "duration": 115
+      },
+      {
+        "start": 9748.30000000447,
+        "duration": 495
+      },
+      {
+        "start": 10245.20000000298,
+        "duration": 273
+      }
+    ],
+    "iframes": [
+      {
+        "src": "./static/newguji/index.html?nightMode=1&t=1793288064103",
+        "ancestors": [
+          {
+            "tag": "IFRAME",
+            "cls": "",
+            "display": "inline",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              13,
+              844.28125,
+              404,
+              1080
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "book-container-content",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              13,
+              844.28125,
+              404,
+              1085.015625
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "book-container",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              13,
+              844.28125,
+              404,
+              1085.015625
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "smart-book-box",
+            "display": "flex",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              13,
+              844.28125,
+              404,
+              1085.015625
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "tab_box_wrapper_container_tab02_second",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              12,
+              373.625,
+              406,
+              1556.671875
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "tab_box_wrapper",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              144,
+              430,
+              1786.296875
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "swiper-item van-swipe-item",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              136,
+              430,
+              732
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "van-swipe__track",
+            "display": "flex",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              -430,
+              136,
+              1720,
+              732
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "wzbz_main_wrapper van-swipe",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              932
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "wzbz_container",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              932
+            ]
+          },
+          {
+            "tag": "SECTION",
+            "cls": "inner",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              932
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "yo-scroll card-box",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              932
+            ]
+          }
+        ]
+      },
+      {
+        "src": "",
+        "ancestors": [
+          {
+            "tag": "IFRAME",
+            "cls": "",
+            "display": "none",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "bzpp-dialog-box",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "bzpp-dialog-popup van-popup van-popup--round van-popup--bottom van-popup--safe-area-inset-bottom",
+            "display": "none",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "bzpp-dialog-root",
+            "display": "flex",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              -860,
+              -1864,
+              430,
+              932
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              0
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "fa-legacy",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              932
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "fa-slide-pane fa-slide-bazi",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              932
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "fa-slider-track",
+            "display": "flex",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              2150,
+              932
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "fa-slider-wrapper",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              932
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "fa-result-host fa-active-bazi",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              932
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "Router",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              932
+            ]
+          },
+          {
+            "tag": "DIV",
+            "cls": "",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "rect": [
+              0,
+              0,
+              430,
+              0
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "switches": [
+    {
+      "kind": "ziwei",
+      "wasMounted": true,
+      "updateLayoutMs": 22.900000005960464,
+      "nodes": 802,
+      "width": 430
+    },
+    {
+      "kind": "qimen",
+      "wasMounted": false,
+      "updateLayoutMs": 295.29999999701977,
+      "nodes": 171,
+      "width": 430
+    },
+    {
+      "kind": "liuyao",
+      "wasMounted": false,
+      "updateLayoutMs": 386.6000000014901,
+      "nodes": 278,
+      "width": 430
+    },
+    {
+      "kind": "meihua",
+      "wasMounted": false,
+      "updateLayoutMs": 1021,
+      "nodes": 301,
+      "width": 430
+    },
+    {
+      "kind": "bazi",
+      "wasMounted": true,
+      "updateLayoutMs": 12.399999998509884,
+      "nodes": 382,
+      "width": 430
+    },
+    {
+      "kind": "ziwei",
+      "wasMounted": true,
+      "updateLayoutMs": 9.799999997019768,
+      "nodes": 802,
+      "width": 430
+    },
+    {
+      "kind": "qimen",
+      "wasMounted": true,
+      "updateLayoutMs": 19.600000001490116,
+      "nodes": 171,
+      "width": 430
+    },
+    {
+      "kind": "liuyao",
+      "wasMounted": true,
+      "updateLayoutMs": 14.799999997019768,
+      "nodes": 355,
+      "width": 430
+    },
+    {
+      "kind": "meihua",
+      "wasMounted": true,
+      "updateLayoutMs": 17.200000002980232,
+      "nodes": 301,
+      "width": 430
+    },
+    {
+      "kind": "bazi",
+      "wasMounted": true,
+      "updateLayoutMs": 10,
+      "nodes": 382,
+      "width": 430
+    }
+  ],
+  "final": {
+    "frames": [
+      33.399999999999636,
+      141.60000000000036,
+      16.69999999999891,
+      8.399999999999636,
+      16.600000000000364,
+      8.399999999999636,
+      8.300000000001091,
+      8.299999999999272,
+      25,
+      108.39999999999964,
+      41.60000000000218,
+      116.69999999999709,
+      400.1000000000022,
+      99.79999999999927,
+      166.70000000000073,
+      16.700000000000728,
+      8.299999999999272,
+      8.5,
+      8.299999999999272,
+      8.299999999999272,
+      66.70000000000073,
+      450,
+      249.90000000000146,
+      175,
+      1358.3999999999978,
+      108.29999999999927,
+      100,
+      133.3000000000029,
+      50.099999999998545,
+      58.29999999999927,
+      241.60000000000218,
+      116.69999999999709,
+      133.40000000000146,
+      8.200000000000728,
+      8.399999999997817,
+      8.30000000000291,
+      8.399999999997817,
+      8.200000000000728,
+      8.400000000001455,
+      108.39999999999782,
+      183.29999999999927,
+      200,
+      200.10000000000218,
+      83.20000000000073,
+      41.599999999998545,
+      50.099999999998545,
+      25,
+      33.30000000000291,
+      33.29999999999927,
+      108.39999999999782,
+      83.30000000000291,
+      16.599999999998545,
+      8.400000000001455,
+      8.299999999999272,
+      8.399999999997817,
+      8.30000000000291,
+      8.299999999999272,
+      8.299999999999272,
+      8.400000000001455,
+      8.299999999999272,
+      8.399999999997817,
+      8.30000000000291,
+      25,
+      8.399999999997817,
+      8.200000000000728,
+      8.400000000001455,
+      8.299999999999272,
+      8.399999999997817,
+      8.30000000000291,
+      8.299999999999272,
+      8.399999999997817,
+      8.400000000001455,
+      8.099999999998545,
+      8.5,
+      8.30000000000291,
+      8.399999999997817,
+      8.200000000000728,
+      83.40000000000146,
+      8.399999999997817,
+      8.200000000000728,
+      8.400000000001455,
+      8.399999999997817,
+      8.299999999999272,
+      8.30000000000291,
+      8.399999999997817,
+      8.5,
+      8.100000000002183,
+      8.399999999997817,
+      8.200000000000728,
+      8.400000000001455,
+      8.399999999997817,
+      8.299999999999272,
+      8.30000000000291,
+      8.299999999999272,
+      8.399999999997817,
+      8.30000000000291,
+      8.399999999997817,
+      8.100000000002183,
+      8.5,
+      8.299999999999272,
+      8.299999999999272,
+      8.5,
+      8.299999999999272,
+      16.600000000002183,
+      16.599999999998545,
+      8.299999999999272,
+      8.299999999999272,
+      8.5,
+      8.30000000000291,
+      8.19999999999709,
+      8.400000000001455,
+      8.299999999999272,
+      8.299999999999272,
+      8.30000000000291,
+      8.399999999997817,
+      8.299999999999272,
+      8.400000000001455,
+      8.299999999999272,
+      25,
+      8.400000000001455,
+      8.299999999999272,
+      8.299999999999272,
+      8.400000000001455,
+      8.299999999999272,
+      8.299999999999272,
+      8.200000000000728,
+      8.5,
+      8.299999999999272,
+      8.299999999999272,
+      8.400000000001455,
+      8.299999999999272,
+      8.400000000001455,
+      8.200000000000728,
+      8.399999999997817,
+      8.299999999999272,
+      8.30000000000291,
+      8.299999999999272,
+      8.399999999997817,
+      8.30000000000291,
+      8.399999999997817,
+      8.299999999999272,
+      8.400000000001455,
+      8.299999999999272,
+      8.400000000001455,
+      8.200000000000728,
+      8.399999999997817,
+      16.700000000000728,
+      8.299999999999272,
+      8.299999999999272,
+      8.30000000000291,
+      8.399999999997817,
+      8.299999999999272,
+      8.400000000001455,
+      8.299999999999272,
+      8.299999999999272,
+      8.30000000000291,
+      8.5,
+      8.299999999999272,
+      8.200000000000728,
+      8.399999999997817,
+      8.299999999999272,
+      8.5,
+      8.200000000000728,
+      8.5
+    ],
+    "long": [
+      {
+        "start": 787.7000000029802,
+        "duration": 186
+      },
+      {
+        "start": 1390.7000000029802,
+        "duration": 54
+      },
+      {
+        "start": 1446.8000000044703,
+        "duration": 68
+      },
+      {
+        "start": 1729.5,
+        "duration": 699
+      },
+      {
+        "start": 2470.4000000059605,
+        "duration": 53
+      },
+      {
+        "start": 2766.4000000059605,
+        "duration": 153
+      },
+      {
+        "start": 2929.60000000149,
+        "duration": 1003
+      },
+      {
+        "start": 3951.3000000044703,
+        "duration": 91
+      },
+      {
+        "start": 4099.5,
+        "duration": 1023
+      },
+      {
+        "start": 5673.60000000149,
+        "duration": 1750
+      },
+      {
+        "start": 7479.60000000149,
+        "duration": 236
+      },
+      {
+        "start": 8018.20000000298,
+        "duration": 1473
+      },
+      {
+        "start": 9630.80000000447,
+        "duration": 115
+      },
+      {
+        "start": 9748.30000000447,
+        "duration": 495
+      },
+      {
+        "start": 10245.20000000298,
+        "duration": 273
+      },
+      {
+        "start": 10979.80000000447,
+        "duration": 3448
+      },
+      {
+        "start": 14454.90000000596,
+        "duration": 238
+      },
+      {
+        "start": 14727.20000000298,
+        "duration": 1277
+      },
+      {
+        "start": 16112.20000000298,
+        "duration": 74
+      },
+      {
+        "start": 16610.10000000149,
+        "duration": 298
+      },
+      {
+        "start": 17369.10000000149,
+        "duration": 391
+      },
+      {
+        "start": 17833.20000000298,
+        "duration": 229
+      },
+      {
+        "start": 18113.30000000447,
+        "duration": 138
+      },
+      {
+        "start": 18341.10000000149,
+        "duration": 1025
+      },
+      {
+        "start": 19366.80000000447,
+        "duration": 244
+      },
+      {
+        "start": 19631,
+        "duration": 85
+      },
+      {
+        "start": 19729.40000000596,
+        "duration": 83
+      },
+      {
+        "start": 19842,
+        "duration": 100
+      },
+      {
+        "start": 20084.5,
+        "duration": 210
+      },
+      {
+        "start": 20302.40000000596,
+        "duration": 63
+      },
+      {
+        "start": 20451,
+        "duration": 54
+      },
+      {
+        "start": 20724.20000000298,
+        "duration": 135
+      },
+      {
+        "start": 21156.60000000149,
+        "duration": 74
+      },
+      {
+        "start": 21237.20000000298,
+        "duration": 55
+      },
+      {
+        "start": 21575.40000000596,
+        "duration": 50
+      },
+      {
+        "start": 21698.80000000447,
+        "duration": 55
+      },
+      {
+        "start": 22024.40000000596,
+        "duration": 51
+      }
+    ],
+    "quizLoaded": true
+  },
+  "requests": [
+    {
+      "url": "http://localhost:9989/",
+      "type": "Document"
+    },
+    {
+      "url": "http://localhost:9989/static/js/synonymSource.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/lunar.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/tiku-data.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/wzbz-native-bridge.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/local-backup.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/css/app.da84e71dd162dad291259e3c8f4ff06c.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "http://localhost:9989/static/css/wzbz-updater.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "http://localhost:9989/static/js/wzbz-updater.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/css/wzbz-chart.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "http://localhost:9989/static/js/wzbz-chart.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/wzbz-home-clock.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/paper-forest.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/paper-forest-details.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/time-policy.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/fivearts-engine.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/divination-calendar-fix.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/ziwei-flow-data.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/assistant-config.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/fivearts-ui.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/css/fivearts.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "http://localhost:9989/static/css/paper-forest.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "http://localhost:9989/static/css/paper-forest-details.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "http://localhost:9989/static/js/manifest.79b86b6f2b52848d3421.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/vendor1.30e353299956cb57bec3.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/app.e1599cf50c8877aa6044.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/55.16ca9598510ce7ee0665.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/0.a486dd08135e63953ff2.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/51.67dc31c5560206b51d24.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/47.0e70cded17517b7ba7e8.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/57.6067bbafa16020ff788e.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/67.dcfd5962d6aa4316c301.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/update-info.json",
+      "type": "Fetch"
+    },
+    {
+      "url": "http://localhost:9989/static/favicon.ico",
+      "type": "Other"
+    },
+    {
+      "url": "http://localhost:9989/static/js/2.22f599c1df781213e096.js",
+      "type": "Script"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/getbasebz8.php",
+      "type": "XHR"
+    },
+    {
+      "url": "http://localhost:9989/static/img/text_txjy_02.037e276.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/img/text_txjy_02.8be6aab.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/getbasebz8.php",
+      "type": "XHR"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/index.html",
+      "type": "Document"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/chunk-vendors.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/index.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/chunk-vendors.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/index.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/bg_head.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/qiongtongbaojian_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/ditiansui_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/sanmingtonghui_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/bazitiyao_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/zipingzhenquan_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/yuanhaiziping_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/tianyuanwuxian_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/shenfengtongkao_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/qianliminggao_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/wuxingjingji_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/lixuzhongmingshu_selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:9989/static/newguji/images/icon_question.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch"
+    },
+    {
+      "url": "blob:http://localhost:9989/ce31882f-2b62-462a-b8c8-e69a7e1ac38e",
+      "type": "Document"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script"
+    },
+    {
+      "url": "blob:http://localhost:9989/592ae506-c050-4fde-a13a-25d861bd7847",
+      "type": "Document"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:9989/static/js/fivearts-readings.js",
+      "type": "Script"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/icon_warning_tips.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php",
+      "type": "Fetch"
+    },
+    {
+      "url": "blob:http://localhost:9989/ff73215f-ff3b-4312-87e2-8c9a41ada201",
+      "type": "Document"
+    },
+    {
+      "url": "blob:http://localhost:9989/7b85fccb-7da6-4e02-bebb-1dec62b151ff",
+      "type": "Document"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css",
+      "type": "Stylesheet"
+    },
+    {
+      "url": "https://www.iwzbz.com/gj/jquery.min.js",
+      "type": "Script"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/remind.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/remind.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/feedback.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/feedback.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/close.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/close.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/unselected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/unselected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/selected.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/bzicon.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/nightMode/bzicon.png",
+      "type": "Image"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.js",
+      "type": "Script"
+    },
+    {
+      "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/images/icon_warning_tips.png",
+      "type": "Image"
+    }
+  ],
+  "errors": []
+}

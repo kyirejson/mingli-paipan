@@ -1,0 +1,207 @@
+{
+  "readers": [
+    {
+      "nodes": [
+        {
+          "cls": "smart-book-box",
+          "tag": "DIV",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "tab_box_wrapper_container_tab02_second",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "tab_box_wrapper",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "swiper-item van-swipe-item",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "van-swipe__track",
+          "tag": "DIV",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "wzbz_main_wrapper van-swipe",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "wzbz_container",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "inner",
+          "tag": "SECTION",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "yo-scroll card-box",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "fa-legacy",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "fa-slide-pane fa-slide-bazi",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "fa-slider-track",
+          "tag": "DIV",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "fa-slider-wrapper",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "fa-result-host fa-active-bazi",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "Router",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "",
+          "tag": "DIV",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "",
+          "tag": "BODY",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        },
+        {
+          "cls": "pf-theme",
+          "tag": "HTML",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        }
+      ],
+      "components": [
+        {
+          "name": "SmartBook",
+          "route": "/main/paipan",
+          "isInactive": null
+        },
+        {
+          "route": "/main/paipan",
+          "isInactive": false
+        },
+        {
+          "name": "van-swipe-item",
+          "route": "/main/paipan",
+          "isInactive": false
+        },
+        {
+          "name": "van-swipe",
+          "active": 1,
+          "route": "/main/paipan",
+          "isInactive": false
+        },
+        {
+          "route": "/main/paipan",
+          "isInactive": false
+        },
+        {
+          "name": "FiveArtsResultHost",
+          "active": "bazi",
+          "route": "/main/paipan",
+          "isInactive": false
+        },
+        {
+          "name": "PaiPan",
+          "tabIndex": 1,
+          "route": "/main/paipan",
+          "isInactive": false
+        },
+        {
+          "name": "WZMain",
+          "route": "/main/paipan",
+          "isInactive": false
+        },
+        {
+          "name": "App",
+          "route": "/main/paipan",
+          "isInactive": null
+        },
+        {
+          "route": "/main/paipan",
+          "isInactive": null
+        }
+      ]
+    }
+  ],
+  "engine": [
+    {
+      "kind": "qimen",
+      "ms": 1
+    },
+    {
+      "kind": "liuyao",
+      "ms": 0.8000000044703484
+    },
+    {
+      "kind": "meihua",
+      "ms": 0.6000000014901161
+    }
+  ]
+}

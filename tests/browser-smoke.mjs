@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
-const port=process.env.ZAOHUA_CDP_PORT||'9330',origin=process.env.ZAOHUA_PREVIEW_URL||'http://localhost:9988';
+const port=process.env.ZAOHUA_CDP_PORT||'9330',origin=process.env.ZAOHUA_PREVIEW_URL||'http://localhost:9988',out=process.env.ZAOHUA_EVIDENCE_OUT||'docs/optimization-2026-10-29';
 const targets=await(await fetch(`http://127.0.0.1:${port}/json/list`)).json(),target=targets.find(t=>t.type==='page');
 if(!target)throw Error('Start an isolated Chrome CDP page first.');
 const ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise(r=>ws.addEventListener('open',r,{once:true}));
@@ -22,8 +22,8 @@ try{
  await evaluate(`[...document.querySelectorAll('#zaohua-backup button')].find(b=>b.textContent==='生成备份').click()`);
  const result=await evaluate(`(()=>{let p=document.querySelector('#zaohua-backup section'),r=p.getBoundingClientRect(),b=JSON.parse(p.querySelector('textarea').value);return {format:b.format,version:b.version,keys:Object.keys(b.data),rect:{left:r.left,right:r.right,top:r.top,bottom:r.bottom},width:innerWidth,height:innerHeight}})()`);
  assert.equal(result.format,'zaohua-local-backup');assert.ok(result.keys.includes('setting_suntime'));assert.ok(result.rect.left>=0&&result.rect.right<=result.width+1);assert.ok(result.rect.top>=0&&result.rect.bottom<=result.height+1);
- await fs.mkdir('docs/optimization-2026-10-29',{recursive:true});
- let screenshot=await call('Page.captureScreenshot',{format:'png'});await fs.writeFile('docs/optimization-2026-10-29/backup-mobile.png',Buffer.from(screenshot.data,'base64'));
+ await fs.mkdir(out,{recursive:true});
+ let screenshot=await call('Page.captureScreenshot',{format:'png'});await fs.writeFile(out+'/backup-mobile.png',Buffer.from(screenshot.data,'base64'));
  await evaluate(`[...document.querySelectorAll('#zaohua-backup button')].find(b=>b.textContent==='关闭').click()`);
  assert.equal(await evaluate(`!!document.querySelector('#zaohua-backup')`),false);
  await evaluate(`window.__WZBZ_ROUTER__.replace('/main/wznavigation/wzindex').catch(()=>{}).then(()=>true)`);
