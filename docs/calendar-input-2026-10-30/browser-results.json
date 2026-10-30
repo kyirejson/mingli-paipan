@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "four": {
+    "birthday": "2026-10-29 12:00:00",
+    "manual": true,
+    "text": "丙午 戊戌 丙子 甲午\n对应公历 2026-10-29 12:00:00"
+  },
+  "matchedDates": [
+    "2086-10-14 12:00:00",
+    "2026-10-29 12:00:00",
+    "1846-10-13 12:00:00"
+  ],
+  "confirmedSolar": "2024-02-29 23:45",
+  "recordEdit": {
+    "calendarType": 2,
+    "birthday": "2026-10-29 12:00"
+  },
+  "checks": [
+    "four-pillar input through actual buttons",
+    "clear missing-date message",
+    "correct date persisted and used to chart",
+    "reverse lookup stays local",
+    "solar month-end clamp",
+    "320/360/430 layout",
+    "cancel restores confirmed calendar",
+    "2023 leap second month",
+    "year change retains lunar month name",
+    "manual date immune to automatic clock refresh",
+    "saved four-pillar record reopens and edits correctly"
+  ],
+  "errors": []
+}

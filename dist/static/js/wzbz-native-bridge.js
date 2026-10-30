@@ -716,9 +716,12 @@
     item.isLeapMonth = hasOwn(post, 'isLeapMonth') ? !!flagValue(post.isLeapMonth) : !!old.isLeapMonth;
     item.leapMonth = Number(hasOwn(post, 'leapMonth') ? post.leapMonth : old.leapMonth || 0);
     item.star = hasOwn(post, 'star') ? !!flagValue(post.star) : !!old.star;
-    ['xls','hw','bjtime','timetype','unknowminute'].forEach(function(key) {
+    ['xls','hw','bjtime','unknowminute'].forEach(function(key) {
       item[key] = hasOwn(post, key) ? flagValue(post[key]) : Number(old[key] || 0);
     });
+    var timeType=hasOwn(post,'timetype')?post.timetype:old.timetype==null?0:old.timetype;
+    if ((typeof timeType!=='string'&&typeof timeType!=='number')||! /^[012]$/.test(String(timeType).trim())) throw localError(400,'请选择有效的历法类型');
+    item.timetype=Number(timeType);
     item.fenzhu = hasOwn(post, 'fenzhu') ? String(post.fenzhu || '') : old.fenzhu || '';
     item.lunarTime = post.lunarTime || (clockChanged || hasOwn(post, 'sunTime') || !old.lunarTime ? lunar.getYear() + '-' + Math.abs(lunar.getMonth()) + '-' + lunar.getDay() + ' ' + sun.split(/[ T]/)[1] : old.lunarTime);
     item.animal = DIZHI.indexOf(parts[1]) + 1;
@@ -891,6 +894,13 @@
     }
 
     // 1. VIP & User Info
+    if (/\/szbz\.php(?:[?#]|$)/i.test(url)) {
+      requireBazi(q.bz);
+      var root=document.getElementById('app'), store=root&&root.__vue__&&root.__vue__.$store;
+      var midnightValue=store&&store.getters.setting_midnight;
+      var midnight=midnightValue==null||midnightValue===true||midnightValue===1||midnightValue==='true'||midnightValue==='1';
+      return window.WZBZBaziReverse.search(q.bz,{minYear:url.indexOf('bzapi1800.')>=0?1:1801,maxYear:2099,midnight:midnight}).then(function(dates){return okResponse(cfg,dates);});
+    }
     if (url.indexOf('getvipinfo') >= 0) {
       return okResponse(cfg, {
         code: 0,

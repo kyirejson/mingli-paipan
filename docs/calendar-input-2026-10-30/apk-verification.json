@@ -1,0 +1,21 @@
+{
+  "path": "release\\android\\zaohua-v1.0.12.apk",
+  "bytes": 36152807,
+  "sha256": "6749f38717770a53b6254fdff175438d0830831a139c371b60b8dcb685dde30b",
+  "version": {
+    "repository": "https://github.com/kyirejson/mingli-paipan",
+    "versionCode": 13,
+    "version": "1.0.12"
+  },
+  "verifiedAssets": [
+    "index.html",
+    "static/js/4.fdf10d91b15319bc8af6.js",
+    "static/js/98.367bfaf499185c26ee75.js",
+    "static/js/paper-forest.js",
+    "static/js/wzbz-native-bridge.js",
+    "static/js/bazi-reverse.js",
+    "static/js/calendar-input.js",
+    "static/css/calendar-input.css",
+    "static/licenses/lunar-javascript.txt"
+  ]
+}

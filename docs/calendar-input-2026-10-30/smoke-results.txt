@@ -1,0 +1,1 @@
+Browser UI passed: backup entry/export/mobile layout, chart creation and four result panes, assistant unavailable state; no runtime exceptions.

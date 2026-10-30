@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {connectBrowser} from './helpers/browser-cdp.mjs';
-const b=await connectBrowser(),{call,evaluate:ev,wait}=b,origin='http://localhost:9988',out='docs/performance-round2-2026-10-29';
+const b=await connectBrowser(),{call,evaluate:ev,wait}=b,origin='http://localhost:9988',out=process.env.ZAOHUA_EVIDENCE_OUT||'docs/performance-round2-2026-10-29';
 const requests=[],errors=[],pause=ms=>new Promise(r=>setTimeout(r,ms));
 b.on(m=>{
  if(m.method==='Network.requestWillBeSent')requests.push(m.params.request.url.split('?')[0]);
