@@ -1,0 +1,86 @@
+{
+  "baseline": "84f2694398139ced524811b3dba60519007b1766",
+  "version": "1.0.13",
+  "node_tests": {
+    "passed": 59,
+    "failed": 0
+  },
+  "proxy_tests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "visual_tests": {
+    "status": "not_run",
+    "reason": "automatic approval rejected isolated Chrome launch; no connected Android device"
+  },
+  "files": [
+    {
+      "file": "tests/ui-display-regression.cjs",
+      "sha256": "6ea7af126bf08ef733113ff4a6a791b142b016977c737dcfcc20231d45c3865b"
+    },
+    {
+      "file": "package.json",
+      "sha256": "3428b4bb172fdb1b35feca4eb89425af5a82a1ceb6adc7d82272d80799a8b0d9"
+    },
+    {
+      "file": "docs/2026-10-30_UI优化实施记录.md",
+      "sha256": "0306b0b3c92e4a8d345448a94fac7d52972ee1b0f8685297a15238c919d85f16"
+    },
+    {
+      "file": "dist/static/css/calendar-input.css",
+      "sha256": "5135ed6c1b96aeaa46ddb7bfdc171366964e9a007353a82a15900add7020cd7e"
+    },
+    {
+      "file": "dist/static/css/fivearts.css",
+      "sha256": "b4a51488e0f6e066a9fa93b3df3abe24882bb7ee141c1e24b114cd605ee352a4"
+    },
+    {
+      "file": "dist/static/css/paper-forest-details.css",
+      "sha256": "cc63ad58ef16dfcbb7454dc9b269f1cc4dcedf126cf109349c882f36270cc7a6"
+    },
+    {
+      "file": "dist/static/css/paper-forest.css",
+      "sha256": "44f5ec838afa94884d16e223bcc8ad0f7f5d41801e701ec13717bfe38e13471d"
+    },
+    {
+      "file": "dist/static/js/1.788084fb7fadc440744b.js",
+      "sha256": "5ba096c37a006a33a1409a9e90d859db3f6173b36ab3b16cdb83057bb6fe8fe7"
+    },
+    {
+      "file": "dist/static/js/2.22f599c1df781213e096.js",
+      "sha256": "a4981cbfbc8004fd03679e9bc91d160720187ae44eed3c128f2a1a6ba03c2d89"
+    },
+    {
+      "file": "dist/static/js/fivearts-ui.js",
+      "sha256": "1b6cfda66b53bb82ed7b5cae066ee8fbf6aa5ccee35c4e791b7a160a345bef24"
+    },
+    {
+      "file": "dist/static/js/paper-forest-details.js",
+      "sha256": "25fc0319848edd04a2d22cdc313e9c87e91d9893e3b0bef2f7f55d3848e58d8f"
+    },
+    {
+      "file": "dist/static/js/paper-forest.js",
+      "sha256": "acad13cd9a782638df020ee1697a1d1af9218ea4179ebf779ce814aa073fb102"
+    },
+    {
+      "file": "dist/static/update-info.json",
+      "sha256": "ae6a72f040e7e3474bdcda2f07d5a06842daa4e9a41e29767c65674f4247054b"
+    },
+    {
+      "file": "docs/ui-optimization-2026-10-30/build.txt",
+      "sha256": "bb623b0f7728c64035abf7c8946671c64487963e282dea381f27e4cccceb9c27"
+    },
+    {
+      "file": "docs/ui-optimization-2026-10-30/node-tests.txt",
+      "sha256": "e2ef861dd717e70507d498cd5f0a0c5fc92bc75abb1a7cb715e28dab605732de"
+    },
+    {
+      "file": "docs/ui-optimization-2026-10-30/package-verification.json",
+      "sha256": "b22f0964895f0e3072acb853c2f9575ff360eb0632d83cddf35e3879adac3e31"
+    },
+    {
+      "file": "docs/ui-optimization-2026-10-30/proxy-tests.txt",
+      "sha256": "342ec7d63df289603d97268474bb36c73cf267d79baea7da92a71ac7ff76faf1"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "width": 430,
+  "height": 932,
+  "url": "http://localhost:9988/#/main/settingshow/nightmode",
+  "theme": null,
+  "text": "夜间模式\n跟随系统设置\n日间模式\n夜间模式",
+  "texts": [
+    {
+      "text": "夜间模式",
+      "el": "DIV.wzbz_header_title",
+      "rect": {
+        "x": 174.984375,
+        "y": 13.015625,
+        "w": 80,
+        "h": 29
+      },
+      "font": "20px"
+    },
+    {
+      "text": "跟随系统设置",
+      "el": "DIV.form_item_title",
+      "rect": {
+        "x": 31.953125,
+        "y": 92.171875,
+        "w": 96.3125,
+        "h": 24
+      },
+      "font": "16.0533px"
+    },
+    {
+      "text": "日间模式",
+      "el": "DIV.form_item_title",
+      "rect": {
+        "x": 31.953125,
+        "y": 143.625,
+        "w": 64.203125,
+        "h": 24
+      },
+      "font": "16.0533px"
+    },
+    {
+      "text": "夜间模式",
+      "el": "DIV.form_item_title.mainColor",
+      "rect": {
+        "x": 31.953125,
+        "y": 195.078125,
+        "w": 64.203125,
+        "h": 24
+      },
+      "font": "16.0533px"
+    }
+  ],
+  "smallTargets": [],
+  "blockedTargets": [],
+  "clipped": [],
+  "overlaps": [],
+  "bodyWidth": 430
+}

@@ -1,0 +1,1058 @@
+{
+  "date": "2026-10-30",
+  "baseline_commit": "84f2694398139ced524811b3dba60519007b1766",
+  "scope": "Windows Chrome 140 mobile viewport of current dist; no connected Android device; documentation-only audit",
+  "screenshots": 88,
+  "confirmed_ui_findings": 8,
+  "companion_exception": "D-01",
+  "apk": {
+    "file": "release/android/zaohua-v1.0.12.apk",
+    "bytes": 36152807,
+    "sha256": "6749f38717770a53b6254fdff175438d0830831a139c371b60b8dcb685dde30b"
+  },
+  "apk_resource_comparison": [
+    {
+      "file": "dist/static/css/fivearts.css",
+      "apk_entry": "assets/public/static/css/fivearts.css",
+      "local_sha256": "91f27ccd124d2c147a079155c0fb7cc0a38597a70cf9ade30aa92fffae45299e",
+      "apk_sha256": "91f27ccd124d2c147a079155c0fb7cc0a38597a70cf9ade30aa92fffae45299e",
+      "identical": true
+    },
+    {
+      "file": "dist/static/css/paper-forest.css",
+      "apk_entry": "assets/public/static/css/paper-forest.css",
+      "local_sha256": "7f47ceb219913214d23639faa0894eed7f6119487174a22e15f3502aeed9b327",
+      "apk_sha256": "7f47ceb219913214d23639faa0894eed7f6119487174a22e15f3502aeed9b327",
+      "identical": true
+    },
+    {
+      "file": "dist/static/css/paper-forest-details.css",
+      "apk_entry": "assets/public/static/css/paper-forest-details.css",
+      "local_sha256": "d7cdb8156e2967f115cd67d958296b92a971c75b1274f9aa22a5f984ba5b04b6",
+      "apk_sha256": "d7cdb8156e2967f115cd67d958296b92a971c75b1274f9aa22a5f984ba5b04b6",
+      "identical": true
+    },
+    {
+      "file": "dist/static/js/fivearts-ui.js",
+      "apk_entry": "assets/public/static/js/fivearts-ui.js",
+      "local_sha256": "321991096442ec5ce9d4e7f4d82a82a57ddf0622d6b2da75e8607a4a72d2a7c7",
+      "apk_sha256": "321991096442ec5ce9d4e7f4d82a82a57ddf0622d6b2da75e8607a4a72d2a7c7",
+      "identical": true
+    },
+    {
+      "file": "dist/static/js/paper-forest-details.js",
+      "apk_entry": "assets/public/static/js/paper-forest-details.js",
+      "local_sha256": "94cbf071e7b2720cd5959a84b12ac80fefb1a9a3a1b8fff4cbe1774d28fcb211",
+      "apk_sha256": "94cbf071e7b2720cd5959a84b12ac80fefb1a9a3a1b8fff4cbe1774d28fcb211",
+      "identical": true
+    }
+  ],
+  "files": [
+    {
+      "file": "dist/static/css/fivearts.css",
+      "bytes": 38488,
+      "sha256": "91f27ccd124d2c147a079155c0fb7cc0a38597a70cf9ade30aa92fffae45299e"
+    },
+    {
+      "file": "dist/static/css/paper-forest-details.css",
+      "bytes": 14968,
+      "sha256": "d7cdb8156e2967f115cd67d958296b92a971c75b1274f9aa22a5f984ba5b04b6"
+    },
+    {
+      "file": "dist/static/css/paper-forest.css",
+      "bytes": 43787,
+      "sha256": "7f47ceb219913214d23639faa0894eed7f6119487174a22e15f3502aeed9b327"
+    },
+    {
+      "file": "dist/static/js/2.22f599c1df781213e096.js",
+      "bytes": 597068,
+      "sha256": "bfc4ff65924e843ffd775888891412228f01f7f7bc595020b57ad46a8753f10e"
+    },
+    {
+      "file": "dist/static/js/fivearts-ui.js",
+      "bytes": 82420,
+      "sha256": "321991096442ec5ce9d4e7f4d82a82a57ddf0622d6b2da75e8607a4a72d2a7c7"
+    },
+    {
+      "file": "dist/static/js/paper-forest-details.js",
+      "bytes": 18772,
+      "sha256": "94cbf071e7b2720cd5959a84b12ac80fefb1a9a3a1b8fff4cbe1774d28fcb211"
+    },
+    {
+      "file": "dist/static/js/paper-forest.js",
+      "bytes": 21176,
+      "sha256": "fce3d5e335ea76b62e026e3b55744d0dae6609d6a13e75c2b7098042435c4e18"
+    },
+    {
+      "file": "docs/2026-10-30_UI显示深度审核报告.md",
+      "bytes": 22073,
+      "sha256": "6a4d67a5a2692501d6145fc3a909f74d1124abb36d754d33a5f4ca91e900d359"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/assistant-430.json",
+      "bytes": 86723,
+      "sha256": "437f85d29b42c53e4868306446cfa4fa2d396a1ec34eb77785102b606526ee17"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/assistant-430.png",
+      "bytes": 34494,
+      "sha256": "64afb32b4b30be2dc54cd7ab4be5628ea95033eea3be413c8dd24c5972467cb0"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/assistant-dark-430.json",
+      "bytes": 80837,
+      "sha256": "d1cf0fdeffe6388e88a8ca24aed8ab657f38420192fdcfd03cf508d041684780"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/assistant-dark-430.png",
+      "bytes": 35013,
+      "sha256": "8ec97cc7703d044edf460497e31e3595fb861aff3696ff40d590f3ac30826918"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/backup-430.json",
+      "bytes": 8624,
+      "sha256": "4ccdecdf627b6a396eb32fe262cd64db1d162e9fe9b77a40ce48e359e931c80f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/backup-430.png",
+      "bytes": 48286,
+      "sha256": "f77a30e9b4625f896dcaf281e9a1d231db8283ff8c90a08b6aaf0ca79fa7b5a4"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/basic-info-reference-430.json",
+      "bytes": 22259,
+      "sha256": "89b0e4b679f0d42c808ecd5cee6c7fccca4b8071474dd539f53d5abdbecd64e5"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/basic-info-reference-430.png",
+      "bytes": 62096,
+      "sha256": "f639e74a0628597a3926b89ee756238a55b3425890d4224bcc64e77b8098d378"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-0-320.json",
+      "bytes": 21254,
+      "sha256": "e1725c08eed9f6024e943c6f9644047dd513f520772488ebd9530009966d3ec5"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-0-320.png",
+      "bytes": 49182,
+      "sha256": "545c14c282230441060c63949ad34acf585267b20f8938fa7584a6d6086d4fce"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-0-360.json",
+      "bytes": 22443,
+      "sha256": "a335359ae91c6662acf04b0249498039462f73f1364301143bbdd6f9eca27089"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-0-360.png",
+      "bytes": 57488,
+      "sha256": "5282e6a6d9584709e332a9d2e12433217919088fee8c4c9a08be4817c59ae9bb"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-0-430.json",
+      "bytes": 18373,
+      "sha256": "386d54867f727f470cf28a28c5ac64c046cdc8e5260fe158adb972f3e3d1d076"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-0-430.png",
+      "bytes": 70595,
+      "sha256": "186479bfbe4e2eeded4a0095bd5c76fc375c22ab3e994ff201fe3a7966b202ee"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-1-320.json",
+      "bytes": 38243,
+      "sha256": "24e9c62bbeae280236fda4739c5da07ce06a1df5fe69cbf69dc3d1cafa5a42d0"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-1-320.png",
+      "bytes": 50925,
+      "sha256": "a4c5ffa16949383713045601022ed7f93d6cfc77feabfaeda19eb2c64417dd68"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-1-360.json",
+      "bytes": 31066,
+      "sha256": "68bf1252296ee9e217107506f1613e9d21d104de7ea79ffc723ea515f88874c3"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-1-360.png",
+      "bytes": 48771,
+      "sha256": "eaf5e00451f42f608b96283581ede232bcd58eab09642c485b22d1ca85583453"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-1-430.json",
+      "bytes": 26806,
+      "sha256": "d4868c8aa41198c8a7afdfb935e7529403a03406e4faa7878b47b7038079dc2b"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-1-430.png",
+      "bytes": 60206,
+      "sha256": "0d54e3eeeeaa76936f2941086cff2e9623332f256dc369ae3d2f8f14951e7282"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-2-320.json",
+      "bytes": 57817,
+      "sha256": "9bb1a571340642d3b1fa5f19e681290ace0b44ec1c662768c078b0096c6f44ee"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-2-320.png",
+      "bytes": 71887,
+      "sha256": "6850056fb5f38efc6c39d4c849e7d34a05bb0f326244a5831d095f710490ae73"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-2-360.json",
+      "bytes": 57874,
+      "sha256": "62f4339a64fc2e14108736791a1d3e0fc239e21302cc186c9f88567088953536"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-2-360.png",
+      "bytes": 84676,
+      "sha256": "2c78c62284a04d954c36ced5d8a95143fbb2106f77d76a781e3bc8b740a4eaf9"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-2-430.json",
+      "bytes": 74875,
+      "sha256": "006a7af77c4686a989dddbf44bb3ffe0c3bab860a8222a7ee2c361929a17fb5a"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-2-430.png",
+      "bytes": 133641,
+      "sha256": "1565a27152afb76927d1a30f4a2d1d989b1dacbb531856912fa3b021f864ebcb"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-3-320.json",
+      "bytes": 18313,
+      "sha256": "038af1f75260b483484f3641c657d42a20d0376f665ef81482ba601c30e9289c"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-3-320.png",
+      "bytes": 35448,
+      "sha256": "3dbab30a54f5e0b195cf3a0b81789b1432597c58b1560252605721ea5970b2b6"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-3-360.json",
+      "bytes": 20211,
+      "sha256": "0995aa541505211d61683f3df1453d7dc04c33200429f3d810fca2481264e46f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-3-360.png",
+      "bytes": 37744,
+      "sha256": "f8f1dfc7f9d09817be51a661fae0c50cf746fde40eb2c30fe4d8c20c0ddc7fbf"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-3-430.json",
+      "bytes": 17283,
+      "sha256": "95007e839e1331c4ec698bdcb341caa605639b5e20cceb7485166a1c6652f006"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-3-430.png",
+      "bytes": 43727,
+      "sha256": "863256763698af3022473c2e826ff6c3efd19b8e41666821c3f85f5d86488e76"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-basic-fresh-320.json",
+      "bytes": 22742,
+      "sha256": "0fbe2a5df14b90aab4b2aaa45c5d879a85aae889b386c533f7707cc1760192ef"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-basic-fresh-320.png",
+      "bytes": 48311,
+      "sha256": "a7375cec02308419167ecf03c1d487ae3ba76a4287a253c54406c29e53b1c7b0"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-detail-fresh-320.json",
+      "bytes": 45985,
+      "sha256": "7d37606638ab8e8eee6cc05687a0ba6b7fc4649a301c5d6193a08cdc51e86b8d"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-detail-fresh-320.png",
+      "bytes": 80911,
+      "sha256": "23bcf056ac64f6f66fed8a4bdc70fdecfdb6213020eb87c6066ece45ccac7e10"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-resize-confirmed-320.json",
+      "bytes": 22016,
+      "sha256": "d9b8742a7c6feac775a415a4d3a08b22797d381e84ec25b8cada983cc71d68fc"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/bazi-resize-confirmed-320.png",
+      "bytes": 43114,
+      "sha256": "4e623704366f64e090d2a9a6951ab843600eef4e10a5e1bd01b1cc5d68752997"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/build-index.py",
+      "bytes": 7196,
+      "sha256": "d6f8a9bd03dd7a836fcc01ba56febdd653af06ebc59acdd2c7a43f631a9ce05a"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/calendar-dark-430.json",
+      "bytes": 35372,
+      "sha256": "06e795876d5772f3b628acd246cdc6e503c71d3182bddebc695ef1a558e904c7"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/calendar-dark-430.png",
+      "bytes": 49296,
+      "sha256": "5ecb01ae4d1984a50de9305014231eed26e0a54557033fcceba6776e111377df"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/chart-preferences-320.json",
+      "bytes": 12334,
+      "sha256": "65911d97f144216677255029e8913bf9d99fdcfc7c6f068414c2fa52d947ebf5"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/chart-preferences-320.png",
+      "bytes": 26605,
+      "sha256": "8fe0bc357c2b587d4419a59585ca75355c5ebea4991f806d497915b223374cc0"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/chart-preferences-430.json",
+      "bytes": 15842,
+      "sha256": "6d239ceb15c26b1502a736a7892092f0631f7a43a3421bdcfd784a046f0af2be"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/chart-preferences-430.png",
+      "bytes": 36061,
+      "sha256": "d7221a62633b5a839a347262a88e30debef5126cf80043fa24029dc816825758"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/confirmed-details.json",
+      "bytes": 13814,
+      "sha256": "0df1895d84cceb9feb5386631d9c319b897413e0b9473eaf340e8ad0542a6dad"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/deep-stages.json",
+      "bytes": 476,
+      "sha256": "00e8fafeeec2a623537b2b425c9d385a81360831b62399df166f100d93bc8617"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/deep.mjs",
+      "bytes": 8068,
+      "sha256": "8727ffb3e2f6b5416a1b1798be2d617a5422a2f2360b46793e641f1d875c52b5"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/detail-computed-confirmed-430.json",
+      "bytes": 26506,
+      "sha256": "641c2174d8dc78534483b94e26ccff3a0542b01a929576da098eed3055eeb1f8"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/detail-computed-confirmed-430.png",
+      "bytes": 162060,
+      "sha256": "708dacfec51f74c9c3420d46b54b0992d8003d4137197e822d0a606ca8dd1c97"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/display-preferences-430.json",
+      "bytes": 6559,
+      "sha256": "affa1cda54a130cfc4bda51db9fedf2efeb05b6e063bc3f8dbea33367bc6874a"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/display-preferences-430.png",
+      "bytes": 50401,
+      "sha256": "d57f616b8978808759ecd8189896a55d7c785d5d971a3133c926066931265fda"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/final-probe.json",
+      "bytes": 11711,
+      "sha256": "3b84c81d296b2b0969f39bdf153dd87f1ff777edbaa114a44066f610ebd5c4c1"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/final-probe.mjs",
+      "bytes": 4089,
+      "sha256": "aa2b115005f8ec04686b7aef1bb443ed64fd0bd9276c8cc22c7fb133289e0116"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/focused.mjs",
+      "bytes": 6248,
+      "sha256": "db631eee445fc73875fa966bb787965e083301fec4b0e2ebfe8b4efc3f29c536"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/hexagram-reading-320.json",
+      "bytes": 24789,
+      "sha256": "d7adfa9ce4407dc168c4478a61f826cc8ee048f01f3efeebb5e662ce829fd117"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/hexagram-reading-320.png",
+      "bytes": 34693,
+      "sha256": "af7223d723374722c7d44437dbbd2492bdcf35b569b050ec711863db5b84dbdb"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/hexagram-reading-430.json",
+      "bytes": 29458,
+      "sha256": "0ea0bf83242ad1740d37ac70cac0bbc517652a22d8a5e1ba55dc58b0b8ec35b1"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/hexagram-reading-430.png",
+      "bytes": 46849,
+      "sha256": "6989c03ff58f73dd5edc574fc7c75befe04c3ec98c8c09ca1a784e7824e2e1bd"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-320x640.json",
+      "bytes": 5920,
+      "sha256": "278319447a2c21b8f0e3bd176de6cf27cd9be55a7deca6bf25f91e9eaddb0b6b"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-320x640.png",
+      "bytes": 37516,
+      "sha256": "fe1dc79bf05c1a2c0c82cd34780d99b080090bd368d51d3fa37fb9773f0f9639"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-360x740.json",
+      "bytes": 6095,
+      "sha256": "d9054ad7c48418ceb94fe2c3c73e0fd60b6886dc43c8757772502c0333dc988a"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-360x740.png",
+      "bytes": 42410,
+      "sha256": "9ac73d5d04264b5ab90e14183c7e9371262c2b490f36b554b840ecc1e1a5aa95"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-430x932.json",
+      "bytes": 6099,
+      "sha256": "63313ea3a95d0b89ace4cfce556949985ba02c56089c5c8ed354fbc44651bcaf"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-430x932.png",
+      "bytes": 43709,
+      "sha256": "67331007bf688b76ef0efbe01dd0d8cf40feb8ef53d168d325474a1ba9139844"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-800x420.json",
+      "bytes": 5097,
+      "sha256": "ab95b292bc8623c03b6a5eaff95584cd59dc897ebcaaa01bbc3b94bff411846f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-800x420.png",
+      "bytes": 23839,
+      "sha256": "0427527fab16399486bca76e3ce6ffb95f41709ea70d650b010dd4d61fc5e98f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-landscape-final.json",
+      "bytes": 5278,
+      "sha256": "f7bcdf968d13a02e127c75f9a02278af6350110ee10e85c7093eebe9a75fe33b"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-landscape-final.png",
+      "bytes": 22178,
+      "sha256": "4589895621064e47849374f3d92093db558730f50cb3f272a2c4fe047034a516"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-landscape-scrolled-final.json",
+      "bytes": 3869,
+      "sha256": "b55c51d1284368393c882aff950ce2a4cbfe8b342179c06f8ce8b547aa8d3078"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/home-landscape-scrolled-final.png",
+      "bytes": 28584,
+      "sha256": "61d89e808af06af733cdd04b2171735e323a09318341c9348c476df096234854"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/index.html",
+      "bytes": 45736,
+      "sha256": "dfddbe3a4b7d1305390a950e4dd4e0099db4d7516069b858df7abfc078a0b5ad"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/inventory.json",
+      "bytes": 28666,
+      "sha256": "380b85e65c90da5685966bcae2407c6c75c9df553f4daffd8af309a53d3bd10b"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/layout-check.json",
+      "bytes": 17691,
+      "sha256": "5b2e01a7a9af15aea7972f9707f398a0af1da0d0af602975aed59862485255db"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/layout-check.mjs",
+      "bytes": 3694,
+      "sha256": "e0ff186d18679f7baa4c370bf5f6930ecf404a2019e4606d13e098b12b1e46bc"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/liuyao-320.json",
+      "bytes": 33631,
+      "sha256": "81ef89659f7f44f9167ab8412560649fe199bbd48b3e7841d5625d41583a8f55"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/liuyao-320.png",
+      "bytes": 63900,
+      "sha256": "b3b470e648ea83ba1ca9b44071e8ea3d54f695b8e088f2a3d129df65e2afc5d8"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/liuyao-360.json",
+      "bytes": 37521,
+      "sha256": "86f64ca63ed78fa88bef051776a538357751e5e99b28dfb2079ac76d13887e9f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/liuyao-360.png",
+      "bytes": 73099,
+      "sha256": "325ec8a6ca05e02d58250f9d3bf736007149b40e55deafb5f86b97d9547a1ebd"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/liuyao-430.json",
+      "bytes": 40828,
+      "sha256": "ecb50aafdcfd16f2e6f3d450d346e3e9edbab7fbb8c6d3fb93704f4720db373f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/liuyao-430.png",
+      "bytes": 87767,
+      "sha256": "ab991d9699006585d1d541ace6e5bd96f587e581161d876c6f940f876c2cc4b2"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/liuyao-reading-430.json",
+      "bytes": 16668,
+      "sha256": "1dcce6e0b78e21d7bb1fcc3ac89cd0856328cb7d442917ae09b4d55f16c59869"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/liuyao-reading-430.png",
+      "bytes": 96992,
+      "sha256": "8ceee5a266c20eb5360d6fac88aa30ff5ab812d8c0bab72681b74d97b9a10a70"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-320.json",
+      "bytes": 28001,
+      "sha256": "76eafa6f478cd491eda5d32e72347ca396360a18852091b2ecdfb531a92ea663"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-320.png",
+      "bytes": 47337,
+      "sha256": "f4e6e06201af69b1695d64651a2c6f381fb04f5bc1f178ecfe4eee7cf60e7060"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-360.json",
+      "bytes": 30056,
+      "sha256": "bb2ac9a261f11b2e61fae6b8964ace75352561b2aa38cd625d842d9b902070ee"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-360.png",
+      "bytes": 54611,
+      "sha256": "381c449c98fee05a19d6e56964f8ae3ccfd29958e5e9b5fe285ea6df35181312"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-430.json",
+      "bytes": 33578,
+      "sha256": "174a3d3adda2320062edadcdd124eb283a505e8c20ab2787622f7e72ffc159f3"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-430.png",
+      "bytes": 67203,
+      "sha256": "e8015348a1a122a30a27d6b0f72a222ccdc73a78bbf68e52e3a287998434307e"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-dark-430.json",
+      "bytes": 24638,
+      "sha256": "11fec9e583a88fcd7f0781811e4c8fb741808ef33a67c21f17e6cb50123bc1df"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-dark-430.png",
+      "bytes": 67203,
+      "sha256": "e8015348a1a122a30a27d6b0f72a222ccdc73a78bbf68e52e3a287998434307e"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-interactive-lines-320.json",
+      "bytes": 23900,
+      "sha256": "163e1b0827ae4662a9b2536c693979e751bced9d05b051becd8ef5f86e30dc5d"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-interactive-lines-320.png",
+      "bytes": 47337,
+      "sha256": "f4e6e06201af69b1695d64651a2c6f381fb04f5bc1f178ecfe4eee7cf60e7060"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-line-reading-320.json",
+      "bytes": 46362,
+      "sha256": "8f3e495ed74e145f1a5771266d121156f1cf5b46b3b83d33650c9cfba386e9b2"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/meihua-line-reading-320.png",
+      "bytes": 38875,
+      "sha256": "452a668d35a92b3a486e5b8a019fcede53d0322cf7f8ea66fe565729b87cb88c"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/method-liuyao-430.json",
+      "bytes": 52306,
+      "sha256": "d215bbca755f71cb3e548d206ff7208f2df1dda35b9f2279a7ebe5253641a53a"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/method-liuyao-430.png",
+      "bytes": 73035,
+      "sha256": "4dde8193a3450aefd62fd5526f208bb38acb9c391661a91aa8723966e8efe6f5"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/method-meihua-430.json",
+      "bytes": 48223,
+      "sha256": "7558586c5fc133540fbd05e52e0370fab1ad15020b43efe1735306f964ca5e60"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/method-meihua-430.png",
+      "bytes": 58823,
+      "sha256": "b70d505a605864712bd7ea81435b61b5b79d8db854d1dc10219aac60249c9768"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/method-qimen-430.json",
+      "bytes": 44222,
+      "sha256": "75ae3504e3eca2378eb2b822d7ead6aced504aef1067a13816ec86d22d5043ee"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/method-qimen-430.png",
+      "bytes": 55937,
+      "sha256": "1146586a6ffefe8390aeedc355a7223b9db50ddd085e7e7df9ae3f5f77a3fd9d"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/night-mode-event-confirmed-430.json",
+      "bytes": 1179,
+      "sha256": "c4b9bc1931520fa1396cd28b16961d9df2d227a69708c6389d7777a49360f0b5"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/night-mode-event-confirmed-430.png",
+      "bytes": 11337,
+      "sha256": "966bbc1b4d89a53366ff9aeaa169e5f49d833dfbdccc047e5ffbe98c80cca4d0"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/night-mode-options-430.json",
+      "bytes": 1179,
+      "sha256": "a0fed17b108b1f9dfde28ff3eb741f0dfe32a31b96e280db409002f9ad1825df"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/night-mode-options-430.png",
+      "bytes": 11833,
+      "sha256": "673fe4d8fd11d793c0544eeafec598d463f03de2fa8aba2b8b04a986ffed6a86"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/night-mode-real-430.json",
+      "bytes": 1179,
+      "sha256": "c4b9bc1931520fa1396cd28b16961d9df2d227a69708c6389d7777a49360f0b5"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/night-mode-real-430.png",
+      "bytes": 11337,
+      "sha256": "966bbc1b4d89a53366ff9aeaa169e5f49d833dfbdccc047e5ffbe98c80cca4d0"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-fields-320.json",
+      "bytes": 14090,
+      "sha256": "24e6bdf5969a9aab83c1f4d223ed325ad04fd9838790044f59cb41ef68107bc0"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-fields-320.png",
+      "bytes": 30872,
+      "sha256": "ae0b0fd816e1d2bf0f17586d3294327685cc10517c84402c2aacb311698f111a"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-keyboard-simulated-430x500.json",
+      "bytes": 14213,
+      "sha256": "824f6d37d6705986625cf9eabcbc04c3ae9fc05da9663805e3cf423be5959c3b"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-keyboard-simulated-430x500.png",
+      "bytes": 39431,
+      "sha256": "80a966441860339126d836107a0e5ec876dac956b1a2df34fe9d9135a0d3c716"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-occlusion-430x500.json",
+      "bytes": 15207,
+      "sha256": "57766f3b0b39a176ce27e7f50b16e5e61ea683750d935bf82b75667a8ea7449c"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-occlusion-430x500.png",
+      "bytes": 37651,
+      "sha256": "694f773e7a96a16f0d1e11bcc916ac5b3ef5ca2d9780e67e4f99835682106f54"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-overlap-confirmed-320.json",
+      "bytes": 10816,
+      "sha256": "ae75631c3f9770c875dbce10fe90087b9da93e788b109b32081688f9da5cf40c"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-overlap-confirmed-320.png",
+      "bytes": 42259,
+      "sha256": "e13ce3793b63163861dcd969f676cf2ad617bb6753cd53ab6bd78fb2d5dceb05"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-save-430x500.json",
+      "bytes": 14037,
+      "sha256": "637506f5e5a0451c520b38e5c8b416b666bf7c67d4adcbcb33f680f9d7f88aa5"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-save-430x500.png",
+      "bytes": 39058,
+      "sha256": "de2b1cf169730c3d77c17c0b7ce1f48582a4228651475cff443be93f203da5f1"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-top-430.json",
+      "bytes": 15879,
+      "sha256": "99ef7d4d57d4a0eb5c1a26c87a92af801ed21c02cbf64d2b888cea7593eae6d4"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/notes-top-430.png",
+      "bytes": 45670,
+      "sha256": "bd5d18def07095eac08a20b39dc3cb99c33ed9d94830de37aaa1c8508f026969"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/qimen-320.json",
+      "bytes": 27360,
+      "sha256": "822120a73caa4828b6c3d14a96f1f794c6cae0a2dab94c6ccf36600997578839"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/qimen-320.png",
+      "bytes": 44935,
+      "sha256": "40bd16717b26a38fad2db9df15320bd756e9b2768581f7fce884067cf77f7899"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/qimen-360.json",
+      "bytes": 30552,
+      "sha256": "9bcc8cce53a38d2ae3a2348938abed5d86332330fc1f3a54425c0eceac49126b"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/qimen-360.png",
+      "bytes": 54391,
+      "sha256": "bb8438ab626eb8587adf564d8eb7d0faec64e0aab9000cdc6cc1099d22736f5a"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/qimen-430.json",
+      "bytes": 26759,
+      "sha256": "3cebd59b9ba86a8ed54b52831fa6472cc5a350ef4352c7966e247dc7f32de132"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/qimen-430.png",
+      "bytes": 60686,
+      "sha256": "eb3299775025ebe7d762c4329fb1bbccb76b9e5fe2af96075bdbc30e167d3ed6"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/quiz-320.json",
+      "bytes": 5701,
+      "sha256": "ea5756afe60236284a25259d7f3e542739f63ae6f074eee76a9dcc88e0017851"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/quiz-320.png",
+      "bytes": 37405,
+      "sha256": "6bb5063b8dc6d0b0341908e32671acd7128629a90e8ddf368a9cbe7dce78d417"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/quiz-430.json",
+      "bytes": 10558,
+      "sha256": "3d9c25aca1f76c0e9338de7ca84236c606831961c1a7b0911aa7eba1aba5462b"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/quiz-430.png",
+      "bytes": 56141,
+      "sha256": "00acd9cb1714904e22c94ecf20e9321d86c002d7e73d032eda15d4f49491c30c"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/records-320.json",
+      "bytes": 11723,
+      "sha256": "b44a84d71dff32fc849d8ab15532e36bf4b5a0cc762b26463b8b63fb4ef3aa6f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/records-320.png",
+      "bytes": 37229,
+      "sha256": "55db0f1111866e215dbe828c6db18988004543f0ea7c2e86d7182be9376cdb40"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/records-430.json",
+      "bytes": 11085,
+      "sha256": "003fddcfaabfae95b750dd6dbe1420bccce9055ad93ea779c0fc674ad02ee664"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/records-430.png",
+      "bytes": 47007,
+      "sha256": "42ba0e1f5bc56b33e242d038c6497948b2ed8078fa53f117c575444ffc4ac8c6"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/records-name-confirmed-320.json",
+      "bytes": 11724,
+      "sha256": "ef9778f93531ba32d0b1120266ff6869d82b7631815bd2ceb36b1f7a18910ef0"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/records-name-confirmed-320.png",
+      "bytes": 37190,
+      "sha256": "a7862c186bb387786ac09c3da2dece44ec6755cf0bdee8aed7139021d9c4a213"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-0-320.json",
+      "bytes": 23869,
+      "sha256": "36b8fbe3c913fd222e39eaa64f5610363a4abe0fb7f20069459227e5ad72610b"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-0-320.png",
+      "bytes": 90105,
+      "sha256": "3721dcf9466b25339b80cdcb09d9c655a795d9e69c59978e4682d9d8c7756c24"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-0-430.json",
+      "bytes": 26506,
+      "sha256": "641c2174d8dc78534483b94e26ccff3a0542b01a929576da098eed3055eeb1f8"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-0-430.png",
+      "bytes": 162606,
+      "sha256": "4aa5b80d33544fbba45a99484806690f4282a517f08d56db586962fc33c90f73"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-1-320.json",
+      "bytes": 25968,
+      "sha256": "03b1d0068083d6d72f4d395987ab1a53834b4394e9360465d4300bc0331fb228"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-1-320.png",
+      "bytes": 65995,
+      "sha256": "922331c5efd24b59e63e9f4029a675df1e1ed76a900d26798f29f9842c4b4291"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-1-430.json",
+      "bytes": 37447,
+      "sha256": "2437c958502707cd5c7bcadd0d13e1c660f2c342c342417ffd7c9a795a012953"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-1-430.png",
+      "bytes": 106931,
+      "sha256": "f92eb6967f586a620f08eb05f36d37a185b2197ce37ad933461b868fd9d033d7"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-2-320.json",
+      "bytes": 23391,
+      "sha256": "55fdbe26ab25eeb54025fa79ef77590c87a7499b5328d37324678b2359d9130f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-2-320.png",
+      "bytes": 41208,
+      "sha256": "f4ec4374b6a177fa9baea8972dd67154a2bdd8dcd3849be48d571d03d49feeb6"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-2-430.json",
+      "bytes": 34399,
+      "sha256": "2d7d22264da3b2de8ed5ab85261168fbc5609c1efc4482f510c43eec62d7baea"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-dialog-2-430.png",
+      "bytes": 23334,
+      "sha256": "9beb0dc454545c43d8da4959864dce8b5efd553761ed4f3fa2364b9118fed604"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-loaded-confirmed-0-430.json",
+      "bytes": 21667,
+      "sha256": "694992e4b431376abc8c59cd22a2933157ac942da78072c84b40ee4877d78d0d"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-loaded-confirmed-0-430.png",
+      "bytes": 162060,
+      "sha256": "708dacfec51f74c9c3420d46b54b0992d8003d4137197e822d0a606ca8dd1c97"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-loaded-confirmed-2-430.json",
+      "bytes": 21648,
+      "sha256": "e6c12d7219c72192426c5ff62b2667a110e61e6b01ba642108ed9f38908b1a19"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/reference-loaded-confirmed-2-430.png",
+      "bytes": 70265,
+      "sha256": "6cb35eeacd308e87c2d697fe19c031db82c4fb7cb0afc51c9ddd6f28421f1aae"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/settings-320.json",
+      "bytes": 3404,
+      "sha256": "776851d4c1673935eac3cf1fd5feac061acaa9f2918e145906bce287f20845c8"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/settings-320.png",
+      "bytes": 28328,
+      "sha256": "5a73e2574ab514f415ee62f3f6de259a4038ea24f52091dd8953657d52fa01db"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/settings-430.json",
+      "bytes": 4182,
+      "sha256": "9970f40560ce575b6e4fbf82cf56a4e934c0ed8a02398612c31a69a13d48358a"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/settings-430.png",
+      "bytes": 35154,
+      "sha256": "2a0c58e407299ecf7480e509e1394d747106ee031d31c60d871e50b1668710db"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/settings-dark-430.json",
+      "bytes": 4182,
+      "sha256": "67f6b01f5c449d6386e803309dfa0a39562cc3fcb86dbd3836fa163bd5172dd2"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/settings-dark-430.png",
+      "bytes": 35154,
+      "sha256": "2a0c58e407299ecf7480e509e1394d747106ee031d31c60d871e50b1668710db"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/strength-edit-430.json",
+      "bytes": 39563,
+      "sha256": "c3f3e429b00283cdc480801a77b7d2e3fbdf873ee80c9fc3b29f9149b467921f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/strength-edit-430.png",
+      "bytes": 41674,
+      "sha256": "740ac3ff2196d45a3c57a7430ff0751cb43fec1e49ec59b8738e350f89d02286"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/sweep.mjs",
+      "bytes": 8590,
+      "sha256": "91f8e8e6b82e87c051d52a4991f860c33c7a654bd37ba2b64c99ccd5df135757"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/tools.mjs",
+      "bytes": 5447,
+      "sha256": "4704dea81dcdfc43b95d3bbbca7f46859ea4d967048543cb4091dee50e5b8fd1"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/verify.mjs",
+      "bytes": 3100,
+      "sha256": "a7579fdb2697e105e17020cc3ca8b13a568057fdb8a06adce94ef49862978363"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-check.mjs",
+      "bytes": 2381,
+      "sha256": "189b87119e516bf5417213d9b1b8f3a9fedeefba29f96cfffcebe4e28ae9f464"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-dark-430.json",
+      "bytes": 52522,
+      "sha256": "6500df0946854bc1879144ace779035eac6b0e801fcdc78889571f048b5c02bd"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-dark-430.png",
+      "bytes": 115499,
+      "sha256": "ce3c4c56d79327629630e5cbc397249b759d563c63c451bb0c7536d39d03d08d"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-feixing-320.json",
+      "bytes": 67414,
+      "sha256": "540247140d234de16edc2e027a90a94bacd58df1462fecfa6da221e03839aecd"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-feixing-320.png",
+      "bytes": 88951,
+      "sha256": "4bdab89559ccbe1c8950c6e1fa969373caa6580a84c500460455f1a452029f37"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-feixing-360.json",
+      "bytes": 61686,
+      "sha256": "d8eb100f1f11a0b1066c5f7978f8fd1e97c078250039a9be4e6fbd43b1aa5f01"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-feixing-360.png",
+      "bytes": 109498,
+      "sha256": "be7c6b7d844cbc35a767bb6c1cf4aa2867950c431939cdbe259b9b376169af2d"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-feixing-430.json",
+      "bytes": 55339,
+      "sha256": "feffdc9ff1c60e242305e572a44f25c92ef989bdffab7ac96a297f0ce2349e5f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-feixing-430.png",
+      "bytes": 121710,
+      "sha256": "776468a9089c6567c0dcf0eb09128b660f23ec5b9362f038e44fe33b4c94f8cd"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-flow-selected-320.json",
+      "bytes": 68551,
+      "sha256": "9ba4971507e4a6f866ad04bcb86f8e6554b9fc40f016dba9c240b73f6a3cc5e3"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-flow-selected-320.png",
+      "bytes": 101757,
+      "sha256": "5c4c180696274308fe63f8218fbbe7ddcc8f6cf25558903ec13473723aa12f19"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-flow-selected-430.json",
+      "bytes": 68684,
+      "sha256": "a2cadde707c4c927a051ca247cf86cc37f46be20deefef6f3ca7761be1553967"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-flow-selected-430.png",
+      "bytes": 133703,
+      "sha256": "2b2ddaaaf56595494ba8cb5dea84af9b49879e828bf5af33b2d1d6764f67cccc"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-flows-after-scroll-320.json",
+      "bytes": 58116,
+      "sha256": "c2f93e114b36977bed66f0afa4fef8b3e7beef97585f2cb5a0278b25ab848132"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-flows-after-scroll-320.png",
+      "bytes": 96856,
+      "sha256": "f190da91aa534322dbbc8c3ef74f7b36da9b844e6d1c88beffbf24f0e3e0bcf4"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-fresh-check.json",
+      "bytes": 10437,
+      "sha256": "da9965701a4186c3a0e32451fbafc3b8919b49642df7320710c28f78a4b6b396"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-fresh-qintian-selected-320.json",
+      "bytes": 62879,
+      "sha256": "3eb97d0de269a068e71519b95fb54d766383b0127578e4d2835b4af8dec36a39"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-fresh-qintian-selected-320.png",
+      "bytes": 101757,
+      "sha256": "5c4c180696274308fe63f8218fbbe7ddcc8f6cf25558903ec13473723aa12f19"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-geometry-320.json",
+      "bytes": 8078,
+      "sha256": "3a96f9bf8066bf1b901ee50ae42db06649b8872c7ee0a9c5878d4af1302626eb"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-qintian-320.json",
+      "bytes": 63539,
+      "sha256": "380378c95c333ccb7bc84af14ef103fb203be4d2385e3ed7714040aa92958c92"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-qintian-320.png",
+      "bytes": 86121,
+      "sha256": "425c2e78aa0fab37c719c5041eb07401bc6e74541ff8537a286b50d64898e28f"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-qintian-360.json",
+      "bytes": 59440,
+      "sha256": "8f1d6d75edd8b6758e87ba8fef983e3e314713551ed6064fdd2598101d0eafa4"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-qintian-360.png",
+      "bytes": 102297,
+      "sha256": "61d84421547100603b0f28f442b568a41d1b0d6feb33c4a4283270c7256ed241"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-qintian-430.json",
+      "bytes": 55982,
+      "sha256": "05320c1850630db423587bdbecf61a397d2e15981d4ac7821a96e9c17d52c14c"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-qintian-430.png",
+      "bytes": 115499,
+      "sha256": "ce3c4c56d79327629630e5cbc397249b759d563c63c451bb0c7536d39d03d08d"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-sanhe-320.json",
+      "bytes": 87987,
+      "sha256": "a091ac45a65183466374fce5045596c0f43bc3683ec1abbffa3bdce375ca8f73"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-sanhe-320.png",
+      "bytes": 119344,
+      "sha256": "a885f89b6f95a34840cab15accdced0f10479cdff9b7c7a0ffb32782e8cfc77c"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-sanhe-360.json",
+      "bytes": 119549,
+      "sha256": "9a5996dbee58e65b254ae66147602013e607689d8ee4373c30bbf53b16bdab96"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-sanhe-360.png",
+      "bytes": 138578,
+      "sha256": "27d6ee65732b31775d258befaa31136bbb5dcf59d7e8cde5a6d0538b18a17475"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-sanhe-430.json",
+      "bytes": 117943,
+      "sha256": "6d315aafb053a6c5a5c5544af8e4cbec8449768525b32555544166bd9424c1c9"
+    },
+    {
+      "file": "docs/ui-audit-2026-10-30/ziwei-sanhe-430.png",
+      "bytes": 175429,
+      "sha256": "f86292bc227a92542da886c4a8cd779f2b3fafa2e636aae19e5bb7665b47fd94"
+    }
+  ],
+  "manifest_note": "This manifest excludes its own hash. Geometry candidate counters are not confirmed defect totals."
+}

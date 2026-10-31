@@ -1,0 +1,647 @@
+{
+  "width": 320,
+  "height": 640,
+  "url": "http://localhost:9988/#/main/wznavigation/wzmy",
+  "theme": null,
+  "text": "设置\n排盘偏好\n默认打开八字 · 拖动调整五盘顺序\n数据备份\n偏好设置\n版本更新\n规则设置\n早晚子时\n真太阳时\n干支关系\n地支藏干\n人元司令\n神煞设置\n命宫身宫\n更多\n排盘\n记录\n题库\n设置\n排盘偏好\n默认打开\n八字\n紫微\n奇门\n六爻\n梅花\n\n进入结果时先显示所选盘，顺序可独立设置。\n\n页面顺序\n\n拖动右侧手柄，或使用上下按钮调整。\n\n1\n八字\n↑\n↓\n☰\n2\n紫微\n↑\n↓\n☰\n3\n奇门\n↑\n↓\n☰\n4\n六爻\n↑\n↓\n☰\n5\n梅花\n↑\n↓\n☰\n保存偏好",
+  "texts": [
+    {
+      "text": "设置",
+      "el": "H1.",
+      "rect": {
+        "x": 24,
+        "y": 140,
+        "w": 60,
+        "h": 44
+      },
+      "font": "30px"
+    },
+    {
+      "text": "排盘偏好",
+      "el": "STRONG.",
+      "rect": {
+        "x": 155,
+        "y": 24,
+        "w": 24.78125,
+        "h": 144
+      },
+      "font": "24.7742px"
+    },
+    {
+      "text": "默认打开八字 · 拖动调整五盘顺序",
+      "el": "SMALL.",
+      "rect": {
+        "x": 155,
+        "y": 172,
+        "w": 24.46875,
+        "h": 128
+      },
+      "font": "11px"
+    },
+    {
+      "text": "数据备份",
+      "el": "BUTTON.pf-detail-button",
+      "rect": {
+        "x": 230.109375,
+        "y": 126,
+        "w": 49.546875,
+        "h": 72
+      },
+      "font": "24.7742px"
+    },
+    {
+      "text": "偏好设置",
+      "el": "SPAN.",
+      "rect": {
+        "x": 43.640625,
+        "y": 393.0625,
+        "w": 42.640625,
+        "h": 15
+      },
+      "font": "10.6667px"
+    },
+    {
+      "text": "版本更新",
+      "el": "SPAN.",
+      "rect": {
+        "x": 123.5625,
+        "y": 393.0625,
+        "w": 42.640625,
+        "h": 15
+      },
+      "font": "10.6667px"
+    },
+    {
+      "text": "规则设置",
+      "el": "DIV.setting_header_title",
+      "rect": {
+        "x": 37.796875,
+        "y": 460.125,
+        "w": 76,
+        "h": 27
+      },
+      "font": "19px"
+    },
+    {
+      "text": "早晚子时",
+      "el": "SPAN.",
+      "rect": {
+        "x": 35,
+        "y": 534.921875,
+        "w": 48,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "真太阳时",
+      "el": "SPAN.",
+      "rect": {
+        "x": 103,
+        "y": 534.921875,
+        "w": 48,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "干支关系",
+      "el": "SPAN.",
+      "rect": {
+        "x": 171,
+        "y": 534.921875,
+        "w": 48,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "地支藏干",
+      "el": "SPAN.",
+      "rect": {
+        "x": 239,
+        "y": 534.921875,
+        "w": 48,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "排盘",
+      "el": "SPAN.nav-text",
+      "rect": {
+        "x": 37,
+        "y": 616.640625,
+        "w": 24,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "记录",
+      "el": "SPAN.nav-text",
+      "rect": {
+        "x": 111,
+        "y": 616.640625,
+        "w": 24,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "题库",
+      "el": "SPAN.nav-text",
+      "rect": {
+        "x": 185,
+        "y": 616.640625,
+        "w": 24,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "设置",
+      "el": "SPAN.nav-text",
+      "rect": {
+        "x": 259,
+        "y": 616.640625,
+        "w": 24,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "排盘偏好",
+      "el": "H2.",
+      "rect": {
+        "x": 13,
+        "y": 31,
+        "w": 80,
+        "h": 29
+      },
+      "font": "20px"
+    },
+    {
+      "text": "默认打开",
+      "el": "H3.fa-section-title",
+      "rect": {
+        "x": 20,
+        "y": 103,
+        "w": 68,
+        "h": 25
+      },
+      "font": "17px"
+    },
+    {
+      "text": "八字",
+      "el": "BUTTON.fa-radio-row",
+      "rect": {
+        "x": 49,
+        "y": 152.5,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "紫微",
+      "el": "BUTTON.fa-radio-row",
+      "rect": {
+        "x": 49,
+        "y": 197.890625,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "奇门",
+      "el": "BUTTON.fa-radio-row",
+      "rect": {
+        "x": 49,
+        "y": 243.28125,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "六爻",
+      "el": "BUTTON.fa-radio-row",
+      "rect": {
+        "x": 49,
+        "y": 288.671875,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "梅花",
+      "el": "BUTTON.fa-radio-row",
+      "rect": {
+        "x": 49,
+        "y": 334.0625,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "进入结果时先显示所选盘，顺序可独立设置。",
+      "el": "P.fa-caption",
+      "rect": {
+        "x": 20,
+        "y": 378.453125,
+        "w": 240,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "页面顺序",
+      "el": "H3.fa-section-title",
+      "rect": {
+        "x": 20,
+        "y": 420.046875,
+        "w": 68,
+        "h": 25
+      },
+      "font": "17px"
+    },
+    {
+      "text": "拖动右侧手柄，或使用上下按钮调整。",
+      "el": "P.fa-caption",
+      "rect": {
+        "x": 20,
+        "y": 459.546875,
+        "w": 204,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "1",
+      "el": "SPAN.fa-order-number",
+      "rect": {
+        "x": 20,
+        "y": 506.546875,
+        "w": 6.671875,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "八字",
+      "el": "STRONG.",
+      "rect": {
+        "x": 38.671875,
+        "y": 504.9375,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "↑",
+      "el": "BUTTON.fa-sort-arrow",
+      "rect": {
+        "x": 179,
+        "y": 504.9375,
+        "w": 14,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "↓",
+      "el": "BUTTON.fa-sort-arrow",
+      "rect": {
+        "x": 227,
+        "y": 504.9375,
+        "w": 14,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "☰",
+      "el": "BUTTON.fa-drag",
+      "rect": {
+        "x": 275.703125,
+        "y": 504.9375,
+        "w": 12.578125,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "2",
+      "el": "SPAN.fa-order-number",
+      "rect": {
+        "x": 20,
+        "y": 561.546875,
+        "w": 6.671875,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "紫微",
+      "el": "STRONG.",
+      "rect": {
+        "x": 38.671875,
+        "y": 559.9375,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "↑",
+      "el": "BUTTON.fa-sort-arrow",
+      "rect": {
+        "x": 179,
+        "y": 559.9375,
+        "w": 14,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "↓",
+      "el": "BUTTON.fa-sort-arrow",
+      "rect": {
+        "x": 227,
+        "y": 559.9375,
+        "w": 14,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "☰",
+      "el": "BUTTON.fa-drag",
+      "rect": {
+        "x": 275.703125,
+        "y": 559.9375,
+        "w": 12.578125,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "3",
+      "el": "SPAN.fa-order-number",
+      "rect": {
+        "x": 20,
+        "y": 616.546875,
+        "w": 6.671875,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "奇门",
+      "el": "STRONG.",
+      "rect": {
+        "x": 38.671875,
+        "y": 614.9375,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "↑",
+      "el": "BUTTON.fa-sort-arrow",
+      "rect": {
+        "x": 179,
+        "y": 614.9375,
+        "w": 14,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "↓",
+      "el": "BUTTON.fa-sort-arrow",
+      "rect": {
+        "x": 227,
+        "y": 614.9375,
+        "w": 14,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "☰",
+      "el": "BUTTON.fa-drag",
+      "rect": {
+        "x": 275.703125,
+        "y": 614.9375,
+        "w": 12.578125,
+        "h": 20
+      },
+      "font": "14px"
+    }
+  ],
+  "smallTargets": [],
+  "blockedTargets": [
+    {
+      "text": "排盘偏好\n默认打开八字 · 拖动调整五盘顺序",
+      "el": "BUTTON.fa-preference-entry",
+      "rect": {
+        "x": 104,
+        "y": 20,
+        "w": 109.78125,
+        "h": 284
+      },
+      "hit": "BUTTON.fa-radio-row"
+    },
+    {
+      "text": "数据备份",
+      "el": "BUTTON.pf-detail-button",
+      "rect": {
+        "x": 213.78125,
+        "y": 123,
+        "w": 82.21875,
+        "h": 78
+      },
+      "hit": "BUTTON.fa-radio-row"
+    },
+    {
+      "text": "排盘",
+      "el": "BUTTON.navigation-item",
+      "rect": {
+        "x": 12,
+        "y": 581,
+        "w": 74,
+        "h": 59
+      },
+      "hit": "DIV.fa-sort-row"
+    },
+    {
+      "text": "记录",
+      "el": "BUTTON.navigation-item",
+      "rect": {
+        "x": 86,
+        "y": 581,
+        "w": 74,
+        "h": 59
+      },
+      "hit": "DIV.fa-sort-row"
+    },
+    {
+      "text": "题库",
+      "el": "BUTTON.navigation-item.navigation-item-selected",
+      "rect": {
+        "x": 160,
+        "y": 581,
+        "w": 74,
+        "h": 59
+      },
+      "hit": "BUTTON.fa-sort-arrow"
+    },
+    {
+      "text": "设置",
+      "el": "BUTTON.navigation-item",
+      "rect": {
+        "x": 234,
+        "y": 581,
+        "w": 74,
+        "h": 59
+      },
+      "hit": "BUTTON.fa-drag"
+    }
+  ],
+  "clipped": [],
+  "overlaps": [
+    {
+      "a": {
+        "text": "设置",
+        "el": "H1.",
+        "rect": {
+          "x": 24,
+          "y": 140,
+          "w": 60,
+          "h": 44
+        },
+        "font": "30px"
+      },
+      "b": {
+        "text": "八字",
+        "el": "BUTTON.fa-radio-row",
+        "rect": {
+          "x": 49,
+          "y": 152.5,
+          "w": 28,
+          "h": 20
+        },
+        "font": "14px"
+      },
+      "area": 560
+    },
+    {
+      "a": {
+        "text": "规则设置",
+        "el": "DIV.setting_header_title",
+        "rect": {
+          "x": 37.796875,
+          "y": 460.125,
+          "w": 76,
+          "h": 27
+        },
+        "font": "19px"
+      },
+      "b": {
+        "text": "拖动右侧手柄，或使用上下按钮调整。",
+        "el": "P.fa-caption",
+        "rect": {
+          "x": 20,
+          "y": 459.546875,
+          "w": 204,
+          "h": 17
+        },
+        "font": "12px"
+      },
+      "area": 1248.0625
+    },
+    {
+      "a": {
+        "text": "排盘",
+        "el": "SPAN.nav-text",
+        "rect": {
+          "x": 37,
+          "y": 616.640625,
+          "w": 24,
+          "h": 17
+        },
+        "font": "12px"
+      },
+      "b": {
+        "text": "奇门",
+        "el": "STRONG.",
+        "rect": {
+          "x": 38.671875,
+          "y": 614.9375,
+          "w": 28,
+          "h": 20
+        },
+        "font": "14px"
+      },
+      "area": 379.578125
+    },
+    {
+      "a": {
+        "text": "题库",
+        "el": "SPAN.nav-text",
+        "rect": {
+          "x": 185,
+          "y": 616.640625,
+          "w": 24,
+          "h": 17
+        },
+        "font": "12px"
+      },
+      "b": {
+        "text": "↑",
+        "el": "BUTTON.fa-sort-arrow",
+        "rect": {
+          "x": 179,
+          "y": 614.9375,
+          "w": 14,
+          "h": 20
+        },
+        "font": "14px"
+      },
+      "area": 136
+    },
+    {
+      "a": {
+        "text": "设置",
+        "el": "SPAN.nav-text",
+        "rect": {
+          "x": 259,
+          "y": 616.640625,
+          "w": 24,
+          "h": 17
+        },
+        "font": "12px"
+      },
+      "b": {
+        "text": "☰",
+        "el": "BUTTON.fa-drag",
+        "rect": {
+          "x": 275.703125,
+          "y": 614.9375,
+          "w": 12.578125,
+          "h": 20
+        },
+        "font": "14px"
+      },
+      "area": 124.046875
+    }
+  ],
+  "bodyWidth": 320
+}

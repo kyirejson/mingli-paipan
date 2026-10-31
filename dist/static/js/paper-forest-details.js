@@ -72,6 +72,7 @@
       var key=t.infoLabelValArr[index];if(!info[key] || index===4&&!(t.rysl&&t.rysl.switch))return null;
       if(index===6)return h('div',{class:'pf-info-row pf-info-pair'},[cell((info.jqArr1||[])[0],(info.jqArr1||[])[1]),cell((info.jqArr2||[])[0],(info.jqArr2||[])[1])]);
       var value=t.getInfoDisplayValue(index),extra=t.showInfoExtra(index)&&info[key+'_nayin'];
+      if(index===4 && /^\s*\*+\s*$/.test(String(info[key])))value='暂无数据';
       if(index===0)value+='（'+t.sexVal+'）';
       if(Array.isArray(value))value=value.join('');
       var children=[cell(label,value,extra)];if(extras[index]&&extras[index][1])children.push(cell.apply(null,extras[index]));

@@ -1,0 +1,262 @@
+{
+  "width": 800,
+  "height": 420,
+  "url": "http://localhost:9988/#/main/wznavigation/wzindex",
+  "theme": null,
+  "text": "造化元钥\n\n一次输入，五盘同参\n\n姓名\n性别\n男\n女\n历法\n公历\n农历\n四柱\n出生时间\n2002-01-09 01:29\n使用当前\n出生地点\n未知地 北京时间 --\n分组\n全部\n\n基础排盘需联网，会发送所填的起盘信息。命例与笔记保存在本机，请定期备份。\n\n开始排盘\n更多工具\n合盘\n多盘对比\n五运六气\n排盘\n记录\n题库\n设置",
+  "texts": [
+    {
+      "text": "造化元钥",
+      "el": "H1.index_header_title",
+      "rect": {
+        "x": 175.71875,
+        "y": 23,
+        "w": 132,
+        "h": 46
+      },
+      "font": "32px"
+    },
+    {
+      "text": "一次输入，五盘同参",
+      "el": "P.pf-caption",
+      "rect": {
+        "x": 175.71875,
+        "y": 73,
+        "w": 108,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "姓名",
+      "el": "LABEL.form_row_title",
+      "rect": {
+        "x": 175.71875,
+        "y": 137.1875,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "性别",
+      "el": "SPAN.form_row_title",
+      "rect": {
+        "x": 449.53125,
+        "y": 137.1875,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "男",
+      "el": "BUTTON.form_radios_item.form_radios_item-selected",
+      "rect": {
+        "x": 525.578125,
+        "y": 137.390625,
+        "w": 14,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "女",
+      "el": "BUTTON.form_radios_item",
+      "rect": {
+        "x": 614.671875,
+        "y": 137.390625,
+        "w": 14,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "历法",
+      "el": "SPAN.form_row_title",
+      "rect": {
+        "x": 175.71875,
+        "y": 210.1875,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "公历",
+      "el": "BUTTON.form_radios_item.form_radios_item-selected",
+      "rect": {
+        "x": 283.046875,
+        "y": 210.390625,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "农历",
+      "el": "BUTTON.form_radios_item",
+      "rect": {
+        "x": 430.71875,
+        "y": 210.390625,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "四柱",
+      "el": "BUTTON.form_radios_item",
+      "rect": {
+        "x": 578.390625,
+        "y": 210.390625,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "出生时间",
+      "el": "LABEL.form_row_title",
+      "rect": {
+        "x": 175.71875,
+        "y": 257.390625,
+        "w": 56,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "2002-01-09 01:29",
+      "el": "STRONG.",
+      "rect": {
+        "x": 186.71875,
+        "y": 300.78125,
+        "w": 113.078125,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "使用当前",
+      "el": "BUTTON.form-time-mode",
+      "rect": {
+        "x": 614.71875,
+        "y": 302.78125,
+        "w": 44,
+        "h": 16
+      },
+      "font": "11px"
+    },
+    {
+      "text": "出生地点",
+      "el": "LABEL.form_row_title",
+      "rect": {
+        "x": 175.71875,
+        "y": 349.78125,
+        "w": 56,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "分组",
+      "el": "LABEL.form_row_title",
+      "rect": {
+        "x": 475.71875,
+        "y": 349.78125,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px"
+    },
+    {
+      "text": "排盘",
+      "el": "SPAN.nav-text",
+      "rect": {
+        "x": 216.21875,
+        "y": 398.09375,
+        "w": 24,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "记录",
+      "el": "SPAN.nav-text",
+      "rect": {
+        "x": 345.21875,
+        "y": 398.09375,
+        "w": 24,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "题库",
+      "el": "SPAN.nav-text",
+      "rect": {
+        "x": 474.21875,
+        "y": 398.09375,
+        "w": 24,
+        "h": 17
+      },
+      "font": "12px"
+    },
+    {
+      "text": "设置",
+      "el": "SPAN.nav-text",
+      "rect": {
+        "x": 603.21875,
+        "y": 398.09375,
+        "w": 24,
+        "h": 17
+      },
+      "font": "12px"
+    }
+  ],
+  "smallTargets": [],
+  "blockedTargets": [],
+  "clipped": [
+    {
+      "text": "出生地点",
+      "el": "LABEL.form_row_title",
+      "rect": {
+        "x": 175.71875,
+        "y": 349.78125,
+        "w": 56,
+        "h": 20
+      },
+      "font": "14px",
+      "axis": "y",
+      "ancestor": "DIV.navigation-fragment",
+      "container": {
+        "x": 151.71875,
+        "y": 0,
+        "w": 540,
+        "h": 355
+      }
+    },
+    {
+      "text": "分组",
+      "el": "LABEL.form_row_title",
+      "rect": {
+        "x": 475.71875,
+        "y": 349.78125,
+        "w": 28,
+        "h": 20
+      },
+      "font": "14px",
+      "axis": "y",
+      "ancestor": "DIV.navigation-fragment",
+      "container": {
+        "x": 151.71875,
+        "y": 0,
+        "w": 540,
+        "h": 355
+      }
+    }
+  ],
+  "overlaps": [],
+  "bodyWidth": 800
+}

@@ -1,0 +1,7 @@
+test_request_forwards_chart_and_history_without_leaking_key (test_assistant_proxy.AssistantProxyTest.test_request_forwards_chart_and_history_without_leaking_key) ... ok
+test_retrieves_only_actual_natal_major_stars (test_assistant_proxy.AssistantProxyTest.test_retrieves_only_actual_natal_major_stars) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.560s
+
+OK

@@ -1,0 +1,11 @@
+import fs from 'node:fs/promises';
+import {createAudit} from './tools.mjs';
+const a=await createAudit(),{b,ev,call,wait,pause,capture,size,finder,out}=a;
+try{
+ await call('Page.enable');await call('Runtime.enable');await size(320,640);await call('Page.reload',{ignoreCache:true});await wait(`!!window.__WZBZ_ROUTER__&&!!document.getElementById('app')?.__vue__`);await pause(600);
+ await ev(`window.__WZBZ_ROUTER__.replace('/main/wznavigation/wzuserlist').catch(()=>{}).then(()=>true)`);await pause(500);
+ await ev(`(()=>{${finder}const v=find(document.getElementById('app').__vue__,'WZUserList');v.isDetail=true;v.onDetail(JSON.parse(localStorage.getItem('wzbz_local_userlist_v14')).find(x=>x.name==='界面审核测试甲乙丙丁'));return true})()`);await wait(`!!document.querySelector('.fa-result-host')?.__vue__?.session&&!document.querySelector('.fa-result-host').__vue__.owner.chartPending`);
+ await a.tab('ziwei');await ev(`(()=>{const h=document.querySelector('.fa-result-host').__vue__;h.session.ziweiMode='qintian';h.flowScope='decadal';return true})()`);await pause(500);await capture('ziwei-fresh-qintian-selected-320');
+ const proof=await ev(`(()=>{const root=document.querySelector('.fa-slide-ziwei'),rect=e=>{let r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}},overlaps=[];for(const p of root.querySelectorAll('.fa-ziwei-palace')){let texts=[...p.querySelectorAll('.fa-ziwei-star strong')].map(e=>{let t=document.createRange();t.selectNodeContents(e);return {text:e.textContent,...rect({getBoundingClientRect:()=>t.getBoundingClientRect()})}});for(let i=0;i<texts.length;i++)for(let j=i+1;j<texts.length;j++){let x=texts[i],y=texts[j],w=Math.min(x.x+x.w,y.x+y.w)-Math.max(x.x,y.x),h=Math.min(x.y+x.h,y.y+y.h)-Math.max(x.y,y.y);if(w>2&&h>4)overlaps.push({a:x,b:y,overlapWidth:w,overlapHeight:h})}}return{viewport:{w:innerWidth,h:innerHeight},board:rect(root.querySelector('.fa-ziwei-board')),mode:rect(root.querySelector('.fa-ziwei-modebar')),flows:[...root.querySelectorAll('.fa-flow-row')].map(e=>({text:e.innerText.slice(0,70),...rect(e)})),overlaps}})()`);
+ await fs.writeFile(out+'/ziwei-fresh-check.json',JSON.stringify(proof,null,2));console.log(JSON.stringify({viewport:proof.viewport,board:proof.board,mode:proof.mode,flows:proof.flows,overlaps:proof.overlaps.length,examples:proof.overlaps.slice(0,2)},null,2));
+}finally{b.close();}

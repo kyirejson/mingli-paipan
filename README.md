@@ -1,4 +1,16 @@
-# 造化元钥：恢复后的开发目录
+# 造化元钥（命理排盘）
+
+## 下载与更新
+
+[下载 v1.0.13 安卓安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.13/zaohua-v1.0.13.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.13) · [全部版本](https://github.com/kyirejson/mingli-paipan/releases)
+
+v1.0.13 为新签名预发布版，约 36.2 MB，针对紫微运限布局、夜间模式、笔记遮挡、设置页、八字宽度适配和梅花爻线点击区域等问题调整。59 项 Node 回归和 2 项 Python 检查通过；修复后的截图和 Android 设备验证尚未完成，具体范围见 [UI 优化实施记录](docs/2026-10-30_UI优化实施记录.md)。
+
+新签名 v1.0.8 及后续本地构建版本可覆盖升级，建议先备份重要记录。v1.0.7 及更早的旧签名版不能直接覆盖安装，须先备份、卸载旧版，再安装新签名版；卸载会删除本地应用数据。本版沿用新签名预发布通道，不替换旧签名正式更新通道。仅推送源码不会更新手机上的 APK。
+
+APK SHA-256：`ef5e302c39bcef641dd14b20a68fadf2a988f4a50f16b229f40684eae7e55f88`。
+
+## 开发目录与恢复范围
 
 本目录的 `dist/` 是从 GitHub 发布的 v1.0.7 APK 中恢复的网页资源，再在其上开发紫微助手。原始开发目录已由用户删除，安卓原生工程、原始签名文件和部分构建脚本尚未恢复；不能把这个目录当作完整的原始工程。
 

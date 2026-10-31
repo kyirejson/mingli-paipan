@@ -21,3 +21,6 @@
 .pf-birth-summary{display:block;min-width:0;flex:1;text-align:left;overflow-wrap:anywhere}.pf-birth-summary strong{display:block;font-size:14px;font-weight:500;white-space:normal}.pf-birth-summary small{display:block;font-size:11px;font-weight:400;color:var(--pf-caption);margin-top:3px;white-space:normal}
 html.pf-theme .pf-calendar-sheet .van-picker__columns{background:var(--pf-paper)}
 html.pf-theme .pf-calendar-sheet .van-picker__mask{background-image:linear-gradient(180deg,var(--pf-paper),transparent),linear-gradient(0deg,var(--pf-paper),transparent)}
+
+/* Match both halves of the wheel fade to the active paper color. */
+.pf-calendar-sheet .van-picker__mask{background-image:linear-gradient(180deg,var(--pf-paper),color-mix(in srgb,var(--pf-paper) 35%,transparent)),linear-gradient(0deg,var(--pf-paper),color-mix(in srgb,var(--pf-paper) 35%,transparent))}

@@ -1,0 +1,29 @@
+{
+  "stages": [
+    {
+      "name": "settings-backup-preferences",
+      "done": true
+    },
+    {
+      "name": "bazi-reference-dialogs",
+      "done": true
+    },
+    {
+      "name": "notes-short-viewport",
+      "done": true
+    },
+    {
+      "name": "ziwei-flows-and-star-overlap",
+      "done": true
+    },
+    {
+      "name": "liuyao-and-meihua-readings",
+      "done": true
+    },
+    {
+      "name": "actual-dark-theme",
+      "done": true
+    }
+  ],
+  "errors": []
+}

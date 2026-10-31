@@ -1,6 +1,20 @@
 /* Paper Forest: shared presentation only. Chart and quiz logic stay in their components. */
 (function (global) {
   'use strict';
+  // The existing preference store owns body[data-theme]; mirror it for root tokens.
+  if (global.document && global.MutationObserver) {
+    var watchTheme = function() {
+      var sync = function() {
+        var dark = document.body.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+      };
+      sync();
+      new MutationObserver(sync).observe(document.body, { attributes:true, attributeFilter:['data-theme'] });
+    };
+    if (document.body) watchTheme();
+    else document.addEventListener('DOMContentLoaded', watchTheme, {once:true});
+  }
   var paths = {
     compass: ['M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z', 'm15.5 8.5-2 5-5 2 2-5 5-2Z'],
     record: ['M6 3h9l4 4v14H6V3Z', 'M14 3v5h5M9 12h7M9 16h5'],
@@ -96,7 +110,7 @@
   }
   function renderSettingsHeading(h) {
     var t = this;
-    return h('header', { class: 'my-header pf-settings-heading' }, [h('div', [h('h1', ['设置'])]), global.FiveArtsUI.preferenceEntry(h, t),h('button',{class:'pf-detail-button',attrs:{type:'button'},on:{click:function(){global.WZBZBackup.open();}}},['数据备份'])]);
+    return h('header', { class: 'my-header pf-settings-heading' }, [h('div',{class:'pf-settings-title'},[h('h1', ['设置']),h('button',{class:'pf-detail-button',attrs:{type:'button'},on:{click:function(){global.WZBZBackup.open();}}},['数据备份'])]), global.FiveArtsUI.preferenceEntry(h, t)]);
   }
   function renderPreferenceHeader(h) {
     var t=this;

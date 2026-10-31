@@ -1,0 +1,18 @@
+import fs from 'node:fs/promises';
+import {createAudit} from './tools.mjs';
+const a=await createAudit(),{b,ev,call,wait,pause,capture,size,finder,out}=a,proof={};
+async function route(path){await ev(`window.__WZBZ_ROUTER__.replace('${path}').catch(()=>{}).then(()=>true)`);await pause(500);}
+async function chart(){await route('/main/wznavigation/wzuserlist');await ev(`(()=>{${finder}const v=find(document.getElementById('app').__vue__,'WZUserList');v.isDetail=true;v.onDetail(JSON.parse(localStorage.getItem('wzbz_local_userlist_v14')).find(x=>x.name==='界面审核测试甲乙丙丁'));return true})()`);await wait(`!!document.querySelector('.fa-result-host')?.__vue__?.session&&!document.querySelector('.fa-result-host').__vue__.owner.chartPending`);await a.tab('bazi');}
+async function geometry(){return ev(`(()=>{const e=[...document.querySelectorAll('*')].find(e=>e.children.length===0&&e.textContent.trim()==='时柱'&&e.getBoundingClientRect().width>0);let parents=[];for(let x=e;x&&parents.length<16;x=x.parentElement){let r=x.getBoundingClientRect(),s=getComputedStyle(x);parents.push({tag:x.tagName,cls:x.className,x:r.x,y:r.y,w:r.width,h:r.height,scrollWidth:x.scrollWidth,clientWidth:x.clientWidth,overflowX:s.overflowX,width:s.width,minWidth:s.minWidth,transform:s.transform})}return {viewport:{w:innerWidth,h:innerHeight},parents}})()`);}
+try{
+ await call('Page.enable');await call('Runtime.enable');await size(320,640);await call('Page.reload',{ignoreCache:true});await wait(`!!window.__WZBZ_ROUTER__&&!!document.getElementById('app')?.__vue__`);await pause(800);await chart();
+ await ev(`(()=>{document.querySelector('.fa-result-host').__vue__.owner.onTab(1);return true})()`);await pause(400);proof.fresh320=await geometry();await capture('bazi-basic-fresh-320');
+ await ev(`(()=>{document.querySelector('.fa-result-host').__vue__.owner.onTab(2);return true})()`);await pause(300);await capture('bazi-detail-fresh-320');
+ await size(430,932);await pause(500);await ev(`(()=>{document.querySelector('.fa-result-host').__vue__.owner.onTab(1);return true})()`);proof.resized430=await geometry();await size(320,640);await pause(700);proof.resized320=await geometry();await capture('bazi-resize-confirmed-320');
+ await route('/main/wznavigation/wzuserlist');await capture('records-name-confirmed-320');proof.record=await ev(`(()=>{const e=[...document.querySelectorAll('span')].find(e=>e.textContent==='界面审核测试甲乙丙丁');const p=e.closest('.useritemblock_left'),r=document.createRange();r.selectNodeContents(e);let t=r.getBoundingClientRect(),s=p.getBoundingClientRect();return {text:e.textContent,textRight:t.right,containerRight:s.right,overflow:getComputedStyle(p).overflow,textOverflow:getComputedStyle(p).textOverflow}})()`);
+ await chart();await size(430,932);const before=a.errors.length;
+ await route('/main/settingshow/nightmode');await ev(`(()=>{[...document.querySelectorAll('.form_item_title')].find(e=>e.textContent.trim()==='夜间模式').click();return true})()`);await pause(500);await capture('night-mode-event-confirmed-430');
+ proof.themeErrors=a.errors.slice(before);proof.theme=await ev(`({html:document.documentElement.getAttribute('data-theme'),body:document.body.getAttribute('data-theme'),dark:document.getElementById('app').__vue__.$store.getters.isDark,paper:getComputedStyle(document.documentElement).getPropertyValue('--pf-paper')})`);
+ await ev(`(()=>{[...document.querySelectorAll('.form_item_title')].find(e=>e.textContent.trim()==='日间模式').click();return true})()`);await pause(200);
+ await fs.writeFile(out+'/layout-check.json',JSON.stringify(proof,null,2));console.log(JSON.stringify(proof,null,2));
+}finally{b.close();}

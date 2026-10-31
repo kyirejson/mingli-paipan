@@ -724,7 +724,7 @@
     }
     lines = lines.concat(chart._cachedSelfArrows);
     var directions=h('div',{class:'fa-ziwei-directions'},[['top','正南方','南偏西'],['left','南偏东','东偏南','正东方','东偏北'],['right','西偏南','正西方','西偏北','北偏西'],['bottom','北偏东','正北方']].map(function(items){return h('div',{class:'fa-direction-'+items[0]},items.slice(1).map(function(t){return h('span',[t]);}));}));
-    return h('div',{class:['fa-ziwei','fa-ziwei-'+mode]},[
+    return h('div',{class:['fa-ziwei','fa-ziwei-'+mode,{'has-extra-flows':mode==='sanhe'&&this.ziweiMoreFlows}]},[
       h('div',{class:'fa-ziwei-board'},[directions,h('div',{class:'fa-ziwei-grid'},jsx.concat([h('div',{class:'fa-ziwei-center'},center),h('FiveArtsFlightLayer',{props:{items:lines}})]))]),
       this.renderZiweiFlows(h,r,mode==='sanhe'),
       h('div',{class:'fa-ziwei-modebar'},[choices(h,[['feixing','飞星'],['sanhe','三合'],['qintian','钦天·四化']],mode,function(v){self.session.ziweiMode=v;saveSession(self.session);}),button(h,'本命',function(){self.flowScope='';},'fa-ziwei-natal'),button(h,'紫微助手',function(){self.assistantOpen=true;},'fa-ziwei-assistant-entry')])
@@ -812,6 +812,7 @@
           flowDate: now().slice(0, 10),
           flowHour: 0,
           flowScope: "",
+          ziweiMoreFlows: false,
           renderedTabs: initRendered
         };
       },
@@ -845,8 +846,22 @@
       },
       mounted: function() {
         this.prepareNextPane();
+        var self=this;
+        this._legacyWidth=0;
+        this._measureLegacy=function(){
+          var width=self.$el.clientWidth;
+          if(!width || width===self._legacyWidth)return;
+          self._legacyWidth=width;
+          self.refreshLegacySize();
+        };
+        if(global.ResizeObserver){this._legacyObserver=new ResizeObserver(this._measureLegacy);this._legacyObserver.observe(this.$el);}
+        else global.addEventListener('resize',this._measureLegacy);
+        this._measureLegacy();
       },
       beforeDestroy: function() {
+        if(this._legacyObserver)this._legacyObserver.disconnect();
+        else global.removeEventListener('resize',this._measureLegacy);
+        if(this._legacyResizeFrame)cancelAnimationFrame(this._legacyResizeFrame);
         this._cache.clear();
         if (this._rafId) cancelAnimationFrame(this._rafId);
         if (this._mountFrame) cancelAnimationFrame(this._mountFrame);
@@ -856,6 +871,18 @@
         clearTimeout(this._prepareTimer);
       },
       methods: {
+        refreshLegacySize: function() {
+          var self=this;
+          this.$nextTick(function(){
+            if(self._isDestroyed)return;
+            if(self._legacyResizeFrame)cancelAnimationFrame(self._legacyResizeFrame);
+            self._legacyResizeFrame=requestAnimationFrame(function(){
+              self._legacyResizeFrame=null;
+              var el=self.$el.querySelector('.fa-legacy .wzbz_main_wrapper.van-swipe'),swipe=el&&el.__vue__;
+              if(swipe&&typeof swipe.resize==='function')swipe.resize();
+            });
+          });
+        },
         assistantToNote: function(item) {
           var note=this.owner.noteData, guid=note&&note.userGuid;
           if(!guid){this.assistantError='当前命例无法写入笔记';return;}
@@ -964,6 +991,7 @@
           this._cache.clear();
           this.yongIndex = 6;
           this._scrollPositions = {};
+          this.ziweiMoreFlows = false;
           this.flowScope = "";
           this.ziweiFlying = false;
           this.ziweiPalace = -1;
@@ -1117,7 +1145,7 @@ renderZiweiFlows: function(h, r, full) {
         }
         var cachedData=global.WZBZFlowData.get(chart,this.flowDate,this.flowHour,full,r.flowRules),rows=cachedData.rows;
         return h("div", { class: "fa-ziwei-flows" }, [
-          rows.map(function(row) {
+          rows.filter(function(row){return row.scope==='decadal'||row.scope==='yearly'||self.ziweiMoreFlows;}).map(function(row) {
             return h("div", { key:row.scope, class: "fa-flow-row", attrs:{'data-flow-scope':row.scope} }, [h("strong", [row.label]), h("div", {class:'fa-flow-items'}, row.items.map(function(item) {
               var isSel = (row.scope === "decadal" && horoscope.decadal && horoscope.decadal.index === item.index) ||
                           (row.scope === "yearly" && item.year === cachedData.year) ||
@@ -1133,6 +1161,7 @@ renderZiweiFlows: function(h, r, full) {
               return cell;
             }))]);
           }),
+          full?button(h,self.ziweiMoreFlows?'收起流月、流日、流时':'流月 · 流日 · 流时',function(){self.ziweiMoreFlows=!self.ziweiMoreFlows;},'fa-more-flows'):null,
         ]);
       },
       

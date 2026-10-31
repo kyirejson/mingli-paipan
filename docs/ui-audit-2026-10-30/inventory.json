@@ -1,0 +1,812 @@
+{
+  "screens": [
+    {
+      "name": "home-430x932",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "home-360x740",
+      "width": 360,
+      "height": 740,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "home-320x640",
+      "width": 320,
+      "height": 640,
+      "clipped": 1,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "home-800x420",
+      "width": 800,
+      "height": 420,
+      "clipped": 2,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-0-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 1,
+      "blockedTargets": 4
+    },
+    {
+      "name": "bazi-1-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-2-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 4,
+      "overlaps": 11,
+      "smallTargets": 1,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-3-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 4,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "ziwei-sanhe-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 10,
+      "overlaps": 65,
+      "smallTargets": 0,
+      "blockedTargets": 12
+    },
+    {
+      "name": "ziwei-qintian-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 4,
+      "overlaps": 28,
+      "smallTargets": 0,
+      "blockedTargets": 2
+    },
+    {
+      "name": "ziwei-feixing-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 4,
+      "overlaps": 24,
+      "smallTargets": 0,
+      "blockedTargets": 2
+    },
+    {
+      "name": "qimen-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 4,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 2
+    },
+    {
+      "name": "liuyao-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "meihua-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 30,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-0-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-1-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 2,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-2-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 7,
+      "overlaps": 0,
+      "smallTargets": 1,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-3-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 3,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "ziwei-sanhe-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 3,
+      "overlaps": 72,
+      "smallTargets": 0,
+      "blockedTargets": 20
+    },
+    {
+      "name": "ziwei-qintian-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 3,
+      "overlaps": 24,
+      "smallTargets": 0,
+      "blockedTargets": 4
+    },
+    {
+      "name": "ziwei-feixing-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 5,
+      "overlaps": 26,
+      "smallTargets": 0,
+      "blockedTargets": 4
+    },
+    {
+      "name": "qimen-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 2,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 2
+    },
+    {
+      "name": "liuyao-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "meihua-360",
+      "width": 360,
+      "height": 740,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 30,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-0-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-1-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 14,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-2-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 15,
+      "overlaps": 9,
+      "smallTargets": 1,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-3-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 1
+    },
+    {
+      "name": "ziwei-sanhe-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 3,
+      "overlaps": 28,
+      "smallTargets": 0,
+      "blockedTargets": 9
+    },
+    {
+      "name": "ziwei-qintian-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 15,
+      "overlaps": 30,
+      "smallTargets": 0,
+      "blockedTargets": 9
+    },
+    {
+      "name": "ziwei-feixing-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 13,
+      "overlaps": 39,
+      "smallTargets": 0,
+      "blockedTargets": 9
+    },
+    {
+      "name": "qimen-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 1,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 4
+    },
+    {
+      "name": "liuyao-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "meihua-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 30,
+      "blockedTargets": 0
+    },
+    {
+      "name": "assistant-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 4,
+      "overlaps": 49,
+      "smallTargets": 0,
+      "blockedTargets": 40
+    },
+    {
+      "name": "method-qimen-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 4,
+      "overlaps": 5,
+      "smallTargets": 0,
+      "blockedTargets": 27
+    },
+    {
+      "name": "method-liuyao-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 8,
+      "smallTargets": 0,
+      "blockedTargets": 19
+    },
+    {
+      "name": "method-meihua-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 2,
+      "smallTargets": 30,
+      "blockedTargets": 48
+    },
+    {
+      "name": "settings-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "records-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 1,
+      "blockedTargets": 0
+    },
+    {
+      "name": "records-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 3,
+      "overlaps": 0,
+      "smallTargets": 1,
+      "blockedTargets": 0
+    },
+    {
+      "name": "quiz-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 20,
+      "blockedTargets": 0
+    },
+    {
+      "name": "quiz-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 5,
+      "blockedTargets": 0
+    },
+    {
+      "name": "settings-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "backup-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 2,
+      "smallTargets": 0,
+      "blockedTargets": 6
+    },
+    {
+      "name": "chart-preferences-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 6,
+      "smallTargets": 0,
+      "blockedTargets": 6
+    },
+    {
+      "name": "chart-preferences-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 5,
+      "smallTargets": 0,
+      "blockedTargets": 6
+    },
+    {
+      "name": "display-preferences-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 4,
+      "blockedTargets": 0
+    },
+    {
+      "name": "basic-info-reference-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 1,
+      "blockedTargets": 0
+    },
+    {
+      "name": "reference-dialog-0-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 1,
+      "smallTargets": 1,
+      "blockedTargets": 16
+    },
+    {
+      "name": "reference-dialog-0-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 2,
+      "smallTargets": 1,
+      "blockedTargets": 16
+    },
+    {
+      "name": "reference-dialog-1-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 5,
+      "overlaps": 8,
+      "smallTargets": 0,
+      "blockedTargets": 16
+    },
+    {
+      "name": "reference-dialog-1-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 5,
+      "smallTargets": 1,
+      "blockedTargets": 16
+    },
+    {
+      "name": "reference-dialog-2-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 5,
+      "overlaps": 3,
+      "smallTargets": 0,
+      "blockedTargets": 16
+    },
+    {
+      "name": "reference-dialog-2-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 1,
+      "smallTargets": 1,
+      "blockedTargets": 16
+    },
+    {
+      "name": "strength-edit-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 6,
+      "overlaps": 7,
+      "smallTargets": 0,
+      "blockedTargets": 17
+    },
+    {
+      "name": "notes-top-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 2,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "ziwei-flow-selected-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 5,
+      "overlaps": 37,
+      "smallTargets": 0,
+      "blockedTargets": 2
+    },
+    {
+      "name": "ziwei-flow-selected-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 15,
+      "overlaps": 38,
+      "smallTargets": 0,
+      "blockedTargets": 7
+    },
+    {
+      "name": "ziwei-flows-after-scroll-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 18,
+      "overlaps": 21,
+      "smallTargets": 0,
+      "blockedTargets": 4
+    },
+    {
+      "name": "liuyao-reading-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 1
+    },
+    {
+      "name": "settings-dark-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "ziwei-dark-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 4,
+      "overlaps": 28,
+      "smallTargets": 0,
+      "blockedTargets": 2
+    },
+    {
+      "name": "assistant-dark-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 4,
+      "overlaps": 59,
+      "smallTargets": 0,
+      "blockedTargets": 40
+    },
+    {
+      "name": "meihua-dark-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 30,
+      "blockedTargets": 0
+    },
+    {
+      "name": "calendar-dark-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 7,
+      "smallTargets": 1,
+      "blockedTargets": 18
+    },
+    {
+      "name": "notes-keyboard-simulated-430x500",
+      "width": 430,
+      "height": 500,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "notes-save-430x500",
+      "width": 430,
+      "height": 500,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "notes-fields-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 1
+    },
+    {
+      "name": "hexagram-reading-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 12,
+      "smallTargets": 0,
+      "blockedTargets": 14
+    },
+    {
+      "name": "hexagram-reading-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 9,
+      "smallTargets": 0,
+      "blockedTargets": 13
+    },
+    {
+      "name": "meihua-interactive-lines-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 30,
+      "blockedTargets": 0
+    },
+    {
+      "name": "meihua-line-reading-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 15,
+      "smallTargets": 30,
+      "blockedTargets": 48
+    },
+    {
+      "name": "night-mode-options-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "night-mode-real-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "reference-loaded-confirmed-0-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 1,
+      "smallTargets": 1,
+      "blockedTargets": 16
+    },
+    {
+      "name": "reference-loaded-confirmed-2-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 1,
+      "smallTargets": 1,
+      "blockedTargets": 16
+    },
+    {
+      "name": "notes-overlap-confirmed-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 1,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "detail-computed-confirmed-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 1,
+      "smallTargets": 1,
+      "blockedTargets": 16
+    },
+    {
+      "name": "notes-occlusion-430x500",
+      "width": 430,
+      "height": 500,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "home-landscape-final",
+      "width": 800,
+      "height": 420,
+      "clipped": 2,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "home-landscape-scrolled-final",
+      "width": 800,
+      "height": 420,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-basic-fresh-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-detail-fresh-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 2,
+      "overlaps": 9,
+      "smallTargets": 1,
+      "blockedTargets": 0
+    },
+    {
+      "name": "bazi-resize-confirmed-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "records-name-confirmed-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 3,
+      "overlaps": 0,
+      "smallTargets": 1,
+      "blockedTargets": 0
+    },
+    {
+      "name": "night-mode-event-confirmed-430",
+      "width": 430,
+      "height": 932,
+      "clipped": 0,
+      "overlaps": 0,
+      "smallTargets": 0,
+      "blockedTargets": 0
+    },
+    {
+      "name": "ziwei-fresh-qintian-selected-320",
+      "width": 320,
+      "height": 640,
+      "clipped": 15,
+      "overlaps": 38,
+      "smallTargets": 0,
+      "blockedTargets": 7
+    }
+  ],
+  "errors": [
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50275)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50236)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50236)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50236)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50275)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50275)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50275)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50275)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50236)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50236)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50275)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50275)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)",
+    "TypeError: Cannot read properties of null (reading 'postMessage')\n    at a.onToggleTheme (http://localhost:9988/static/js/2.22f599c1df781213e096.js:1:387033)\n    at Vn (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:23441)\n    at t.$emit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:43594)\n    at $t (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:1:47158)\n    at l.setPreferenceIsShowInfo (http://localhost:9988/static/js/app.e1599cf50c8877aa6044.js:8:50236)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:7:150322\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:635\n    at Array.forEach (<anonymous>)\n    at http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:615\n    at l._withCommit (http://localhost:9988/static/js/vendor1.30e353299956cb57bec3.js:13:2414)"
+  ],
+  "method_note": "Geometry counters include intentional overlays and hidden background content. They are candidates only; confirmed findings are in the report."
+}

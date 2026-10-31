@@ -1,0 +1,537 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>造化元钥 · UI 审核证据</title><style>
+:root{color-scheme:light;font:15px/1.7 system-ui,sans-serif;color:#23483b;background:#f5f1e9}body{max-width:1440px;margin:auto;padding:28px}h1{font-family:serif;margin:0 0 10px;font-size:30px}header{margin-bottom:24px}a{color:#23483b;text-underline-offset:3px}nav{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}input{padding:10px;border:1px solid #b5c1b8;border-radius:5px;background:#fffdf8;font:inherit;min-width:220px}label{padding:8px}main{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;align-items:start}article{padding:14px;border:1px solid #d4d8ce;border-radius:8px;background:#fffdf8;min-width:0}article[hidden]{display:none}h2{font-size:14px;min-height:48px;margin:0 0 12px;overflow-wrap:anywhere}img{display:block;width:100%;height:420px;object-fit:contain;object-position:top;background:#e6e6de}p{margin:8px 0}.tag{display:inline-block;padding:1px 6px;border-radius:4px;background:#e7ebe3}.P1{background:#f5d8ce;color:#8a3b26}.P2{background:#f1e7cd;color:#6c571f}.P3{background:#dce9df}small{color:#566b61}#count{font-weight:bold}
+</style><header><h1>造化元钥 · UI 显示深度审核</h1>
+<p>2026-10-30 · v1.0.12 对照 · 8 项已确认问题 + 伴随主题异常 + 待设备复核风险</p>
+<p><strong>范围：</strong>当前项目在 Windows Chrome 移动视口的运行证据，尚未在 Android 设备复测。自动几何计数不是缺陷数量。日主和旺衰正文实际正常显示，未列为空白故障。</p>
+<nav><a href="../2026-10-30_UI显示深度审核报告.md">详细审核报告</a><a href="evidence-manifest.json">哈希与版本核对</a><a href="inventory.json">截图清单</a><a href="layout-check.json">窗口变化 / 夜间模式证据</a></nav>
+<input id="search" aria-label="搜索页面或问题" placeholder="搜索：紫微、UI-03、notes…"><label><input type="checkbox" id="issues" checked>只看已确认问题</label> <span id="count"></span>
+<p><small>点击图片打开原尺寸；各图片均附尺寸快照。下方筛选可查看全部 88 组留档。</small></p></header><main><article data-search="UI-01 · P1 · 小屏紫微：宫盘与运限不能同屏 ziwei-fresh-qintian-selected-320" data-issue="yes">
+    <h2><span class="tag P1">P1</span> UI-01 · P1 · 小屏紫微：宫盘与运限不能同屏</h2>
+    <a href="ziwei-fresh-qintian-selected-320.png" target="_blank"><img loading="lazy" src="ziwei-fresh-qintian-selected-320.png" alt="UI-01 · P1 · 小屏紫微：宫盘与运限不能同屏"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="ziwei-fresh-qintian-selected-320.png" target="_blank">原尺寸截图</a> · <a href="ziwei-fresh-qintian-selected-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="UI-02 · P1 · 夜间模式：浅底配浅字，主题错配 night-mode-event-confirmed-430" data-issue="yes">
+    <h2><span class="tag P1">P1</span> UI-02 · P1 · 夜间模式：浅底配浅字，主题错配</h2>
+    <a href="night-mode-event-confirmed-430.png" target="_blank"><img loading="lazy" src="night-mode-event-confirmed-430.png" alt="UI-02 · P1 · 夜间模式：浅底配浅字，主题错配"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="night-mode-event-confirmed-430.png" target="_blank">原尺寸截图</a> · <a href="night-mode-event-confirmed-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="UI-03 · P2 · 断事笔记：保存栏覆盖正文 notes-occlusion-430x500" data-issue="yes">
+    <h2><span class="tag P2">P2</span> UI-03 · P2 · 断事笔记：保存栏覆盖正文</h2>
+    <a href="notes-occlusion-430x500.png" target="_blank"><img loading="lazy" src="notes-occlusion-430x500.png" alt="UI-03 · P2 · 断事笔记：保存栏覆盖正文"></a>
+    <p>430 × 500 CSS px</p>
+    <p><a href="notes-occlusion-430x500.png" target="_blank">原尺寸截图</a> · <a href="notes-occlusion-430x500.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="UI-04 · P2 · 设置头部：竖排挤压、默认按钮外观 settings-320" data-issue="yes">
+    <h2><span class="tag P2">P2</span> UI-04 · P2 · 设置头部：竖排挤压、默认按钮外观</h2>
+    <a href="settings-320.png" target="_blank"><img loading="lazy" src="settings-320.png" alt="UI-04 · P2 · 设置头部：竖排挤压、默认按钮外观"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="settings-320.png" target="_blank">原尺寸截图</a> · <a href="settings-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="UI-05 · P2 · 宽度变化：八字时柱被挤出屏幕 bazi-resize-confirmed-320" data-issue="yes">
+    <h2><span class="tag P2">P2</span> UI-05 · P2 · 宽度变化：八字时柱被挤出屏幕</h2>
+    <a href="bazi-resize-confirmed-320.png" target="_blank"><img loading="lazy" src="bazi-resize-confirmed-320.png" alt="UI-05 · P2 · 宽度变化：八字时柱被挤出屏幕"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="bazi-resize-confirmed-320.png" target="_blank">原尺寸截图</a> · <a href="bazi-resize-confirmed-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="UI-06 · P2 · 梅花逐爻：点击高度仅 5 px meihua-interactive-lines-320" data-issue="yes">
+    <h2><span class="tag P2">P2</span> UI-06 · P2 · 梅花逐爻：点击高度仅 5 px</h2>
+    <a href="meihua-interactive-lines-320.png" target="_blank"><img loading="lazy" src="meihua-interactive-lines-320.png" alt="UI-06 · P2 · 梅花逐爻：点击高度仅 5 px"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="meihua-interactive-lines-320.png" target="_blank">原尺寸截图</a> · <a href="meihua-interactive-lines-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="UI-07 · P3 · 记录列表：长姓名直接裁断 records-name-confirmed-320" data-issue="yes">
+    <h2><span class="tag P3">P3</span> UI-07 · P3 · 记录列表：长姓名直接裁断</h2>
+    <a href="records-name-confirmed-320.png" target="_blank"><img loading="lazy" src="records-name-confirmed-320.png" alt="UI-07 · P3 · 记录列表：长姓名直接裁断"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="records-name-confirmed-320.png" target="_blank">原尺寸截图</a> · <a href="records-name-confirmed-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="UI-08 · P3 · 基本信息：原始占位符直接显示 bazi-0-320" data-issue="yes">
+    <h2><span class="tag P3">P3</span> UI-08 · P3 · 基本信息：原始占位符直接显示</h2>
+    <a href="bazi-0-320.png" target="_blank"><img loading="lazy" src="bazi-0-320.png" alt="UI-08 · P3 · 基本信息：原始占位符直接显示"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="bazi-0-320.png" target="_blank">原尺寸截图</a> · <a href="bazi-0-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="home-430x932 home-430x932" data-issue="no">
+    <h2><span class="tag 留档">留档</span> home-430x932</h2>
+    <a href="home-430x932.png" target="_blank"><img loading="lazy" src="home-430x932.png" alt="home-430x932"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="home-430x932.png" target="_blank">原尺寸截图</a> · <a href="home-430x932.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="home-360x740 home-360x740" data-issue="no">
+    <h2><span class="tag 留档">留档</span> home-360x740</h2>
+    <a href="home-360x740.png" target="_blank"><img loading="lazy" src="home-360x740.png" alt="home-360x740"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="home-360x740.png" target="_blank">原尺寸截图</a> · <a href="home-360x740.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="home-320x640 home-320x640" data-issue="no">
+    <h2><span class="tag 留档">留档</span> home-320x640</h2>
+    <a href="home-320x640.png" target="_blank"><img loading="lazy" src="home-320x640.png" alt="home-320x640"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="home-320x640.png" target="_blank">原尺寸截图</a> · <a href="home-320x640.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="home-800x420 home-800x420" data-issue="no">
+    <h2><span class="tag 留档">留档</span> home-800x420</h2>
+    <a href="home-800x420.png" target="_blank"><img loading="lazy" src="home-800x420.png" alt="home-800x420"></a>
+    <p>800 × 420 CSS px</p>
+    <p><a href="home-800x420.png" target="_blank">原尺寸截图</a> · <a href="home-800x420.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-0-430 bazi-0-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-0-430</h2>
+    <a href="bazi-0-430.png" target="_blank"><img loading="lazy" src="bazi-0-430.png" alt="bazi-0-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="bazi-0-430.png" target="_blank">原尺寸截图</a> · <a href="bazi-0-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-1-430 bazi-1-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-1-430</h2>
+    <a href="bazi-1-430.png" target="_blank"><img loading="lazy" src="bazi-1-430.png" alt="bazi-1-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="bazi-1-430.png" target="_blank">原尺寸截图</a> · <a href="bazi-1-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-2-430 bazi-2-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-2-430</h2>
+    <a href="bazi-2-430.png" target="_blank"><img loading="lazy" src="bazi-2-430.png" alt="bazi-2-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="bazi-2-430.png" target="_blank">原尺寸截图</a> · <a href="bazi-2-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-3-430 bazi-3-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-3-430</h2>
+    <a href="bazi-3-430.png" target="_blank"><img loading="lazy" src="bazi-3-430.png" alt="bazi-3-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="bazi-3-430.png" target="_blank">原尺寸截图</a> · <a href="bazi-3-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-sanhe-430 ziwei-sanhe-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-sanhe-430</h2>
+    <a href="ziwei-sanhe-430.png" target="_blank"><img loading="lazy" src="ziwei-sanhe-430.png" alt="ziwei-sanhe-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="ziwei-sanhe-430.png" target="_blank">原尺寸截图</a> · <a href="ziwei-sanhe-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-qintian-430 ziwei-qintian-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-qintian-430</h2>
+    <a href="ziwei-qintian-430.png" target="_blank"><img loading="lazy" src="ziwei-qintian-430.png" alt="ziwei-qintian-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="ziwei-qintian-430.png" target="_blank">原尺寸截图</a> · <a href="ziwei-qintian-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-feixing-430 ziwei-feixing-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-feixing-430</h2>
+    <a href="ziwei-feixing-430.png" target="_blank"><img loading="lazy" src="ziwei-feixing-430.png" alt="ziwei-feixing-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="ziwei-feixing-430.png" target="_blank">原尺寸截图</a> · <a href="ziwei-feixing-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="qimen-430 qimen-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> qimen-430</h2>
+    <a href="qimen-430.png" target="_blank"><img loading="lazy" src="qimen-430.png" alt="qimen-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="qimen-430.png" target="_blank">原尺寸截图</a> · <a href="qimen-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="liuyao-430 liuyao-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> liuyao-430</h2>
+    <a href="liuyao-430.png" target="_blank"><img loading="lazy" src="liuyao-430.png" alt="liuyao-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="liuyao-430.png" target="_blank">原尺寸截图</a> · <a href="liuyao-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="meihua-430 meihua-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> meihua-430</h2>
+    <a href="meihua-430.png" target="_blank"><img loading="lazy" src="meihua-430.png" alt="meihua-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="meihua-430.png" target="_blank">原尺寸截图</a> · <a href="meihua-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-0-360 bazi-0-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-0-360</h2>
+    <a href="bazi-0-360.png" target="_blank"><img loading="lazy" src="bazi-0-360.png" alt="bazi-0-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="bazi-0-360.png" target="_blank">原尺寸截图</a> · <a href="bazi-0-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-1-360 bazi-1-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-1-360</h2>
+    <a href="bazi-1-360.png" target="_blank"><img loading="lazy" src="bazi-1-360.png" alt="bazi-1-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="bazi-1-360.png" target="_blank">原尺寸截图</a> · <a href="bazi-1-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-2-360 bazi-2-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-2-360</h2>
+    <a href="bazi-2-360.png" target="_blank"><img loading="lazy" src="bazi-2-360.png" alt="bazi-2-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="bazi-2-360.png" target="_blank">原尺寸截图</a> · <a href="bazi-2-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-3-360 bazi-3-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-3-360</h2>
+    <a href="bazi-3-360.png" target="_blank"><img loading="lazy" src="bazi-3-360.png" alt="bazi-3-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="bazi-3-360.png" target="_blank">原尺寸截图</a> · <a href="bazi-3-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-sanhe-360 ziwei-sanhe-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-sanhe-360</h2>
+    <a href="ziwei-sanhe-360.png" target="_blank"><img loading="lazy" src="ziwei-sanhe-360.png" alt="ziwei-sanhe-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="ziwei-sanhe-360.png" target="_blank">原尺寸截图</a> · <a href="ziwei-sanhe-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-qintian-360 ziwei-qintian-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-qintian-360</h2>
+    <a href="ziwei-qintian-360.png" target="_blank"><img loading="lazy" src="ziwei-qintian-360.png" alt="ziwei-qintian-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="ziwei-qintian-360.png" target="_blank">原尺寸截图</a> · <a href="ziwei-qintian-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-feixing-360 ziwei-feixing-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-feixing-360</h2>
+    <a href="ziwei-feixing-360.png" target="_blank"><img loading="lazy" src="ziwei-feixing-360.png" alt="ziwei-feixing-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="ziwei-feixing-360.png" target="_blank">原尺寸截图</a> · <a href="ziwei-feixing-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="qimen-360 qimen-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> qimen-360</h2>
+    <a href="qimen-360.png" target="_blank"><img loading="lazy" src="qimen-360.png" alt="qimen-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="qimen-360.png" target="_blank">原尺寸截图</a> · <a href="qimen-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="liuyao-360 liuyao-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> liuyao-360</h2>
+    <a href="liuyao-360.png" target="_blank"><img loading="lazy" src="liuyao-360.png" alt="liuyao-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="liuyao-360.png" target="_blank">原尺寸截图</a> · <a href="liuyao-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="meihua-360 meihua-360" data-issue="no">
+    <h2><span class="tag 留档">留档</span> meihua-360</h2>
+    <a href="meihua-360.png" target="_blank"><img loading="lazy" src="meihua-360.png" alt="meihua-360"></a>
+    <p>360 × 740 CSS px</p>
+    <p><a href="meihua-360.png" target="_blank">原尺寸截图</a> · <a href="meihua-360.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-1-320 bazi-1-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-1-320</h2>
+    <a href="bazi-1-320.png" target="_blank"><img loading="lazy" src="bazi-1-320.png" alt="bazi-1-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="bazi-1-320.png" target="_blank">原尺寸截图</a> · <a href="bazi-1-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-2-320 bazi-2-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-2-320</h2>
+    <a href="bazi-2-320.png" target="_blank"><img loading="lazy" src="bazi-2-320.png" alt="bazi-2-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="bazi-2-320.png" target="_blank">原尺寸截图</a> · <a href="bazi-2-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-3-320 bazi-3-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-3-320</h2>
+    <a href="bazi-3-320.png" target="_blank"><img loading="lazy" src="bazi-3-320.png" alt="bazi-3-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="bazi-3-320.png" target="_blank">原尺寸截图</a> · <a href="bazi-3-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-sanhe-320 ziwei-sanhe-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-sanhe-320</h2>
+    <a href="ziwei-sanhe-320.png" target="_blank"><img loading="lazy" src="ziwei-sanhe-320.png" alt="ziwei-sanhe-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="ziwei-sanhe-320.png" target="_blank">原尺寸截图</a> · <a href="ziwei-sanhe-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-qintian-320 ziwei-qintian-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-qintian-320</h2>
+    <a href="ziwei-qintian-320.png" target="_blank"><img loading="lazy" src="ziwei-qintian-320.png" alt="ziwei-qintian-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="ziwei-qintian-320.png" target="_blank">原尺寸截图</a> · <a href="ziwei-qintian-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-feixing-320 ziwei-feixing-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-feixing-320</h2>
+    <a href="ziwei-feixing-320.png" target="_blank"><img loading="lazy" src="ziwei-feixing-320.png" alt="ziwei-feixing-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="ziwei-feixing-320.png" target="_blank">原尺寸截图</a> · <a href="ziwei-feixing-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="qimen-320 qimen-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> qimen-320</h2>
+    <a href="qimen-320.png" target="_blank"><img loading="lazy" src="qimen-320.png" alt="qimen-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="qimen-320.png" target="_blank">原尺寸截图</a> · <a href="qimen-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="liuyao-320 liuyao-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> liuyao-320</h2>
+    <a href="liuyao-320.png" target="_blank"><img loading="lazy" src="liuyao-320.png" alt="liuyao-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="liuyao-320.png" target="_blank">原尺寸截图</a> · <a href="liuyao-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="meihua-320 meihua-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> meihua-320</h2>
+    <a href="meihua-320.png" target="_blank"><img loading="lazy" src="meihua-320.png" alt="meihua-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="meihua-320.png" target="_blank">原尺寸截图</a> · <a href="meihua-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="assistant-430 assistant-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> assistant-430</h2>
+    <a href="assistant-430.png" target="_blank"><img loading="lazy" src="assistant-430.png" alt="assistant-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="assistant-430.png" target="_blank">原尺寸截图</a> · <a href="assistant-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="method-qimen-430 method-qimen-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> method-qimen-430</h2>
+    <a href="method-qimen-430.png" target="_blank"><img loading="lazy" src="method-qimen-430.png" alt="method-qimen-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="method-qimen-430.png" target="_blank">原尺寸截图</a> · <a href="method-qimen-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="method-liuyao-430 method-liuyao-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> method-liuyao-430</h2>
+    <a href="method-liuyao-430.png" target="_blank"><img loading="lazy" src="method-liuyao-430.png" alt="method-liuyao-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="method-liuyao-430.png" target="_blank">原尺寸截图</a> · <a href="method-liuyao-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="method-meihua-430 method-meihua-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> method-meihua-430</h2>
+    <a href="method-meihua-430.png" target="_blank"><img loading="lazy" src="method-meihua-430.png" alt="method-meihua-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="method-meihua-430.png" target="_blank">原尺寸截图</a> · <a href="method-meihua-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="settings-430 settings-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> settings-430</h2>
+    <a href="settings-430.png" target="_blank"><img loading="lazy" src="settings-430.png" alt="settings-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="settings-430.png" target="_blank">原尺寸截图</a> · <a href="settings-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="records-430 records-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> records-430</h2>
+    <a href="records-430.png" target="_blank"><img loading="lazy" src="records-430.png" alt="records-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="records-430.png" target="_blank">原尺寸截图</a> · <a href="records-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="records-320 records-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> records-320</h2>
+    <a href="records-320.png" target="_blank"><img loading="lazy" src="records-320.png" alt="records-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="records-320.png" target="_blank">原尺寸截图</a> · <a href="records-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="quiz-430 quiz-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> quiz-430</h2>
+    <a href="quiz-430.png" target="_blank"><img loading="lazy" src="quiz-430.png" alt="quiz-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="quiz-430.png" target="_blank">原尺寸截图</a> · <a href="quiz-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="quiz-320 quiz-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> quiz-320</h2>
+    <a href="quiz-320.png" target="_blank"><img loading="lazy" src="quiz-320.png" alt="quiz-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="quiz-320.png" target="_blank">原尺寸截图</a> · <a href="quiz-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="backup-430 backup-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> backup-430</h2>
+    <a href="backup-430.png" target="_blank"><img loading="lazy" src="backup-430.png" alt="backup-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="backup-430.png" target="_blank">原尺寸截图</a> · <a href="backup-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="chart-preferences-430 chart-preferences-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> chart-preferences-430</h2>
+    <a href="chart-preferences-430.png" target="_blank"><img loading="lazy" src="chart-preferences-430.png" alt="chart-preferences-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="chart-preferences-430.png" target="_blank">原尺寸截图</a> · <a href="chart-preferences-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="chart-preferences-320 chart-preferences-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> chart-preferences-320</h2>
+    <a href="chart-preferences-320.png" target="_blank"><img loading="lazy" src="chart-preferences-320.png" alt="chart-preferences-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="chart-preferences-320.png" target="_blank">原尺寸截图</a> · <a href="chart-preferences-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="display-preferences-430 display-preferences-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> display-preferences-430</h2>
+    <a href="display-preferences-430.png" target="_blank"><img loading="lazy" src="display-preferences-430.png" alt="display-preferences-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="display-preferences-430.png" target="_blank">原尺寸截图</a> · <a href="display-preferences-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="basic-info-reference-430 basic-info-reference-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> basic-info-reference-430</h2>
+    <a href="basic-info-reference-430.png" target="_blank"><img loading="lazy" src="basic-info-reference-430.png" alt="basic-info-reference-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="basic-info-reference-430.png" target="_blank">原尺寸截图</a> · <a href="basic-info-reference-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="reference-dialog-0-430 reference-dialog-0-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> reference-dialog-0-430</h2>
+    <a href="reference-dialog-0-430.png" target="_blank"><img loading="lazy" src="reference-dialog-0-430.png" alt="reference-dialog-0-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="reference-dialog-0-430.png" target="_blank">原尺寸截图</a> · <a href="reference-dialog-0-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="reference-dialog-0-320 reference-dialog-0-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> reference-dialog-0-320</h2>
+    <a href="reference-dialog-0-320.png" target="_blank"><img loading="lazy" src="reference-dialog-0-320.png" alt="reference-dialog-0-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="reference-dialog-0-320.png" target="_blank">原尺寸截图</a> · <a href="reference-dialog-0-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="reference-dialog-1-430 reference-dialog-1-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> reference-dialog-1-430</h2>
+    <a href="reference-dialog-1-430.png" target="_blank"><img loading="lazy" src="reference-dialog-1-430.png" alt="reference-dialog-1-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="reference-dialog-1-430.png" target="_blank">原尺寸截图</a> · <a href="reference-dialog-1-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="reference-dialog-1-320 reference-dialog-1-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> reference-dialog-1-320</h2>
+    <a href="reference-dialog-1-320.png" target="_blank"><img loading="lazy" src="reference-dialog-1-320.png" alt="reference-dialog-1-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="reference-dialog-1-320.png" target="_blank">原尺寸截图</a> · <a href="reference-dialog-1-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="reference-dialog-2-430 reference-dialog-2-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> reference-dialog-2-430</h2>
+    <a href="reference-dialog-2-430.png" target="_blank"><img loading="lazy" src="reference-dialog-2-430.png" alt="reference-dialog-2-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="reference-dialog-2-430.png" target="_blank">原尺寸截图</a> · <a href="reference-dialog-2-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="reference-dialog-2-320 reference-dialog-2-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> reference-dialog-2-320</h2>
+    <a href="reference-dialog-2-320.png" target="_blank"><img loading="lazy" src="reference-dialog-2-320.png" alt="reference-dialog-2-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="reference-dialog-2-320.png" target="_blank">原尺寸截图</a> · <a href="reference-dialog-2-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="strength-edit-430 strength-edit-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> strength-edit-430</h2>
+    <a href="strength-edit-430.png" target="_blank"><img loading="lazy" src="strength-edit-430.png" alt="strength-edit-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="strength-edit-430.png" target="_blank">原尺寸截图</a> · <a href="strength-edit-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="notes-top-430 notes-top-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> notes-top-430</h2>
+    <a href="notes-top-430.png" target="_blank"><img loading="lazy" src="notes-top-430.png" alt="notes-top-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="notes-top-430.png" target="_blank">原尺寸截图</a> · <a href="notes-top-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-flow-selected-430 ziwei-flow-selected-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-flow-selected-430</h2>
+    <a href="ziwei-flow-selected-430.png" target="_blank"><img loading="lazy" src="ziwei-flow-selected-430.png" alt="ziwei-flow-selected-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="ziwei-flow-selected-430.png" target="_blank">原尺寸截图</a> · <a href="ziwei-flow-selected-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-flow-selected-320 ziwei-flow-selected-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-flow-selected-320</h2>
+    <a href="ziwei-flow-selected-320.png" target="_blank"><img loading="lazy" src="ziwei-flow-selected-320.png" alt="ziwei-flow-selected-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="ziwei-flow-selected-320.png" target="_blank">原尺寸截图</a> · <a href="ziwei-flow-selected-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-flows-after-scroll-320 ziwei-flows-after-scroll-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-flows-after-scroll-320</h2>
+    <a href="ziwei-flows-after-scroll-320.png" target="_blank"><img loading="lazy" src="ziwei-flows-after-scroll-320.png" alt="ziwei-flows-after-scroll-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="ziwei-flows-after-scroll-320.png" target="_blank">原尺寸截图</a> · <a href="ziwei-flows-after-scroll-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="liuyao-reading-430 liuyao-reading-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> liuyao-reading-430</h2>
+    <a href="liuyao-reading-430.png" target="_blank"><img loading="lazy" src="liuyao-reading-430.png" alt="liuyao-reading-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="liuyao-reading-430.png" target="_blank">原尺寸截图</a> · <a href="liuyao-reading-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="settings-dark-430 settings-dark-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> settings-dark-430</h2>
+    <a href="settings-dark-430.png" target="_blank"><img loading="lazy" src="settings-dark-430.png" alt="settings-dark-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="settings-dark-430.png" target="_blank">原尺寸截图</a> · <a href="settings-dark-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="ziwei-dark-430 ziwei-dark-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> ziwei-dark-430</h2>
+    <a href="ziwei-dark-430.png" target="_blank"><img loading="lazy" src="ziwei-dark-430.png" alt="ziwei-dark-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="ziwei-dark-430.png" target="_blank">原尺寸截图</a> · <a href="ziwei-dark-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="assistant-dark-430 assistant-dark-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> assistant-dark-430</h2>
+    <a href="assistant-dark-430.png" target="_blank"><img loading="lazy" src="assistant-dark-430.png" alt="assistant-dark-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="assistant-dark-430.png" target="_blank">原尺寸截图</a> · <a href="assistant-dark-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="meihua-dark-430 meihua-dark-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> meihua-dark-430</h2>
+    <a href="meihua-dark-430.png" target="_blank"><img loading="lazy" src="meihua-dark-430.png" alt="meihua-dark-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="meihua-dark-430.png" target="_blank">原尺寸截图</a> · <a href="meihua-dark-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="calendar-dark-430 calendar-dark-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> calendar-dark-430</h2>
+    <a href="calendar-dark-430.png" target="_blank"><img loading="lazy" src="calendar-dark-430.png" alt="calendar-dark-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="calendar-dark-430.png" target="_blank">原尺寸截图</a> · <a href="calendar-dark-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="notes-keyboard-simulated-430x500 notes-keyboard-simulated-430x500" data-issue="no">
+    <h2><span class="tag 留档">留档</span> notes-keyboard-simulated-430x500</h2>
+    <a href="notes-keyboard-simulated-430x500.png" target="_blank"><img loading="lazy" src="notes-keyboard-simulated-430x500.png" alt="notes-keyboard-simulated-430x500"></a>
+    <p>430 × 500 CSS px</p>
+    <p><a href="notes-keyboard-simulated-430x500.png" target="_blank">原尺寸截图</a> · <a href="notes-keyboard-simulated-430x500.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="notes-save-430x500 notes-save-430x500" data-issue="no">
+    <h2><span class="tag 留档">留档</span> notes-save-430x500</h2>
+    <a href="notes-save-430x500.png" target="_blank"><img loading="lazy" src="notes-save-430x500.png" alt="notes-save-430x500"></a>
+    <p>430 × 500 CSS px</p>
+    <p><a href="notes-save-430x500.png" target="_blank">原尺寸截图</a> · <a href="notes-save-430x500.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="notes-fields-320 notes-fields-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> notes-fields-320</h2>
+    <a href="notes-fields-320.png" target="_blank"><img loading="lazy" src="notes-fields-320.png" alt="notes-fields-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="notes-fields-320.png" target="_blank">原尺寸截图</a> · <a href="notes-fields-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="hexagram-reading-430 hexagram-reading-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> hexagram-reading-430</h2>
+    <a href="hexagram-reading-430.png" target="_blank"><img loading="lazy" src="hexagram-reading-430.png" alt="hexagram-reading-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="hexagram-reading-430.png" target="_blank">原尺寸截图</a> · <a href="hexagram-reading-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="hexagram-reading-320 hexagram-reading-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> hexagram-reading-320</h2>
+    <a href="hexagram-reading-320.png" target="_blank"><img loading="lazy" src="hexagram-reading-320.png" alt="hexagram-reading-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="hexagram-reading-320.png" target="_blank">原尺寸截图</a> · <a href="hexagram-reading-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="meihua-line-reading-320 meihua-line-reading-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> meihua-line-reading-320</h2>
+    <a href="meihua-line-reading-320.png" target="_blank"><img loading="lazy" src="meihua-line-reading-320.png" alt="meihua-line-reading-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="meihua-line-reading-320.png" target="_blank">原尺寸截图</a> · <a href="meihua-line-reading-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="night-mode-options-430 night-mode-options-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> night-mode-options-430</h2>
+    <a href="night-mode-options-430.png" target="_blank"><img loading="lazy" src="night-mode-options-430.png" alt="night-mode-options-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="night-mode-options-430.png" target="_blank">原尺寸截图</a> · <a href="night-mode-options-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="night-mode-real-430 night-mode-real-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> night-mode-real-430</h2>
+    <a href="night-mode-real-430.png" target="_blank"><img loading="lazy" src="night-mode-real-430.png" alt="night-mode-real-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="night-mode-real-430.png" target="_blank">原尺寸截图</a> · <a href="night-mode-real-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="reference-loaded-confirmed-0-430 reference-loaded-confirmed-0-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> reference-loaded-confirmed-0-430</h2>
+    <a href="reference-loaded-confirmed-0-430.png" target="_blank"><img loading="lazy" src="reference-loaded-confirmed-0-430.png" alt="reference-loaded-confirmed-0-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="reference-loaded-confirmed-0-430.png" target="_blank">原尺寸截图</a> · <a href="reference-loaded-confirmed-0-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="reference-loaded-confirmed-2-430 reference-loaded-confirmed-2-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> reference-loaded-confirmed-2-430</h2>
+    <a href="reference-loaded-confirmed-2-430.png" target="_blank"><img loading="lazy" src="reference-loaded-confirmed-2-430.png" alt="reference-loaded-confirmed-2-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="reference-loaded-confirmed-2-430.png" target="_blank">原尺寸截图</a> · <a href="reference-loaded-confirmed-2-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="notes-overlap-confirmed-320 notes-overlap-confirmed-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> notes-overlap-confirmed-320</h2>
+    <a href="notes-overlap-confirmed-320.png" target="_blank"><img loading="lazy" src="notes-overlap-confirmed-320.png" alt="notes-overlap-confirmed-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="notes-overlap-confirmed-320.png" target="_blank">原尺寸截图</a> · <a href="notes-overlap-confirmed-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="detail-computed-confirmed-430 detail-computed-confirmed-430" data-issue="no">
+    <h2><span class="tag 留档">留档</span> detail-computed-confirmed-430</h2>
+    <a href="detail-computed-confirmed-430.png" target="_blank"><img loading="lazy" src="detail-computed-confirmed-430.png" alt="detail-computed-confirmed-430"></a>
+    <p>430 × 932 CSS px</p>
+    <p><a href="detail-computed-confirmed-430.png" target="_blank">原尺寸截图</a> · <a href="detail-computed-confirmed-430.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="home-landscape-final home-landscape-final" data-issue="no">
+    <h2><span class="tag 留档">留档</span> home-landscape-final</h2>
+    <a href="home-landscape-final.png" target="_blank"><img loading="lazy" src="home-landscape-final.png" alt="home-landscape-final"></a>
+    <p>800 × 420 CSS px</p>
+    <p><a href="home-landscape-final.png" target="_blank">原尺寸截图</a> · <a href="home-landscape-final.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="home-landscape-scrolled-final home-landscape-scrolled-final" data-issue="no">
+    <h2><span class="tag 留档">留档</span> home-landscape-scrolled-final</h2>
+    <a href="home-landscape-scrolled-final.png" target="_blank"><img loading="lazy" src="home-landscape-scrolled-final.png" alt="home-landscape-scrolled-final"></a>
+    <p>800 × 420 CSS px</p>
+    <p><a href="home-landscape-scrolled-final.png" target="_blank">原尺寸截图</a> · <a href="home-landscape-scrolled-final.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-basic-fresh-320 bazi-basic-fresh-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-basic-fresh-320</h2>
+    <a href="bazi-basic-fresh-320.png" target="_blank"><img loading="lazy" src="bazi-basic-fresh-320.png" alt="bazi-basic-fresh-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="bazi-basic-fresh-320.png" target="_blank">原尺寸截图</a> · <a href="bazi-basic-fresh-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article>
+<article data-search="bazi-detail-fresh-320 bazi-detail-fresh-320" data-issue="no">
+    <h2><span class="tag 留档">留档</span> bazi-detail-fresh-320</h2>
+    <a href="bazi-detail-fresh-320.png" target="_blank"><img loading="lazy" src="bazi-detail-fresh-320.png" alt="bazi-detail-fresh-320"></a>
+    <p>320 × 640 CSS px</p>
+    <p><a href="bazi-detail-fresh-320.png" target="_blank">原尺寸截图</a> · <a href="bazi-detail-fresh-320.json" target="_blank">DOM / 尺寸记录</a></p>
+    </article></main>
+<script>const search=document.querySelector('#search'),only=document.querySelector('#issues'),cards=[...document.querySelectorAll('article')];function filter(){let count=0;for(const c of cards){c.hidden=(only.checked&&c.dataset.issue!=='yes')||!c.dataset.search.toLowerCase().includes(search.value.trim().toLowerCase());if(!c.hidden)count++}document.querySelector('#count').textContent=count+' / '+cards.length}search.addEventListener('input',filter);only.addEventListener('change',filter);filter();</script></html>

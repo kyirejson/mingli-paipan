@@ -1,0 +1,407 @@
+{
+  "record": [
+    {
+      "tag": "SPAN",
+      "cls": "",
+      "text": "界面审核测试甲乙丙丁",
+      "rect": {
+        "x": 20,
+        "y": 478,
+        "w": 160,
+        "h": 23
+      },
+      "style": {
+        "overflow": "visible",
+        "textOverflow": "clip",
+        "whiteSpace": "nowrap"
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "",
+      "text": "界面审核测试甲乙丙丁男",
+      "rect": {
+        "x": 20,
+        "y": 478,
+        "w": 178,
+        "h": 23
+      },
+      "style": {
+        "overflow": "visible",
+        "textOverflow": "clip",
+        "whiteSpace": "nowrap"
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "useritemblock_left",
+      "text": "界面审核测试甲乙丙丁男\n阳历2002年01月09日",
+      "rect": {
+        "x": 20,
+        "y": 471.9375,
+        "w": 196.21875,
+        "h": 59
+      },
+      "style": {
+        "overflow": "hidden",
+        "textOverflow": "clip",
+        "whiteSpace": "nowrap"
+      }
+    }
+  ],
+  "frame": {
+    "outer": [
+      {
+        "tag": "IFRAME",
+        "cls": "pf-reading-frame",
+        "text": "",
+        "rect": {
+          "x": 17,
+          "y": 147,
+          "w": 396,
+          "h": 699
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 59, 51)",
+          "background": "rgb(245, 241, 233) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "clip",
+          "fontSize": "14px",
+          "margin": "0px"
+        }
+      },
+      {
+        "tag": "DIV",
+        "cls": "pf-detail-content",
+        "text": "",
+        "rect": {
+          "x": 17,
+          "y": 147,
+          "w": 396,
+          "h": 699
+        },
+        "style": {
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 59, 51)",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "hidden",
+          "fontSize": "14px",
+          "margin": "0px"
+        }
+      },
+      {
+        "tag": "SECTION",
+        "cls": "pf-detail-dialog pf-reference-dialog",
+        "text": "丁火日主",
+        "rect": {
+          "x": 16,
+          "y": 85,
+          "w": 398,
+          "h": 762
+        },
+        "style": {
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 59, 51)",
+          "background": "rgb(245, 241, 233) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "hidden",
+          "fontSize": "14px",
+          "margin": "0px"
+        }
+      }
+    ],
+    "inner": [
+      {
+        "tag": "HTML",
+        "cls": "",
+        "text": "丁火在十天干里排行第四位，属阴火，主礼。\n\n自然属性：星星之火，可以燎原\n\n丁火性格\n\n礼貌、热情、心思细腻\n\n关键词：礼貌\n\n丁火象征着蜡烛、灯火。火的使用，代表着人类的文明的到来。所以丁火也是文明",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 396,
+          "h": 1937.5625
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgb(245, 241, 233) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px"
+        }
+      },
+      {
+        "tag": "BODY",
+        "cls": "",
+        "text": "丁火在十天干里排行第四位，属阴火，主礼。\n\n自然属性：星星之火，可以燎原\n\n丁火性格\n\n礼貌、热情、心思细腻\n\n关键词：礼貌\n\n丁火象征着蜡烛、灯火。火的使用，代表着人类的文明的到来。所以丁火也是文明",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 396,
+          "h": 1937.5625
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgb(245, 241, 233) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px"
+        }
+      },
+      {
+        "tag": "ARTICLE",
+        "cls": "",
+        "text": "丁火在十天干里排行第四位，属阴火，主礼。\n\n自然属性：星星之火，可以燎原\n\n丁火性格\n\n礼貌、热情、心思细腻\n\n关键词：礼貌\n\n丁火象征着蜡烛、灯火。火的使用，代表着人类的文明的到来。所以丁火也是文明",
+        "rect": {
+          "x": 16,
+          "y": 16,
+          "w": 364,
+          "h": 1890.5625
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px"
+        }
+      },
+      {
+        "tag": "DIV",
+        "cls": "",
+        "text": "丁火在十天干里排行第四位，属阴火，主礼。\n\n自然属性：星星之火，可以燎原\n\n丁火性格\n\n礼貌、热情、心思细腻\n\n关键词：礼貌\n\n丁火象征着蜡烛、灯火。火的使用，代表着人类的文明的到来。所以丁火也是文明",
+        "rect": {
+          "x": 16,
+          "y": 16,
+          "w": 364,
+          "h": 1890.5625
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px"
+        }
+      },
+      {
+        "tag": "P",
+        "cls": "",
+        "text": "丁火在十天干里排行第四位，属阴火，主礼。",
+        "rect": {
+          "x": 16,
+          "y": 16,
+          "w": 364,
+          "h": 29.25
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px 0px 15px"
+        }
+      },
+      {
+        "tag": "P",
+        "cls": "",
+        "text": "",
+        "rect": {
+          "x": 16,
+          "y": 60.25,
+          "w": 364,
+          "h": 0
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px 0px 15px"
+        }
+      },
+      {
+        "tag": "P",
+        "cls": "",
+        "text": "自然属性：星星之火，可以燎原",
+        "rect": {
+          "x": 16,
+          "y": 60.25,
+          "w": 364,
+          "h": 29.25
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px 0px 15px"
+        }
+      },
+      {
+        "tag": "P",
+        "cls": "",
+        "text": "",
+        "rect": {
+          "x": 16,
+          "y": 104.5,
+          "w": 364,
+          "h": 0
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px 0px 15px"
+        }
+      },
+      {
+        "tag": "P",
+        "cls": "",
+        "text": "",
+        "rect": {
+          "x": 16,
+          "y": 104.5,
+          "w": 364,
+          "h": 374.8125
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px 0px 15px"
+        }
+      },
+      {
+        "tag": "P",
+        "cls": "",
+        "text": "",
+        "rect": {
+          "x": 16,
+          "y": 494.3125,
+          "w": 364,
+          "h": 0
+        },
+        "style": {
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "color": "rgb(35, 72, 59)",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "transform": "none",
+          "position": "static",
+          "overflow": "visible",
+          "fontSize": "15px",
+          "margin": "0px 0px 15px"
+        }
+      }
+    ],
+    "onLoad": "function () { [native code] }",
+    "scroll": {
+      "x": 0,
+      "y": 0
+    },
+    "styleSheets": [
+      {
+        "href": "http://localhost:9988/static/readings/bazi/reading.css",
+        "rules": [
+          "html, body { margin: 0px; padding: 0px; background: rgb(245, 241, 233); color: rgb(35, 72, 59); font: 15px / 1.95 system-ui, -apple-system, \"Noto Sans CJK SC\", sans-serif; }",
+          "body { padding: 16px; box-sizing: border-box; overflow-wrap: anywhere; }",
+          "article, article > div { width: auto !important; max-width: 100% !important; }",
+          "p { margin: 0px 0px 15px; }",
+          "img { max-width: 100%; height: auto; }",
+          "h1, h2, h3, strong, b { color: inherit; }",
+          "a { color: rgb(182, 110, 88); }",
+          "html[data-theme=\"dark\"], html[data-theme=\"dark\"] body { background: rgb(24, 35, 30); color: rgb(219, 232, 222); }",
+          "table { max-width: 100%; border-collapse: collapse; }",
+          "td { padding: 6px; border: 1px solid rgb(138, 155, 141); }"
+        ]
+      }
+    ]
+  },
+  "notes": {
+    "viewport": {
+      "w": 430,
+      "h": 500
+    },
+    "textarea": {
+      "x": 27,
+      "y": 284.1875,
+      "w": 376,
+      "h": 293.5625
+    },
+    "footer": {
+      "x": 14,
+      "y": 302,
+      "w": 402,
+      "h": 70
+    },
+    "overlap": 70
+  },
+  "landscape": {
+    "rect": {
+      "x": 163.15625,
+      "y": 187.5625,
+      "w": 492,
+      "h": 48
+    },
+    "hit": "开始排盘"
+  }
+}
