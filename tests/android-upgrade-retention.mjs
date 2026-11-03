@@ -31,7 +31,7 @@ try{
   assert.deepEqual(actual,expected.values);console.log(JSON.stringify({baselineColdRestartRetained:true,version:'1.0.14'}));
  }else if(mode==='check'){
   const expected=JSON.parse(fs.readFileSync(path,'utf8'));
-  await browser.wait('window.WZBZDataProtection&&WZBZDataProtection.status.ready');
+  await browser.wait('window.WZBZDataProtection&&WZBZDataProtection.status.ready&&!!document.getElementById("app")?.__vue__');
   const actual=await browser.evaluate(`(async function(){var confirmed=await WZBZDataProtection.checkpoint();return {status:await Capacitor.Plugins.GitHubUpdater.getStatus(),protection:WZBZDataProtection.status,values:Object.fromEntries(${JSON.stringify(Object.keys(expected.values))}.map(function(k){return [k,localStorage.getItem(k)];})),nativeConfirmed:confirmed,appReady:!!document.getElementById('app').__vue__};})()`);
   assert.equal(actual.status.currentVersion,targetVersion);assert.equal(actual.appReady,true);
   assert.equal(actual.protection.native,true);assert.deepEqual(actual.values,expected.values);

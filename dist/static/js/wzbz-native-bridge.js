@@ -759,8 +759,7 @@
   }
 
   function localQuestions(id) {
-    var map = window.__WZBZ_TILIN_ALL__ || {};
-    return map[levelId(id)] || null;
+    return window.WZBZQuiz.questionSet(id);
   }
 
   function tikuData(q) {
@@ -774,12 +773,6 @@
   function saveTiku(state) {
     state.all[state.user] = state.data;
     writeLocalJson(TIKU_KEY, state.all);
-  }
-
-  function nonnegative(value, label) {
-    var n = Number(value == null || value === '' ? 0 : value);
-    if (!isFinite(n) || n < 0) throw localError(400, label + '无效');
-    return n;
   }
 
   function collectFlag(value) {
@@ -1191,19 +1184,18 @@
     // 8.5 Question Bank (题库 / 题林探索 / 知识百科 / 习题作战 / 智能古籍)
     if (url.indexOf('getTKMaxLevel') >= 0) {
       var levelsState = tikuData(q).data.levels;
-      var passedLevels = Object.keys(levelsState).filter(function(id) { return Number(levelsState[id].score) >= 60; });
-      return okResponse(cfg, { code: 0, data: passedLevels.length ? Math.max.apply(Math, passedLevels.map(Number)) : 0, isSuccess: true, localOnly:true });
+      return okResponse(cfg, { code: 0, data: window.WZBZQuiz.maxCleared(levelsState), isSuccess: true, localOnly:true });
     }
     if (url.indexOf('getLevelPass') >= 0) {
       var localLevels = tikuData(q).data.levels;
-      var passList = Object.keys(localLevels).map(function(id) { return { levelid:Number(id), count:Number(localLevels[id].score) >= 60 ? 1 : 0 }; });
+      var passList = Object.keys(localLevels).map(function(id) { return { levelid:Number(id), count:window.WZBZQuiz.passed(localLevels[id],id) ? 1 : 0 }; });
       return okResponse(cfg, { code: 0, data: passList, isSuccess: true, localOnly:true });
     }
     if (url.indexOf('getTKLevel') >= 0) {
       var levelRecord = tikuData(q).data.levels[levelId(q.levelid)];
       return okResponse(cfg, {
         code: 0,
-        data: Object.assign({ score:0, usetime:0, correct:0, wrong:0, mytotal:0, mycorrect:0, alltotal:0, allcorrect:0 }, levelRecord || {}),
+        data: Object.assign({ score:0, usetime:0, correct:0, wrong:0, mytotal:0, mycorrect:0, alltotal:0, allcorrect:0 }, levelRecord || {}, levelRecord && levelRecord.bestAttempt || {}),
         isSuccess: true, localOnly:true
       });
     }
@@ -1214,6 +1206,7 @@
     }
     if (url.indexOf('getQuestions.php') >= 0) {
       var qDataObj = localQuestions(q.cid);
+      if ((!qDataObj || !Object.keys(qDataObj).length) && q.type === 'zhishi') return okResponse(cfg, {code:0,data:{},isSuccess:true,localOnly:true});
       if (!qDataObj || !Object.keys(qDataObj).length) throw localError(501, '当前版本尚未提供此目录题目');
       return okResponse(cfg, { code: 0, data: qDataObj, isSuccess: true, localOnly:true });
     }
@@ -1222,12 +1215,8 @@
       var submitLevelId = levelId(q.levelid);
       if (!localQuestions(submitLevelId)) throw localError(501, '当前版本尚未提供此关，不能提交成绩');
       var priorLevel = submitState.data.levels[submitLevelId] || {};
-      var correct = nonnegative(q.correct, '答对数量'), wrong = nonnegative(q.wrong, '答错数量');
-      submitState.data.levels[submitLevelId] = {
-        levelid:submitLevelId, score:nonnegative(q.score, '分数'), usetime:nonnegative(q.usetime, '用时'), correct:correct, wrong:wrong,
-        mytotal:Number(priorLevel.mytotal || 0) + correct + wrong, mycorrect:Number(priorLevel.mycorrect || 0) + correct,
-        alltotal:0, allcorrect:0, content:String(q.content || ''), editdate:localTimestamp()
-      };
+      try { submitState.data.levels[submitLevelId]=window.WZBZQuiz.attempt(submitLevelId,priorLevel,q); } catch(error) { throw localError(400,error.message); }
+      submitState.data.levels[submitLevelId].editdate=localTimestamp();
       saveTiku(submitState);
       return okResponse(cfg, { code:0, data:'ok', isSuccess:true, localOnly:true });
     }
@@ -1328,7 +1317,7 @@
   }
   window.__WZBZ_AXIOS_INTERCEPT__ = function(cfg, origDispatch) {
     var url = String(cfg && cfg.url || '');
-    if (!window.__WZBZ_TILIN_ALL__ && ['getQuestionsOfLevel', 'getQuestions.php', 'postSubmitLevel'].some(function(path) { return url.indexOf(path) >= 0; })) {
+    if (!window.__WZBZ_TILIN_ALL__ && ['getQuestionsOfLevel', 'getQuestions.php', 'postSubmitLevel', 'getExercises'].some(function(path) { return url.indexOf(path) >= 0; })) {
       return window.WZBZAssets.ensure('quiz').then(function() {
         return runLocalDispatch(cfg, origDispatch);
       }, function() {

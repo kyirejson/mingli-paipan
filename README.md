@@ -2,15 +2,15 @@
 
 ## 下载与更新
 
-[下载 v1.0.18 安卓完整安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.18/zaohua-v1.0.18.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.18) · [最新版本](https://github.com/kyirejson/mingli-paipan/releases/latest)
+[下载 v1.0.19 安卓完整安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.19/zaohua-v1.0.19.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.19) · [最新版本](https://github.com/kyirejson/mingli-paipan/releases/latest)
 
-v1.0.18 约 36.2 MB。修复日期滚轮过淡、八字表格字小、六爻窄屏爻线错位、夜间文字与开关不清楚等问题；紫微新增“宫位详读”，并避免箭头穿过中央文字。98 项回归通过，模拟器核对日夜主题、三种屏宽及覆盖安装后的命例和笔记保留。详见 [界面整改记录](docs/2026-11-03_界面可读性整改.md)。上版的两本公开古籍原文仍可按命盘定位阅读。
+v1.0.19 约 36.2 MB。修复题库晋级门槛、重做后最佳成绩保留、练习目录空转、答案恢复、提交失败与收藏并发等问题；35 组练习复用真实本地题。保留 1,763 条原记录，隔离 2 道四柱不成立题，活动题目 1,761 道。117 项回归通过，实测成绩、重开恢复及覆盖升级资料保留。详见 [题库审核记录](docs/2026-11-03_题库审核与整改.md)。实战案例出处仍待逐条补齐，知识百科原文仍需联网。
 
-同签名的 v1.0.13 至 v1.0.17 可直接覆盖升级，无需依次安装中间版本。从 v1.0.14 及更早版本首次升级前，请先导出一次现有资料。旧盘可在“设置 → 数据备份与恢复 → 找回旧记录”尝试合并仍存在的缓存。应用私有保护副本不代替卸载前的外部备份。
+同签名的 v1.0.13 至 v1.0.18 可直接覆盖升级，无需依次安装中间版本。从 v1.0.14 及更早版本首次升级前，请先导出一次现有资料。旧盘可在“设置 → 数据备份与恢复 → 找回旧记录”尝试合并仍存在的缓存。应用私有保护副本不代替卸载前的外部备份。
 
 构建不依赖历史 APK，每次从空目录装入当前资源。历史安装附件在新版核验后清理，源码标签和历史说明保留。v1.0.7 及更早旧签名版不能直接覆盖新签名版，需要单独迁移；卸载会删除本地应用数据。APP 通过“设置 → 版本更新”检查正式 latest，安装需安卓系统确认。
 
-APK SHA-256：`27ccc7d5a4062cb418809f8c8cf72f4a009c361a591d1e5151027d13d10b6ae1`。
+APK SHA-256：`35bd26f1fd99f015d012966abb8fd5d5e6dd256f2b31a12ca4e135f6e21a5b49`。
 
 ## 开发目录与恢复范围
 
@@ -32,7 +32,7 @@ python scripts/dev-server.py
 
 `npm test` 运行无需外部依赖的 Node 回归。`scripts/build-release.ps1` 执行 D 盘构建，所需外部输入的来源和摘要在 `build-inputs.json` 中；详细命令见整改进展。
 
-发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v` 和 `python -m unittest discover -s tests -p test_build_lifecycle.py -v`。使用 `python scripts/publish-release.py --version 1.0.18 --version-code 19` 可校验本地 APK；增加 `--publish --prune-old-apks` 才会发布并在核验新版后清理历史安装附件。先将源码与同名版本标签推送到仓库。详细步骤与清理边界见 [独立构建说明](docs/build-and-retention.md)。
+发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v` 和 `python -m unittest discover -s tests -p test_build_lifecycle.py -v`。使用 `python scripts/publish-release.py --version 1.0.19 --version-code 20` 可校验本地 APK；增加 `--publish --prune-old-apks` 才会发布并在核验新版后清理历史安装附件。先将源码与同名版本标签推送到仓库。详细步骤与清理边界见 [独立构建说明](docs/build-and-retention.md)。
 
 紫微助手代理使用本机现有的盲派八字 Agent 设置文件读取 DeepSeek 配置；密钥不写入本目录或手机安装包。当前真实请求返回 401，需在本机配置中更新有效凭证并确保账户可用，方能完成真实回答验收。通过模拟接口的测试不代表真实模型已连接成功。
 

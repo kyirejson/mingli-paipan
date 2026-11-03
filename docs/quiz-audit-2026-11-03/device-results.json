@@ -1,0 +1,24 @@
+{
+  "examQuestions": 63,
+  "firstScore": 100,
+  "repeat": {
+    "attempt": 20,
+    "best": 100,
+    "nextButton": false
+  },
+  "practice": {
+    "sets": 35,
+    "questions": 1761
+  },
+  "savedAnswer": "A",
+  "reopened": {
+    "answer": "0",
+    "selected": [
+      0
+    ],
+    "collected": true
+  },
+  "overflow": false,
+  "errors": [],
+  "passed": true
+}
