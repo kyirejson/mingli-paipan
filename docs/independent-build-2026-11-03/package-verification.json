@@ -1,0 +1,14 @@
+{
+  "version": "1.0.16",
+  "versionCode": 17,
+  "sha256": "4959ab9ee2352b0b1993d010f0cfb5439d4f06e67468ca5ceaa893f0f0e4258b",
+  "bytes": 36169705,
+  "webFiles": 1006,
+  "exactCurrentDist": true,
+  "noPreviousApkInput": true,
+  "sameNativeCode": true,
+  "sameStorageOrigin": true,
+  "nodeTests": 90,
+  "releaseTests": 12,
+  "lifecycleTests": 9
+}

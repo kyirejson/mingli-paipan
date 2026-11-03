@@ -1,9 +1,4 @@
 {
-  "baseApk": {
-    "version": "1.0.7",
-    "sha256": "f4df9d5bd9cdb975b28813aa62ae42f08379a5b074c0b8c3a643936e4f80ed0f",
-    "url": "https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.7/mingli-paipan-v1.0.7.apk"
-  },
   "apktool": {
     "version": "3.0.3",
     "sha256": "dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423",
@@ -12,5 +7,9 @@
   "reference": {
     "url": "https://github.com/Renhuai123/ziwei-doushu.git",
     "commit": "ff9a1470ebe652e57b9d690f5d01db9a04f47aae"
+  },
+  "androidRuntime": {
+    "lock": "native/runtime/runtime-lock.json",
+    "archive": "native/runtime/android-runtime.zip"
   }
 }

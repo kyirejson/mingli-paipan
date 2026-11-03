@@ -2,15 +2,15 @@
 
 ## 下载与更新
 
-[下载 v1.0.15 安卓安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.15/zaohua-v1.0.15.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.15) · [全部版本](https://github.com/kyirejson/mingli-paipan/releases)
+[下载 v1.0.16 安卓完整安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.16/zaohua-v1.0.16.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.16) · [最新版本](https://github.com/kyirejson/mingli-paipan/releases/latest)
 
-v1.0.15 为新签名正式版，约 36.2 MB。新增原生数据保护副本与升级前写入检查，合并恢复已有命盘；恢复 58 条名人及古籍命例；修复古籍 CSS 加载和排版、紫微三种盘面的比例与文字重叠。90 项 Node 回归、12 项发布协议测试以及安卓模拟器覆盖、立即退出和页面检查通过。详见 [本版更新说明](docs/releases/v1.0.15.md) 与 [修复记录](docs/2026-11-03_数据保护与界面修复记录.md)。
+v1.0.16 约 36.2 MB。打包不再依赖历史 APK，使用 Git 中独立的安卓运行外壳；每次构建只包含当前网页资源。新增先验证最新完整包、再清理旧安装附件的流程。90 项 Node 回归、12 项发布测试、9 项构建清理测试及安卓模拟器 v1.0.15 → v1.0.16 覆盖保留资料检查通过。详见 [独立构建与清理](docs/build-and-retention.md)。
 
-同签名的 v1.0.13/v1.0.14 可直接覆盖升级，不需要卸载或清除数据。原生独立保护从本版生效，首次升级前请导出一次现有资料；若旧盘仍未显示，可在“设置 → 数据备份与恢复 → 找回旧记录”尝试合并历史缓存。恢复取决于缓存或备份是否仍在。应用私有保护副本不代替卸载前的外部备份。
+保留 v1.0.15 的原生数据保护、58 条名人资料、古籍排版和紫微盘比例修复。同签名的 v1.0.13/v1.0.14/v1.0.15 可直接覆盖升级，无需依次安装中间版本。从 v1.0.14 及更早版本首次升级前，请先导出一次现有资料。旧盘可在“设置 → 数据备份与恢复 → 找回旧记录”尝试合并仍存在的缓存。应用私有保护副本不代替卸载前的外部备份。
 
-v1.0.7 及更早旧签名版不能直接覆盖新签名版，需要单独迁移；卸载会删除本地应用数据。发布附件包含 update.json，现有版本通过“设置 → 版本更新”检查正式 latest，安装需安卓系统确认。仅推送源码不会更新手机 APK。
+历史安装附件会在新版验证通过后清理，历史说明和源码标签仍保留。v1.0.7 及更早旧签名版不能直接覆盖新签名版，需要单独迁移；卸载会删除本地应用数据。发布附件包含 update.json，APP 通过“设置 → 版本更新”检查正式 latest，安装需安卓系统确认。仅推送源码不会更新手机 APK。
 
-APK SHA-256：`8cf6802cbabe62c6534443dc861f463c2bc05704fb902acd6cc467f9f03c9607`。
+APK SHA-256：`4959ab9ee2352b0b1993d010f0cfb5439d4f06e67468ca5ceaa893f0f0e4258b`。
 
 ## 开发目录与恢复范围
 
@@ -20,7 +20,7 @@ v1.0.8 基于 v1.0.7 安装包的安卓外壳重新打包，并使用新的签�
 
 ## 本机调试
 
-本轮审计整改与验证范围见 [整改进展](docs/2026-10-29_整改进展.md)。当前新增备份恢复入口和可执行构建脚本；仍依赖旧 APK 外壳及八字基础排盘接口，不代表原始安卓工程已恢复。
+本轮审计整改与验证范围见 [整改进展](docs/2026-10-29_整改进展.md)。当前提供备份恢复入口和可执行构建脚本；安卓外壳已独立纳入 `native/runtime/`，不再读取旧 APK。八字基础排盘接口等依赖仍存在，不代表原始安卓工程已恢复。
 
 在 Windows PowerShell 运行：
 
@@ -32,7 +32,7 @@ python scripts/dev-server.py
 
 `npm test` 运行无需外部依赖的 Node 回归。`scripts/build-release.ps1` 执行 D 盘构建，所需外部输入的来源和摘要在 `build-inputs.json` 中；详细命令见整改进展。
 
-发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v`。使用 `python scripts/publish-release.py --version 1.0.15 --version-code 16` 可校验 APK 原生版本、签名、对齐及包内版本信息，生成更新清单；增加 `--publish` 才会连接 GitHub、上传附件并正式发布。先将源码与同名版本标签推送到仓库。工具先校验 APK 和清单、检查公开清单可读，再设置正式 latest，最后复核已安装客户端所使用的接口。已有但不一致的附件会阻止发布，不删除或覆盖原 APK。
+发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v` 和 `python -m unittest discover -s tests -p test_build_lifecycle.py -v`。使用 `python scripts/publish-release.py --version 1.0.16 --version-code 17` 可校验本地 APK；增加 `--publish --prune-old-apks` 才会发布并在核验新版后清理历史安装附件。先将源码与同名版本标签推送到仓库。详细步骤与清理边界见 [独立构建说明](docs/build-and-retention.md)。
 
 紫微助手代理使用本机现有的盲派八字 Agent 设置文件读取 DeepSeek 配置；密钥不写入本目录或手机安装包。当前真实请求返回 401，需在本机配置中更新有效凭证并确保账户可用，方能完成真实回答验收。通过模拟接口的测试不代表真实模型已连接成功。
 

@@ -40,7 +40,7 @@ def build(decoded, work, java_home, build_tools, android):
                     "com.android.tools.r8.D8", "--min-api", "24", "--lib", str(android),
                     "--classpath", str(stub_jar), "--output", str(dex), *map(str, plugin_classes)], check=True)
     target = decoded / "classes2.dex"
-    assert not target.exists(), "Base APK unexpectedly already contains classes2.dex"
+    assert not target.exists(), "Native runtime unexpectedly already contains classes2.dex"
     shutil.copyfile(dex / "classes.dex", target)
     plugin_list = decoded / "assets/capacitor.plugins.json"
     plugins = json.loads(plugin_list.read_text(encoding="utf-8"))

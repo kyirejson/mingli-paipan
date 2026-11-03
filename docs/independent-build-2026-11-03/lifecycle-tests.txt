@@ -1,0 +1,15 @@
+test_build_script_has_no_previous_release_input_or_overlay (test_build_lifecycle.BuildLifecycleTest.test_build_script_has_no_previous_release_input_or_overlay) ... ok
+test_cleanup_keeps_current_future_drafts_and_unrelated_attachments (test_build_lifecycle.BuildLifecycleTest.test_cleanup_keeps_current_future_drafts_and_unrelated_attachments) ... ok
+test_cleanup_stops_when_latest_changes_or_its_apk_is_missing (test_build_lifecycle.BuildLifecycleTest.test_cleanup_stops_when_latest_changes_or_its_apk_is_missing) ... ok
+test_local_cleanup_keeps_current_future_installers_and_non_apk_data (test_build_lifecycle.BuildLifecycleTest.test_local_cleanup_keeps_current_future_installers_and_non_apk_data) ... ok
+test_local_cleanup_rejects_c_drive_or_unrelated_directory (test_build_lifecycle.BuildLifecycleTest.test_local_cleanup_rejects_c_drive_or_unrelated_directory) ... ok
+test_native_runtime_builds_in_empty_directory_without_any_old_apk (test_build_lifecycle.BuildLifecycleTest.test_native_runtime_builds_in_empty_directory_without_any_old_apk) ... ok
+test_old_web_assets_and_traversal_cannot_be_added_even_with_updated_hashes (test_build_lifecycle.BuildLifecycleTest.test_old_web_assets_and_traversal_cannot_be_added_even_with_updated_hashes) ... ok
+Removed old release attachment: v1.0.7/app.apk
+test_remote_cleanup_rechecks_latest_before_each_delete (test_build_lifecycle.BuildLifecycleTest.test_remote_cleanup_rechecks_latest_before_each_delete) ... ok
+test_tampered_runtime_is_rejected_before_writing (test_build_lifecycle.BuildLifecycleTest.test_tampered_runtime_is_rejected_before_writing) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.338s
+
+OK

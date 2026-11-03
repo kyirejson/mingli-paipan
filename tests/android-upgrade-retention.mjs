@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {connectBrowser} from './helpers/browser-cdp.mjs';
-const mode=process.argv[2],path=process.env.ZAOHUA_UPGRADE_FIXTURE;
+const mode=process.argv[2],path=process.env.ZAOHUA_UPGRADE_FIXTURE,targetVersion=process.env.ZAOHUA_EXPECTED_VERSION||'1.0.15';
 assert.ok(path,'Set ZAOHUA_UPGRADE_FIXTURE to a D: test fixture file');
 const browser=await connectBrowser(process.env.ZAOHUA_CDP_PORT||'9331');
 try{
@@ -23,7 +23,7 @@ try{
  }else if(mode==='native-save'){
   await browser.wait('window.WZBZDataProtection&&WZBZDataProtection.status.ready');
   const expected=JSON.parse(fs.readFileSync(path,'utf8'));
-  const result=await browser.evaluate(`(async function(){await __WZBZ_AXIOS_INTERCEPT__({url:'/user/updateNote2',data:{userGuid:${JSON.stringify(expected.guid)},content:'immediate-exit-native-preserved'}},function(){throw Error('No external endpoint');});await WZBZDataProtection.checkpoint();return {version:'1.0.15',guid:${JSON.stringify(expected.guid)},values:Object.fromEntries(${JSON.stringify(Object.keys(expected.values))}.map(function(k){return [k,localStorage.getItem(k)];}))};})()`);
+  const result=await browser.evaluate(`(async function(){await __WZBZ_AXIOS_INTERCEPT__({url:'/user/updateNote2',data:{userGuid:${JSON.stringify(expected.guid)},content:'immediate-exit-native-preserved'}},function(){throw Error('No external endpoint');});await WZBZDataProtection.checkpoint();var installed=await Capacitor.Plugins.GitHubUpdater.getStatus();return {version:installed.currentVersion,guid:${JSON.stringify(expected.guid)},values:Object.fromEntries(${JSON.stringify(Object.keys(expected.values))}.map(function(k){return [k,localStorage.getItem(k)];}))};})()`);
   fs.writeFileSync(path.replace(/\.json$/,'-native.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({nativeWriteConfirmed:true,immediateExitFixturePrepared:true}));
  }else if(mode==='baseline-check'){
   const expected=JSON.parse(fs.readFileSync(path,'utf8'));
@@ -33,7 +33,7 @@ try{
   const expected=JSON.parse(fs.readFileSync(path,'utf8'));
   await browser.wait('window.WZBZDataProtection&&WZBZDataProtection.status.ready');
   const actual=await browser.evaluate(`(async function(){var confirmed=await WZBZDataProtection.checkpoint();return {status:await Capacitor.Plugins.GitHubUpdater.getStatus(),protection:WZBZDataProtection.status,values:Object.fromEntries(${JSON.stringify(Object.keys(expected.values))}.map(function(k){return [k,localStorage.getItem(k)];})),nativeConfirmed:confirmed,appReady:!!document.getElementById('app').__vue__};})()`);
-  assert.equal(actual.status.currentVersion,'1.0.15');assert.equal(actual.appReady,true);
+  assert.equal(actual.status.currentVersion,targetVersion);assert.equal(actual.appReady,true);
   assert.equal(actual.protection.native,true);assert.deepEqual(actual.values,expected.values);
   assert.equal(actual.nativeConfirmed,true);
   console.log(JSON.stringify({upgrade:'v'+expected.version+' → v'+actual.status.currentVersion,originalValuesUnchanged:true,nativeBackupMatches:true,appReady:true,guid:expected.guid}));

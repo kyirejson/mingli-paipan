@@ -7,14 +7,12 @@ param(
 )
 $ErrorActionPreference='Stop'
 $projectRoot=Split-Path -Parent $PSScriptRoot
-$baseApk=Join-Path $WorkRoot 'base.apk'
 $apktool=Join-Path $WorkRoot 'apktool.jar'
 $keyFile=Join-Path $projectRoot 'private-signing\zaohua-release.jks'
 $passwordFile=Join-Path $projectRoot 'private-signing\keystore-password.txt'
 $java=Join-Path $JavaHome 'bin\java.exe'
 $locked=Get-Content -LiteralPath (Join-Path $projectRoot 'build-inputs.json') -Raw | ConvertFrom-Json
-foreach($file in @($baseApk,$apktool,$keyFile,$passwordFile,$java,(Join-Path $BuildTools 'apksigner.bat'),(Join-Path $BuildTools 'zipalign.exe'))){if(-not(Test-Path -LiteralPath $file)){throw "Missing build input: $file"}}
-if((Get-FileHash -LiteralPath $baseApk -Algorithm SHA256).Hash -ne 'F4DF9D5BD9CDB975B28813AA62AE42F08379A5B074C0B8C3A643936E4F80ED0F'){throw 'Base APK hash does not match the verified v1.0.7 artifact.'}
+foreach($file in @($apktool,$keyFile,$passwordFile,$java,(Join-Path $BuildTools 'apksigner.bat'),(Join-Path $BuildTools 'zipalign.exe'))){if(-not(Test-Path -LiteralPath $file)){throw "Missing build input: $file"}}
 if((Get-FileHash -LiteralPath $apktool -Algorithm SHA256).Hash -ne $locked.apktool.sha256){throw 'Apktool hash does not match build-inputs.json.'}
 $taskRoot=Join-Path $WorkRoot ('build-'+$Version+'-'+[guid]::NewGuid().ToString('N').Substring(0,8))
 New-Item -ItemType Directory -Path $taskRoot -Force | Out-Null
@@ -24,12 +22,9 @@ try{
   $env:TEMP=Join-Path $taskRoot 'temp';$env:TMP=$env:TEMP;$env:JAVA_HOME=$JavaHome
   New-Item -ItemType Directory -Path $env:TEMP -Force | Out-Null
   $decoded=Join-Path $taskRoot 'decoded';$framework=Join-Path $WorkRoot 'framework'
-  & $java "-Djava.io.tmpdir=$($env:TEMP)" -jar $apktool d -s -p $framework $baseApk -o $decoded;CheckExit 'Decode'
+  & python (Join-Path $PSScriptRoot 'prepare-runtime.py') --destination $decoded --version $Version --version-code $VersionCode;CheckExit 'Repository native runtime'
   Copy-Item -Path (Join-Path $projectRoot 'dist\*') -Destination (Join-Path $decoded 'assets\public') -Recurse -Force
   & python (Join-Path $PSScriptRoot 'build-data-vault.py') --decoded $decoded --work (Join-Path $taskRoot 'vault-plugin') --java-home $JavaHome --build-tools $BuildTools --android (Join-Path (Split-Path -Parent (Split-Path -Parent $BuildTools)) 'platforms\android-34\android.jar');CheckExit 'Data vault plugin'
-  $yaml=Join-Path $decoded 'apktool.yml';$text=Get-Content -LiteralPath $yaml -Raw
-  $text=$text -replace 'versionCode: 8',"versionCode: $VersionCode" -replace 'versionName: 1.0.7',"versionName: $Version"
-  Set-Content -LiteralPath $yaml -Value $text -Encoding utf8NoBOM
   @{version=$Version;versionCode=$VersionCode;repository='https://github.com/kyirejson/mingli-paipan'} | ConvertTo-Json -Compress | Set-Content -LiteralPath (Join-Path $decoded 'assets\public\static\update-info.json') -Encoding utf8NoBOM
   $unsigned=Join-Path $taskRoot 'unsigned.apk';$aligned=Join-Path $taskRoot 'aligned.apk';$signed=Join-Path $taskRoot 'signed.apk'
   & $java "-Djava.io.tmpdir=$($env:TEMP)" -jar $apktool b -p $framework $decoded -o $unsigned;CheckExit 'Rebuild'

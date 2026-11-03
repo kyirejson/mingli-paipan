@@ -12,6 +12,7 @@ import posixpath
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 import time
 import urllib.error
@@ -119,6 +120,8 @@ class GitHub:
         request = urllib.request.Request(url, method=method, data=data,
                                          headers={**self.headers, "Content-Type": content_type})
         with urllib.request.urlopen(request, timeout=90) as response:
+            if response.status == 204:
+                return None
             return json.load(response)
 
 
@@ -193,6 +196,7 @@ def main():
     parser.add_argument("--version", required=True)
     parser.add_argument("--version-code", type=int, required=True)
     parser.add_argument("--publish", action="store_true")
+    parser.add_argument("--prune-old-apks", action="store_true", help="After verified publication, remove superseded installers only")
     parser.add_argument("--work", type=pathlib.Path, default=pathlib.Path("D:/zaohua-release-work"))
     parser.add_argument("--build-tools", type=pathlib.Path, default=pathlib.Path("C:/Users/28257/android-sdk/build-tools/34.0.0"))
     parser.add_argument("--java", type=pathlib.Path, default=pathlib.Path("C:/Users/28257/jdk17/jdk-17.0.12+7/bin/java.exe"))
@@ -231,6 +235,9 @@ def main():
               "assets": [a["name"] for a in latest["assets"]], "phone_install_verified": False}
     (ROOT / "release/android" / ("published-" + tag + ".json")).write_bytes(encoded(result))
     print(json.dumps(result, ensure_ascii=False, indent=2), flush=True)
+    if args.prune_old_apks:
+        subprocess.run([sys.executable, str(ROOT / "scripts/prune-release-apks.py"),
+                        "--keep-tag", tag, "--apply"], cwd=ROOT, check=True)
 
 
 if __name__ == "__main__":
