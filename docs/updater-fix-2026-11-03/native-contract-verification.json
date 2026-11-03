@@ -1,0 +1,16 @@
+{
+  "observed_date": "2026-11-03 Asia/Shanghai",
+  "api_endpoint": "https://api.github.com/repos/kyirejson/mingli-paipan/releases/latest",
+  "api_access": "authenticated read; same latest-release selection as installed updater",
+  "tag": "v1.0.14",
+  "draft": false,
+  "prerelease": false,
+  "installed_version": "1.0.13",
+  "installed_versionCode": 14,
+  "new_versionCode": 15,
+  "available_by_native_contract": true,
+  "public_manifest_download_without_credentials": true,
+  "manifest_sha256": "41b27acbeddb1b5c2997961d3627a0b83c2979fe0460f13ec4bbb73058189e35",
+  "apk_digest_matches_release": true,
+  "actual_android_execution": false
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-03 Asia/Shanghai",
+  "scope": "Read-only investigation of owned v1.0.13 updater and GitHub release metadata; no phone logs, native execution, release promotion or asset edits in this task.",
+  "files": [
+    {
+      "path": "docs/updater-audit-2026-11-03/candidate-update.json",
+      "bytes": 234,
+      "sha256": "b36abcafa0cf9d8fb97e7ef2e761f02b91dda2137c18c088564ea8109e428ca4"
+    },
+    {
+      "path": "docs/updater-audit-2026-11-03/release-state.json",
+      "bytes": 2823,
+      "sha256": "3c1ac81569cc9bee3e57478c51118bf133ee0386ed60c0cafcdceeed4f81f589"
+    },
+    {
+      "path": "docs/updater-audit-2026-11-03/scope.md",
+      "bytes": 542,
+      "sha256": "63db1ab738966d83024bdf2b575713fd69487440a785cb7acd30404b871c14a3"
+    },
+    {
+      "path": "docs/updater-audit-2026-11-03/UpdateRepository.smali",
+      "bytes": 43425,
+      "sha256": "15c5888a8618f92ae8a32e236589a45430d1ad40da23fb945885b6a26af227bd"
+    },
+    {
+      "path": "docs/2026-11-03_自动更新诊断-report.md",
+      "bytes": 5076,
+      "sha256": "28daaba5e3ef9b8b0083c264e2be52bca78d1a188b22f3978d26b6fd1693262c"
+    }
+  ]
+}

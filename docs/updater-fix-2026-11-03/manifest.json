@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-03 Asia/Shanghai",
+  "files": [
+    {
+      "path": "docs/updater-fix-2026-11-03/native-contract-verification.json",
+      "bytes": 640,
+      "sha256": "12433b3d428e5f7954937dda1dbe5440b405249066d1efd02830bdf8d5c44349"
+    },
+    {
+      "path": "docs/updater-fix-2026-11-03/published-state.json",
+      "bytes": 733,
+      "sha256": "b374d99afca8b5ba5d86206562a1b2e7bb2a783bce60a134fd6f186a5b487d67"
+    },
+    {
+      "path": "docs/updater-fix-2026-11-03/update.json",
+      "bytes": 225,
+      "sha256": "41b27acbeddb1b5c2997961d3627a0b83c2979fe0460f13ec4bbb73058189e35"
+    },
+    {
+      "path": "docs/updater-fix-2026-11-03/verification.json",
+      "bytes": 684,
+      "sha256": "5338aa50a27d49f6eb13d2d68b8f347c74275135a6853281fc53a5ea5633ede9"
+    },
+    {
+      "path": "scripts/publish-release.py",
+      "bytes": 11352,
+      "sha256": "7205a83561c2c36ee60460903286aa154462343fd54bcc4b55c4ada8c5e17c68"
+    },
+    {
+      "path": "tests/test_release_contract.py",
+      "bytes": 6165,
+      "sha256": "c029219e77d0bd066baede85e423d073f621fe583e22e9df071fc639a82ace17"
+    },
+    {
+      "path": "docs/2026-11-03_自动更新修复记录.md",
+      "bytes": 4157,
+      "sha256": "23a5f06405bd2e157061fafc5061c54807ed24942ad5016e95cbc1ef4bd24b71"
+    }
+  ]
+}

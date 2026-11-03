@@ -1,0 +1,24 @@
+{
+  "release": "https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.14",
+  "tag": "v1.0.14",
+  "commit": "b78398e144fb1e569203eebef277c1930faaf53a",
+  "prerelease": false,
+  "latest_endpoint_verified": true,
+  "public_manifest_verified": true,
+  "update": {
+    "schema": 1,
+    "version": "1.0.14",
+    "versionCode": 15,
+    "packageId": "com.wzbz.bazi",
+    "apk": "zaohua-v1.0.14.apk",
+    "sha256": "ebdcddba95bebd66993d6e374a82e853df6616cd4dc3422867b181ca7f5e55da",
+    "size": 36156987
+  },
+  "download": "https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.14/zaohua-v1.0.14.apk",
+  "assets": [
+    "SHA256SUMS.txt",
+    "update.json",
+    "zaohua-v1.0.14.apk"
+  ],
+  "phone_install_verified": false
+}

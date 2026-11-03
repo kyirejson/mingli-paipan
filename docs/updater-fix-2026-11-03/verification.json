@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-03 Asia/Shanghai",
+  "release_contract_tests": {
+    "command": "python -m unittest discover -s tests -p test_release_contract.py -v",
+    "passed": 8,
+    "total": 8
+  },
+  "apk_preflight": {
+    "command": "python scripts/publish-release.py --version 1.0.14 --version-code 15",
+    "native_version": "1.0.14",
+    "native_versionCode": 15,
+    "certificate_sha256": "07c4a9dc932f0bbb0690fbbc2ccab7e925c417f97645f77291a91514134d5c2a",
+    "signature_and_alignment": "passed",
+    "apk_sha256": "ebdcddba95bebd66993d6e374a82e853df6616cd4dc3422867b181ca7f5e55da"
+  },
+  "application_assets_changed": false,
+  "native_phone_install_test": false
+}

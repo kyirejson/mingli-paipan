@@ -1,0 +1,76 @@
+{
+  "/releases/latest": {
+    "tag": "v1.0.7",
+    "prerelease": false,
+    "draft": false,
+    "url": "https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.7",
+    "assets": [
+      {
+        "name": "mingli-paipan-v1.0.7.apk",
+        "size": 36083976,
+        "digest": "sha256:f4df9d5bd9cdb975b28813aa62ae42f08379a5b074c0b8c3a643936e4f80ed0f",
+        "url": "https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.7/mingli-paipan-v1.0.7.apk"
+      },
+      {
+        "name": "update.json",
+        "size": 236,
+        "digest": "sha256:b1d76c57bb7f73a33df5a5c2a0f59bde6432d8b58b611a43bf14c79da6b8642e",
+        "url": "https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.7/update.json"
+      }
+    ],
+    "update_json": {
+      "schema": 1,
+      "version": "1.0.7",
+      "versionCode": 8,
+      "packageId": "com.wzbz.bazi",
+      "apk": "mingli-paipan-v1.0.7.apk",
+      "sha256": "f4df9d5bd9cdb975b28813aa62ae42f08379a5b074c0b8c3a643936e4f80ed0f",
+      "size": 36083976
+    }
+  },
+  "/releases/tags/v1.0.13": {
+    "tag": "v1.0.13",
+    "prerelease": true,
+    "draft": false,
+    "url": "https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.13",
+    "assets": [
+      {
+        "name": "SHA256SUMS.txt",
+        "size": 85,
+        "digest": "sha256:94eb1ba39c1909c5c21da642e7b8850f81a6b8a316bb79c3b96a693fa3286a42",
+        "url": "https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.13/SHA256SUMS.txt"
+      },
+      {
+        "name": "zaohua-v1.0.13.apk",
+        "size": 36152807,
+        "digest": "sha256:ef5e302c39bcef641dd14b20a68fadf2a988f4a50f16b229f40684eae7e55f88",
+        "url": "https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.13/zaohua-v1.0.13.apk"
+      }
+    ]
+  },
+  "/releases/tags/v1.0.14": {
+    "tag": "v1.0.14",
+    "prerelease": true,
+    "draft": false,
+    "url": "https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.14",
+    "assets": [
+      {
+        "name": "SHA256SUMS.txt",
+        "size": 85,
+        "digest": "sha256:19d22369e12f39e11bc67debbe0cea526720043d798aad747d661fc03c14226d",
+        "url": "https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.14/SHA256SUMS.txt"
+      },
+      {
+        "name": "zaohua-v1.0.14.apk",
+        "size": 36156987,
+        "digest": "sha256:ebdcddba95bebd66993d6e374a82e853df6616cd4dc3422867b181ca7f5e55da",
+        "url": "https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.14/zaohua-v1.0.14.apk"
+      }
+    ]
+  },
+  "dex_sha256": {
+    "1.0.13": "63950b53cec7c931e7025761fe3a835d1ec8bcf56701ffca988e7f4b48a09efb",
+    "1.0.14": "63950b53cec7c931e7025761fe3a835d1ec8bcf56701ffca988e7f4b48a09efb"
+  },
+  "observed_date": "2026-11-03 Asia/Shanghai"
+}

@@ -4,9 +4,9 @@
 
 [下载 v1.0.14 安卓安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.14/zaohua-v1.0.14.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.14) · [全部版本](https://github.com/kyirejson/mingli-paipan/releases)
 
-v1.0.14 为新签名预发布版，约 36.2 MB，修复八字古籍目录匹配、乱码、换盘旧资料、快速切书和正文加载问题，清理重复目录并隔离 6 个源站疑误条目。74 项 Node 回归通过，APK 签名、对齐、版本及包内资源核对通过；本轮 Android 实际显示与触控验证尚未完成。详见 [本版更新说明](docs/releases/v1.0.14.md) 与 [古籍修复记录](docs/2026-11-03_八字古籍修复记录.md)。
+v1.0.14 为新签名正式发布版，约 36.2 MB，修复八字古籍目录匹配、乱码、换盘旧资料、快速切书和正文加载问题，清理重复目录并隔离 6 个源站疑误条目。74 项 Node 回归通过，APK 签名、对齐、版本及包内资源核对通过；本轮 Android 实际显示与触控验证尚未完成。详见 [本版更新说明](docs/releases/v1.0.14.md) 与 [古籍修复记录](docs/2026-11-03_八字古籍修复记录.md)。
 
-新签名 v1.0.8 及后续本地构建版本可覆盖升级，建议先备份重要记录。v1.0.7 及更早的旧签名版不能直接覆盖安装，须先备份、卸载旧版，再安装新签名版；卸载会删除本地应用数据。本版沿用新签名预发布通道，不替换旧签名正式更新通道。仅推送源码不会更新手机上的 APK。
+新签名 v1.0.8 及后续本地构建版本可覆盖升级，建议先备份重要记录。v1.0.13 用户可在“设置 → 版本更新”手动检查并下载 v1.0.14，安装需要安卓系统确认。v1.0.7 及更早的旧签名版不能直接覆盖安装，须先备份、卸载旧版，再安装新签名版；卸载会删除本地应用数据。本次补齐 Release 附件 update.json，并将 v1.0.14 设为 latest 正式版，以兼容已安装客户端的更新协议。仅推送源码不会更新手机上的 APK。
 
 APK SHA-256：`ebdcddba95bebd66993d6e374a82e853df6616cd4dc3422867b181ca7f5e55da`。
 
@@ -29,6 +29,8 @@ python scripts/dev-server.py
 它只监听本机 127.0.0.1:9988。模拟器的现有调试包通过 `adb reverse tcp:9988 tcp:9988` 连接该服务。修改网页资源后需刷新或重启调试包。
 
 `npm test` 运行无需外部依赖的 Node 回归。`scripts/build-release.ps1` 执行 D 盘构建，所需外部输入的来源和摘要在 `build-inputs.json` 中；详细命令见整改进展。
+
+发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v`。使用 `python scripts/publish-release.py --version 1.0.14 --version-code 15` 可校验 APK 原生版本、签名、对齐及包内版本信息，生成更新清单；增加 `--publish` 才会连接 GitHub、上传附件并正式发布。先将源码与同名版本标签推送到仓库。工具先校验 APK 和清单、检查公开清单可读，再设置正式 latest，最后复核已安装客户端所使用的接口。已有但不一致的附件会阻止发布，不删除或覆盖原 APK。
 
 紫微助手代理使用本机现有的盲派八字 Agent 设置文件读取 DeepSeek 配置；密钥不写入本目录或手机安装包。当前真实请求返回 401，需在本机配置中更新有效凭证并确保账户可用，方能完成真实回答验收。通过模拟接口的测试不代表真实模型已连接成功。
 
