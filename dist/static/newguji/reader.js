@@ -62,15 +62,17 @@
     return /<\/body\s*>/i.test(text)?text.replace(/<\/body\s*>/i,heightScript+'</body>'):text+heightScript;
   }
   async function load(view){
-    cancel(view);var url=request(view),sequence=view._bookRequest,timer,stop;
+    cancel(view);var url=request(view),sequence=view._bookRequest,timer,stop,source;
     view.readError='';
     if(!url){notifyHeight(view);return;}
     view.loadingBook=true;
     var controller=typeof AbortController==='function'?new AbortController():null;
     view._bookController=controller;
     try{
+      source=global.BaziPublicClassics&&global.BaziPublicClassics.resolve(view);
       var text=await Promise.race([
         (async function(){
+          if(source)return global.BaziPublicClassics.fetchText(source,controller?controller.signal:undefined);
           var response=await global.fetch(url,{credentials:'omit',cache:'no-store',signal:controller?controller.signal:undefined});
           if(!response.ok)throw Error('HTTP '+response.status);
           return response.text();
@@ -82,8 +84,9 @@
         })
       ]);
       if(sequence!==view._bookRequest||view._isDestroyed)return;
-      var html=documentText(text,view.isDark);
+      var html=source?documentText(global.BaziPublicClassics.documentText(text,source,view.isDark),view.isDark):documentText(text,view.isDark);
       view._lastBlobUrl=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
+      view.bookHeight='360px';view.showBookBox=true;
       view.bookSrc=view._lastBlobUrl;
     }catch(error){
       if(sequence!==view._bookRequest||view._isDestroyed)return;

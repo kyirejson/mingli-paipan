@@ -1,0 +1,34 @@
+{
+  "version": "1.0.17",
+  "source": "installed APK; app-owned reader iframe uses synthetic pillars, not user phone",
+  "home": {
+    "text": "造化元钥\n姓名\n性别\n男\n女\n历法\n公历\n农历\n四柱\n出生时间\n2026-11-03 10:52\n当前时间\n出生地点\n未知地 北京时间 --\n分组\n全部\n开始排盘\n更多工具\n合盘\n多盘对比\n五运六气",
+    "overflow": false
+  },
+  "picker": {
+    "quickInputs": 0,
+    "columns": [
+      "年",
+      "月",
+      "日",
+      "时",
+      "分"
+    ],
+    "footerBottom": 842.2857131958008,
+    "height": 842
+  },
+  "books": [
+    {
+      "book": "三命通会",
+      "error": "",
+      "height": 631,
+      "url": "https://luckclub.cn/bazi/005/281/"
+    },
+    {
+      "book": "八字提要",
+      "error": "",
+      "height": 290,
+      "url": "https://luckclub.cn/bazi/015/119/"
+    }
+  ]
+}

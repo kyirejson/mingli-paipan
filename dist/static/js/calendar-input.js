@@ -171,7 +171,6 @@
           h('nav',{class:'pf-calendar-tabs',attrs:{'aria-label':'历法'}},['公历','农历',this.sizhuTabLabel].map(function(label,i){return h('button',{class:{'is-selected':self.curTabIndex===i},attrs:{type:'button','aria-pressed':String(self.curTabIndex===i)},on:{click:function(){changeTab(self,i);}}},[label]);})),
           h('div',{class:'pf-calendar-preview',attrs:{'aria-live':'polite'}},[h('strong',[p.main]),h('small',[p.sub])]),
           h('div',{class:'pf-calendar-body'},[
-            this.curTabIndex===0?h('label',{class:'pf-calendar-quick'},[h('span',['快捷输入公历日期时间']),h('input',{attrs:{type:'datetime-local',min:'0001-02-12T00:00',max:'2099-12-31T23:59','aria-label':'快捷输入公历日期时间'},domProps:{value:dateText(this.curBirthday).replace(' ','T')},on:{change:function(e){applySolar(self,e.target.value);}}})]):null,
             h('SolarBox',{key:'solar-'+this.solarBoxKey,ref:'solarBox',style:{display:this.curTabIndex===0?'':'none'},props:{solars:this.solars},on:{change:this.onChangeSolar,yearRange:this.onYearRange}}),
             h('LunarBox',{key:'lunar-'+this.lunarBoxKey,ref:'lunarBox',style:{display:this.curTabIndex===1?'':'none'},props:{lunars:this.lunars},on:{change:this.onChangeLunar,yearRange:this.onYearRange}}),
             h('SizhuBox',{ref:'sizhuBox',style:{display:this.curTabIndex===2?'':'none'},props:{yearRangeData:this.yearRangeSizhuData},on:{yearRange:this.onYearRangeOfSizhu}}),

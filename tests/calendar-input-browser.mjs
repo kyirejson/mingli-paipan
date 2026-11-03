@@ -11,6 +11,11 @@ const find=`function find(v,name){if((v.$options.name||v.$options._componentTag)
 async function bind(){return ev(`(()=>{${find}const form=find(document.getElementById('app').__vue__,'FormBox');window.__calendarTest={form,picker:form.$refs.formDatetimeRef};return true})()`);}
 async function clickOption(text){await wait(`[...document.querySelectorAll('.pf-sizhu-options button')].some(b=>b.textContent==='${text}')`);await ev(`(()=>{[...document.querySelectorAll('.pf-sizhu-options button')].find(b=>b.textContent==='${text}').click();return true})()`);}
 async function tab(text){await ev(`(()=>{[...document.querySelectorAll('.pf-calendar-tabs button')].find(b=>b.textContent==='${text}').click();return true})()`);await ev(`window.__calendarTest.picker.$nextTick().then(()=>true)`);}
+async function setSolar(text){
+ const parts=text.split(/[-T:]/).map(Number);
+ await ev(`(async()=>{const p=window.__calendarTest.picker,k=p.$refs.solarBox.$refs.pickerRef,n=${JSON.stringify(parts)};for(const [column,index] of [[0,n[0]-p.YearStartForPicker],[1,n[1]-1],[2,n[2]-1],[3,n[3]+1],[4,n[4]+1]]){k.setColumnIndex(column,index);await p.onChangeSolar(k,k.getValues(),column);}return true})()`);
+}
+
 try{
  await fs.mkdir(out,{recursive:true});await call('Page.enable');await call('Runtime.enable');await call('Network.enable');await call('Network.setCacheDisabled',{cacheDisabled:true});await call('Emulation.setCPUThrottlingRate',{rate:1});await call('Emulation.setDeviceMetricsOverride',{width:430,height:932,deviceScaleFactor:1,mobile:true});
  await call('Storage.clearDataForOrigin',{origin,storageTypes:'all'});await call('Runtime.discardConsoleEntries');errors.length=0;requests.length=0;await call('Page.navigate',{url:origin});await wait(`[...document.querySelectorAll('button')].some(b=>b.textContent==='四柱')`);
@@ -27,8 +32,8 @@ try{
  assert.ok((await ev(`document.querySelector('.fa-result-host').__vue__.session.baseTime`)).startsWith('2026-10-29 12:00'));
  assert.equal(requests.some(u=>u.includes('/szbz.php')),false);
  await ev(`window.__WZBZ_ROUTER__.replace('/main/wznavigation/wzindex').catch(()=>{}).then(()=>true)`);await wait(`!!document.querySelector('.pf-birth-summary')`);
- await ev(`(()=>{[...document.querySelectorAll('.pf-calendar-row button')].find(b=>b.textContent==='公历').click();return true})()`);await wait(`!!document.querySelector('.pf-calendar-quick input')`);await bind();
- await ev(`(()=>{let e=document.querySelector('.pf-calendar-quick input');e.value='2024-01-31T14:37';e.dispatchEvent(new Event('change',{bubbles:true}));return true})()`);
+ await ev(`(()=>{[...document.querySelectorAll('.pf-calendar-row button')].find(b=>b.textContent==='公历').click();return true})()`);await wait(`!!document.querySelector('.pf-calendar-wheel .van-picker')`);await bind();
+ await setSolar('2024-01-31T14:37');
  await wait(`window.__calendarTest.picker.getConfirmSolar()?.value==='2024-01-31 14:37'`);
  await ev(`(async()=>{const p=window.__calendarTest.picker,k=p.$refs.solarBox.$refs.pickerRef;k.setColumnIndex(1,1);await p.onChangeSolar(k,k.getValues(),1);return true})()`);
  assert.equal(await ev(`window.__calendarTest.picker.getConfirmSolar().value`),'2024-02-29 14:37');await screenshot('solar-time-picker.png');
@@ -38,12 +43,12 @@ try{
  }
  await ev(`(()=>{document.querySelector('.pf-calendar-cancel').click();return true})()`);await wait(`!window.__calendarTest.form.datetimeData.show`);
  assert.equal(await ev(`window.__calendarTest.form.datetimeData.index`),2);assert.ok((await ev(`window.__calendarTest.form.infoData.birthday`)).startsWith('2026-10-29'));
- await ev(`(()=>{[...document.querySelectorAll('.pf-calendar-row button')].find(b=>b.textContent==='公历').click();return true})()`);await wait(`!!document.querySelector('.pf-calendar-quick input')`);await bind();
- await ev(`(()=>{let e=document.querySelector('.pf-calendar-quick input');e.value='2023-03-22T10:20';e.dispatchEvent(new Event('change',{bubbles:true}));return true})()`);await wait(`window.__calendarTest.picker.getConfirmSolar()?.value==='2023-03-22 10:20'`);await tab('农历');
+ await ev(`(()=>{[...document.querySelectorAll('.pf-calendar-row button')].find(b=>b.textContent==='公历').click();return true})()`);await wait(`!!document.querySelector('.pf-calendar-wheel .van-picker')`);await bind();
+ await setSolar('2023-03-22T10:20');await wait(`window.__calendarTest.picker.getConfirmSolar()?.value==='2023-03-22 10:20'`);await tab('农历');
  await wait(`window.__calendarTest.picker.getConfirmLunar()?.value.includes('2023年闰二月初一')`);await screenshot('lunar-leap-picker.png');
  await ev(`(async()=>{const p=window.__calendarTest.picker,k=p.$refs.lunarBox.$refs.pickerRef;k.setColumnIndex(0,2024-p.YearStartForPicker);await p.onChangeLunar(k,k.getValues(),0);return true})()`);
  assert.equal(await ev(`window.__calendarTest.picker.$refs.lunarBox.$refs.pickerRef.getValues()[1]`),'二月');
- await tab('公历');await ev(`(()=>{let e=document.querySelector('.pf-calendar-quick input');e.value='2024-02-29T23:45';e.dispatchEvent(new Event('change',{bubbles:true}));return true})()`);await wait(`window.__calendarTest.picker.getConfirmSolar()?.value==='2024-02-29 23:45'`);
+ await tab('公历');await setSolar('2024-02-29T23:45');await wait(`window.__calendarTest.picker.getConfirmSolar()?.value==='2024-02-29 23:45'`);
  await ev(`(()=>{document.querySelector('.pf-calendar-confirm').click();return true})()`);await wait(`!window.__calendarTest.form.datetimeData.show&&!window.__calendarTest.form.isConfirmingDatetime`);
  const confirmed=await ev(`window.__calendarTest.form.infoData.birthday`);assert.equal(confirmed,'2024-02-29 23:45');assert.equal(await ev(`window.__calendarTest.form.refreshCurrentTime(true)`),false);assert.equal(await ev(`window.__calendarTest.form.infoData.birthday`),confirmed);
  const bridge=await ev(`(async()=>{let forwarded=false;const r=await window.__WZBZ_AXIOS_INTERCEPT__({url:'https://bzapi3.iwzbz.com/szbz.php',params:{bz:'丙午戊戌丙子甲午'}},()=>{forwarded=true;throw Error('must stay local')});return {forwarded,dates:r.data}})()`);assert.equal(bridge.forwarded,false);assert.ok(bridge.dates.includes('2026-10-29 12:00:00'));

@@ -1,0 +1,24 @@
+{
+  "version": "1.0.17",
+  "actualNavigation": "记录 → 已有测试命盘 → 基本排盘 → 查看命局解说 → 选书",
+  "chartError": "",
+  "recordsUnmodified": true,
+  "books": [
+    {
+      "book": "三命通会",
+      "bazi": "庚辰己丑壬申辛丑",
+      "error": "",
+      "height": 631,
+      "source": "https://luckclub.cn/bazi/005/281/",
+      "outerHeight": 842
+    },
+    {
+      "book": "八字提要",
+      "bazi": "庚辰己丑壬申辛丑",
+      "error": "",
+      "height": 321,
+      "source": "https://luckclub.cn/bazi/015/119/",
+      "outerHeight": 842
+    }
+  ]
+}

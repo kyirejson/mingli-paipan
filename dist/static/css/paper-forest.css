@@ -51,7 +51,6 @@ html.pf-theme #app .navigation-foot-auto { background:var(--pf-paper); }
 /* Editorial title and input form. */
 html.pf-theme #app .index_header_wrapper.pf-home-heading { flex:none;width:100%;height:auto;display:block;position:relative;inset:auto;margin:0;padding:18px 0 16px;text-align:left;background:transparent;border-bottom:1px solid var(--pf-line); }
 html.pf-theme #app .index_header_title { font:600 32px/1.5 var(--pf-serif);color:var(--pf-accent);letter-spacing:1px;margin:4px 0 2px;text-align:left; }
-html.pf-theme #app .pf-home-heading p { margin:0; }
 html.pf-theme #app .form_wrapper { width:100%;margin:0;text-align:left; }
 html.pf-theme #app .form_container { height:auto;margin:0;padding:18px 0 0;border:0;border-radius:0;background:transparent;color:var(--pf-ink);font-size:14px; }
 html.pf-theme #app .pf-name-sex { display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;padding-bottom:18px;border-bottom:1px solid var(--pf-line); }

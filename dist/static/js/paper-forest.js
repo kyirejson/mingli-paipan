@@ -88,7 +88,6 @@
         h('div', { class: 'pf-name-sex' }, [h('div', { class: 'pf-field pf-name' }, [h('label', { class: 'form_row_title', attrs: { for: 'pf-name-' + t._uid } }, ['姓名']), h('input', { class: 'form_row_input', attrs: { id: 'pf-name-' + t._uid, type: 'text', maxlength: 10, placeholder: '选填', autocomplete: 'off' }, domProps: { value: t.infoData.username }, on: { input: function (e) { if (!e.target.composing) t.$set(t.infoData, 'username', e.target.value); }, compositionend: function (e) { t.$set(t.infoData, 'username', e.target.value); } } })]), sex]),
         calendar, time,
         h('div', { class: 'pf-location-group' }, [field(h, '出生地点', Array.from(new Set(t.addressData.data)).join(' '), function () { t.onShowAddress(true); }), field(h, '分组', t.groupName, function () { t.onShowGroup(true); })]),
-        h('p',{class:'pf-caption'},['基础排盘需联网，会发送所填的起盘信息。命例与笔记保存在本机，请定期备份。']),
         h('button', { class: 'form_confirm pf-primary', attrs: { type: 'button', disabled: t.isConfirmingDatetime }, on: { click: function(){return t.showQiYun ? global.FiveArtsUI.startForm(t) : t.toPaiPan();} } }, [h('span', [t.startBtnText]), icon(h, 'arrow')])
       ]),
       t.datetimeData.error&&!t.datetimeData.show ? h('p',{class:'pf-calendar-error',attrs:{role:'alert'}},[t.datetimeData.error]) : null,
@@ -98,7 +97,7 @@
     ]);
   }
   function renderIndexHeader(h) {
-    return h('header', { class: 'index_header_wrapper pf-home-heading' }, [h('h1', { class: 'index_header_title' }, ['造化元钥']), h('p', { class: 'pf-caption' }, ['一次输入，五盘同参'])]);
+    return h('header', { class: 'index_header_wrapper pf-home-heading' }, [h('h1', { class: 'index_header_title' }, ['造化元钥'])]);
   }
   function renderHeader(h) {
     var t = this;

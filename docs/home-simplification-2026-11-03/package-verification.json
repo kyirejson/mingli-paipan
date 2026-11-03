@@ -1,0 +1,14 @@
+{
+  "version": "1.0.17",
+  "versionCode": 18,
+  "bytes": 36173978,
+  "sha256": "125acdccb2072333450182ed19bce2a5ae8c76c0e1fc0df45d7e012e21d1d065",
+  "webFiles": 1008,
+  "exactCurrentDist": true,
+  "oldApkRequired": false,
+  "nodeTests": 97,
+  "publicSourceChecks": 2295,
+  "generalDaySections": 19,
+  "actualChartNavigationVerified": true,
+  "phoneInstallVerified": false
+}

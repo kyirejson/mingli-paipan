@@ -1,0 +1,7 @@
+{
+  "source": "public article pages fetched by installed app HTTP client; synthetic pillar combinations",
+  "jobs": 256,
+  "passed": 2295,
+  "generalDaySections": 19,
+  "failures": []
+}
