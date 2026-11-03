@@ -1,0 +1,111 @@
+{
+  "observed_at": "2026-11-03 Asia/Shanghai",
+  "baseline_ref": "v1.0.13",
+  "baseline_commit": "3d41dfabee396753cb5f2d04e0a66276d2df28bb",
+  "scope": "Bazi inline classics, not the removed standalone library",
+  "local_fix_status": "implemented; not packaged or published",
+  "tests": {
+    "node_total": 69,
+    "node_passed": 69,
+    "new_classics_tests": 10,
+    "book_routing_checks": 95040
+  },
+  "device_verification": "not run; no connected ADB device",
+  "files": [
+    {
+      "path": "docs/2026-11-03_古籍审核-八字-report.md",
+      "bytes": 10832,
+      "sha256": "efdbc91451dd047994d426a9d2c07cb0794e00420eeff0bd72ee03a1c1184e7e"
+    },
+    {
+      "path": "scripts/audit-bazi-classics.mjs",
+      "bytes": 4616,
+      "sha256": "6185de8ba5fa991d235faa40ad25f3adc25b471af2e137323aff85675561cf13"
+    },
+    {
+      "path": "tests/bazi-classics-regression.cjs",
+      "bytes": 7028,
+      "sha256": "44ebb6886737e5dc2c30bdcec4fb13f66b75e90f8e4291b2592b90a10388380a"
+    },
+    {
+      "path": "tests/helpers/bazi-classics.cjs",
+      "bytes": 1993,
+      "sha256": "7821641e4b2f864c6dbea964165e549e671f6ddda4c07f7132bd5256bed9a212"
+    },
+    {
+      "path": "package.json",
+      "bytes": 612,
+      "sha256": "606094ded6c4064142dcd79fbd8b3b8ef72bbfe900fde7f9fdfd958f67a32675"
+    },
+    {
+      "path": "dist/static/newguji/index.html",
+      "bytes": 2610,
+      "sha256": "70da5ce107e24496481c7b72ca16a1f283855f190303e20687f2bee60e937c6c"
+    },
+    {
+      "path": "dist/static/newguji/index.js",
+      "bytes": 77575,
+      "sha256": "292c7493c9d19aee4e7f38d7f27733657cee64aae6e8d319a99d4b54cda59375"
+    },
+    {
+      "path": "dist/static/newguji/reader.js",
+      "bytes": 5765,
+      "sha256": "e2e74369ea10adf7ad1b058c5c1702562647914f9820831371c1ec8c6cab5a54"
+    },
+    {
+      "path": "dist/static/js/1.788084fb7fadc440744b.js",
+      "bytes": 628666,
+      "sha256": "4acbef03148f9371b111a2e9a87ab4594a31bd3bfd83fd7337d5b55a533ad869"
+    },
+    {
+      "path": "dist/static/js/2.22f599c1df781213e096.js",
+      "bytes": 597186,
+      "sha256": "65379a0e17dffc345d8f0958162c4e30f1aafd8a6af1cb40625a0e2c6aa6fced"
+    },
+    {
+      "path": "docs/bazi-classics-audit-2026-11-03/all-tests.txt",
+      "bytes": 6372,
+      "sha256": "58bf755f9539b67c53a7aa3b7dd6e3ec21ab025c34156f5104c1ece0efa614e3"
+    },
+    {
+      "path": "docs/bazi-classics-audit-2026-11-03/classics-tests.txt",
+      "bytes": 1116,
+      "sha256": "b27dd1d5660c951ef3856d0fa5c56f820958ec4f002ba6764cddf3f9a3b36d5f"
+    },
+    {
+      "path": "docs/bazi-classics-audit-2026-11-03/live-source-probes.json",
+      "bytes": 2191,
+      "sha256": "cc4f9bdc201630f953e3bb822b87705f9ecd2a0e82346fca56e3ba378b6a2184"
+    },
+    {
+      "path": "docs/bazi-classics-audit-2026-11-03/matcher-before.json",
+      "bytes": 52833,
+      "sha256": "25bf7d0504b748cb1ed1336ab6b92d53006f7653e300b0545fdb969e6161bd9f"
+    },
+    {
+      "path": "docs/bazi-classics-audit-2026-11-03/matcher-raw-after.json",
+      "bytes": 50548,
+      "sha256": "30e161235cd7277587762623fcff1ea4054e8086fb25e6be06cfdf972781e5e5"
+    },
+    {
+      "path": "docs/bazi-classics-audit-2026-11-03/release-confirmation.json",
+      "bytes": 499,
+      "sha256": "da9854690e68d535e7d42c447e034123055c2c39c70fa7c89ffaf4e8072773c8"
+    },
+    {
+      "path": "docs/bazi-classics-audit-2026-11-03/scope.md",
+      "bytes": 944,
+      "sha256": "41c4965b00d1da183f991c184ae004f77e5fec739dcc5c9a8f4e300bd05117ac"
+    },
+    {
+      "path": "docs/bazi-classics-audit-2026-11-03/source-before.json",
+      "bytes": 4350,
+      "sha256": "f4a58123234e211776707c9f4a1fa12809d974a3cdbfdf05d2657dc6ff497cc9"
+    },
+    {
+      "path": "docs/bazi-classics-audit-2026-11-03/unverified-day-hour-catalog.json",
+      "bytes": 372,
+      "sha256": "2cbb4f03fdb0d6ddafc45ac964ee62389891258b59310d0ad293cf78607d8f45"
+    }
+  ]
+}

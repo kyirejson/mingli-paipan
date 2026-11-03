@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-03",
+  "tests": {
+    "passed": 74,
+    "total": 74,
+    "classics": 15,
+    "synthetic_book_routes": 95040
+  },
+  "historical_audit_manifest": "Previous audit manifest records earlier file snapshots; this manifest describes the final repaired state.",
+  "files": [
+    {
+      "path": "docs/bazi-classics-fix-2026-11-03/all-tests.txt",
+      "bytes": 6886,
+      "sha256": "d0468fcedb51d11f4a5082c0a402712dd24f64b7bcb90404504944ce3b5f6a60"
+    },
+    {
+      "path": "docs/bazi-classics-fix-2026-11-03/catalog-probes.json",
+      "bytes": 5673,
+      "sha256": "bee8162593dde6fc8c43637c30ab8ac6d537b3095d354d7a4268365a574228e0"
+    },
+    {
+      "path": "docs/bazi-classics-fix-2026-11-03/matcher-raw-after.json",
+      "bytes": 44830,
+      "sha256": "dc4f162a59806884ba4ed37c3f0a632b5c5b0a02af7ec61c8e262f6e04053481"
+    },
+    {
+      "path": "docs/bazi-classics-fix-2026-11-03/package-verification.json",
+      "bytes": 900,
+      "sha256": "c03056f288b5594d89369394e1254f425e50ec607dd4ddbd9eee01f0dfdc5174"
+    },
+    {
+      "path": "docs/bazi-classics-fix-2026-11-03/quarantined-catalog.json",
+      "bytes": 826,
+      "sha256": "1e9d1b92356b5248f9b162fa89d2510840aec399a9c239d626bbad212ff26418"
+    },
+    {
+      "path": "docs/2026-11-03_八字古籍修复记录.md",
+      "bytes": 4881,
+      "sha256": "e063fb1cee1e20e7f132aabad8b30ccafe9ca5bf7d55e8909eef5f8a1eddc6b0"
+    },
+    {
+      "path": "scripts/audit-bazi-classics.mjs",
+      "bytes": 4731,
+      "sha256": "a5cdef43dddff974c43735b0acd2d28b547976d14633d9ea72ee1602272da5bd"
+    },
+    {
+      "path": "tests/bazi-classics-regression.cjs",
+      "bytes": 10581,
+      "sha256": "efeb42d0e96713bf287fab08a6f91c0d380c751c5fc5a839f3926e94e8b724b1"
+    },
+    {
+      "path": "tests/helpers/bazi-classics.cjs",
+      "bytes": 2110,
+      "sha256": "2e7f4747d513fd8f39426b6b471dd551325abc3049feaf20535ef110311db1ab"
+    },
+    {
+      "path": "package.json",
+      "bytes": 620,
+      "sha256": "525eb1012adbcda876bedb9d422f1ba6aeadb145016a2496d55bc0a8cfcca1f6"
+    },
+    {
+      "path": "dist/static/update-info.json",
+      "bytes": 97,
+      "sha256": "5a505f9959eafd3fc38ee36e2d08cf5142023aa1dccba274f6d73d00dddd0de9"
+    },
+    {
+      "path": "dist/static/newguji/index.html",
+      "bytes": 2610,
+      "sha256": "70da5ce107e24496481c7b72ca16a1f283855f190303e20687f2bee60e937c6c"
+    },
+    {
+      "path": "dist/static/newguji/index.js",
+      "bytes": 76579,
+      "sha256": "a5b831c0efa7197a74b9c74c3ebd7a5880dc865d3a2082a3bdca7f8fd430c2fa"
+    },
+    {
+      "path": "dist/static/newguji/reader.js",
+      "bytes": 6514,
+      "sha256": "5fa774e9137029bc51295ca8cde9c7a9cf59a36833da2afe4dfadec57dbe818b"
+    },
+    {
+      "path": "dist/static/js/1.788084fb7fadc440744b.js",
+      "bytes": 628666,
+      "sha256": "4acbef03148f9371b111a2e9a87ab4594a31bd3bfd83fd7337d5b55a533ad869"
+    },
+    {
+      "path": "dist/static/js/2.22f599c1df781213e096.js",
+      "bytes": 597186,
+      "sha256": "65379a0e17dffc345d8f0958162c4e30f1aafd8a6af1cb40625a0e2c6aa6fced"
+    }
+  ]
+}

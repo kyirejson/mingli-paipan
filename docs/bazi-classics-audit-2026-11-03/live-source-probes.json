@@ -1,0 +1,70 @@
+[
+  {
+    "book": "穷通宝鉴",
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=1&i=1&p=1&nightMode=1",
+    "anonymous_request": true,
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "allow_origin": "*",
+    "bytes": 57488,
+    "sha256": "7e4ee718ddfda1b92ce439f65ce59b071601991c434dcafff9efe1df1862c200",
+    "titles": [
+      "穷通宝鉴1-论甲生寅月"
+    ],
+    "has_head": true,
+    "replacement_characters": 0,
+    "has_access_marker": false,
+    "php_error": false
+  },
+  {
+    "book": "三命通会",
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=3&i=1&p=98&nightMode=1",
+    "anonymous_request": true,
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "allow_origin": "*",
+    "bytes": 5370,
+    "sha256": "bf68431e279129bf4953aeea8c45b3bb26b8bb9d37adf5fc506ad451d5ec44b5",
+    "titles": [
+      "三命通会1-乙卯日庚辰时"
+    ],
+    "has_head": true,
+    "replacement_characters": 0,
+    "has_access_marker": true,
+    "php_error": false
+  },
+  {
+    "book": "千里命稿",
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=9&i=1&p=19&nightMode=1",
+    "anonymous_request": true,
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "allow_origin": "*",
+    "bytes": 3727,
+    "sha256": "e4b37af3af2525d5b7028f81f0d637f030b135e865289066e1bc6b8b31d99f57",
+    "titles": [
+      "千里命稿1-论正官"
+    ],
+    "has_head": true,
+    "replacement_characters": 0,
+    "has_access_marker": true,
+    "php_error": false
+  },
+  {
+    "book": "五行精纪",
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=10&i=5&p=1&nightMode=1",
+    "anonymous_request": true,
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "allow_origin": "*",
+    "bytes": 2845,
+    "sha256": "10e67247b8e1b7c3d9e2a5df845b65468b7c0f3b8f2e4a590e467f572bf707ae",
+    "titles": [
+      "五行精纪5-论甲子日丙寅时"
+    ],
+    "has_head": true,
+    "replacement_characters": 0,
+    "has_access_marker": true,
+    "php_error": false
+  }
+]

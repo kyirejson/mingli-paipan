@@ -1,11 +1,13 @@
 {
   "name": "zaohua-yuanyue-recovered",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "private": true,
   "description": "Recovered app assets with explicit APK reconstruction tooling",
   "scripts": {
-    "test": "node --test tests/divination-regression.cjs tests/divination-exhaustive.cjs tests/divination-extended.cjs tests/reliability-regression.cjs tests/ziwei-performance-regression.cjs tests/loading-interaction-regression.cjs tests/calendar-input-regression.cjs tests/ui-display-regression.cjs",
+    "test": "node --test tests/divination-regression.cjs tests/divination-exhaustive.cjs tests/divination-extended.cjs tests/reliability-regression.cjs tests/ziwei-performance-regression.cjs tests/loading-interaction-regression.cjs tests/calendar-input-regression.cjs tests/ui-display-regression.cjs tests/bazi-classics-regression.cjs",
     "preview": "python scripts/dev-server.py"
   },
-  "engines": { "node": ">=22" }
+  "engines": {
+    "node": ">=22"
+  }
 }

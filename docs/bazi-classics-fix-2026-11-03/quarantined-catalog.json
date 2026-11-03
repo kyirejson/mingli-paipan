@@ -1,0 +1,32 @@
+{
+  "book": 10,
+  "section": 5,
+  "policy": "Reserved positions are null; server IDs of all remaining entries are unchanged. Source titles are inconsistent with canonical day/hour relations. No guessed substitution or remote text rewrite.",
+  "entries": [
+    {
+      "serverIndex": 24,
+      "sourceKey": "甲戌辛卯"
+    },
+    {
+      "serverIndex": 28,
+      "sourceKey": "乙丑辛未"
+    },
+    {
+      "serverIndex": 51,
+      "sourceKey": "丙寅乙亥"
+    },
+    {
+      "serverIndex": 201,
+      "sourceKey": "癸丑丙寅"
+    },
+    {
+      "serverIndex": 206,
+      "sourceKey": "癸卯辛丑"
+    },
+    {
+      "serverIndex": 207,
+      "sourceKey": "癸卯癸辛"
+    }
+  ],
+  "reference": "https://www.shidianguji.com/book/NGJ892411999013122114408/chapter/1lmyja469rqk3"
+}

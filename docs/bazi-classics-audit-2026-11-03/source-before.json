@@ -1,0 +1,63 @@
+[
+  {
+    "file": "dist/static/newguji/index.js",
+    "git_ref": "v1.0.13",
+    "source_sha256": "8297c35967be9ffa5be1b619fca95e04cd9ebc8b2075fad6c0cee9c153951449",
+    "observations": [
+      {
+        "term": "乙卯庚��",
+        "character_offset": 11705,
+        "excerpt": ",\"乙未己卯\",\"乙酉己卯\",\"乙亥己卯\",\"乙丑庚辰\",\"乙卯庚��\",\"乙巳庚辰\",\"乙未庚辰\",\"乙酉庚辰\",\"乙亥庚辰\",\"乙丑辛巳\",\"乙卯辛巳\",\"乙巳辛巳\",\"乙未辛巳\",\"乙酉辛巳\",\"乙亥辛巳\",\"乙丑壬午\",\"乙卯壬午\",\"乙巳壬午\",\"乙未壬午\",\"乙酉壬午\",\"乙亥壬午\",\"乙丑癸未\",\"乙卯癸未\",\"乙巳癸未\",\"乙未癸未\",\"乙酉癸未\",\"乙亥癸未\",\"乙丑甲申\",\"乙卯甲申\",\"乙巳甲申\",\"乙未甲申\",\"乙酉甲申\",\"乙亥甲申\",\"乙"
+      },
+      {
+        "term": "论��官",
+        "character_offset": 37878,
+        "excerpt": ",\"论建禄格\":[\"建禄\"],\"论月刃格\":[\"羊刃\"],\"论��官\":[\"正官\",\"杂气正官\"],\"论七杀\":[\"七杀\",\"杂气七杀\"],\"论偏正财\":[\"正财\",\"偏财\",\"杂气正财\",\"杂气偏财\"],\"论偏正印\":[\"正印\",\"偏印\",\"杂气正印\",\"杂气偏印\"],\"论食神\":[\"食神\",\"杂气食神\"],\"论伤官\":[\"伤官\",\"杂气伤官\"],\"论比肩禄刃\":[\"建禄\",\"羊刃\"]},n=[];for(const i in t)if(Object.hasOw"
+      },
+      {
+        "term": "M.indexOf[s]",
+        "character_offset": 32371,
+        "excerpt": "]),s=e[4]+e[5]+e[6]+e[7],r=\"\";M.indexOf[s]>=0&&(r=\"论\"+e[4]+e[5]+\"日\"+e[6]+e[7]+\"时\");let l=xe(e);return t.push({value:n,index:0}),t.push({value:i,index:1}),t.push({value:a,index:2}),t.push({value:o,index:3}),r&&t.push({value:r,index:4}),t.push("
+      },
+      {
+        "term": "const Ie=",
+        "character_offset": 40582,
+        "excerpt": "Index11_1:je,getIndex11_2:we};const Ie={bazi:[\"乙\",\"巳\",\"辛\",\"巳\",\"丁\",\"丑\",\"乙\",\"巳\"],cgarr:[[\"丙\",\"庚\",\"戊\"],[\"丙\",\"庚\",\"戊\"],[\"己\",\"癸\",\"辛\"],[\"丙\",\"庚\",\"戊\"]],geju:\"羊刃格\"};let Oe=null;var Te={components:{VanSwipe:v.A,VanSwipeItem:b.A},props:{theme:{type:St"
+      },
+      {
+        "term": "loadBookClean(){",
+        "character_offset": 45021,
+        "excerpt": "()}`,console.log(\"html\",e),e},loadBookClean(){const e=this.getHtmlLink();fetch(e).then(t=>t.text()).then(t=>{let n=t.replace(\"<head>\",'<head><base href=\"https://bzapi3.iwzbz.com/newguji/v3/gjbook/\">').replace('vip=\"0\"','vip=\"1\"').replace(/<div cl"
+      },
+      {
+        "term": "getTipResult(e){",
+        "character_offset": 43882,
+        "excerpt": "is.gjData.cgArr}},\"*\")},async getTipResult(e){const t=De[`getGuji${e.id}_branch`](this.gjData.bzArr,this.gjData.geju);this.tabs=t;const n=t[this.tabsDex],i=De[`getIndex${e.id}_${(n?n.index:0)+1}`](this.gjData.bzArr,n?n.value:void 0);return i},asy"
+      }
+    ]
+  },
+  {
+    "file": "dist/static/newguji/index.html",
+    "git_ref": "v1.0.13",
+    "source_sha256": "c196325631f9bc87d5fc7d74a7dde2c2edcbdcffb55cd4a52f504cb324e29474",
+    "observations": [
+      {
+        "term": "background-color: #faf7f2 !important",
+        "character_offset": 338,
+        "excerpt": "n: 0;\n      padding: 0;\n      background-color: #faf7f2 !important;\n      color: #2b2823;\n    }\n    .novip-box { display: none !important; }\n    /* 删掉“智能古籍参考”与“共11部经典古籍”，整体上移 */\n    .guji-main-root .title { display: none !important; }\n    .guji-guide-bar { display: "
+      }
+    ]
+  },
+  {
+    "file": "dist/static/js/2.22f599c1df781213e096.js",
+    "git_ref": "v1.0.13",
+    "source_sha256": "a4981cbfbc8004fd03679e9bc91d160720187ae44eed3c128f2a1a6ba03c2d89",
+    "observations": [
+      {
+        "term": "watch:{geju:{handler:function(){console.log(\"监听到 geju",
+        "character_offset": 208540,
+        "excerpt": ".preferenceIsShow.nightMode}},watch:{geju:{handler:function(){console.log(\"监听到 geju 变化，重新处理数据\"),this.handleMessageGJ()},immediate:!1}},methods:{handleMessageGJ:function(){var e=this;this.$nextTick(function(){var t=e.$refs.bookbox2;if(t&&t.isConnected&&t.contentWindow){var n={bzArr:e"
+      }
+    ]
+  }
+]

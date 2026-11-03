@@ -1,0 +1,18 @@
+{
+  "checked_on": "2026-11-03",
+  "url": "https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.13",
+  "draft": false,
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 85,
+      "sha256": "sha256:94eb1ba39c1909c5c21da642e7b8850f81a6b8a316bb79c3b96a693fa3286a42"
+    },
+    {
+      "name": "zaohua-v1.0.13.apk",
+      "size": 36152807,
+      "sha256": "sha256:ef5e302c39bcef641dd14b20a68fadf2a988f4a50f16b229f40684eae7e55f88"
+    }
+  ]
+}

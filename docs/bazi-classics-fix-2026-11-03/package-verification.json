@@ -1,0 +1,17 @@
+{
+  "version": "1.0.14",
+  "versionCode": 15,
+  "bytes": 36156987,
+  "sha256": "ebdcddba95bebd66993d6e374a82e853df6616cd4dc3422867b181ca7f5e55da",
+  "dist_files_matched": 1002,
+  "update_info_semantically_equal": true,
+  "archive_crc": "passed",
+  "signature_verification": "passed",
+  "certificate_sha256": "07c4a9dc932f0bbb0690fbbc2ccab7e925c417f97645f77291a91514134d5c2a",
+  "same_signer_as_v1_0_13": true,
+  "alignment": "passed during build",
+  "badging": "package: name='com.wzbz.bazi' versionCode='15' versionName='1.0.14' platformBuildVersionName='14' platformBuildVersionCode='34' compileSdkVersion='34' compileSdkVersionCodename='14'",
+  "badging_path_note": "aapt was run on identical SHA256 build artifact under ASCII path because its Windows file access fails for Chinese paths",
+  "native_device_test": "not run: no connected ADB device",
+  "github_published": false
+}

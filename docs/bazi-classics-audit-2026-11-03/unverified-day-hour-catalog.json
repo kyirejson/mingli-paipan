@@ -1,0 +1,1 @@
+[{"index":24,"value":"甲戌辛卯","expectedHourStem":"丁"},{"index":28,"value":"乙丑辛未","expectedHourStem":"癸"},{"index":51,"value":"丙寅乙亥","expectedHourStem":"己"},{"index":201,"value":"癸丑丙寅","expectedHourStem":"甲"},{"index":206,"value":"癸卯辛丑","expectedHourStem":"癸"},{"index":207,"value":"癸卯癸辛","expectedHourStem":"辛"}]

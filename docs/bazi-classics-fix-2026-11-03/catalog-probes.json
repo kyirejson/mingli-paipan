@@ -1,0 +1,198 @@
+[
+  {
+    "book": 10,
+    "section": 5,
+    "index": 24,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=10&i=5&p=24&nightMode=1",
+    "status": 200,
+    "bytes": 2839,
+    "sha256": "45cf02b907cf985e6a62b12bc8417a1fb9c6b6e94afbe2eb4aec2984da95bb54",
+    "titles": [
+      "五行精纪5-论甲戌日辛卯时"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 10,
+    "section": 5,
+    "index": 28,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=10&i=5&p=28&nightMode=1",
+    "status": 200,
+    "bytes": 2848,
+    "sha256": "73b5560c458cbccdf7dad35f1f3edf58dcda5a932334e4086213a6b442358d31",
+    "titles": [
+      "五行精纪5-论乙丑日辛未时"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 10,
+    "section": 5,
+    "index": 51,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=10&i=5&p=51&nightMode=1",
+    "status": 200,
+    "bytes": 3285,
+    "sha256": "50c959712bf1328067114ba8913a74d7a14ae3363d2cb1c7a8d1c5ce2e33517c",
+    "titles": [
+      "五行精纪5-论丙寅日乙亥时"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 10,
+    "section": 5,
+    "index": 201,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=10&i=5&p=201&nightMode=1",
+    "status": 200,
+    "bytes": 2839,
+    "sha256": "988909d1a781d171bf56dfb4949f861b40b059ef7bad4efd228cc759e2fcddac",
+    "titles": [
+      "五行精纪5-论癸丑日丙寅时"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 10,
+    "section": 5,
+    "index": 206,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=10&i=5&p=206&nightMode=1",
+    "status": 200,
+    "bytes": 2839,
+    "sha256": "50e8f634daca5f3a56a1c0ace986831175a8a3c4d1aa715baadb76d5dd8a69ab",
+    "titles": [
+      "五行精纪5-论癸卯日辛丑时"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 10,
+    "section": 5,
+    "index": 207,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=10&i=5&p=207&nightMode=1",
+    "status": 200,
+    "bytes": 2839,
+    "sha256": "c5a72aff03fa6ae712f3c262809ceefb85eed7b8e7c67ad8206de039a72a3be3",
+    "titles": [
+      "五行精纪5-论癸卯日癸辛时"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 7,
+    "section": 2,
+    "index": 1,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=7&i=2&p=1&nightMode=1",
+    "status": 200,
+    "bytes": 3335,
+    "sha256": "cf55af212d0320d3996d9aea5d1ce4cb87a1503a322f015f4efdc76efb3bd10c",
+    "titles": [
+      "天元巫咸2-甲子时柱"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 7,
+    "section": 2,
+    "index": 2,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=7&i=2&p=2&nightMode=1",
+    "status": 200,
+    "bytes": 3347,
+    "sha256": "19866f49ddb10e68d0d9f300fdc731d0690e82ef397cebefa92bb05b84bb8a98",
+    "titles": [
+      "天元巫咸2-乙丑时柱"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 7,
+    "section": 2,
+    "index": 13,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=7&i=2&p=13&nightMode=1",
+    "status": 200,
+    "bytes": 3283,
+    "sha256": "f499e8aedd10022d9a57320cea54ca2f0953cdd070aab0c1571f45b16dd45a2e",
+    "titles": [
+      "天元巫咸2-丙子时柱"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 7,
+    "section": 2,
+    "index": 60,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=7&i=2&p=60&nightMode=1",
+    "status": 200,
+    "bytes": 3326,
+    "sha256": "01ceaed91f69d404f0060b1d4c50fef50c74ad42dcd79f9461b803e3c41b64a0",
+    "titles": [
+      "天元巫咸2-癸亥时柱"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 7,
+    "section": 2,
+    "index": 61,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=7&i=2&p=61&nightMode=1",
+    "status": 200,
+    "bytes": 3338,
+    "sha256": "63ca0eaccd66b8f7ba19f7be4c2368a68327c76cbd80147d6c2f49607cc43194",
+    "titles": [
+      "天元巫咸2-甲子时柱"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 7,
+    "section": 2,
+    "index": 62,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=7&i=2&p=62&nightMode=1",
+    "status": 200,
+    "bytes": 3320,
+    "sha256": "a86af81540c6cb7041aee00a47f58c3277ab245334666aa9476b8e64c4d59e69",
+    "titles": [
+      "天元巫咸2-乙丑时柱"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 7,
+    "section": 2,
+    "index": 73,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=7&i=2&p=73&nightMode=1",
+    "status": 200,
+    "bytes": 3362,
+    "sha256": "05bd1010f59d4967e1834858e2681ae36bd3f5558a9f60197856b2aba3c34830",
+    "titles": [
+      "天元巫咸2-丙子时柱"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  },
+  {
+    "book": 7,
+    "section": 2,
+    "index": 120,
+    "url": "https://bzapi3.iwzbz.com/newguji/v3/gjbook/getnewguji3.php?b=7&i=2&p=120&nightMode=1",
+    "status": 200,
+    "bytes": 3290,
+    "sha256": "b6f3d91c6657692d6a26452baf08bc0312f40d51548356f9f107498008ac0971",
+    "titles": [
+      "天元巫咸2-癸亥时柱"
+    ],
+    "replacement_chars": 0,
+    "php_error": false
+  }
+]

@@ -6,51 +6,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"/>
   <title>智能古籍参考</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background-color: #faf7f2 !important;
-      color: #2b2823;
-    }
-    .novip-box { display: none !important; }
-    /* 删掉“智能古籍参考”与“共11部经典古籍”，整体上移 */
-    .guji-main-root .title { display: none !important; }
-    .guji-guide-bar { display: none !important; }
-    .guji-main-root {
-      background-color: #faf7f2 !important;
-      padding-top: 0 !important;
-    }
-    .guji-main-root .box-swipe {
-      background-color: #faf7f2 !important;
-      margin-top: 0 !important;
-      height: 3.5rem !important;
-    }
-    .guji-main-root .box-swipe .book-swipe-item {
-      padding-top: 0.25rem !important;
-    }
-    .guji-main-root .box-tips {
-      background-color: #f4efe4 !important;
-      border: 1px solid #e3d9c8 !important;
-      border-radius: 0.2rem !important;
-      margin: 0.25rem 0.4rem 0.4rem !important;
-    }
-    .guji-main-root .guji-box-tabs {
-      background-color: #faf7f2 !important;
-    }
-    .guji-main-root .box-content {
-      background-color: #faf7f2 !important;
-    }
-    .guji-main-root .box-content .tipss {
-      background-color: #faf7f2 !important;
-    }
-    .guji-arrow-btn {
-      background: #faf7f2 !important;
-      border-color: #b2955d !important;
-    }
-    * { --img_shuiyin: none !important; --img_shuiyin_dark: none !important; }
-    .content, body, html { background-image: none !important; }
+    :root{color-scheme:light;--paper:#f5f1e9;--surface:#fbf8f1;--ink:#233b33;--accent:#23483b;--on-accent:#fbf8f1;--line:#dcded2;--caption:#687269}
+    html[data-theme=dark]{color-scheme:dark;--paper:#18231e;--surface:#202e27;--ink:#e2e8dc;--accent:#afd0b4;--on-accent:#1c3025;--line:#3b4d40;--caption:#a3b2a5}
+    html,body{margin:0;padding:0;background:var(--paper)!important;color:var(--ink)}
+    .guji-main-root .title,.guji-guide-bar{display:none!important}
+    .guji-main-root{background:var(--paper)!important;padding-top:0!important}
+    .guji-main-root .box-swipe{background:var(--paper)!important;margin-top:0!important;height:3.5rem!important}
+    .guji-main-root .box-swipe .book-swipe-item{padding-top:.25rem!important}
+    .guji-main-root .box-swipe .book-swipe-item>span{color:var(--ink)!important}
+    .guji-main-root .box-tips{background:var(--surface)!important;border:1px solid var(--line)!important;border-radius:.2rem!important;margin:.25rem .4rem .4rem!important}
+    .guji-main-root .box-tips span{color:var(--ink)!important}
+    .guji-main-root .guji-box-tabs,.guji-main-root .box-content,.guji-main-root .box-content .tipss{background:var(--paper)!important;color:var(--ink)!important}
+    .guji-main-root .guji_box-tabs span{color:var(--caption)!important}
+    .guji-main-root .guji_box-tabs .sel{background:var(--accent)!important;color:var(--on-accent)!important}
+    .guji-arrow-btn{background:var(--surface)!important;border-color:var(--line)!important;color:var(--accent)!important}
+    .guji-source,.guji-notice,.guji-load-error{margin:8px 14px;font:13px/1.7 system-ui,sans-serif;color:var(--caption);overflow-wrap:anywhere}
+    .guji-source{font-size:11px}.guji-load-error{padding:12px;background:var(--surface);border:1px solid var(--line);border-radius:6px}.guji-load-error p{margin:0 0 8px}
+    .guji-load-error button{padding:8px 18px;min-height:38px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--accent);font:inherit}
   </style>
   <script defer="defer" src="./chunk-vendors.js"></script>
+  <script defer="defer" src="./reader.js"></script>
   <script defer="defer" src="./index.js"></script>
   <link href="./chunk-vendors.css" rel="stylesheet">
   <link href="./index.css" rel="stylesheet">
