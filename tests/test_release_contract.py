@@ -143,6 +143,16 @@ class ReleaseContractTest(unittest.TestCase):
         self.assertEqual(result["id"], 42)
         self.assertNotIn("POST", [e[0] for e in api.events])
 
+    def test_new_draft_refreshes_asset_list_after_first_upload(self):
+        api = self.fake_api()
+        api.value["draft"] = True
+        stale_creation_receipt = copy.deepcopy(api.value)
+        stale_creation_receipt["assets"] = []
+        with patch.object(publisher, "public_bytes", return_value=self.metadata):
+            result = publisher.promote(api, stale_creation_receipt, self.manifest, self.metadata, self.apk, "notes")
+        self.assertFalse(result["draft"])
+        self.assertEqual(sum(a["name"] == self.manifest["apk"] for a in result["assets"]), 1)
+
     def test_wrong_tag_or_download_host_cannot_pass_preflight(self):
         self.release["assets"].append(self.asset("update.json", self.metadata))
         self.release["prerelease"] = False

@@ -140,6 +140,7 @@ def upload_verified(api, release, name, data, content_type):
 
 def promote(api, release, manifest, manifest_bytes, apk_bytes, notes):
     # Validate the existing APK before adding metadata; never replace an existing binary.
+    release = api.call("/releases/" + str(release["id"]))
     verify_asset(asset_for(release, manifest["apk"]), manifest["apk"], apk_bytes, release["tag_name"], draft=release["draft"])
     upload_verified(api, release, "update.json", manifest_bytes, "application/json")
     complete = api.call("/releases/" + str(release["id"]))

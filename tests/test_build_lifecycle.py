@@ -112,7 +112,8 @@ class BuildLifecycleTest(unittest.TestCase):
         old = [output / "zaohua-v1.0.15.apk", work / "base.apk", work / "build-1.0.14-abc/signed.apk"]
         kept = [output / "zaohua-v1.0.16.apk", output / "zaohua-v1.0.17.apk", output / "published-v1.0.15.json",
                 work / "build-1.0.16-abc/signed.apk", work / "build-1.0.17-abc/signed.apk",
-                work / "v1.0.16.apk", work / "keystore.jks", work / "fixture.json", work / "userdata.img"]
+                work / "v1.0.16.apk", work / "keystore.jks", work / "fixture.json", work / "userdata.img",
+                work / "framework/1.apk", work / "unrelated/tool.apk", work / "unknown.apk"]
         for path in old + kept:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(b"fixture")

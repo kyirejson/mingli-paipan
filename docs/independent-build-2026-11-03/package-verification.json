@@ -9,6 +9,6 @@
   "sameNativeCode": true,
   "sameStorageOrigin": true,
   "nodeTests": 90,
-  "releaseTests": 12,
+  "releaseTests": 13,
   "lifecycleTests": 9
 }

@@ -10,6 +10,6 @@ test_remote_cleanup_rechecks_latest_before_each_delete (test_build_lifecycle.Bui
 test_tampered_runtime_is_rejected_before_writing (test_build_lifecycle.BuildLifecycleTest.test_tampered_runtime_is_rejected_before_writing) ... ok
 
 ----------------------------------------------------------------------
-Ran 9 tests in 0.338s
+Ran 9 tests in 0.333s
 
 OK

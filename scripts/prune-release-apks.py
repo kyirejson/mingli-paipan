@@ -71,6 +71,11 @@ def local_plan(keep, work):
                 continue
             # A current or future build can be in progress. Only completed historical build trees are eligible.
             relative = resolved.relative_to(work) if directory == work else None
+            if relative and len(relative.parts) > 1 and not relative.parts[0].startswith("build-"):
+                continue
+            if relative and len(relative.parts) == 1 and not (named_version or re.fullmatch(
+                    r"(?:base|qa|qa-aligned|qa-unsigned|unsigned|aligned)\.apk(?:\.idsig)?", resolved.name)):
+                continue
             if relative and relative.parts[0].startswith("build-"):
                 match = re.match(r"build-(\d+\.\d+\.\d+)-", relative.parts[0])
                 if not match or version("v" + match[1]) >= version(keep):
