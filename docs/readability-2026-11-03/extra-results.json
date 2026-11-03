@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "theme": "light",
+      "yaoAlignment": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "title": "壬水日主",
+      "width": 380.19049072265625,
+      "left": 16,
+      "right": 396.19049072265625,
+      "viewport": 412,
+      "body": 886,
+      "overflow": false
+    },
+    {
+      "title": "阴阳",
+      "width": 380.19049072265625,
+      "left": 16,
+      "right": 396.19049072265625,
+      "viewport": 412,
+      "body": 29,
+      "overflow": false
+    },
+    {
+      "title": "平和",
+      "width": 380.19049072265625,
+      "left": 16,
+      "right": 396.19049072265625,
+      "viewport": 412,
+      "body": 1018,
+      "overflow": false
+    },
+    {
+      "theme": "dark",
+      "yaoAlignment": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "title": "壬水日主",
+      "width": 380.19049072265625,
+      "left": 16,
+      "right": 396.19049072265625,
+      "viewport": 412,
+      "body": 886,
+      "overflow": false
+    },
+    {
+      "title": "阴阳",
+      "width": 380.19049072265625,
+      "left": 16,
+      "right": 396.19049072265625,
+      "viewport": 412,
+      "body": 29,
+      "overflow": false
+    },
+    {
+      "title": "平和",
+      "width": 380.19049072265625,
+      "left": 16,
+      "right": 396.19049072265625,
+      "viewport": 412,
+      "body": 1018,
+      "overflow": false
+    }
+  ]
+}

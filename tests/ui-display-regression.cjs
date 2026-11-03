@@ -49,3 +49,15 @@ test('司令原始占位值显示暂无数据，正常内容和隐私遮罩分�
  function text(raw,display){const v={infoData:{rysl:raw,unknowhour:1},infoLabelArr:['','','','','人元司令分野'],infoLabelValArr:['a','b','c','d','rysl'],rysl:{switch:true},getInfoDisplayValue:()=>display,showInfoExtra:()=>false,chengguDatas:{},xzWXPTabArr:[],wxArr:[],wxData:[]};return flatten(c.PaperForestDetails.renderBasicInfo.call(v,h)).find(n=>n.data?.class==='pf-info-value').children[0];}
  assert.equal(text('*','*'),'暂无数据');assert.equal(text('癸水用事','癸水用事'),'癸水用事');assert.equal(text('癸水用事','***'),'***');
 });
+
+test('宫位详读逐宫保留当前盘式星曜、运限和年龄，切宫不改写命盘与会话',()=>{
+ const s=source('fivearts-ui.js'),start=s.indexOf('  function openPalaceReading('),end=s.indexOf('  function modalContents(',start),ui={};
+ const branches='子丑寅卯辰巳午未申酉戌亥'.split(''),chart={palaces:branches.map((branch,i)=>({name:i===0?'命宫':i===1?'仆役':'宫'+i,heavenlyStem:'甲',earthlyBranch:branch,isBodyPalace:i===2,isOriginalPalace:i===3,decadal:{range:[i*10+1,i*10+10]},ages:[i+1,i+13,i+25,i+37,i+49],changsheng12:'长生'+i,boshi12:'博士'+i,jiangqian12:'将前'+i,suiqian12:'岁前'+i}))};
+ const session={guid:'retained-case'},host={owner:{},session},flow={name:'流年',palaceNames:branches.map((_,i)=>'流宫'+i),mutagen:['星0','','','']},horoscope={decadal:{palaceNames:branches.map((_,i)=>'限宫'+i)}};
+ const c={ui,E:{ZHI:branches},open(owner,type,scope){assert.equal(owner,host.owner);assert.equal(type,'palace');assert.equal(scope,session);},getCachedPalaceStars(chart,p,mode,flow,index){return [{name:'星'+index,brightness:'庙',mutagen:index===0?'禄':''}];},getCachedTransformations(chart,index){return [{star:'星'+index,code:'A',target:(index+1)%12}];},choices:(h,pairs,value,change)=>({tag:'choices',pairs,value,change})};vm.createContext(c);vm.runInContext(s.slice(start,end),c);
+ const original=JSON.stringify({chart,session});c.openPalaceReading(host,{chart},'sanhe',flow,horoscope,2026,2000,0,5);
+ assert.equal(ui.editor.selected,5);assert.equal(ui.editor.palaces.length,12);assert.equal(ui.editor.palaces[1].name,'交友');
+ for(let i=0;i<12;i++){let p=ui.editor.palaces[i];assert.equal(p.stars[0].name,'星'+i);assert.equal(p.stars[0].brightness,'庙');assert.ok(p.rows.some(([k,v])=>k==='小限'&&v.includes(i+49+'岁')));assert.ok(p.rows.some(([k,v])=>k==='本宫四化'&&v==='星'+i+'化禄 → '+chart.palaces[(i+1)%12].name));assert.ok(p.rows.some(([k,v])=>k==='流年'&&v==='流宫'+i));}
+ assert.equal(ui.editor.palaces[0].stars[0].flowMutagen,'流禄');
+ let tree=c.renderPalaceReading(h,ui.editor);flatten(tree).find(n=>n.tag==='choices').change(10);assert.equal(ui.editor.selected,10);assert.equal(JSON.stringify({chart,session}),original);
+});

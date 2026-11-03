@@ -235,9 +235,39 @@
       d.tab==='canonical'?h('article',{class:'fa-reading-prose'},readingParagraphs(h,g.canonical,d.limit).concat(g.canonical.length>d.limit?[button(h,'继续阅读经传',function(){d.limit+=100;},'fa-button fa-load-more')]:[])):null,
       h('details',{class:'fa-reading-sources'},[h('summary',['资料出处与更多解说']),h('p',[sourceLink(h,'易安居 · '+g.name+'详细解说',g.reference)]),h('p',[sourceLink(h,'白话资料来源（MIT）',readingData.sources.modern.source)]),h('p',['经传原文：随包《易经》对应卦章。'])])];
   }
+  function openPalaceReading(host, result, mode, flow, horoscope, yearBase, birthYear, birthBranch, selected) {
+    var chart=result.chart;
+    open(host.owner,'palace',host.session);
+    ui.editor={selected:selected,mode:{sanhe:'三合',qintian:'钦天·四化',feixing:'飞星'}[mode],palaces:chart.palaces.map(function(p,index){
+      var year=yearBase+(E.ZHI.indexOf(p.earthlyBranch)-(yearBase-4)%12+12)%12;
+      var annualAge=(E.ZHI.indexOf(p.earthlyBranch)-birthBranch+12)%12+1;
+      return {name:p.name==='仆役'?'交友':p.name,ganzhi:p.heavenlyStem+p.earthlyBranch,
+        stars:getCachedPalaceStars(chart,p,mode,flow,index).map(function(star){
+          var mut=flow?flow.mutagen.indexOf(star.name):-1;
+          return {name:star.name,brightness:star.brightness||'',mutagen:star.mutagen||'',flowMutagen:mut<0?'':'流'+'禄权科忌'[mut]};
+        }),
+        rows:[['宫位标记',[p.isBodyPalace?'身宫':'',p.isOriginalPalace?'来因宫':''].filter(Boolean).join(' · ')||'—'],
+          ['大限',p.decadal.range.join('～')+'岁'+(horoscope?' · 大限'+horoscope.decadal.palaceNames[index]:'')],
+          ['流年',mode==='sanhe'?[0,1,2,3,4].map(function(i){return annualAge+i*12+'岁';}).join('、'):year+'年 · '+(year-birthYear+1)+'虚岁'],
+          ['小限',p.ages.slice(0,5).map(function(age){return age+'岁';}).join('、')],
+          ['十二长生',p.changsheng12||'—'],['博士十二神',p.boshi12||'—'],['将前十二神',p.jiangqian12||'—'],['岁前十二神',p.suiqian12||'—']]
+          .concat(flow?[[flow.name,flow.palaceNames[index]]]:[])
+          .concat([['本宫四化',getCachedTransformations(chart,index).map(function(f){return f.star+'化'+('禄权科忌'['ABCD'.indexOf(f.code)]||f.code)+' → '+chart.palaces[f.target].name;}).join('；')||'—']])};
+    })};
+  }
+  function renderPalaceReading(h,d) {
+    var palace=d.palaces[d.selected];
+    return [h('div',{class:'fa-palace-reading'},[
+      choices(h,d.palaces.map(function(p,i){return [i,p.name];}),d.selected,function(index){d.selected=index;}),
+      h('h3',[palace.name+' · '+palace.ganzhi+' · '+d.mode]),
+      h('div',{class:'fa-palace-reading-stars'},palace.stars.length?palace.stars.map(function(star){return h('span',[star.name,h('small',[[star.brightness,star.mutagen?'生年化'+star.mutagen:'',star.flowMutagen].filter(Boolean).join(' · ')])]);}):[h('span',['本宫无所选盘式星曜'])]),
+      h('dl',palace.rows.map(function(row){return h('div',[h('dt',[row[0]]),h('dd',[row[1]])]);}))
+    ])];
+  }
   function modalContents(h) {
     var kind = ui.popup, d = ui.editor;
     if(kind==='reading')return renderReading(h);
+    if(kind==='palace')return renderPalaceReading(h,d);
     if (kind === "preferences") return [
       heading(h, "默认打开"),
       h("div", { class: "fa-default-list" }, ui.editor.order.map(function(type) {
@@ -387,11 +417,11 @@
     ui.editor.order = order;
   }
   function renderModal(h) {
-    var kind = ui.popup, title = { preferences: "排盘偏好", qimen: "奇门起局设置", liuyao: "六爻起卦方式", meihua: "梅花起卦方式" }[kind];
+    var kind = ui.popup, title = { palace: "宫位详读", preferences: "排盘偏好", qimen: "奇门起局设置", liuyao: "六爻起卦方式", meihua: "梅花起卦方式" }[kind];
     if(kind==='reading')title=ui.editor.kind==='gua'?ui.editor.position+' · '+E.hexagram(ui.editor.value).name:{huozhulin:'火珠林',haidiyan:'海底眼',huangjince:'黄金策'}[ui.editor.book];
     return h("div", { class: "fa-portals" }, [kind ? h("div", { class: "fa-modal-overlay", attrs: { role: "presentation" }, on: { click: function(e) {
       if (e.target === e.currentTarget) closeModal();
-    } } }, [h("section", { class: ["fa-modal", { "fa-preferences-modal": kind === "preferences",'fa-reading-modal':kind==='reading' }], attrs: { role: "dialog", "aria-modal": "true", "aria-label": title } }, [h("header", { class: "fa-modal-header" }, [h("h2", [title]), button(h, icon(h, "close"), closeModal, "fa-icon-button")]), h("div", { class: "fa-modal-content" }, modalContents(h))])]) : null, ui.message ? h("div", { class: "fa-toast", attrs: { role: "status" } }, [ui.message]) : null]);
+    } } }, [h("section", { class: ["fa-modal", { "fa-preferences-modal": kind === "preferences",'fa-reading-modal':kind==='reading'||kind==='palace' }], attrs: { role: "dialog", "aria-modal": "true", "aria-label": title } }, [h("header", { class: "fa-modal-header" }, [h("h2", [title]), h("button",{class:"fa-icon-button",attrs:{type:"button","aria-label":"关闭"},on:{click:closeModal}},[icon(h,"close")])]), h("div", { class: "fa-modal-content" }, modalContents(h))])]) : null, ui.message ? h("div", { class: "fa-toast", attrs: { role: "status" } }, [ui.message]) : null]);
   }
   function saveSession(session) {
     try { if(global.PaperForestDetails) global.PaperForestDetails.migrateNotes(); } catch(error) { notify(error.message); return false; }
@@ -645,7 +675,7 @@
   function renderZiwei(h, r) {
     var self=this,chart=r.chart,mode=this.session.ziweiMode,palaces=chart.palaces,selected=this.ziweiPalace<0?palaces.findIndex(function(p){return p.name==='命宫';}):this.ziweiPalace;
     var positions=[[3,0,0],[4,0,1],[5,0,2],[6,0,3],[2,1,0],[7,1,3],[1,2,0],[8,2,3],[0,3,0],[11,3,1],[10,3,2],[9,3,3]];
-    var colors=['#319344','#9234a4','#2788ce','#e04436'],codes='ABCD',mutagens='禄权科忌',flow=null,horoscope;
+    var colors=['#319344','#9234a4','#2788ce','#e04436'],badgeColors=['#2a703b','#7d328a','#22659e','#b7392e'],codes='ABCD',mutagens='禄权科忌',flow=null,horoscope;
     try{horoscope=getCachedHoroscope(chart,this.flowDate,this.flowHour);if(this.flowScope)flow=horoscope[this.flowScope];}catch(_){}
     var flights=getCachedTransformations(chart,selected),birthYear=r.calendar.lunar.getYear(),birthBranch=E.ZHI.indexOf(r.calendar.lunar.getYearZhi());
     var flowYearBase=this.flowScope?E.calendar(this.flowDate+' 12:00').lunar.getYear():birthYear+2;
@@ -653,11 +683,11 @@
     function starNode(star){
       var birth=star.mutagen?mutagens.indexOf(star.mutagen):-1,flight=flights.findIndex(function(f){return f.star===star.name;}),flowMut=flow?flow.mutagen.indexOf(star.name):-1;
       return h('div',{class:['fa-ziwei-star','fa-star-'+star.type,{'fa-flow-star':star.scope&&star.scope!=='origin'}]},[
-        h('strong',{class:{'fa-flight-highlight':flight>=0},style:flight>=0?{'--fa-mutagen-color':colors[flight]}:{}},[{截路:'截空',空亡:'副截'}[star.name]||star.name]),
+        h('strong',{class:{'fa-flight-highlight':flight>=0},style:flight>=0?{'--fa-mutagen-color':badgeColors[flight]}:{}},[{截路:'截空',空亡:'副截'}[star.name]||star.name]),
         mode==='sanhe'&&star.brightness?h('small',{class:'fa-brightness'},[star.brightness]):null,
         h('div',{class:'fa-star-mutagens'},[
-          birth>=0?h('em',{class:['fa-mutagen',{'fa-mutagen-code':mode==='qintian'}],style:{'--fa-mutagen-color':mode==='sanhe'?'#e04436':colors[birth]}},[mode==='qintian'?codes[birth]:mutagens[birth]]):null,
-          flowMut>=0?h('em',{class:'fa-flow-mutagen',style:{color:colors[flowMut]}},['流'+mutagens[flowMut]]):null
+          birth>=0?h('em',{class:['fa-mutagen',{'fa-mutagen-code':mode==='qintian'}],style:{'--fa-mutagen-color':mode==='sanhe'?badgeColors[3]:badgeColors[birth]}},[mode==='qintian'?codes[birth]:mutagens[birth]]):null,
+          flowMut>=0?h('em',{class:'fa-flow-mutagen',style:{color:['var(--pf-wood)','var(--zw-purple)','var(--pf-water)','var(--pf-fire)'][flowMut]}},['流'+mutagens[flowMut]]):null
         ])
       ]);
     }
@@ -697,7 +727,7 @@
       if(pan&&pan.qiyunStr)center.push(h('p',{class:'fa-ziwei-qiyun'},[pan.qiyunStr]));
       if(this.owner.dayunArr&&this.owner.dayunArr.length)center.push(h('div',{class:'fa-ziwei-bazi-luck'},this.owner.dayunArr.slice(0,8).map(function(d){return h('span',[h('b',[d[0]+d[1]]),h('small',[d[4]+'岁']),h('small',[String(d[5])])]);})));
     }
-    if(mode!=='qintian')center.push(h('div',{class:'fa-self-legend'},['自化图示: '].concat(mutagens.split('').map(function(m,i){return h('span',{style:{color:colors[i]}},['→'+m]);}))));
+    if(mode!=='qintian')center.push(h('div',{class:'fa-self-legend'},['自化图示: '].concat(mutagens.split('').map(function(m,i){return h('span',{style:{color:['var(--pf-wood)','var(--zw-purple)','var(--pf-water)','var(--pf-fire)'][i]}},['→'+m]);}))));
     var lines=[],a=anchor(selected);
     if(mode==='qintian'){
       var grouped={};(E.centripetalTransformations?E.centripetalTransformations(chart):[]).forEach(function(f){var key=f.source+'_'+f.target;if(!grouped[key])grouped[key]={source:f.source,target:f.target,codes:[]};grouped[key].codes.push(f.code);});
@@ -727,7 +757,7 @@
     return h('div',{class:['fa-ziwei','fa-ziwei-'+mode]},[
       h('div',{class:'fa-ziwei-board'},[directions,h('div',{class:'fa-ziwei-grid'},jsx.concat([h('div',{class:'fa-ziwei-center'},center),h('FiveArtsFlightLayer',{props:{items:lines}})]))]),
       this.renderZiweiFlows(h,r,mode==='sanhe'),
-      h('div',{class:'fa-ziwei-modebar'},[choices(h,[['feixing','飞星'],['sanhe','三合'],['qintian','钦天·四化']],mode,function(v){self.session.ziweiMode=v;saveSession(self.session);}),button(h,'本命',function(){self.flowScope='';},'fa-ziwei-natal'),button(h,'紫微助手',function(){self.assistantOpen=true;},'fa-ziwei-assistant-entry')])
+      h('div',{class:'fa-ziwei-modebar'},[choices(h,[['feixing','飞星'],['sanhe','三合'],['qintian','钦天·四化']],mode,function(v){self.session.ziweiMode=v;saveSession(self.session);}),button(h,'本命',function(){self.flowScope='';},'fa-ziwei-natal'),button(h,'宫位详读',function(){openPalaceReading(self,r,mode,flow,horoscope,flowYearBase,birthYear,birthBranch,selected);},'fa-small-button fa-palace-read'),button(h,'紫微助手',function(){self.assistantOpen=true;},'fa-ziwei-assistant-entry')])
     ]);
   }
 

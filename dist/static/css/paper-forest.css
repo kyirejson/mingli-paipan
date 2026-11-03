@@ -3,10 +3,11 @@
   --pf-paper:#f5f1e9; --pf-surface:#fbf8f1; --pf-raised:#fffcf6;
   --pf-ink:#233b33; --pf-accent:#23483b; --pf-on-accent:#fbf8f1;
   --pf-muted:#ebe7dc; --pf-line:#dcded2; --pf-subtle:#52665d;
-  --pf-caption:#687269; --pf-faint:#8b9289; --pf-tint:#e2e9da;
-  --pf-clay:#a85f47; --pf-clay-tint:#f2e5d9; --pf-danger:#a83d32;
+  --pf-caption:#606a61; --pf-faint:#6d776e; --pf-tint:#e2e9da;
+  --pf-clay:#8d4a35; --pf-clay-tint:#f2e5d9; --pf-danger:#a83d32;
   --pf-serif:"Noto Serif CJK SC","Noto Serif SC","Source Han Serif SC","Songti SC",serif;
   --pf-sans:"Noto Sans CJK SC","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif;
+  --pf-wood:#315e3a; --pf-fire:#a8342c; --pf-soil:#7c5b35; --pf-gold:#8a5a15; --pf-water:#275a79;
   --woodColor:#386847; --fireColor:#ad3b2e; --soilColor:#876744; --goldColor:#9a6819; --waterColor:#3d687c;
   --radius-setting:8px;
   --dark-white:#e2e8dc; --dark-white-light:#a3b2a5; --dark-black:#202e27; --dark-black-bg:#18231e;
@@ -17,10 +18,22 @@
 html[data-theme=dark] {
   --pf-paper:#18231e; --pf-surface:#202e27; --pf-raised:#28392e; --pf-ink:#e2e8dc;
   --pf-accent:#afd0b4; --pf-on-accent:#1c3025; --pf-muted:#2a3a30; --pf-line:#3b4d40;
-  --pf-subtle:#bccab9; --pf-caption:#a3b2a5; --pf-faint:#8c9e8e; --pf-tint:#344b38;
-  --pf-clay:#dfa88e; --pf-clay-tint:#413c30; --pf-danger:#e29a84;
+  --pf-subtle:#bccab9; --pf-caption:#b3c2b5; --pf-faint:#a6b6a8; --pf-tint:#344b38;
+  --pf-clay:#dfa88e; --pf-clay-tint:#413c30; --pf-danger:#f0b29e;
+  --pf-wood:#a9d3a6; --pf-fire:#efb29d; --pf-soil:#d9c59f; --pf-gold:#e0ce95; --pf-water:#b1d1e0;
   --woodColor:#93b891; --fireColor:#df9b83; --soilColor:#c4af85; --goldColor:#d3be81; --waterColor:#96bac8;
 }
+/* Legacy settings write element colors inline; strengthen text without changing saved preferences. */
+html.pf-theme .woodColor{color:color-mix(in srgb,var(--woodColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme[data-theme=dark] .woodColor{color:var(--pf-wood)!important}
+html.pf-theme .fireColor{color:color-mix(in srgb,var(--fireColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme[data-theme=dark] .fireColor{color:var(--pf-fire)!important}
+html.pf-theme .soilColor{color:color-mix(in srgb,var(--soilColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme[data-theme=dark] .soilColor{color:var(--pf-soil)!important}
+html.pf-theme .goldColor{color:color-mix(in srgb,var(--goldColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme[data-theme=dark] .goldColor{color:var(--pf-gold)!important}
+html.pf-theme .waterColor{color:color-mix(in srgb,var(--waterColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme[data-theme=dark] .waterColor{color:var(--pf-water)!important}
 html.pf-theme, html.pf-theme body { background:var(--pf-paper);color:var(--pf-ink);font-family:var(--pf-sans); }
 html.pf-theme body { margin:0; -webkit-tap-highlight-color:transparent; }
 html.pf-theme #app { font-family:var(--pf-sans);color:var(--pf-ink);background:var(--pf-paper); }
@@ -68,8 +81,8 @@ html.pf-theme #app .pf-birth-field { margin:0 0 18px; }
 html.pf-theme #app .pf-birth-field > label { display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; }
 html.pf-theme #app .pf-time-inputs { display:flex;gap:8px; }
 html.pf-theme #app .pf-time-inputs .pf-field-value { flex:1;min-width:0; }
-html.pf-theme #app .pf-time-inputs .form-time-mode { flex-shrink:0;border:1px solid var(--pf-line);background:var(--pf-surface);padding:4px 8px;font-size:11px;gap:6px; }
-html.pf-theme #app .form-time-mode { display:inline-flex;align-items:center;gap:4px;margin:0;padding:4px 6px;border:0;border-radius:4px;background:var(--pf-tint);color:var(--pf-accent);font-size:11px;line-height:20px; }
+html.pf-theme #app .pf-time-inputs .form-time-mode { flex-shrink:0;border:1px solid var(--pf-line);background:var(--pf-surface);padding:4px 8px;font-size:12px;gap:6px; }
+html.pf-theme #app .form-time-mode { display:inline-flex;align-items:center;gap:4px;margin:0;padding:4px 6px;border:0;border-radius:4px;background:var(--pf-tint);color:var(--pf-accent);font-size:12px;line-height:20px; }
 html.pf-theme #app .form-time-mode .pf-icon { width:14px;height:14px; }
 html.pf-theme #app .pf-field-value { display:flex;align-items:center;justify-content:space-between;gap:6px;width:100%;min-height:42px;border:1px solid var(--pf-line);border-radius:5px;background:var(--pf-surface);color:var(--pf-ink);padding:9px 10px;text-align:left;box-sizing:border-box; }
 html.pf-theme #app .pf-field-value .pf-icon { width:15px;height:15px;color:var(--pf-subtle); }
@@ -85,7 +98,7 @@ html.pf-theme .pf-switch.is-on span { transform:translateX(17px); }
 html.pf-theme #app .form_confirm { width:100%;height:48px;margin:0;font:500 20px/1.4 var(--pf-serif);letter-spacing:2px;border-radius:5px;background:var(--pf-accent);color:var(--pf-on-accent); }
 html.pf-theme #app .form_confirm .pf-icon { width:20px;height:20px;margin-left:4px; }
 html.pf-theme #app .pf-tools-section { margin-top:22px; }
-html.pf-theme #app .pf-section-rule { display:flex;align-items:center;gap:12px;color:var(--pf-caption);font-size:11px; }
+html.pf-theme #app .pf-section-rule { display:flex;align-items:center;gap:12px;color:var(--pf-caption);font-size:12px; }
 html.pf-theme #app .pf-section-rule::after { content:"";height:1px;background:var(--pf-line);flex:1; }
 html.pf-theme #app .home-tools { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:8px;margin:10px 0 0!important; }
 html.pf-theme #app .home-tool { min-height:49px;gap:6px;padding:10px 4px;border:1px solid var(--pf-line);border-radius:5px;background:var(--pf-surface);color:var(--pf-ink);font-size:12px; }
@@ -130,12 +143,12 @@ html.pf-theme #app .tiku-head.pf-quiz-tools { display:grid;grid-template-columns
 html.pf-theme #app .pf-quiz-tools button { display:flex;flex-direction:column;align-items:flex-start;gap:8px;position:relative;background:var(--pf-clay-tint);border:1px solid var(--pf-line);border-radius:6px;color:var(--pf-ink);padding:17px 14px;text-align:left;min-width:0; }
 html.pf-theme #app .pf-quiz-tools .pf-icon:first-child { color:var(--pf-clay);width:28px;height:28px;margin-bottom:4px; }
 html.pf-theme #app .pf-quiz-tools strong { font:600 19px/1.5 var(--pf-serif); }
-html.pf-theme #app .pf-quiz-tools span { font-size:10px;color:var(--pf-subtle);white-space:nowrap; }
+html.pf-theme #app .pf-quiz-tools span { font-size:12px;color:var(--pf-subtle);white-space:normal; }
 html.pf-theme #app .pf-quiz-tools .pf-icon:last-child { position:absolute;right:10px;top:50%;width:15px;height:15px;color:var(--pf-clay); }
 html.pf-theme #app .tiku-content.pf-syllabus { width:100%;padding:0;margin:24px 0 0; }
 html.pf-theme #app .pf-syllabus-heading { display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--pf-line);padding-top:20px;margin-bottom:10px;gap:8px; }
 html.pf-theme #app .pf-syllabus-heading h2 { margin:0;font:600 20px/1.6 var(--pf-serif); }
-html.pf-theme #app .pf-syllabus-heading .pf-caption { font-size:10px; }
+html.pf-theme #app .pf-syllabus-heading .pf-caption { font-size:12px; }
 html.pf-theme #app .tiku-content .cardd.pf-level { width:100%;display:flex;flex-direction:row;gap:16px;padding:17px 0 21px;margin:0;border:0;border-radius:0;border-bottom:1px solid var(--pf-line);background:transparent;box-sizing:border-box; }
 html.pf-theme #app .pf-level-number { width:30px;height:30px;margin:7px 3px 0;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center; }
 html.pf-theme #app .pf-level-number::before { content:"";position:absolute;inset:0;background:var(--pf-muted);border:1px solid var(--pf-line);border-radius:3px;transform:rotate(45deg); }
@@ -145,10 +158,10 @@ html.pf-theme #app .pf-level-open .pf-level-number span { color:var(--pf-on-acce
 html.pf-theme #app .pf-level-body { flex:1;min-width:0; }
 html.pf-theme #app .pf-level-heading { display:flex;align-items:center;gap:12px; }
 html.pf-theme #app .pf-level-heading h3 { font:600 19px/1.6 var(--pf-serif);margin:0;color:var(--pf-ink); }
-html.pf-theme #app .pf-level-done { font-size:10px;color:var(--pf-accent); }
+html.pf-theme #app .pf-level-done { font-size:12px;color:var(--pf-accent); }
 html.pf-theme #app .pf-level-info { display:flex;gap:12px;align-items:center;margin:7px 0 11px; }
-html.pf-theme #app .pf-score { color:var(--pf-clay);background:var(--pf-clay-tint);border-radius:4px;padding:3px 7px;font-size:11px; }
-html.pf-theme #app .pf-level-info .pf-caption { font-size:11px; }
+html.pf-theme #app .pf-score { color:var(--pf-clay);background:var(--pf-clay-tint);border-radius:4px;padding:3px 7px;font-size:12px; }
+html.pf-theme #app .pf-level-info .pf-caption { font-size:12px; }
 html.pf-theme #app .tiku-content .cardd .bottom.pf-level-actions { display:flex;flex-wrap:wrap;gap:9px;padding:0;border:0;width:100%; }
 html.pf-theme #app .pf-level-actions > button { display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:34px;padding:5px 10px;font-size:12px; }
 html.pf-theme #app .pf-level-actions > button .pf-icon { width:15px;height:15px; }
@@ -170,9 +183,9 @@ html.pf-theme #app .userlist .useritemblock_left > div:first-child { display:fle
 html.pf-theme #app .userlist .useritemblock_left > div:first-child > span:first-child { min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
 html.pf-theme #app .userlist .useritem_sex { flex:none; }
 html.pf-theme #app .userlist .useritem_info { color:var(--pf-caption);font-size:12px; }
-html.pf-theme #app .userlist .useritem_sex { border:1px solid var(--pf-line);background:var(--pf-tint);color:var(--pf-accent);border-radius:3px;padding:1px 3px;font:10px var(--pf-sans); }
+html.pf-theme #app .userlist .useritem_sex { border:1px solid var(--pf-line);background:var(--pf-tint);color:var(--pf-accent);border-radius:3px;padding:1px 3px;font:12px var(--pf-sans); }
 html.pf-theme #app .userlist .useritemblock_right { margin-right:0; }
-html.pf-theme #app .userlist .van-index-anchor { color:var(--pf-subtle);font-size:11px;background:var(--pf-muted);border-radius:3px;margin-top:10px; }
+html.pf-theme #app .userlist .van-index-anchor { color:var(--pf-subtle)!important;font-size:12px;background:var(--pf-muted);border-radius:3px;margin-top:10px; }
 html.pf-theme #app .userlist .useritem_gz { font-family:var(--pf-serif); }
 /* Settings preserves the existing options and study display. */
 html.pf-theme #app .my-box .my-header { height:auto;min-height:auto;padding:20px 24px 18px;border-radius:0;border-bottom:1px solid var(--pf-line);background:var(--pf-paper);box-sizing:border-box; }
@@ -228,16 +241,16 @@ html.pf-theme #app .tab_box_wrapper_container_tab02_second { margin:8px 12px 0;b
 html.pf-theme #app .pf-reader-open { display:block;width:100%;min-height:48px;padding:12px 16px;border:0;background:var(--pf-tint);color:var(--pf-accent);font:inherit;cursor:pointer; }
 html.pf-theme #app .tab_box_wrapper_container_tab02_second { margin-top:8px; }
 html.pf-theme #app .tab_box_wrapper_container_tab02_second .tab_row_wrapper { margin:0; }
-html.pf-theme #app .tab_row { background:var(--pf-surface);border-bottom:1px solid var(--pf-line);font-size:11px; }
+html.pf-theme #app .tab_row { background:var(--pf-surface);border-bottom:1px solid var(--pf-line);font-size:13px; }
 html.pf-theme #app .tab_row:last-child { border-bottom:0; }
-html.pf-theme #app .tab_row .tab_row_title { color:var(--pf-subtle);width:13%;flex:0 0 13%;font-size:11px; }
-html.pf-theme #app .tab_row .tab_row_item { flex:1;min-width:0;width:0;box-sizing:border-box;border-left:1px solid var(--pf-line);font-size:11px; }
+html.pf-theme #app .tab_row .tab_row_title { color:var(--pf-subtle);width:13%;flex:0 0 13%;font-size:12px; }
+html.pf-theme #app .tab_row .tab_row_item { flex:1;min-width:0;width:0;box-sizing:border-box;border-left:1px solid var(--pf-line);font-size:13px; }
 html.pf-theme #app .tab_row .tab_row_item_value { font:600 23px/1.25 var(--pf-serif); }
 html.pf-theme #app .tab_row-tg,
 html.pf-theme #app .tab_row-dz { min-height:38px;height:38px; }
 html.pf-theme #app .van-swipe-item:nth-child(3) .avatar_box,
 html.pf-theme #app .tab_box_wrapper:has(.tab_box_wrapper_container_tab02_second) .avatar_box { display:none!important; }
-html.pf-theme #app .tab_row .tab_row_item_li { font-size:11px;line-height:1.35;padding:2px 0; }
+html.pf-theme #app .tab_row .tab_row_item_li { font-size:13px;line-height:1.5;padding:2px 0; }
 html.pf-theme #app .tab_row_wrapper .tab_row_item:nth-child(4),
 html.pf-theme #app .tab_row_wrapper[data-v-3a679d4a] .tab_row_item:nth-child(4) { background:transparent!important; }
 html.pf-theme #app .smart-book-box,
@@ -376,10 +389,24 @@ html.pf-theme #wzbz-update-notice { background:var(--pf-accent);color:var(--pf-o
   html.pf-theme #app .pf-name-sex { gap:9px; }
   html.pf-theme #app .pf-name,html.pf-theme #app .pf-sex { gap:6px; }
   html.pf-theme #app .pf-birth-field .form_row_right_value { font-size:15px; }
-  html.pf-theme #app .pf-quiz-tools span { font-size:9px; }
+  html.pf-theme #app .pf-quiz-tools span { font-size:12px; }
 }
 @media (prefers-reduced-motion:reduce) { html.pf-theme .pf-switch span { transition:none; } }
 html.pf-theme .van-swipe-cell__left { display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;height:100%!important; }
 html.pf-theme .van-swipe-cell__left .swipe_wrapper,
 html.pf-theme .van-swipe-cell__left .swipe_wrapper-delete-left { display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;-webkit-box-pack:center!important;-ms-flex-pack:center!important;justify-content:center!important;-webkit-box-align:center!important;-ms-flex-align:center!important;align-items:center!important;height:100%!important;width:80px!important;background-color:#e63535!important;color:#fff!important;cursor:pointer!important; }
 html.pf-theme .van-swipe-cell__left .swipe_item { color:#fff!important;font-size:0.426667rem!important;white-space:nowrap!important; }
+
+html.pf-theme #app .userlist .group_edit{color:var(--pf-caption);font-size:14px}
+html.pf-theme #app .userlist .van-index-bar__index{font-size:12px;color:var(--pf-caption)!important}
+html.pf-theme #app .userlist .useritem_img_wrapper:empty{display:none}
+html.pf-theme #app .tab_row.greyColor{color:var(--pf-caption)!important}
+html.pf-theme #app .userlist .search_btn_icon{background:var(--pf-surface)!important;border:1px solid var(--pf-line);border-radius:0 5px 5px 0}
+html.pf-theme #app .userlist .search_btn_icon img{filter:brightness(.35)}
+html.pf-theme[data-theme=dark] #app .userlist .search_btn_icon img{filter:brightness(1.4)}
+html.pf-theme #app .form_box_right>span{color:var(--pf-caption)!important}
+/* Off switches need a visible thumb on the dark paper as well. */
+html.pf-theme[data-theme=dark] .van-switch__node{background:var(--pf-ink)!important}
+html.pf-theme[data-theme=dark] .van-switch--on .van-switch__node{background:var(--pf-paper)!important}
+html.pf-theme #app .userlist .group_list_item{color:var(--pf-caption);background:var(--pf-surface)}
+html.pf-theme #app .userlist .group_list_item-selected{color:var(--pf-accent);background:var(--pf-tint)}

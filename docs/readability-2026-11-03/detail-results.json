@@ -1,0 +1,132 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "theme": "light",
+      "width": 320,
+      "mode": "sanhe",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "mode": "qintian",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "mode": "feixing",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "mode": "sanhe",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "mode": "qintian",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "mode": "feixing",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "light",
+      "width": 412,
+      "mode": "sanhe",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "light",
+      "width": 412,
+      "mode": "qintian",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "light",
+      "width": 412,
+      "mode": "feixing",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "mode": "sanhe",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "mode": "qintian",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "mode": "feixing",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "mode": "sanhe",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "mode": "qintian",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "mode": "feixing",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "dark",
+      "width": 412,
+      "mode": "sanhe",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "dark",
+      "width": 412,
+      "mode": "qintian",
+      "palaces": 12,
+      "boardRatio": 1.25
+    },
+    {
+      "theme": "dark",
+      "width": 412,
+      "mode": "feixing",
+      "palaces": 12,
+      "boardRatio": 1.25
+    }
+  ],
+  "errors": []
+}

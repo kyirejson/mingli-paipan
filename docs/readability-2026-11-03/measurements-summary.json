@@ -1,0 +1,341 @@
+{
+  "note": "DOM screening only; pseudo-element backgrounds and image text require screenshot review. Compact Ziwei overview labels also have a larger palace detail view.",
+  "rows": [
+    {
+      "page": "light-bazi",
+      "before": {
+        "small": 90,
+        "lowContrast": 43
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-ziwei",
+      "before": {
+        "small": 80,
+        "lowContrast": 57
+      },
+      "after": {
+        "small": 105,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-ziwei-sanhe",
+      "before": {
+        "small": 250,
+        "lowContrast": 175
+      },
+      "after": {
+        "small": 239,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-ziwei-qintian",
+      "before": {
+        "small": 80,
+        "lowContrast": 57
+      },
+      "after": {
+        "small": 80,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-qimen",
+      "before": {
+        "small": 14,
+        "lowContrast": 21
+      },
+      "after": {
+        "small": 4,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-liuyao",
+      "before": {
+        "small": 115,
+        "lowContrast": 83
+      },
+      "after": {
+        "small": 23,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-meihua",
+      "before": {
+        "small": 35,
+        "lowContrast": 25
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-records",
+      "before": {
+        "small": 8,
+        "lowContrast": 27
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-quiz",
+      "before": {
+        "small": 9,
+        "lowContrast": 12
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 1
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-settings",
+      "before": {
+        "small": 1,
+        "lowContrast": 1
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-preferences",
+      "before": {
+        "small": 0,
+        "lowContrast": 5
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-updates",
+      "before": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-home",
+      "before": {
+        "small": 2,
+        "lowContrast": 1
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "light-calendar",
+      "before": {
+        "small": 2,
+        "lowContrast": 20
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-bazi",
+      "before": {
+        "small": 90,
+        "lowContrast": 12
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-ziwei",
+      "before": {
+        "small": 80,
+        "lowContrast": 11
+      },
+      "after": {
+        "small": 80,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-ziwei-sanhe",
+      "before": {
+        "small": 250,
+        "lowContrast": 34
+      },
+      "after": {
+        "small": 239,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-ziwei-qintian",
+      "before": {
+        "small": 80,
+        "lowContrast": 11
+      },
+      "after": {
+        "small": 80,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-qimen",
+      "before": {
+        "small": 14,
+        "lowContrast": 0
+      },
+      "after": {
+        "small": 4,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-liuyao",
+      "before": {
+        "small": 115,
+        "lowContrast": 9
+      },
+      "after": {
+        "small": 23,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-meihua",
+      "before": {
+        "small": 35,
+        "lowContrast": 0
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-records",
+      "before": {
+        "small": 8,
+        "lowContrast": 5
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-quiz",
+      "before": {
+        "small": 9,
+        "lowContrast": 1
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 1
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-settings",
+      "before": {
+        "small": 1,
+        "lowContrast": 0
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-preferences",
+      "before": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-updates",
+      "before": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-home",
+      "before": {
+        "small": 2,
+        "lowContrast": 0
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    },
+    {
+      "page": "dark-calendar",
+      "before": {
+        "small": 2,
+        "lowContrast": 0
+      },
+      "after": {
+        "small": 0,
+        "lowContrast": 0
+      },
+      "overflow": false
+    }
+  ]
+}
