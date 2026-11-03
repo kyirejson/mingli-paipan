@@ -104,6 +104,12 @@ test('远端原文的权限提示、署名和水印保留，只添加阅读配�
  assert.match(html,/vip="0"/);assert.match(html,/content_vip/);assert.match(html,/问真评注/);assert.match(html,/watermark\.png/);assert.match(html,/#18231e/);assert.match(html,/<\/script>/);
  const script=html.match(/<script>([\s\S]*?)<\/script>/);assert.ok(script);assert.doesNotThrow(()=>new Function(script[1]));
 });
+test('阅读资源基址必须在首个相对样式和脚本之前，避免正文变成无样式堆叠',()=>{
+ const {reader}=classicsContext();
+ const html=reader.documentText('<html><head><link rel="stylesheet" href="./static/index.css"><script src="./static/index.js"></script></head><body>原文</body></html>',false);
+ assert.ok(html.indexOf('<base ')<html.indexOf('<link '));assert.ok(html.indexOf('<base ')<html.indexOf('<script '));
+ assert.equal((reader.documentText('<html><head><base href="https://example.com/"><link href="x.css"></head><body></body></html>',false).match(/<base /g)||[]).length,1);
+});
 test('命盘和偏好仅接受父页面消息，正文尺寸仅接受当前正文窗口',()=>{
  const ctx=classicsContext(),v=view(ctx),data={type:'GujiData',data:v.gjData};
  assert.equal(ctx.reader.accept(v,{data,source:{}}),false);assert.equal(ctx.reader.accept(v,{data,source:ctx.c.parent}),true);

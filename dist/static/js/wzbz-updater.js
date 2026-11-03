@@ -58,13 +58,14 @@
   async function download() {
     if (!plugin() || state.downloading || !available()) return;
     state.error = ''; state.percent = 0; state.downloading = true;
-    try { state.ready = await plugin().download(); state.message = '下载与校验完成，请点击安装更新。'; }
+    try { if(global.WZBZDataProtection)await global.WZBZDataProtection.checkpoint();state.ready = await plugin().download(); state.message = '下载与校验完成，请点击安装更新。'; }
     catch (error) { state.error = errorText(error); }
     finally { state.downloading = false; }
   }
   async function install() {
     state.error = '';
     try {
+      if(global.WZBZDataProtection)await global.WZBZDataProtection.checkpoint();
       var result = await plugin().install(); state.needsPermission = !!result.needsPermission;
       state.message = state.needsPermission ? '请允许此 APP 安装更新，返回后点击“安装更新”。' : '请在安卓安装窗口确认；取消安装后仍可在这里重试。';
     } catch (error) { state.error = errorText(error); }

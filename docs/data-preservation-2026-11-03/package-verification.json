@@ -1,0 +1,23 @@
+{
+  "version": "1.0.15",
+  "versionCode": 16,
+  "bytes": 36169705,
+  "sha256": "8cf6802cbabe62c6534443dc861f463c2bc05704fb902acd6cc467f9f03c9607",
+  "matched_dist_files": 1006,
+  "original_classes_dex_unchanged": true,
+  "capacitor_config_unchanged": true,
+  "native_plugin_class_count": 4,
+  "native_plugin_registration": [
+    {
+      "pkg": "zaohua-data-vault",
+      "classpath": "com.wzbz.bazi.DataVaultPlugin"
+    }
+  ],
+  "archive_crc": "passed",
+  "native_signed_alignment": "passed during build",
+  "node_tests_passed": 90,
+  "release_tests_passed": 10,
+  "android_retention_checked": true,
+  "android_ui_checked": true,
+  "user_phone_recovery_verified": false
+}

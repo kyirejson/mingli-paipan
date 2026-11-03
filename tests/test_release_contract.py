@@ -5,6 +5,8 @@ import json
 import pathlib
 import unittest
 import urllib.parse
+import tempfile
+import zipfile
 from unittest.mock import patch
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -116,6 +118,29 @@ class ReleaseContractTest(unittest.TestCase):
         self.release["tag_name"] = "v1.0.13"
         with self.assertRaisesRegex(ValueError, "tag mismatch"):
             publisher.verify_contract(self.release, self.manifest, self.metadata, self.apk, published=True)
+
+    def test_storage_origin_change_cannot_be_published(self):
+        directory = ROOT / "release/test-fixtures"
+        directory.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=directory) as work:
+            apk = pathlib.Path(work) / "bad-origin.apk"
+            with zipfile.ZipFile(apk, "w") as archive:
+                archive.writestr("assets/public/static/update-info.json", json.dumps({"version": "1.0.15", "versionCode": 16}))
+                archive.writestr("assets/capacitor.config.json", json.dumps({"appId": publisher.PACKAGE, "server": {"androidScheme": "http"}}))
+            with self.assertRaisesRegex(ValueError, "Storage origin changed"):
+                publisher.prepare(apk, "1.0.15", 16, pathlib.Path(work), pathlib.Path(work), pathlib.Path(work))
+
+    def test_new_release_without_native_data_backup_is_rejected(self):
+        directory = ROOT / "release/test-fixtures"
+        directory.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=directory) as work:
+            apk = pathlib.Path(work) / "missing-vault.apk"
+            with zipfile.ZipFile(apk, "w") as archive:
+                archive.writestr("assets/public/static/update-info.json", json.dumps({"version": "1.0.15", "versionCode": 16}))
+                archive.writestr("assets/capacitor.config.json", json.dumps({"appId": publisher.PACKAGE, "server": {"androidScheme": "https"}}))
+                archive.writestr("assets/capacitor.plugins.json", "[]")
+            with self.assertRaisesRegex(ValueError, "DataVault native backup plugin is missing"):
+                publisher.prepare(apk, "1.0.15", 16, pathlib.Path(work), pathlib.Path(work), pathlib.Path(work))
 
 
 if __name__ == "__main__":

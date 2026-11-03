@@ -1,0 +1,4 @@
+{"nativeWriteConfirmed":true,"immediateExitFixturePrepared":true}
+{"upgrade":"v1.0.14 → v1.0.15","originalValuesUnchanged":true,"nativeBackupMatches":true,"appReady":true,"guid":"case-1793683774199-1"}
+{"upgrade":"v1.0.15 → v1.0.15","originalValuesUnchanged":true,"nativeBackupMatches":true,"appReady":true,"guid":"case-1793683774199-1"}
+{"upgrade":"v1.0.15 → v1.0.15","originalValuesUnchanged":true,"nativeBackupMatches":true,"appReady":true,"guid":"case-1793683774199-1"}

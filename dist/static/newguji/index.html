@@ -18,10 +18,12 @@
     .guji-main-root .box-tips span{color:var(--ink)!important}
     .guji-main-root .guji-box-tabs,.guji-main-root .box-content,.guji-main-root .box-content .tipss{background:var(--paper)!important;color:var(--ink)!important}
     .guji-main-root .guji_box-tabs span{color:var(--caption)!important}
-    .guji-main-root .guji_box-tabs .sel{background:var(--accent)!important;color:var(--on-accent)!important}
+    .guji-main-root .guji_box-tabs .sel{background:transparent!important;color:var(--accent)!important;border-color:var(--accent)!important;font-weight:600}
     .guji-arrow-btn{background:var(--surface)!important;border-color:var(--line)!important;color:var(--accent)!important}
+    .guji-main-root .guji_box-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:0}.guji-main-root .guji_box-tabs>span{flex:none;white-space:nowrap}
+    .guji-main-root .box-content .shuji{min-width:0}.guji-main-root #bookbox{display:block;width:100%;border:0}
     .guji-source,.guji-notice,.guji-load-error{margin:8px 14px;font:13px/1.7 system-ui,sans-serif;color:var(--caption);overflow-wrap:anywhere}
-    .guji-source{font-size:11px}.guji-load-error{padding:12px;background:var(--surface);border:1px solid var(--line);border-radius:6px}.guji-load-error p{margin:0 0 8px}
+    .guji-source{display:none}.guji-notice:empty{display:none}.guji-load-error{padding:12px;background:var(--surface);border:1px solid var(--line);border-radius:6px}.guji-load-error p{margin:0 0 8px}
     .guji-load-error button{padding:8px 18px;min-height:38px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--accent);font:inherit}
   </style>
   <script defer="defer" src="./chunk-vendors.js"></script>

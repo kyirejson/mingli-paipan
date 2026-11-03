@@ -1,0 +1,77 @@
+{
+  "source": "installed final v1.0.15 APK, emulator WebView",
+  "ziwei": [
+    {
+      "mode": "三合",
+      "width": 382.66668701171875,
+      "height": 478.3333435058594,
+      "palaces": 12,
+      "centerNoOverlap": true
+    },
+    {
+      "mode": "钦天·四化",
+      "width": 382.66668701171875,
+      "height": 478.3333435058594,
+      "palaces": 12,
+      "centerNoOverlap": true
+    },
+    {
+      "mode": "飞星",
+      "width": 382.66668701171875,
+      "height": 478.3333435058594,
+      "palaces": 12,
+      "centerNoOverlap": true
+    }
+  ],
+  "viewports": [
+    {
+      "viewport": [
+        320,
+        640
+      ],
+      "grid": [
+        290.4761962890625,
+        363.0952453613281
+      ],
+      "scrollable": true
+    },
+    {
+      "viewport": [
+        360,
+        740
+      ],
+      "grid": [
+        330.4761962890625,
+        413.0952453613281
+      ],
+      "scrollable": false
+    },
+    {
+      "viewport": [
+        700,
+        1000
+      ],
+      "grid": [
+        490.4761962890625,
+        613.0952758789062
+      ],
+      "scrollable": false
+    }
+  ],
+  "famous": {
+    "count": 58,
+    "notice": "旧版名人及古籍资料 · 未经逐条核实；参考年份不作为真实生年，未知时辰不补填。",
+    "noticeTop": 71.42857360839844,
+    "headerBottom": 71.42857360839844,
+    "color": "rgb(104, 114, 105)"
+  },
+  "classics": {
+    "height": 3239,
+    "overflow": false,
+    "error": "",
+    "css": [
+      "https://bzapi3.iwzbz.com/newguji/v3/gjbook/static/index.css?v=6"
+    ]
+  },
+  "nativeRejectsUntrusted": true
+}

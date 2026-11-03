@@ -26,6 +26,7 @@ try{
   $decoded=Join-Path $taskRoot 'decoded';$framework=Join-Path $WorkRoot 'framework'
   & $java "-Djava.io.tmpdir=$($env:TEMP)" -jar $apktool d -s -p $framework $baseApk -o $decoded;CheckExit 'Decode'
   Copy-Item -Path (Join-Path $projectRoot 'dist\*') -Destination (Join-Path $decoded 'assets\public') -Recurse -Force
+  & python (Join-Path $PSScriptRoot 'build-data-vault.py') --decoded $decoded --work (Join-Path $taskRoot 'vault-plugin') --java-home $JavaHome --build-tools $BuildTools --android (Join-Path (Split-Path -Parent (Split-Path -Parent $BuildTools)) 'platforms\android-34\android.jar');CheckExit 'Data vault plugin'
   $yaml=Join-Path $decoded 'apktool.yml';$text=Get-Content -LiteralPath $yaml -Raw
   $text=$text -replace 'versionCode: 8',"versionCode: $VersionCode" -replace 'versionName: 1.0.7',"versionName: $Version"
   Set-Content -LiteralPath $yaml -Value $text -Encoding utf8NoBOM

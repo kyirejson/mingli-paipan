@@ -724,7 +724,7 @@
     }
     lines = lines.concat(chart._cachedSelfArrows);
     var directions=h('div',{class:'fa-ziwei-directions'},[['top','正南方','南偏西'],['left','南偏东','东偏南','正东方','东偏北'],['right','西偏南','正西方','西偏北','北偏西'],['bottom','北偏东','正北方']].map(function(items){return h('div',{class:'fa-direction-'+items[0]},items.slice(1).map(function(t){return h('span',[t]);}));}));
-    return h('div',{class:['fa-ziwei','fa-ziwei-'+mode,{'has-extra-flows':mode==='sanhe'&&this.ziweiMoreFlows}]},[
+    return h('div',{class:['fa-ziwei','fa-ziwei-'+mode]},[
       h('div',{class:'fa-ziwei-board'},[directions,h('div',{class:'fa-ziwei-grid'},jsx.concat([h('div',{class:'fa-ziwei-center'},center),h('FiveArtsFlightLayer',{props:{items:lines}})]))]),
       this.renderZiweiFlows(h,r,mode==='sanhe'),
       h('div',{class:'fa-ziwei-modebar'},[choices(h,[['feixing','飞星'],['sanhe','三合'],['qintian','钦天·四化']],mode,function(v){self.session.ziweiMode=v;saveSession(self.session);}),button(h,'本命',function(){self.flowScope='';},'fa-ziwei-natal'),button(h,'紫微助手',function(){self.assistantOpen=true;},'fa-ziwei-assistant-entry')])

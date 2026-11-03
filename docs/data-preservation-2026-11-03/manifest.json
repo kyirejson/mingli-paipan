@@ -1,0 +1,197 @@
+{
+  "date": "2026-11-03 Asia/Shanghai",
+  "scope": "Data retention, old celebrity catalogue, classics CSS, Ziwei proportions; emulator fixtures only, user phone not accessed",
+  "tests": {
+    "node": 90,
+    "release_protocol": 10,
+    "native_emulator_retention": true,
+    "native_emulator_ui": true
+  },
+  "files": [
+    {
+      "path": "docs/data-preservation-2026-11-03/android-retention-final.txt",
+      "bytes": 484,
+      "sha256": "2defb66a46bd5299cb4641d91d0c534e2a1d85e5e03bc4348f77255c6f379823"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/android-ui-final.json",
+      "bytes": 1577,
+      "sha256": "d308114571aeb45180f0d8cdae52f43b946e26755af2dac02272c75fc2b15ed4"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/classics-final.png",
+      "bytes": 471742,
+      "sha256": "174bc7f26b970231875254d0b8828992bd1a587b5b67d2920a974e5a50137c69"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/classics-layout.png",
+      "bytes": 352070,
+      "sha256": "1054c89c9ae09fe78032c89a8a6f0029a6afe56a5722388db00d5fcf4150effd"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/classics-styles-corrected-preview.png",
+      "bytes": 471742,
+      "sha256": "174bc7f26b970231875254d0b8828992bd1a587b5b67d2920a974e5a50137c69"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/famous-final.png",
+      "bytes": 235225,
+      "sha256": "92abff73cda153f3ea27aca5c89f35f803b9a5920a6e639cf56ef09d80833f9a"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/famous-restored.png",
+      "bytes": 205521,
+      "sha256": "059352b0fe4339b3202f5c8b95aa07f6f5615d69fb1ea8a57c38e15336ea8086"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/node-tests.txt",
+      "bytes": 8462,
+      "sha256": "6c3982e1d252a2bfb0497d356ce1c1b3f0fa6e63b7a607953e1890fcca9dce7e"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/package-verification.json",
+      "bytes": 695,
+      "sha256": "95610f5ff7653e06a6d8438490959324f3a580f8cd0502a3f36a98326656e1cf"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/release-tests.txt",
+      "bytes": 1810,
+      "sha256": "fd13b81d80d7690e7f2b677be7a42d6d44a271bd7d024db09ddf8a4bbadf7bfc"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/ziwei-feixing-final.png",
+      "bytes": 100726,
+      "sha256": "675ddd21089628a01e0372c4af82cbc1d8ab925cb97bc20a0cd26bc54c3305e8"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/ziwei-feixing-preview.png",
+      "bytes": 397810,
+      "sha256": "f57ae93ed4d9b35d7e9e46de0a808498e939526452cca161ffd895366b3bcf63"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/ziwei-qintian-final.png",
+      "bytes": 100726,
+      "sha256": "675ddd21089628a01e0372c4af82cbc1d8ab925cb97bc20a0cd26bc54c3305e8"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/ziwei-qintian-preview.png",
+      "bytes": 370581,
+      "sha256": "de51285dfe02ef3b7121057b543896904db4899bb28a2b149374912166e67012"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/ziwei-ratio-preview.json",
+      "bytes": 696,
+      "sha256": "ccf71e736a02941f5e89c5b60b0774a513452d4dad5f402962a1445b202a602d"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/ziwei-sanhe-final.png",
+      "bytes": 100726,
+      "sha256": "675ddd21089628a01e0372c4af82cbc1d8ab925cb97bc20a0cd26bc54c3305e8"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/ziwei-sanhe-preview.png",
+      "bytes": 567968,
+      "sha256": "2fade342d476ad5b930f2d545ba41cb9f90c13362fec985a98994329ff54facd"
+    },
+    {
+      "path": "docs/data-preservation-2026-11-03/ziwei-sanity.png",
+      "bytes": 574561,
+      "sha256": "c193a45740f5a97ef7bac1ef84d76a81c18b179eca7910de6eef1e886bb814c7"
+    },
+    {
+      "path": "docs/2026-11-03_数据保护与界面修复记录.md",
+      "bytes": 5990,
+      "sha256": "10f9dd7f4fe77f0e0af8a2935acbdbb5e8ca3c2c88021dbdfb438412decca5b2"
+    },
+    {
+      "path": "docs/releases/v1.0.15.md",
+      "bytes": 3112,
+      "sha256": "b51995a50a9067fa5cc7234876216d88d0c1866743d66553976c1dbf5414de8d"
+    },
+    {
+      "path": "native/src/com/wzbz/bazi/DataVaultPlugin.java",
+      "bytes": 5449,
+      "sha256": "6f1606baf33202343a49b67689a52ec24f62b2b93accd3ddc96a219caec33457"
+    },
+    {
+      "path": "scripts/build-data-vault.py",
+      "bytes": 3892,
+      "sha256": "252923c530176dbaeb5aead506f75b5e861146efdea743697ddccc8f1c0b52f5"
+    },
+    {
+      "path": "scripts/build-release.ps1",
+      "bytes": 4188,
+      "sha256": "1b78417bf9a9240dc4fda12438512d829e4970686d0da92d4a896b92a9d3e9d4"
+    },
+    {
+      "path": "scripts/publish-release.py",
+      "bytes": 12407,
+      "sha256": "06ccc2d5e606e9b97a3f13feec8e8d6b59ea9ab6de6b6f26a1063de7e77fad9b"
+    },
+    {
+      "path": "tests/data-preservation-regression.cjs",
+      "bytes": 11003,
+      "sha256": "8ac6a564646a7c69394490efbe47aa36b50c49398ab1a46e20cdccb6be3b95d6"
+    },
+    {
+      "path": "tests/android-upgrade-retention.mjs",
+      "bytes": 4470,
+      "sha256": "2fe846db6845149d42916bede2ef2cf07b81d581f81f75c3478f46056d91a2eb"
+    },
+    {
+      "path": "tests/android-ui-regression.mjs",
+      "bytes": 5994,
+      "sha256": "f8fdef9d4851514567838ebbeb5209b6fe0cb4ae3ac2e1da573deb4ff202fcd9"
+    },
+    {
+      "path": "tests/helpers/android-webview-forward.py",
+      "bytes": 985,
+      "sha256": "8b6f54857cc37a0e438c2702e15a3e925f90b980590263d9a33110faaa3f7fe7"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 10105,
+      "sha256": "d6fc927b2d6f8c633d5dc5f2070f5f575540df21bd7892959c45e4beca9da415"
+    },
+    {
+      "path": "dist/static/js/data-preservation.js",
+      "bytes": 12662,
+      "sha256": "f0c2b5ad1086a617ef71ef8c332894a7476820c7be18863aedb1d0ed19da8c67"
+    },
+    {
+      "path": "dist/static/js/celebrity-library.js",
+      "bytes": 1594,
+      "sha256": "674e6fcc3fa966c1527688ecb1a4fd832e475e184beb52ac86550eb8048baa5e"
+    },
+    {
+      "path": "dist/static/js/5.2796ccabacfda5bb1605.js",
+      "bytes": 204777,
+      "sha256": "ce1723c4700f329d018825ae6542289acd710af32728baeaeb708e7f1ac38ec6"
+    },
+    {
+      "path": "dist/static/js/local-backup.js",
+      "bytes": 8944,
+      "sha256": "02675b4294a08c726304994ba67df53f86ba9ab6d9e294ad226cfe9cff2a3341"
+    },
+    {
+      "path": "dist/static/js/wzbz-native-bridge.js",
+      "bytes": 76284,
+      "sha256": "7a6c5d799f9174b579dc13f38962f1d5094a9f867e1a3ed8512a5fd601b3b25a"
+    },
+    {
+      "path": "dist/static/js/wzbz-updater.js",
+      "bytes": 8918,
+      "sha256": "4d7972c0e8e7734ef339223726e3c1c008ab013c76011a90eeb7e6807400823b"
+    },
+    {
+      "path": "dist/static/css/fivearts.css",
+      "bytes": 40226,
+      "sha256": "9c4f26c71efb044b9f9685e24f7416c1bf8d80a7e0eea72ea902866f9693daf5"
+    },
+    {
+      "path": "dist/static/newguji/reader.js",
+      "bytes": 7051,
+      "sha256": "095c08797cbac0881e7277e55b5aec2489415576e2a3c5592686e4acfbaf465c"
+    }
+  ]
+}

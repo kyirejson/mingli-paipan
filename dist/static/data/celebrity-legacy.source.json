@@ -1,0 +1,7 @@
+{
+  "source": "docs/audit-2026-10-29/legacy-famous-cases.txt",
+  "status": "legacy-unverified",
+  "note": "旧版名人及古籍命例原始资料，未经逐条史料核验。isOpenLiuNian=0 的日期为旧版排盘参考坐标，不作为历史出生日期；未知时辰仍为 **，不补填。",
+  "rows": 58,
+  "normalized_sha256": "fd52d68937273c2c8ba9a2e7c7531be82fdb508ebc71804249ce85cfaf1d1765"
+}

@@ -54,8 +54,10 @@
   function documentText(text,dark){
     if(!/<head\b/i.test(text)||!/<\/head\s*>/i.test(text))throw Error('服务未返回可阅读的古籍页面');
     var base=/<base\b/i.test(text)?'':'<base href="'+endpoint+'">';
-    var style='<style>html,body,.content{background-color:'+(dark?'#18231e':'#f5f1e9')+'!important;color:'+(dark?'#e2e8dc':'#233b33')+'!important}</style>';
-    text=text.replace(/<\/head\s*>/i,base+style+'</head>');
+    var style='<style>html,body,.content{background-color:'+(dark?'#18231e':'#f5f1e9')+'!important;color:'+(dark?'#e2e8dc':'#233b33')+'!important}html{overflow-x:hidden}body{box-sizing:border-box;max-width:100%;overflow-wrap:break-word}.header_wrapper{gap:8px;flex-wrap:wrap}.main_wrapper{min-height:0!important}.content_item{box-sizing:border-box}img{max-width:100%}table{max-width:100%;table-layout:fixed}p{line-height:1.8}</style>';
+    // Resolve relative CSS/script URLs before the parser encounters those tags.
+    text=text.replace(/<head\b[^>]*>/i,function(head){return head+base;});
+    text=text.replace(/<\/head\s*>/i,style+'</head>');
     // Preserve the source text, attribution, watermarks and access notices.
     return /<\/body\s*>/i.test(text)?text.replace(/<\/body\s*>/i,heightScript+'</body>'):text+heightScript;
   }

@@ -49,17 +49,6 @@
   var VIP_NAME = '八字排盘';
   var VIP_EXPIRES = '2099-12-31';
 
-  // Protect VIP credentials from being wiped by logout/session expiration
-  try {
-    var origRemoveItem = localStorage.removeItem.bind(localStorage);
-    localStorage.removeItem = function(k) {
-      if (k === 'wzbz_viplevel' || k === 'wzbz_userguid' || k === 'wzbz_session' || k === 'wzbz_username' || k === 'wzbz_account' || k === 'wzbz_phone') {
-        return;
-      }
-      return origRemoveItem(k);
-    };
-  } catch (e) {}
-
   // Pre-boot localStorage setup so Vuex initializes VIP 3 & clean UI synchronously
   try {
     localStorage.setItem('wzbz_pc', '');
@@ -848,9 +837,6 @@
     }
   }
 
-  // 未核实的名人生日已从可用数据中撤下，待逐条补齐来源。
-  var MINGREN_CSV = '';
-
   var DEFAULT_BZ_STRUCT = [
     { name: '旺衰', data: '', items: '从强,身旺,偏旺,平和,偏弱,身弱,从弱', type: 0 },
     { name: '格局', data: '', items: '正官格,七杀格,正印格,偏印格,正财格,偏财格,食神格,伤官格,建禄格,羊刃格,专旺格,从弱格,从财格,从杀格,从儿格,曲直格,炎上格,稼穑格,从革格,润下格', type: 0 },
@@ -1014,7 +1000,7 @@
 
     // 4. Celebrity Library
     if (url.indexOf('mingren4.php') >= 0) {
-      return okResponse(cfg, MINGREN_CSV);
+      return window.WZBZCelebrityLibrary.load().then(function(csv){return okResponse(cfg,csv);},function(){throw localError(503,'名人资料读取失败，请点击重新加载');});
     }
 
     // 5. User Cases CRUD
@@ -1059,7 +1045,8 @@
       var beforeDel = getLocalCases();
       if (!guids.every(function(id) { return beforeDel.some(function(item) { return item.guid === id; }); })) throw localError(404, '部分命例不存在，删除或还原未执行');
       if (permanent && beforeDel.some(function(item) { return guids.indexOf(item.guid) >= 0 && Number(item.isdel) !== 1; })) throw localError(409, '请先将命例移到回收站');
-      var listAfterDel = beforeDel.filter(function(item) { return !permanent || guids.indexOf(item.guid) < 0; }).map(function(item) {
+      // Preserve original rows even if an old UI requests permanent deletion.
+      var listAfterDel = beforeDel.map(function(item) {
         if (guids.indexOf(item.guid) >= 0) {
           item.isdel = isUnDel ? 0 : 1;
           item.deldate = isUnDel ? '' : localTimestamp();
@@ -1332,7 +1319,11 @@
     return Promise.reject(error);
   }
   function runLocalDispatch(cfg, origDispatch) {
-    try { return dispatchLocal(cfg, origDispatch); }
+    try {
+      var result=dispatchLocal(cfg, origDispatch);
+      if(window.WZBZDataProtection)return Promise.resolve(result).then(function(value){return window.WZBZDataProtection.flush().then(function(){return value;});}).catch(function(error){return localDispatchFailure(cfg,error);});
+      return result&&typeof result.then==='function'?result.catch(function(error){return localDispatchFailure(cfg,error);}):result;
+    }
     catch (error) { return localDispatchFailure(cfg, error); }
   }
   window.__WZBZ_AXIOS_INTERCEPT__ = function(cfg, origDispatch) {

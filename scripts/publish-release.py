@@ -43,6 +43,18 @@ def prepare(apk, version, code, build_tools, java, work):
         require(archive.testzip() is None, "APK CRC failed")
         info = json.loads(archive.read("assets/public/static/update-info.json"))
         require(info["version"] == version and info["versionCode"] == code, "Bundled version mismatch")
+        config = json.loads(archive.read("assets/capacitor.config.json"))
+        server = config.get("server", {})
+        require(config["appId"] == PACKAGE and server.get("androidScheme", "https") == "https"
+                and server.get("hostname", "localhost") == "localhost" and not server.get("url"),
+                "Storage origin changed: existing WebView records would become inaccessible")
+        if code >= 16:
+            plugins = json.loads(archive.read("assets/capacitor.plugins.json"))
+            require(any(p.get("classpath") == "com.wzbz.bazi.DataVaultPlugin" for p in plugins)
+                    and "classes2.dex" in archive.namelist(), "DataVault native backup plugin is missing")
+            require("assets/public/static/js/data-preservation.js" in archive.namelist(), "Data preservation bootstrap is missing")
+            cases = archive.read("assets/public/static/data/celebrity-legacy.csv").decode("utf-8")
+            require(len(cases.strip().splitlines()) >= 58, "Bundled celebrity catalogue was removed or truncated")
     work.mkdir(parents=True, exist_ok=True)
     # Windows aapt cannot reliably open paths containing Chinese characters.
     with tempfile.TemporaryDirectory(prefix="release-preflight-", dir=work) as temporary:
