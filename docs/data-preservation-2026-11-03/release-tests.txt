@@ -1,17 +1,20 @@
+Uploaded and verified update.json
+Uploaded and verified update.json
+Uploaded and verified update.json
 test_conflicting_manifest_is_not_deleted_or_replaced (test_release_contract.ReleaseContractTest.test_conflicting_manifest_is_not_deleted_or_replaced) ... ok
+test_draft_is_resumed_when_tag_endpoint_returns_404 (test_release_contract.ReleaseContractTest.test_draft_is_resumed_when_tag_endpoint_returns_404) ... ok
+test_draft_temporary_urls_are_verified_then_require_real_tag_on_publication (test_release_contract.ReleaseContractTest.test_draft_temporary_urls_are_verified_then_require_real_tag_on_publication) ... ok
 test_mismatched_existing_apk_is_not_promoted_or_overwritten (test_release_contract.ReleaseContractTest.test_mismatched_existing_apk_is_not_promoted_or_overwritten) ... ok
 test_new_release_without_native_data_backup_is_rejected (test_release_contract.ReleaseContractTest.test_new_release_without_native_data_backup_is_rejected) ... ok
 test_prerelease_with_valid_assets_is_still_rejected_by_installed_contract (test_release_contract.ReleaseContractTest.test_prerelease_with_valid_assets_is_still_rejected_by_installed_contract) ... ok
 test_previous_release_without_update_json_is_rejected (test_release_contract.ReleaseContractTest.test_previous_release_without_update_json_is_rejected) ... ok
-test_public_manifest_failure_leaves_release_in_old_channel (test_release_contract.ReleaseContractTest.test_public_manifest_failure_leaves_release_in_old_channel) ... Uploaded and verified update.json
-ok
-test_repair_uploads_and_checks_manifest_before_promoting (test_release_contract.ReleaseContractTest.test_repair_uploads_and_checks_manifest_before_promoting) ... Uploaded and verified update.json
-ok
+test_public_manifest_failure_leaves_release_in_old_channel (test_release_contract.ReleaseContractTest.test_public_manifest_failure_leaves_release_in_old_channel) ... ok
+test_repair_uploads_and_checks_manifest_before_promoting (test_release_contract.ReleaseContractTest.test_repair_uploads_and_checks_manifest_before_promoting) ... ok
 test_repeat_publish_reuses_identical_assets (test_release_contract.ReleaseContractTest.test_repeat_publish_reuses_identical_assets) ... ok
 test_storage_origin_change_cannot_be_published (test_release_contract.ReleaseContractTest.test_storage_origin_change_cannot_be_published) ... ok
 test_wrong_tag_or_download_host_cannot_pass_preflight (test_release_contract.ReleaseContractTest.test_wrong_tag_or_download_host_cannot_pass_preflight) ... ok
 
 ----------------------------------------------------------------------
-Ran 10 tests in 0.010s
+Ran 12 tests in 0.012s
 
 OK

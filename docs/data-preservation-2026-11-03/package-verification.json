@@ -16,7 +16,7 @@
   "archive_crc": "passed",
   "native_signed_alignment": "passed during build",
   "node_tests_passed": 90,
-  "release_tests_passed": 10,
+  "release_tests_passed": 12,
   "android_retention_checked": true,
   "android_ui_checked": true,
   "user_phone_recovery_verified": false

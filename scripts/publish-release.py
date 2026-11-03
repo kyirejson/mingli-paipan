@@ -80,12 +80,15 @@ def asset_for(release, name):
     return matches[0]
 
 
-def verify_asset(asset, name, data, tag):
+def verify_asset(asset, name, data, tag, draft=False):
     require(asset["name"] == name and asset["state"] == "uploaded", f"Incomplete {name}")
     require(asset["size"] == len(data), f"Size mismatch for {name}")
     require(asset.get("digest") == "sha256:" + hashlib.sha256(data).hexdigest(), f"Digest mismatch for {name}")
     expected = f"https://github.com/{REPO}/releases/download/{tag}/" + urllib.parse.quote(name)
-    require(asset["browser_download_url"] == expected, f"Unexpected download URL for {name}")
+    url = asset["browser_download_url"]
+    temporary = draft and re.fullmatch(re.escape(f"https://github.com/{REPO}/releases/download/")
+                                      + r"untagged-[a-zA-Z0-9]+/" + re.escape(urllib.parse.quote(name)), url)
+    require(url == expected or temporary, f"Unexpected download URL for {name}")
 
 
 def verify_contract(release, manifest, manifest_bytes, apk_bytes, published=False):
@@ -95,7 +98,7 @@ def verify_contract(release, manifest, manifest_bytes, apk_bytes, published=Fals
             "Manifest does not describe this APK")
     require(json.loads(manifest_bytes) == manifest, "Update manifest bytes mismatch")
     for name, data in [(manifest["apk"], apk_bytes), ("update.json", manifest_bytes)]:
-        verify_asset(asset_for(release, name), name, data, release["tag_name"])
+        verify_asset(asset_for(release, name), name, data, release["tag_name"], draft=release["draft"] and not published)
     if published:
         require(not release["draft"] and not release["prerelease"], "Installed updater rejects draft/prerelease")
 
@@ -124,17 +127,17 @@ def upload_verified(api, release, name, data, content_type):
     existing = [a for a in current["assets"] if a["name"] == name]
     if existing:
         require(len(existing) == 1, f"Duplicate {name}")
-        verify_asset(existing[0], name, data, release["tag_name"])
+        verify_asset(existing[0], name, data, release["tag_name"], draft=current["draft"])
         return
     url = release["upload_url"].split("{")[0] + "?name=" + urllib.parse.quote(name)
     result = api.call(url, "POST", data, content_type)
-    verify_asset(result, name, data, release["tag_name"])
+    verify_asset(result, name, data, release["tag_name"], draft=current["draft"])
     print("Uploaded and verified " + name, flush=True)
 
 
 def promote(api, release, manifest, manifest_bytes, apk_bytes, notes):
     # Validate the existing APK before adding metadata; never replace an existing binary.
-    verify_asset(asset_for(release, manifest["apk"]), manifest["apk"], apk_bytes, release["tag_name"])
+    verify_asset(asset_for(release, manifest["apk"]), manifest["apk"], apk_bytes, release["tag_name"], draft=release["draft"])
     upload_verified(api, release, "update.json", manifest_bytes, "application/json")
     complete = api.call("/releases/" + str(release["id"]))
     verify_contract(complete, manifest, manifest_bytes, apk_bytes)
@@ -166,6 +169,25 @@ def public_bytes(url):
             time.sleep(2)
 
 
+def find_release(api, tag):
+    try:
+        return api.call("/releases/tags/" + tag)
+    except urllib.error.HTTPError as error:
+        if error.code != 404:
+            raise
+    # The tag endpoint can return 404 for a draft. Resume by ID, never create duplicates.
+    matches = []
+    page = 1
+    while True:
+        rows = api.call("/releases?per_page=100&page=" + str(page))
+        matches.extend(r for r in rows if r["tag_name"] == tag)
+        if len(rows) < 100:
+            break
+        page += 1
+    require(len(matches) <= 1, "Multiple draft releases for this tag; refusing to choose silently")
+    return matches[0] if matches else None
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", required=True)
@@ -194,11 +216,8 @@ def main():
     notes = re.sub(r"\[([^\]]+)\]\((\.\./[^)]+)\)", lambda m: "[" + m[1] + "](https://github.com/" + REPO
                    + "/blob/main/" + posixpath.normpath("docs/releases/" + m[2]) + ")", notes)
     notes += "\n\n安装包源码标签：`" + tag + "`，提交：`" + commit + "`。"
-    try:
-        release = api.call("/releases/tags/" + tag)
-    except urllib.error.HTTPError as error:
-        if error.code != 404:
-            raise
+    release = find_release(api, tag)
+    if release is None:
         release = api.call("/releases", "POST", encoded({"tag_name": tag, "target_commitish": commit,
                           "name": "造化元钥 " + tag, "draft": True, "prerelease": False, "make_latest": "false"}))
     require(release["target_commitish"] == commit, "Release source commit mismatch")

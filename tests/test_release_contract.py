@@ -5,6 +5,7 @@ import json
 import pathlib
 import unittest
 import urllib.parse
+import urllib.error
 import tempfile
 import zipfile
 from unittest.mock import patch
@@ -44,10 +45,15 @@ class ReleaseContractTest(unittest.TestCase):
                 if method == "POST":
                     name = urllib.parse.parse_qs(urllib.parse.urlparse(route).query)["name"][0]
                     asset = outer.asset(name, data)
+                    if self.value["draft"]:
+                        asset["browser_download_url"] = asset["browser_download_url"].replace("/v1.0.14/", "/untagged-abc123/")
                     self.value["assets"].append(asset)
                     return copy.deepcopy(asset)
                 if method == "PATCH":
                     self.value.update(json.loads(data))
+                    if not self.value["draft"]:
+                        for asset in self.value["assets"]:
+                            asset["browser_download_url"] = asset["browser_download_url"].replace("/untagged-abc123/", "/v1.0.14/")
                 return copy.deepcopy(self.value)
 
         return API()
@@ -107,6 +113,34 @@ class ReleaseContractTest(unittest.TestCase):
         api.value["prerelease"] = False
         with patch.object(publisher, "public_bytes", return_value=self.metadata):
             publisher.promote(api, api.value, self.manifest, self.metadata, self.apk, "notes")
+        self.assertNotIn("POST", [e[0] for e in api.events])
+
+    def test_draft_temporary_urls_are_verified_then_require_real_tag_on_publication(self):
+        api = self.fake_api()
+        api.value["draft"] = True
+        api.value["assets"][0]["browser_download_url"] = api.value["assets"][0]["browser_download_url"].replace("/v1.0.14/", "/untagged-abc123/")
+        with self.assertRaisesRegex(ValueError, "Unexpected download URL"):
+            publisher.verify_asset(api.value["assets"][0], self.manifest["apk"], self.apk, "v1.0.14")
+        with patch.object(publisher, "public_bytes", return_value=self.metadata):
+            result = publisher.promote(api, api.value, self.manifest, self.metadata, self.apk, "notes")
+        self.assertFalse(result["draft"])
+        self.assertTrue(all("/v1.0.14/" in a["browser_download_url"] for a in result["assets"]))
+
+    def test_draft_is_resumed_when_tag_endpoint_returns_404(self):
+        api = self.fake_api()
+        api.value["draft"] = True
+        original = api.call
+
+        def call(route, *args, **kwargs):
+            if route.startswith("/releases/tags/"):
+                raise urllib.error.HTTPError(route, 404, "Not found", {}, None)
+            if route.startswith("/releases?"):
+                return [copy.deepcopy(api.value)]
+            return original(route, *args, **kwargs)
+
+        api.call = call
+        result = publisher.find_release(api, "v1.0.14")
+        self.assertEqual(result["id"], 42)
         self.assertNotIn("POST", [e[0] for e in api.events])
 
     def test_wrong_tag_or_download_host_cannot_pass_preflight(self):

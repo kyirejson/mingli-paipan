@@ -3,7 +3,7 @@
   "scope": "Data retention, old celebrity catalogue, classics CSS, Ziwei proportions; emulator fixtures only, user phone not accessed",
   "tests": {
     "node": 90,
-    "release_protocol": 10,
+    "release_protocol": 12,
     "native_emulator_retention": true,
     "native_emulator_ui": true
   },
@@ -51,12 +51,12 @@
     {
       "path": "docs/data-preservation-2026-11-03/package-verification.json",
       "bytes": 695,
-      "sha256": "95610f5ff7653e06a6d8438490959324f3a580f8cd0502a3f36a98326656e1cf"
+      "sha256": "a410db8b390f6f33d976b2b7f129a55cd1619703e2d8ff5fd75cbb3675cc60f1"
     },
     {
       "path": "docs/data-preservation-2026-11-03/release-tests.txt",
-      "bytes": 1810,
-      "sha256": "fd13b81d80d7690e7f2b677be7a42d6d44a271bd7d024db09ddf8a4bbadf7bfc"
+      "bytes": 2205,
+      "sha256": "380ae8b1624bed31c80ad118cd0316d6e4540aaf2aa3d926b8f154d6e4ab20d9"
     },
     {
       "path": "docs/data-preservation-2026-11-03/ziwei-feixing-final.png",
@@ -100,13 +100,13 @@
     },
     {
       "path": "docs/2026-11-03_数据保护与界面修复记录.md",
-      "bytes": 5990,
-      "sha256": "10f9dd7f4fe77f0e0af8a2935acbdbb5e8ca3c2c88021dbdfb438412decca5b2"
+      "bytes": 6319,
+      "sha256": "9124ba2e52898a5aed55d096745a770ff986e61c77c6dfbd7b333bcc395ce161"
     },
     {
       "path": "docs/releases/v1.0.15.md",
       "bytes": 3112,
-      "sha256": "b51995a50a9067fa5cc7234876216d88d0c1866743d66553976c1dbf5414de8d"
+      "sha256": "e91c9f37352dd2b780b5aa1c3600f0c8a1000f0ebd192e5ee6b5ddd7e1d8a8ee"
     },
     {
       "path": "native/src/com/wzbz/bazi/DataVaultPlugin.java",
@@ -125,8 +125,8 @@
     },
     {
       "path": "scripts/publish-release.py",
-      "bytes": 12407,
-      "sha256": "06ccc2d5e606e9b97a3f13feec8e8d6b59ea9ab6de6b6f26a1063de7e77fad9b"
+      "bytes": 13332,
+      "sha256": "7ade14f1e3419dcd2447226671189875ba942ea13b4c8e3d7981a4f4ea98b41b"
     },
     {
       "path": "tests/data-preservation-regression.cjs",
