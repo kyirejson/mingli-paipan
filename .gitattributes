@@ -1,0 +1,5 @@
+# Type stripping preserves padding to retain the upstream source layout.
+dist/static/js/ziwei-patterns.js linguist-generated=true whitespace=-blank-at-eol
+dist/static/newguji/catalog.js linguist-generated=true
+dist/static/data/ziwei-reading.json linguist-generated=true
+vendor/** linguist-vendored=true

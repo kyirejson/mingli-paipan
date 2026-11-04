@@ -1,0 +1,46 @@
+{
+  "installed": true,
+  "realAppEntry": true,
+  "books": [
+    {
+      "book": "子平真诠",
+      "receivedPillars": 8,
+      "error": "",
+      "sourceHost": "luckclub.cn",
+      "height": 360,
+      "hasSource": true
+    },
+    {
+      "book": "渊海子平",
+      "receivedPillars": 8,
+      "error": "",
+      "sourceHost": "luckclub.cn",
+      "height": 360,
+      "hasSource": true
+    },
+    {
+      "book": "天元巫咸",
+      "receivedPillars": 8,
+      "error": "",
+      "sourceHost": "tianjihq.com",
+      "height": 360,
+      "hasSource": true
+    },
+    {
+      "book": "李虚中命书",
+      "receivedPillars": 8,
+      "error": "",
+      "sourceHost": "libokang.com",
+      "height": 827,
+      "hasSource": true
+    }
+  ],
+  "inputMatchesCase": true,
+  "currentBook": "子平真诠",
+  "error": "",
+  "notesAvailable": true,
+  "originalParagraphs": 49,
+  "matchedTranslationParagraphs": 3,
+  "chapterTranslationParagraphs": 0,
+  "title": "论财"
+}

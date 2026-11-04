@@ -5,13 +5,13 @@
   var cache=new Map(),limit=12;
   function resolve(view){
     var book=view.books[view.swiperDex]&&view.books[view.swiperDex][view.swiperDex2],tab=view.tabs[view.tabsDex],b=view.gjData.bzArr;
+    if(tab&&tab.publicSource)return Object.assign({},tab.publicSource,{bazi:b.slice()});
     if(!book||!tab||!Array.isArray(b)||b.length!==8||![3,4].includes(book.id))return null;
     var stem=gan.indexOf(b[4]),hour=zhi.indexOf(b[7]),month=months.indexOf(b[3]),chapter,expected,mode;
     if(stem<0||month<0)throw Error('当前命盘缺少有效的日干或月支');
     if(hour>=0&&b[6]!==gan[(stem%5*2+hour)%10])throw Error('当前时柱与日干不相符');
     if(book.id===4){
-      if(hour<0)return null;
-      chapter=month*10+stem+1;expected=b[4]+'日';mode='tiyao';
+      chapter=month*10+stem+1;expected=b[4]+'日';mode=hour<0?'chapter':'tiyao';
     }else if(tab.index===0){
       if(hour<0)return null;
       chapter=184+stem*12+hour;expected='六'+b[4]+'日'+b[6]+b[7]+'时断';mode='dayHour';
@@ -21,7 +21,7 @@
     return {url:'https://luckclub.cn/bazi/'+(book.id===4?'015':'005')+'/'+String(chapter).padStart(3,'0')+'/',
       book:book.name,expected:expected,mode:mode,bazi:b.slice(),label:tab.value};
   }
-  function allowed(url){return /^https:\/\/luckclub\.cn\/bazi\/(?:005|015)\/\d{3}\/$/.test(url);}
+  function allowed(url){return /^https:\/\/luckclub\.cn\/bazi\/(?:001|002|003|004|005|006|007|008|010|013|015)\/\d{3}\/$/.test(url)||/^https:\/\/tianjihq\.com\/zh-CN\/learn\/books\/tianyuan-wuxian-jing\/(?:[1-9]|[1-3]\d|4[0-3])$/.test(url)||url===encodeURI('https://libokang.com/classics/bazi/李虚中命书/');}
   async function fetchText(source,signal){
     if(!allowed(source.url))throw Error('无效的古籍原文地址');
     if(cache.has(source.url)){var hit=cache.get(source.url);cache.delete(source.url);cache.set(source.url,hit);return hit;}
@@ -37,20 +37,55 @@
       if(!response.ok)throw Error('HTTP '+response.status);
       text=await response.text();
     }
-    if(typeof text!=='string'||text.length>1000000||!text.includes('id="article-content"'))throw Error('服务未返回古籍原文');
+    if(typeof text!=='string'||text.length>1500000||!(text.includes('id="article-content"')||source.mode==='tianyuan'&&text.includes('<article')||source.mode==='pairedPillar'&&text.includes('class="reader"')))throw Error('服务未返回古籍正文');
     cache.set(source.url,text);while(cache.size>limit)cache.delete(cache.keys().next().value);
     return text;
   }
-  function clean(text){return String(text||'').replace(/\s+/g,'').trim();}
-  function extract(text,source){
-    var doc=new DOMParser().parseFromString(text,'text/html'),article=doc.querySelector('#article-content');
+  function clean(text){return String(text||'').replace(/[\s\u00ad]/g,'').trim();}
+  function group(blocks,target,pattern){
+    var start=blocks.findIndex(function(p){return clean(p.text).startsWith(target);});if(start<0)return [];
+    var end=start+1;while(end<blocks.length&&!pattern.test(clean(blocks[end].text)))end++;
+    return blocks.slice(start,end);
+  }
+  function extractOriginal(text,source,doc){
+    var article=doc.querySelector('#article-content');
+    if(source.mode==='pairedPillar'){
+      var root=doc.querySelector('main.reader'),bookTitle=root&&root.querySelector('h1');if(!root||!bookTitle||clean(bookTitle.textContent)!==clean(source.expected))throw Error('李虚中底本书名不一致');
+      var heading=Array.from(root.querySelectorAll('h2')).find(function(h){return clean(h.textContent)==='李虚中命书卷上';}),pairs=[];
+      for(var el=heading&&heading.nextElementSibling;el&&el.tagName!=='H2';el=el.nextElementSibling)if(el.classList.contains('pair'))pairs.push(el);
+      var pattern=new RegExp(source.target+'[天地神贵禄][^，。；：]{1,5}，[乃为是自不]'),found=pairs.filter(function(p){var o=p.querySelector('.o');return o&&pattern.test(clean(o.textContent));});
+      // This edition preserves a repeated 辛酉 copying 庚申. Select the distinct
+      // 包秀结英 passage explicitly, rather than letting source order decide.
+      if(source.target==='辛酉')found=found.filter(function(p){return /辛酉神头禄，乃包秀结英/.test(clean(p.querySelector('.o').textContent));});
+      if(found.length!==1)throw Error('干支原段缺失或存在冲突：'+source.target);
+      var original=found[0].querySelector('.o'),translated=found[0].querySelector('.t');if(!translated||!translated.textContent.trim())throw Error('对应白话译注缺失');
+      return {title:source.target+' · 干支纳音原论',blocks:[{text:original.textContent.trim(),heading:false}],annotations:[{text:translated.textContent.trim(),heading:false}],chapterAnnotations:[],level:'paired-passage',paired:true,notice:'按干支纳音体系对照，保留所在原段及其对译；同段可能包含相邻干支。'+(source.target==='辛酉'?'底本另有重出的辛酉文字，此处定位“包秀结英”原段。':''),annotationLabel:'所在原段白话译注'};
+    }
+    if(source.mode==='tianyuan'){
+      article=doc.querySelector('article');var h=article&&article.querySelector('h1'),body=article&&article.querySelector('div.mt-7.space-y-5');
+      if(!h||clean(h.textContent)!==clean(source.expected)||!body)throw Error('巫咸底本篇名或正文不一致');
+      var original=Array.from(body.children).filter(function(e){return e.tagName==='P';}).map(function(e){return {text:e.textContent.trim(),heading:false};}).filter(function(p){return p.text;});
+      if(!original.length)throw Error('巫咸底本正文为空');return {title:source.expected,blocks:original,level:'chapter',oldAnnotations:true};
+    }
     if(!article)throw Error('古籍原文章节缺失');
     var heading=article.querySelector('h1'),title=heading&&heading.textContent.trim();
     if(clean(title)!==clean(source.expected))throw Error('古籍标题与当前条目不一致');
     // Only original article paragraphs; translations and site navigation are separate.
     var blocks=Array.from(article.children).filter(function(e){return /^(P|H2|H3|H4|BLOCKQUOTE)$/.test(e.tagName);})
-      .map(function(e){return {text:e.textContent.trim(),heading:/^H/.test(e.tagName)||!!e.querySelector('strong')};}).filter(function(e){return e.text;});
+      .map(function(e){return {text:e.textContent.trim(),heading:/^H/.test(e.tagName)||!!e.querySelector('strong')&&clean(e.querySelector('strong').textContent)===clean(e.textContent)};}).filter(function(e){return e.text;});
     var b=source.bazi,selected;
+    if(source.mode==='chapter')return {title:title,blocks:blocks,level:'chapter'};
+    if(source.mode==='stemSection'){
+      selected=group(blocks,source.target,/^[甲乙丙丁戊己庚辛壬癸][木火土金水]/);
+      if(selected.length)return {title:title+' · '+source.target,blocks:selected,level:'stem-section'};
+      return {title:title+' · 全章',blocks:blocks,level:'chapter',notice:'该电子本未按日干独立分段，按原章呈现。'};
+    }
+    if(source.mode==='pillar'){
+      if(blocks.filter(function(p){return clean(p.text).startsWith(source.target);}).length!==1)throw Error('干支原文存在缺项或冲突');
+      selected=group(blocks,source.target,/^[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]/);
+      if(!selected.length)throw Error('底本未找到'+source.target+'干支条');
+      return {title:source.target+' · 干支纳音原论',blocks:selected,level:'pillar',notice:'此书采用古法干支纳音体系，此处作条文对照。'};
+    }
     if(source.mode==='tiyao'){
       var key=b[3]+'月'+b[4]+'日'+b[6]+b[7]+'时',start=blocks.findIndex(function(p){return clean(p.text)===key;});
       if(start<0&&b[7]==='子'){
@@ -93,14 +128,39 @@
     if(!blocks.length)throw Error('原文内容为空');
     return {title:title+' · 原典相关章节',blocks:blocks};
   }
+  function extract(text,source){
+    var doc=new DOMParser().parseFromString(text,'text/html'),entry=extractOriginal(text,source,doc);
+    if(entry.paired)return entry;
+    var pane=doc.querySelector('#pane-translation'),body=pane&&Array.from(pane.children).find(function(e){return e.classList.contains('space-y-3');});
+    var translated=body?Array.from(body.querySelectorAll('p,h2,h3,h4')).map(function(e){return {text:e.textContent.trim(),heading:/^H/.test(e.tagName)};}).filter(function(p){return p.text;}):[];
+    entry.annotations=[];entry.chapterAnnotations=[];
+    if(translated.length){
+      if(source.mode==='tiyao'){
+        var key=source.bazi[6]+source.bazi[7]+'时';entry.annotations=group(translated,key,/^[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]时/);
+        if(!entry.annotations.length&&source.bazi[7]==='子'){var n=translated.findIndex(function(p){return /^[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]时/.test(clean(p.text));});entry.annotations=translated.slice(0,n<0?translated.length:n);}
+      }else if(source.mode==='dayHour'&&entry.level==='exact-day'){
+        var target=source.bazi.slice(4).join('').replace(/^(.{2})(.{2})$/,'$1日$2时');
+        entry.annotations=group(translated,target,/^[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]日/);
+      }else if(entry.level==='stem-section')entry.annotations=group(translated,source.target,/^[甲乙丙丁戊己庚辛壬癸][木火土金水]/);
+      else if(entry.level==='pillar')entry.annotations=group(translated,source.target,/^[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]/);
+      else if(entry.level==='chapter')entry.annotations=translated;
+      if(!entry.annotations.length)entry.chapterAnnotations=translated;
+    }
+    entry.blocks=entry.blocks.map(function(p){var t=p.text.replace(/\*\*/g,'');return {text:t,heading:p.heading||t==='原文',kind:/^(?:【徐注】|眉批[：:]|原注[：:]|任氏曰)/.test(t)?'annotation':'original'};});
+    return entry;
+  }
   function escape(text){return String(text).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function documentText(text,source,dark){
     var entry=extract(text,source);
     return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
       '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; style-src \'unsafe-inline\'; script-src \'unsafe-inline\'">'+
-      '<title>'+escape(source.book+' · '+entry.title)+'</title><style>:root{color-scheme:'+(dark?'dark':'light')+'}html,body{margin:0;background:'+(dark?'#18231e':'#f5f1e9')+';color:'+(dark?'#e2e8dc':'#233b33')+';font:17px/1.9 system-ui,sans-serif;overflow-wrap:anywhere}main{padding:18px 16px}h1{font:600 21px/1.6 serif;margin:0 0 16px}p{margin:0 0 16px;text-indent:2em}h2{font-size:18px}footer{border-top:1px solid '+(dark?'#3b4d40':'#dcded2')+';padding-top:12px;font-size:12px}a{color:'+(dark?'#afd0b4':'#23483b')+'}</style></head><body><main><h1>'+escape(entry.title)+'</h1>'+
-      entry.blocks.map(function(p){return '<'+(p.heading?'h2':'p')+'>'+escape(p.text)+'</'+(p.heading?'h2':'p')+'>';}).join('')+
-      '<footer>《'+escape(source.book)+'》原文 · 来源：<a href="'+escape(source.url)+'" referrerpolicy="no-referrer">古籍典藏</a></footer></main></body></html>';
+      '<title>'+escape(source.book+' · '+entry.title)+'</title><style>:root{color-scheme:'+(dark?'dark':'light')+'}html,body{margin:0;background:'+(dark?'#18231e':'#f5f1e9')+';color:'+(dark?'#e2e8dc':'#233b33')+';font:17px/1.9 system-ui,sans-serif;overflow-wrap:anywhere}main{padding:18px 16px}h1{font:600 21px/1.6 serif;margin:0 0 16px}p{margin:0 0 16px;text-indent:2em}h2{font:600 19px/1.7 serif}summary{font-size:18px;cursor:pointer;padding:12px 0}details{border-top:1px solid '+(dark?'#3b4d40':'#dcded2')+';margin:16px 0}.annotation{padding:10px 12px;border-left:2px solid '+(dark?'#afd0b4':'#23483b')+';background:'+(dark?'#202e27':'#fbf8f1')+'}.notice{font-size:14px;text-indent:0}footer{border-top:1px solid '+(dark?'#3b4d40':'#dcded2')+';padding-top:12px;font-size:13px}a{color:'+(dark?'#afd0b4':'#23483b')+'}</style></head><body><main><h1>'+escape(entry.title)+'</h1>'+
+      (entry.notice?'<p class="notice">'+escape(entry.notice)+'</p>':'')+
+      (entry.annotations.length?'<details open class="translation"><summary>'+escape(entry.annotationLabel||'对应白话解说')+'</summary>'+entry.annotations.map(function(p){return '<p>'+escape(p.text)+'</p>';}).join('')+'</details>':'')+
+      '<details open class="original"><summary>'+(entry.oldAnnotations?'原文与随文旧注':'原文及原注')+'</summary>'+entry.blocks.map(function(p){return '<'+(p.heading?'h2':'p')+(p.kind==='annotation'?' class="annotation"':'')+'>'+escape(p.text)+'</'+(p.heading?'h2':'p')+'>';}).join('')+'</details>'+
+      (entry.chapterAnnotations.length?'<details class="chapter-translation"><summary>整章白话（含其他条目）</summary>'+entry.chapterAnnotations.map(function(p){return '<p>'+escape(p.text)+'</p>';}).join('')+'</details>':'')+
+      (entry.oldAnnotations?'<p class="notice">本底本提供随文旧注，未提供独立现代译文。</p>':'')+
+      '<footer>《'+escape(source.book)+'》 · '+(source.mode==='tianyuan'?'天机古籍底本':source.mode==='pairedPillar'?'Libo国学原文与白话译注':'古籍典藏原文与站内白话')+' · <a href="'+escape(source.url)+'" referrerpolicy="no-referrer">查看来源</a></footer></main></body></html>';
   }
   global.BaziPublicClassics=Object.freeze({resolve:resolve,fetchText:fetchText,extract:extract,documentText:documentText});
 })(window);

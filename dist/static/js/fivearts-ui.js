@@ -92,6 +92,7 @@
     V = owner.constructor;
     while (V.super) V = V.super;
     ui = V.observable({ preferences: prefs(read(KEYS.preferences, {})), popup: "", scope: "", editor: null, error: "", message: "", baseTime: "", flow: 0, pending: null, drag: -1, readingStatus:'idle' });
+    global.WZBZReading.register(V);
     registerHost();
     modal = new V({ data: function() {
       return { state: ui };
@@ -757,7 +758,8 @@
     return h('div',{class:['fa-ziwei','fa-ziwei-'+mode]},[
       h('div',{class:'fa-ziwei-board'},[directions,h('div',{class:'fa-ziwei-grid'},jsx.concat([h('div',{class:'fa-ziwei-center'},center),h('FiveArtsFlightLayer',{props:{items:lines}})]))]),
       this.renderZiweiFlows(h,r,mode==='sanhe'),
-      h('div',{class:'fa-ziwei-modebar'},[choices(h,[['feixing','飞星'],['sanhe','三合'],['qintian','钦天·四化']],mode,function(v){self.session.ziweiMode=v;saveSession(self.session);}),button(h,'本命',function(){self.flowScope='';},'fa-ziwei-natal'),button(h,'宫位详读',function(){openPalaceReading(self,r,mode,flow,horoscope,flowYearBase,birthYear,birthBranch,selected);},'fa-small-button fa-palace-read'),button(h,'紫微助手',function(){self.assistantOpen=true;},'fa-ziwei-assistant-entry')])
+      h('div',{class:'fa-ziwei-modebar'},[choices(h,[['feixing','飞星'],['sanhe','三合'],['qintian','钦天·四化']],mode,function(v){self.session.ziweiMode=v;saveSession(self.session);}),button(h,'本命',function(){self.flowScope='';},'fa-ziwei-natal'),button(h,'宫位详读',function(){openPalaceReading(self,r,mode,flow,horoscope,flowYearBase,birthYear,birthBranch,selected);},'fa-small-button fa-palace-read'),button(h,'紫微助手',function(){self.assistantOpen=true;},'fa-ziwei-assistant-entry')]),
+      h('ZiweiReading',{props:{enabled:this.active==='ziwei',chart:chart,selected:selected,mode:mode,flights:flights,flow:flow,flowScope:this.flowScope,flowDate:this.flowDate},on:{select:function(index){self.ziweiPalace=index;self.ziweiFlying=true;}}})
     ]);
   }
 
@@ -1089,7 +1091,7 @@
           }
         },
         touchStart: function(e) {
-          if (ui.popup || e.touches.length !== 1 || e.target.closest("input,textarea,select,.fa-choices,.fa-flow-row,.tab_block,.fa-sort-list,.navigation-foot")) return;
+          if (ui.popup || e.touches.length !== 1 || e.target.closest("input,textarea,select,.fa-choices,.fa-flow-row,.tab_block,.fa-sort-list,.navigation-foot,.ziwei-reading")) return;
           clearTimeout(this._prepareTimer);
           if(this._prepareIdle&&global.cancelIdleCallback)global.cancelIdleCallback(this._prepareIdle);
           this._prepareIdle=null;

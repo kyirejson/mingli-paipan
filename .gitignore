@@ -5,3 +5,7 @@ scripts/__pycache__/
 
 **/__pycache__/
 references/
+
+# Keep actual-case screenshots and third-party reading captures local.
+docs/ziwei-audit-2026-11-04/patterns-installed.jpg
+docs/classics-all-2026-11-04/**/*.jpg

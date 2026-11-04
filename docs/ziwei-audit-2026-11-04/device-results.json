@@ -1,0 +1,188 @@
+{
+  "installedVersion": "1.0.22",
+  "overview": [
+    {
+      "palace": "命宫",
+      "expectedMisc": [
+        "天姚",
+        "八座",
+        "天虚"
+      ],
+      "displayedMiscHeadings": [
+        "杂曜细读 · 3项"
+      ]
+    },
+    {
+      "palace": "兄弟",
+      "expectedMisc": [
+        "红鸾",
+        "天月",
+        "月德"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "夫妻",
+      "expectedMisc": [
+        "恩光",
+        "龙池",
+        "天官",
+        "旬空",
+        "破碎"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "子女",
+      "expectedMisc": [
+        "孤辰",
+        "副旬"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "财帛",
+      "expectedMisc": [
+        "台辅",
+        "蜚廉",
+        "天刑"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "疾厄",
+      "expectedMisc": [
+        "咸池",
+        "解神",
+        "天寿",
+        "天厨",
+        "天空",
+        "阴煞",
+        "天使"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "迁移",
+      "expectedMisc": [
+        "天贵",
+        "凤阁",
+        "天福",
+        "副截"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "仆役",
+      "expectedMisc": [
+        "天喜",
+        "天才",
+        "截空",
+        "寡宿",
+        "天伤"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "官禄",
+      "expectedMisc": [
+        "三台",
+        "封诰"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "田宅",
+      "expectedMisc": [
+        "天巫",
+        "天德",
+        "劫煞"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "福德",
+      "expectedMisc": [
+        "华盖",
+        "天哭"
+      ],
+      "displayedMiscHeadings": []
+    },
+    {
+      "palace": "父母",
+      "expectedMisc": [],
+      "displayedMiscHeadings": []
+    }
+  ],
+  "factorAlignment": [
+    {
+      "text": "命宫坐煞星",
+      "align": "center"
+    }
+  ],
+  "navigation": [
+    {
+      "width": 320,
+      "items": [
+        {
+          "text": "本宫详解",
+          "fullyVisible": true
+        },
+        {
+          "text": "三方夹拱",
+          "fullyVisible": true
+        },
+        {
+          "text": "四化飞星",
+          "fullyVisible": true
+        },
+        {
+          "text": "星系格局",
+          "fullyVisible": false
+        },
+        {
+          "text": "命身运限",
+          "fullyVisible": false
+        }
+      ],
+      "scrollWidth": 472,
+      "widthOfNav": 304
+    },
+    {
+      "width": 430,
+      "items": [
+        {
+          "text": "本宫详解",
+          "fullyVisible": true
+        },
+        {
+          "text": "三方夹拱",
+          "fullyVisible": true
+        },
+        {
+          "text": "四化飞星",
+          "fullyVisible": true
+        },
+        {
+          "text": "星系格局",
+          "fullyVisible": true
+        },
+        {
+          "text": "命身运限",
+          "fullyVisible": false
+        }
+      ],
+      "scrollWidth": 472,
+      "widthOfNav": 406
+    }
+  ],
+  "flow": {
+    "scope": "yearly",
+    "header": "星曜 · 宫位 · 四化 · 会照\n\n盘面详解\n三合",
+    "palaceHeading": "命宫 · 星系与修正\n十二宫通览",
+    "flowCardCount": 4,
+    "palaceCardsUnchanged": true
+  },
+  "protectedBefore": "b32706f888ac086344b80fed548214fe20062b9c2e47c33face958709fdf17d5",
+  "protectedUnchanged": true
+}

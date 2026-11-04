@@ -1,0 +1,587 @@
+[
+  {
+    "function": "detectJunChenQingHui",
+    "line": 114,
+    "literalNames": [
+      "君臣庆会"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!hasStar(ming, '紫微')) return;",
+      "if (!hasZuo || !hasYou) return;",
+      "if (sanFangSet.has('文昌') || sanFangSet.has('文曲')) bonus.push('再会文昌或文曲');",
+      "if (sanFangSet.has('天魁') || sanFangSet.has('天钺')) bonus.push('魁钺贵人加照');",
+      "if (getStarSiHua(ming, '紫微') === '权') bonus.push('紫微化权');",
+      "if (sanFangShaCount(chart, SHA_KONG) >= 2) breaking.push('地空地劫双夹会照（紫微忌空劫）');"
+    ]
+  },
+  {
+    "function": "detectZiFu",
+    "line": 140,
+    "literalNames": [
+      "紫府同宫"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!ziwei || !tianfu || ziwei.branch !== tianfu.branch) return;",
+      "if (sanFangSet.has('左辅') && sanFangSet.has('右弼')) bonus.push('左辅右弼同会');",
+      "if (sanFangSet.has('文昌') || sanFangSet.has('文曲')) bonus.push('再会昌曲');",
+      "if (hasShaInPalace(ziwei, SHA_KONG)) breaking.push('紫府宫坐空劫（破紫府之贵气）');",
+      "if (shaCountInPalace(ziwei, SHA_HARD) >= 2) breaking.push('紫府宫见双煞同坐');"
+    ]
+  },
+  {
+    "function": "detectFuXiangChaoYuan",
+    "line": 170,
+    "literalNames": [
+      "府相朝垣"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!tianfu || !tianxiang) return;",
+      "if (!isInSanFang(chart, tianfu.branch) || !isInSanFang(chart, tianxiang.branch)) return;",
+      "if (tianfu.branch === chart.mingGongBranch && tianxiang.branch === chart.mingGongBranch) return;",
+      "if (tianfu.branch === tianxiang.branch) return;",
+      "if (hasStar(ming, '禄存') || palaceHasSiHua(ming, '禄')) bonus.push('命宫见禄');",
+      "if (sanFangAllStars(chart).has('左辅')) bonus.push('再会左辅');",
+      "if (hasShaInPalace(ming, SHA_HARD)) breaking.push('命宫坐煞星');",
+      "if (sanFangShaCount(chart, SHA_HARD) >= 3) breaking.push('三方四正煞星过多');"
+    ]
+  },
+  {
+    "function": "detectYangLiangChangLu",
+    "line": 197,
+    "literalNames": [
+      "阳梁昌禄"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!sanFangSet.has('太阳') || !sanFangSet.has('天梁') ||",
+      "if (isBright(sun, '太阳')) bonus.push('太阳庙旺');",
+      "if (isBright(liang, '天梁')) bonus.push('天梁庙旺');",
+      "if (sanFangHasSiHua(chart, '科')) bonus.push('再会化科');",
+      "if (isDim(sun, '太阳')) breaking.push('太阳落陷（阳梁失辉）');",
+      "if (sanFangShaCount(chart, SHA_HARD) >= 2) breaking.push('三方煞重');"
+    ]
+  },
+  {
+    "function": "detectHuoTanLingTan",
+    "line": 229,
+    "literalNames": [],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!tan) return;",
+      "if (!shaPalace) continue;",
+      "if (!sameOrTrine) continue;",
+      "if (!isInSanFang(chart, tan.branch)) continue;",
+      "if (isBright(tan, '贪狼')) bonus.push('贪狼庙旺');",
+      "if (getStarSiHua(tan, '贪狼') === '禄' || getStarSiHua(tan, '贪狼') === '权') bonus.push('贪狼化禄/化权');",
+      "if (hasShaInPalace(tan, ['擎羊', '陀罗'])) breaking.push('贪狼宫又见羊陀（破横发之力）');",
+      "if (hasShaInPalace(tan, SHA_KONG)) breaking.push('贪狼遇空劫（财来财去）');"
+    ]
+  },
+  {
+    "function": "detectWuTan",
+    "line": 265,
+    "literalNames": [
+      "武贪格"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!wu || !tan) return;",
+      "if (!sameOrOppose) return;",
+      "if (!isInSanFang(chart, wu.branch) && !isInSanFang(chart, tan.branch)) return;",
+      "if (sanFangAllStars(chart).has('火星') || sanFangAllStars(chart).has('铃星'))",
+      "bonus.push('再遇火星/铃星（火贪/铃贪叠加）');",
+      "if (getStarSiHua(wu, '武曲') === '禄') bonus.push('武曲化禄');",
+      "if (hasShaInPalace(wu, ['擎羊', '陀罗'])) breaking.push('武贪宫见羊陀');",
+      "if (hasShaInPalace(wu, SHA_KONG)) breaking.push('武贪宫遇空劫');"
+    ]
+  },
+  {
+    "function": "detectShaPoLang",
+    "line": 296,
+    "literalNames": [
+      "杀破狼"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (has.length < 3) return;",
+      "if (sanFangHasSiHua(chart, '禄') || sanFangHasSiHua(chart, '权')) bonus.push('三方有化禄或化权（动得有力）');",
+      "if (sanFangSet.has('左辅') && sanFangSet.has('右弼')) bonus.push('辅弼同会（变动中得贵人）');",
+      "if (sanFangShaCount(chart, SHA_HARD) >= 3) breaking.push('煞星过重（动而无成）');",
+      "if (hasShaInPalace(ming, SHA_KONG)) breaking.push('命坐空劫（动得辛苦）');"
+    ]
+  },
+  {
+    "function": "detectJiYueTongLiang",
+    "line": 320,
+    "literalNames": [
+      "机月同梁"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (has.length < 4) return;",
+      "if (sanFangSet.has('文昌') || sanFangSet.has('文曲')) bonus.push('再会昌曲');",
+      "if (sanFangHasSiHua(chart, '科')) bonus.push('再会化科');",
+      "if (sanFangShaCount(chart, SHA_HARD) >= 3) breaking.push('煞星过多（机月同梁忌煞）');",
+      "if (hasShaInPalace(ming, SHA_HARD)) breaking.push('命宫坐煞');"
+    ]
+  },
+  {
+    "function": "detectLianXiang",
+    "line": 344,
+    "literalNames": [
+      "廉贞天相格"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!lian || !xiang || lian.branch !== xiang.branch) return;",
+      "if (hasStar(lian, '禄存') || getStarSiHua(lian, '廉贞') === '禄') bonus.push('见禄存或廉贞化禄');",
+      "if (sanFangAllStars(chart).has('左辅')) bonus.push('左辅会照');",
+      "if (hasShaInPalace(lian, ['擎羊'])) breaking.push('廉相宫坐擎羊（廉杀羊倾向）');",
+      "if (getStarSiHua(lian, '廉贞') === '忌') breaking.push('廉贞化忌');"
+    ]
+  },
+  {
+    "function": "detectWuQiSha",
+    "line": 369,
+    "literalNames": [
+      "武曲七杀"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!wu || !qi || wu.branch !== qi.branch) return;",
+      "if (getStarSiHua(wu, '武曲') === '权') bonus.push('武曲化权');",
+      "if (getStarSiHua(wu, '武曲') === '禄') bonus.push('武曲化禄');",
+      "if (getStarSiHua(wu, '武曲') === '忌') breaking.push('武曲化忌（武曲化忌为财劫之兆）');",
+      "if (hasShaInPalace(wu, ['擎羊', '陀罗', '火星', '铃星'])) breaking.push('武杀宫煞星过多');"
+    ]
+  },
+  {
+    "function": "detectTongLiang",
+    "line": 394,
+    "literalNames": [
+      "天同天梁格"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!tong || !liang || tong.branch !== liang.branch) return;",
+      "if (sanFangAllStars(chart).has('文昌')) bonus.push('文昌会照');",
+      "if (getStarSiHua(tong, '天同') === '禄') bonus.push('天同化禄');",
+      "if (hasShaInPalace(tong, SHA_HARD)) breaking.push('煞星同坐');"
+    ]
+  },
+  {
+    "function": "detectRiYueTongGong",
+    "line": 417,
+    "literalNames": [
+      "日月同宫"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!sun || !moon || sun.branch !== moon.branch) return;",
+      "if (sun.branch !== 1 && sun.branch !== 7) return; // 必须丑(1) 或 未(7)",
+      "if (sun.branch === 7) bonus.push('未宫日月同辉（古书云未宫日月双美）');",
+      "if (sanFangAllStars(chart).has('文昌') && sanFangAllStars(chart).has('文曲')) bonus.push('昌曲会照');",
+      "if (hasShaInPalace(sun, SHA_HARD)) breaking.push('日月宫煞星同坐');"
+    ]
+  },
+  {
+    "function": "detectRiYueJiaMing",
+    "line": 442,
+    "literalNames": [
+      "日月夹命"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!prev || !next) return;",
+      "if (!ok) return;",
+      "if (isBright(sunPalace, '太阳')) bonus.push('太阳庙旺');",
+      "if (isBright(moonPalace, '太阴')) bonus.push('太阴庙旺');",
+      "if (isDim(sunPalace, '太阳') || isDim(moonPalace, '太阴')) breaking.push('日月落陷（夹命无光）');"
+    ]
+  },
+  {
+    "function": "detectJuRiTongGong",
+    "line": 472,
+    "literalNames": [
+      "巨日同宫"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!ju || !sun || ju.branch !== sun.branch) return;",
+      "if (ju.branch !== 2 && ju.branch !== 8) return; // 必须寅(2) 或 申(8)",
+      "if (ju.branch === 2) bonus.push('寅宫太阳庙旺，巨门得日光化解是非');",
+      "if (getStarSiHua(ju, '巨门') === '禄' || getStarSiHua(ju, '巨门') === '权') bonus.push('巨门化禄/化权（口才生财）');",
+      "if (getStarSiHua(ju, '巨门') === '忌') breaking.push('巨门化忌（口舌官非）');",
+      "if (ju.branch === 8) breaking.push('申宫太阳偏西，巨门暗曜更显');"
+    ]
+  },
+  {
+    "function": "detectShiZhongYinYu",
+    "line": 498,
+    "literalNames": [
+      "石中隐玉"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!hasStar(ming, '巨门')) return;",
+      "if (ming.branch !== 0 && ming.branch !== 6) return; // 子(0) 或 午(6)",
+      "if (getStarSiHua(ming, '巨门') === '禄' || getStarSiHua(ming, '巨门') === '权') bonus.push('巨门化禄/化权');",
+      "if (sanFangAllStars(chart).has('文昌')) bonus.push('文昌会照（石中隐玉得明）');",
+      "if (getStarSiHua(ming, '巨门') === '忌') breaking.push('巨门化忌（玉藏深泥）');",
+      "if (hasShaInPalace(ming, SHA_HARD)) breaking.push('命坐煞星');"
+    ]
+  },
+  {
+    "function": "detectMingZhuChuHai",
+    "line": 521,
+    "literalNames": [
+      "明珠出海"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (ming.branch !== 7) return; // 命在未",
+      "if (getMajorStarNames(ming).length > 0) return; // 命宫为空宫",
+      "if (!dui) return;",
+      "if (!hasStar(dui, '太阳') || !hasStar(dui, '太阴')) return;",
+      "if (sanFangAllStars(chart).has('文昌') || sanFangAllStars(chart).has('文曲')) bonus.push('再会昌曲');",
+      "if (sanFangAllStars(chart).has('左辅') || sanFangAllStars(chart).has('右弼')) bonus.push('辅弼相助');",
+      "if (sanFangShaCount(chart, SHA_HARD) >= 2) breaking.push('煞星会照（珠光黯淡）');"
+    ]
+  },
+  {
+    "function": "detectZiWeiInMing",
+    "line": 546,
+    "literalNames": [
+      "紫微入命"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!hasStar(ming, '紫微') || hasStar(ming, '天府')) return;",
+      "if (sanFangSet.has('左辅') && sanFangSet.has('右弼')) bonus.push('左辅右弼同会');",
+      "if (sanFangSet.has('文昌') && sanFangSet.has('文曲')) bonus.push('文昌文曲同会');",
+      "if (!sanFangSet.has('左辅') && !sanFangSet.has('右弼')) breaking.push('无辅弼（孤君无臣）');",
+      "if (hasShaInPalace(ming, SHA_KONG)) breaking.push('紫微遇空劫（古书最忌）');"
+    ]
+  },
+  {
+    "function": "detectFuBiJiaMing",
+    "line": 569,
+    "literalNames": [
+      "辅弼夹命"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!prev || !next) return;",
+      "if (!((prevHasZuo && nextHasYou) || (prevHasYou && nextHasZuo))) return;",
+      "if (sanFangAllStars(chart).has('天魁') || sanFangAllStars(chart).has('天钺')) bonus.push('再会魁钺');"
+    ]
+  },
+  {
+    "function": "detectChangQuJiaMing",
+    "line": 594,
+    "literalNames": [
+      "昌曲夹命"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!prev || !next) return;",
+      "if (!((prevHasChang && nextHasQu) || (prevHasQu && nextHasChang))) return;"
+    ]
+  },
+  {
+    "function": "detectKuiYueJiaMing",
+    "line": 614,
+    "literalNames": [
+      "魁钺夹命"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!prev || !next) return;",
+      "if (!okA && !okB) return;"
+    ]
+  },
+  {
+    "function": "detectShuangLuChaoYuan",
+    "line": 632,
+    "literalNames": [
+      "双禄朝垣"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (p.stars.some(s => s.siHua === '禄')) huaLuFound = true;",
+      "if (hasStar(p, '禄存')) luCunFound = true;",
+      "if (!huaLuFound || !luCunFound) return;"
+    ]
+  },
+  {
+    "function": "detectSanQiJiaHui",
+    "line": 656,
+    "literalNames": [
+      "三奇加会"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (s.siHua === '禄') lu = true;",
+      "if (s.siHua === '权') quan = true;",
+      "if (s.siHua === '科') ke = true;",
+      "if (!(lu && quan && ke)) return;"
+    ]
+  },
+  {
+    "function": "detectHuaLuRuMing",
+    "line": 679,
+    "literalNames": [],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!huaLuStar) return;"
+    ]
+  },
+  {
+    "function": "detectHuaJiRuMingQian",
+    "line": 696,
+    "literalNames": [],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (palace.branch !== chart.mingGongBranch && palace.branch !== qianBranch) continue;",
+      "if (!jiStar) continue;"
+    ]
+  },
+  {
+    "function": "detectYangTuoJiaJi",
+    "line": 718,
+    "literalNames": [
+      "羊陀夹忌"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!jiStar) continue;",
+      "if (palace.branch !== chart.mingGongBranch) continue; // 只看命宫被夹",
+      "if (!prev || !next) continue;",
+      "if (!aPrev && !aNext) continue;"
+    ]
+  },
+  {
+    "function": "detectHuoLingJiaMing",
+    "line": 743,
+    "literalNames": [
+      "火铃夹命"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!prev || !next) return;",
+      "if (!okA && !okB) return;"
+    ]
+  },
+  {
+    "function": "detectKongJieJiaMing",
+    "line": 761,
+    "literalNames": [
+      "空劫夹命"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!prev || !next) return;",
+      "if (!okA && !okB) return;"
+    ]
+  },
+  {
+    "function": "detectLianShaYang",
+    "line": 779,
+    "literalNames": [
+      "廉杀羊"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!(sanFangSet.has('廉贞') && sanFangSet.has('七杀') && sanFangSet.has('擎羊'))) return;"
+    ]
+  },
+  {
+    "function": "detectJuHuoYang",
+    "line": 794,
+    "literalNames": [
+      "巨火羊"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!(sanFangSet.has('巨门') && sanFangSet.has('火星') && sanFangSet.has('擎羊'))) return;"
+    ]
+  },
+  {
+    "function": "detectLingChangTuoWu",
+    "line": 809,
+    "literalNames": [
+      "铃昌陀武"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!(sanFangSet.has('铃星') && sanFangSet.has('文昌') && sanFangSet.has('陀罗') && sanFangSet.has('武曲'))) return;"
+    ]
+  },
+  {
+    "function": "detectMaTouDaiJian",
+    "line": 824,
+    "literalNames": [
+      "马头带箭"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (ming.branch !== 6) return; // 必须午",
+      "if (!hasStar(ming, '擎羊')) return;",
+      "if (sanFangAllStars(chart).has('七杀') || sanFangAllStars(chart).has('破军')) bonus.push('再会七杀或破军（武职大贵）');",
+      "if (sanFangAllStars(chart).has('天魁') || sanFangAllStars(chart).has('天钺')) bonus.push('魁钺加照');"
+    ]
+  },
+  {
+    "function": "detectLuCunShouShen",
+    "line": 849,
+    "literalNames": [],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!luCunPalace) return;",
+      "if (!inMing && !inShen) return;"
+    ]
+  },
+  {
+    "function": "detectTianMaRuMing",
+    "line": 868,
+    "literalNames": [],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!tianMaPalace) return;",
+      "if (!inMing && !inQian) return;"
+    ]
+  },
+  {
+    "function": "detectHuaLuRuCai",
+    "line": 887,
+    "literalNames": [
+      "化禄入财"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!cai) return;",
+      "if (!luStar) return;"
+    ]
+  },
+  {
+    "function": "detectHuaQuanRuGuan",
+    "line": 903,
+    "literalNames": [
+      "化权入官"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!guan) return;",
+      "if (!quanStar) return;"
+    ]
+  },
+  {
+    "function": "detectHuaKeRuMingShen",
+    "line": 919,
+    "literalNames": [],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!keStar) continue;"
+    ]
+  },
+  {
+    "function": "detectJiYueTongLiangPartial",
+    "line": 940,
+    "literalNames": [
+      "机月同梁三星会"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (has.length !== 3) return; // 4 星齐由 detectJiYueTongLiang 处理"
+    ]
+  },
+  {
+    "function": "detectChangQuTongHui",
+    "line": 958,
+    "literalNames": [],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": true,
+    "checks": [
+      "if (!sanFangSet.has('文昌') || !sanFangSet.has('文曲')) return;",
+      "if (!ming) return;"
+    ]
+  },
+  {
+    "function": "detectFuBiTongHui",
+    "line": 977,
+    "literalNames": [
+      "辅弼同会"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!sanFangSet.has('左辅') || !sanFangSet.has('右弼')) return;"
+    ]
+  },
+  {
+    "function": "detectKuiYueTongHui",
+    "line": 991,
+    "literalNames": [
+      "魁钺同会"
+    ],
+    "usesMingGlobalSF": true,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (!sanFangSet.has('天魁') || !sanFangSet.has('天钺')) return;"
+    ]
+  },
+  {
+    "function": "detectKeQuanShuangHui",
+    "line": 1005,
+    "literalNames": [
+      "科权双会"
+    ],
+    "usesMingGlobalSF": false,
+    "usesActualSamePalace": false,
+    "checks": [
+      "if (s.type === 'major' && s.siHua === '科') hasKe = true;",
+      "if (s.type === 'major' && s.siHua === '权') hasQuan = true;",
+      "if (!hasKe || !hasQuan) return;"
+    ]
+  }
+]

@@ -9,6 +9,7 @@ function classicsContext(fetch){
  const media={matches:false,addEventListener(){},removeEventListener(){}};
  const c={n(){},console:{log(){},error(){}},URL:ReaderURL,Blob,AbortController,setTimeout,clearTimeout,document,parent,fetch:fetch||(()=>{throw Error('Unexpected network request')}),matchMedia:()=>media,location:{href:'https://localhost/static/newguji/index.html?nightMode=1'},addEventListener:(key,fn)=>listeners.set(key,fn),removeEventListener:(key,fn)=>{if(listeners.get(key)===fn)listeners.delete(key);}};
  c.window=c;vm.createContext(c);
+  for(const file of ['catalog','catalogue-rules','public-sources'])vm.runInContext(fs.readFileSync('dist/static/newguji/'+file+'.js','utf8'),c);
  vm.runInContext(fs.readFileSync('dist/static/newguji/reader.js','utf8'),c);
  const s=fs.readFileSync('dist/static/newguji/index.js','utf8');
  c.render=vm.runInContext('('+s.slice(s.indexOf('f=(p.exports,')+'f=(p.exports,'.length,s.indexOf('),_=[]'))+')',c);

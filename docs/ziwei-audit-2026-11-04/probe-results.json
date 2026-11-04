@@ -1,0 +1,377 @@
+{
+  "baselineVersion": "1.0.22",
+  "probes": {
+    "palaceLost": {
+      "actualPalace": "子女",
+      "actualMajor": [
+        "武曲",
+        "七杀"
+      ],
+      "displayed": {
+        "id": "pattern-1",
+        "technique": "星系格局",
+        "title": "武曲七杀",
+        "text": "执行、资源与独立决断相合，工作重结果和攻坚，权责与压力集中，较少依赖温和的人情推动。",
+        "evidence": "武曲七杀同宫",
+        "refs": [
+          "upstream",
+          "pattern"
+        ],
+        "kind": "reading",
+        "bonus": [
+          "武曲化权"
+        ],
+        "breaking": [
+          "武杀宫煞星过多"
+        ],
+        "originalSource": "《紫微斗数全书》"
+      }
+    },
+    "flowIsolation": {
+      "palaceCardsIdentical": true,
+      "patternCardsIdentical": true,
+      "flowCards": [
+        {
+          "title": "流年 · 天同化禄",
+          "text": "生活享受与兴趣的需求增加，重舒适、乐趣和情绪满足，愿意为喜欢的事付出。",
+          "evidence": "2026-11-04 · 流年福德宫叠本命财帛宫 甲申"
+        },
+        {
+          "title": "流年 · 天机化权",
+          "text": "在外希望取得位置和决定权，外部责任、竞争和需要主事的事务增加。",
+          "evidence": "2026-11-04 · 流年迁移宫叠本命命宫 戊子"
+        },
+        {
+          "title": "流年 · 文昌化科",
+          "text": "重居住环境、家风与家业名声，资产安排偏正式、重文书与体面。",
+          "evidence": "2026-11-04 · 流年田宅宫叠本命子女宫 乙酉"
+        },
+        {
+          "title": "流年 · 廉贞化忌",
+          "text": "对同辈关系较牵挂，互助、分配和金钱来往容易形成压力或反复。",
+          "evidence": "2026-11-04 · 流年兄弟宫叠本命交友宫 辛巳"
+        }
+      ],
+      "allFlowTextsArePlainPalaceHua": true
+    },
+    "schoolIsolation": {
+      "natalIdentical": true,
+      "patternsIdentical": true,
+      "flightsIdentical": true
+    },
+    "coreDoesNotCompose": {
+      "coreUnchanged": true,
+      "natalChanged": true,
+      "core": "白手积累与信誉求财相连，靠经验、照应和解决问题形成资源；天梁庙陷与天同四化分别改变得财和耗财表现。"
+    },
+    "provenance": {
+      "detailFields": [
+        "id",
+        "palace",
+        "star",
+        "type",
+        "value",
+        "title",
+        "text"
+      ],
+      "profileCellType": "string",
+      "contextFields": [
+        "text",
+        "chapter",
+        "anchor",
+        "star"
+      ],
+      "sourceKeys": [
+        "quanshu",
+        "dataset",
+        "palace",
+        "stars",
+        "minor",
+        "mutagen",
+        "pattern",
+        "upstream",
+        "kvov"
+      ],
+      "entryToParagraphMapping": false
+    },
+    "detailCoverage": {
+      "命宫": {
+        "brightness": 0,
+        "mutagen": 0
+      },
+      "兄弟": {
+        "brightness": 2,
+        "mutagen": 0
+      },
+      "夫妻": {
+        "brightness": 0,
+        "mutagen": 5
+      },
+      "子女": {
+        "brightness": 0,
+        "mutagen": 0
+      },
+      "财帛": {
+        "brightness": 9,
+        "mutagen": 7
+      },
+      "疾厄": {
+        "brightness": 0,
+        "mutagen": 0
+      },
+      "迁移": {
+        "brightness": 2,
+        "mutagen": 1
+      },
+      "仆役": {
+        "brightness": 0,
+        "mutagen": 1
+      },
+      "官禄": {
+        "brightness": 6,
+        "mutagen": 6
+      },
+      "田宅": {
+        "brightness": 0,
+        "mutagen": 2
+      },
+      "福德": {
+        "brightness": 2,
+        "mutagen": 2
+      },
+      "父母": {
+        "brightness": 0,
+        "mutagen": 0
+      }
+    },
+    "realCharts": {
+      "count": 288,
+      "brightnessLevels": [
+        "陷",
+        "庙",
+        "平",
+        "得",
+        "旺",
+        "利",
+        "不"
+      ],
+      "unexplainedStars": [
+        "年解",
+        "龙德",
+        "大耗"
+      ],
+      "originalPalaceCounts": {
+        "1": 288
+      },
+      "duplicatePatterns": [],
+      "wrongMeetingCenters": [
+        {
+          "date": "1968-09-09 08:30",
+          "gender": "女",
+          "pattern": "廉贞天相格",
+          "targetPalace": "父母",
+          "targetBranch": "午",
+          "auxiliary": "左辅",
+          "auxPalace": "迁移",
+          "auxBranch": "亥",
+          "displayedBonus": [
+            "左辅会照"
+          ]
+        },
+        {
+          "date": "1990-07-04 06:30",
+          "gender": "女",
+          "pattern": "天同天梁格",
+          "targetPalace": "仆役",
+          "targetBranch": "申",
+          "auxiliary": "文昌",
+          "auxPalace": "官禄",
+          "auxBranch": "未",
+          "displayedBonus": [
+            "文昌会照"
+          ]
+        }
+      ],
+      "maTouMismatch": [
+        {
+          "date": "2006-11-26 10:30",
+          "gender": "女",
+          "ming": "甲午",
+          "major": [],
+          "oppositeMajor": [
+            "天同",
+            "太阴"
+          ],
+          "tanLu": false,
+          "pattern": {
+            "id": "pattern-2",
+            "technique": "星系格局",
+            "title": "马头带箭",
+            "text": "午宫天同太阴与擎羊同见，安稳、细腻的星系受到直接冲击，生活节奏和关系中的安逸感容易被压力打断。",
+            "evidence": "擎羊于午宫坐命",
+            "refs": [
+              "upstream",
+              "pattern"
+            ],
+            "kind": "reading",
+            "bonus": [],
+            "breaking": [],
+            "originalSource": "《紫微斗数骨髓赋·马头带箭》"
+          }
+        },
+        {
+          "date": "2018-11-17 10:30",
+          "gender": "女",
+          "ming": "戊午",
+          "major": [],
+          "oppositeMajor": [
+            "天同",
+            "太阴"
+          ],
+          "tanLu": false,
+          "pattern": {
+            "id": "pattern-2",
+            "technique": "星系格局",
+            "title": "马头带箭",
+            "text": "午宫天同太阴与擎羊同见，安稳、细腻的星系受到直接冲击，生活节奏和关系中的安逸感容易被压力打断。",
+            "evidence": "擎羊于午宫坐命",
+            "refs": [
+              "upstream",
+              "pattern"
+            ],
+            "kind": "reading",
+            "bonus": [],
+            "breaking": [],
+            "originalSource": "《紫微斗数骨髓赋·马头带箭》"
+          }
+        }
+      ]
+    },
+    "focused": {
+      "charts": 360,
+      "hardMa": {
+        "date": "1986-06-08 00:30",
+        "ming": "甲午",
+        "major": [
+          "七杀"
+        ],
+        "oppositeMajor": [
+          "武曲",
+          "天府"
+        ],
+        "pattern": {
+          "id": "pattern-2",
+          "technique": "星系格局",
+          "title": "马头带箭",
+          "text": "午宫天同太阴与擎羊同见，安稳、细腻的星系受到直接冲击，生活节奏和关系中的安逸感容易被压力打断。",
+          "evidence": "擎羊于午宫坐命",
+          "refs": [
+            "upstream",
+            "pattern"
+          ],
+          "kind": "reading",
+          "bonus": [
+            "再会七杀或破军（武职大贵）"
+          ],
+          "breaking": [],
+          "originalSource": "《紫微斗数骨髓赋·马头带箭》"
+        }
+      },
+      "duplicateCase": null
+    },
+    "validatorAcceptsConflictingDetail": true,
+    "corpusAndUI": {
+      "genericBrightnessLevels": [
+        "strong",
+        "weak"
+      ],
+      "miscCount": 39,
+      "techniques": [
+        {
+          "id": "palace",
+          "title": "本宫星系",
+          "scope": "十二宫实际单星与双星组合",
+          "status": "implemented"
+        },
+        {
+          "id": "brightness",
+          "title": "庙旺落陷",
+          "scope": "按每颗主星实际亮度修正",
+          "status": "implemented"
+        },
+        {
+          "id": "auxiliary",
+          "title": "辅煞杂曜",
+          "scope": "十四辅曜落宫及杂曜象义",
+          "status": "implemented"
+        },
+        {
+          "id": "sanhe",
+          "title": "三方四正",
+          "scope": "本宫、三合、对宫分别定位",
+          "status": "implemented"
+        },
+        {
+          "id": "borrow",
+          "title": "空宫借曜",
+          "scope": "对宫参照且保留原星位置",
+          "status": "implemented"
+        },
+        {
+          "id": "flank",
+          "title": "夹拱关系",
+          "scope": "两邻宫分别有指定星，不混同会照",
+          "status": "implemented"
+        },
+        {
+          "id": "natal",
+          "title": "生年四化",
+          "scope": "星曜四化、落宫及同宫四化并存",
+          "status": "implemented"
+        },
+        {
+          "id": "flying",
+          "title": "宫干飞化",
+          "scope": "十二宫飞入、忌入与对宫受冲",
+          "status": "implemented"
+        },
+        {
+          "id": "self",
+          "title": "离心自化",
+          "scope": "宫干使本宫星曜自化",
+          "status": "implemented"
+        },
+        {
+          "id": "incoming",
+          "title": "向心自化",
+          "scope": "对宫宫干使本宫星曜四化",
+          "status": "implemented"
+        },
+        {
+          "id": "pattern",
+          "title": "星系格局",
+          "scope": "列出已编码的成立及受损条件",
+          "status": "implemented"
+        },
+        {
+          "id": "body",
+          "title": "命身来因",
+          "scope": "命宫、身宫与实际来因标记",
+          "status": "implemented"
+        },
+        {
+          "id": "flow",
+          "title": "运限叠读",
+          "scope": "大限及当前选中层四化与本命叠加",
+          "status": "implemented"
+        },
+        {
+          "id": "advanced",
+          "title": "进阶派别断法",
+          "scope": "河洛数理、法象归藏、完整应期与各家秘传",
+          "status": "not-implemented"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "repository": "https://github.com/Renhuai123/ziwei-doushu",
+  "commit": "a600484a49255039d0725f1ba9e11ca81a948f97",
+  "files": {
+    "patterns.ts": {
+      "url": "https://raw.githubusercontent.com/Renhuai123/ziwei-doushu/a600484a49255039d0725f1ba9e11ca81a948f97/lib/ziwei/patterns.ts",
+      "sha256": "39979582973f2d78c3b8235fc357af8602e770c5d25806ed8acfdc1d60e8225f"
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/Renhuai123/ziwei-doushu/a600484a49255039d0725f1ba9e11ca81a948f97/LICENSE",
+      "sha256": "c0214b387494be5b7a6d3e7bf62897e43dd425c2b77f42e20925029252275be4"
+    }
+  }
+}

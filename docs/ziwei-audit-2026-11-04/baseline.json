@@ -1,0 +1,13 @@
+{
+  "version": "1.0.22",
+  "files": {
+    "dist/static/js/ziwei-interpretation.js": "24c0e93b6a8db0afe2951464957b247c0453f424166d40ca523b67c877427422",
+    "dist/static/js/ziwei-reading.js": "50aab9bb674cb099375180e3503d63dcd4410e2ac00343b3796a3f5f21dcea59",
+    "dist/static/js/ziwei-patterns.js": "0af030b09c240b6b088b960a5fd2fcbb953daf278f676ec3081dc5724c242be7",
+    "dist/static/data/ziwei-reading.json": "304da352049054635381f165b5911ed10714bd34f379e6d8e4a974ccffa20304",
+    "dist/static/css/ziwei-reading.css": "b81d6e41041c8cad3efa3b382fa262eaad44f01f7e2fdffba3567472f2210a0e",
+    "scripts/build-ziwei-reading-data.py": "8b67d4b1253fc889ad028c031a2941d08ff6d53cef7c566ae976319e54563aa7",
+    "vendor/ziwei-doushu/patterns.ts": "39979582973f2d78c3b8235fc357af8602e770c5d25806ed8acfdc1d60e8225f",
+    "package.json": "f67d931445251034b290467628fda29479b4456f30c5d2383be355173ae1b5d6"
+  }
+}

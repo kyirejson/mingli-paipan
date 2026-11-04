@@ -1,0 +1,14 @@
+{
+  "appFilesUnchanged": true,
+  "checkedAppFiles": 8,
+  "protectedDataUnchanged": true,
+  "findingsAndRecommendations": 24,
+  "priorities": {
+    "P1": 9,
+    "P2": 12,
+    "P3": 3
+  },
+  "appPatched": false,
+  "appReinstalled": false,
+  "published": false
+}

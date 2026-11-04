@@ -1,0 +1,23 @@
+{
+  "contentVersion": "2026-11-04.4",
+  "schemaVersion": 4,
+  "provenanceEntries": 896,
+  "verifiedQuotePointers": 7,
+  "contexts": 277,
+  "mainStarContexts": 162,
+  "miscEntries": 42,
+  "specialDetails": 52,
+  "fullProjectTests": {
+    "passed": 150,
+    "failed": 0
+  },
+  "afterTextCleanupTargetedTests": {
+    "passed": 33,
+    "failed": 0
+  },
+  "releaseContractTests": 13,
+  "buildLifecycleTests": 9,
+  "allInterpretationsIndependentlyReviewed": false,
+  "allAdvancedTechniquesImplemented": false,
+  "supersededGlobalMeaningsRemoved": 7
+}

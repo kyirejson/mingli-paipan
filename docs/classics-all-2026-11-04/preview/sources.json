@@ -1,0 +1,374 @@
+{
+  "installed": false,
+  "rows": [
+    {
+      "book": "穷通宝鉴",
+      "id": 1,
+      "chapters": [
+        {
+          "title": "十一、十二月丁火",
+          "url": "https://luckclub.cn/bazi/004/046/",
+          "original": 1,
+          "annotations": 2,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        }
+      ]
+    },
+    {
+      "book": "滴天髓",
+      "id": 2,
+      "chapters": [
+        {
+          "title": "天干 · 丁火",
+          "url": "https://luckclub.cn/bazi/007/009/",
+          "original": 4,
+          "annotations": 1,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "stem-section"
+        },
+        {
+          "title": "官杀",
+          "url": "https://luckclub.cn/bazi/007/023/",
+          "original": 103,
+          "annotations": 5,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "体用",
+          "url": "https://luckclub.cn/bazi/007/015/",
+          "original": 19,
+          "annotations": 8,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "月令",
+          "url": "https://luckclub.cn/bazi/007/017/",
+          "original": 12,
+          "annotations": 6,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        }
+      ]
+    },
+    {
+      "book": "三命通会",
+      "id": 3,
+      "chapters": [
+        {
+          "title": "丁丑日辛丑时",
+          "url": "https://luckclub.cn/bazi/005/221/",
+          "original": 9,
+          "annotations": 1,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "exact-day"
+        },
+        {
+          "title": "论天干阴阳生死 · 丁日",
+          "url": "https://luckclub.cn/bazi/005/014/",
+          "original": 1,
+          "annotations": 0,
+          "chapterAnnotations": 7,
+          "oldAnnotations": false
+        },
+        {
+          "title": "丑月 · 各日干原论",
+          "url": "https://luckclub.cn/bazi/005/063/",
+          "original": 5,
+          "annotations": 0,
+          "chapterAnnotations": 14,
+          "oldAnnotations": false,
+          "level": "month"
+        },
+        {
+          "title": "论火 · 原典相关章节",
+          "url": "https://luckclub.cn/bazi/005/066/",
+          "original": 7,
+          "annotations": 0,
+          "chapterAnnotations": 8,
+          "oldAnnotations": false
+        }
+      ]
+    },
+    {
+      "book": "八字提要",
+      "id": 4,
+      "chapters": [
+        {
+          "title": "丑月丁日辛丑时",
+          "url": "https://luckclub.cn/bazi/015/114/",
+          "original": 1,
+          "annotations": 0,
+          "chapterAnnotations": 3,
+          "oldAnnotations": false
+        }
+      ]
+    },
+    {
+      "book": "子平真诠",
+      "id": 5,
+      "chapters": [
+        {
+          "title": "论正官",
+          "url": "https://luckclub.cn/bazi/002/033/",
+          "original": 22,
+          "annotations": 4,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "论正官取运",
+          "url": "https://luckclub.cn/bazi/002/034/",
+          "original": 39,
+          "annotations": 10,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "论用神配气候得失",
+          "url": "https://luckclub.cn/bazi/002/016/",
+          "original": 40,
+          "annotations": 5,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        }
+      ]
+    },
+    {
+      "book": "渊海子平",
+      "id": 6,
+      "chapters": [
+        {
+          "title": "内十八格-正官格",
+          "url": "https://luckclub.cn/bazi/001/098/",
+          "original": 20,
+          "annotations": 2,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "正官论",
+          "url": "https://luckclub.cn/bazi/001/077/",
+          "original": 10,
+          "annotations": 6,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "十干体象 · 丁火",
+          "url": "https://luckclub.cn/bazi/001/215/",
+          "original": 3,
+          "annotations": 1,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "stem-section"
+        },
+        {
+          "title": "论月令",
+          "url": "https://luckclub.cn/bazi/001/066/",
+          "original": 3,
+          "annotations": 6,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "十二月建丑候诗诀",
+          "url": "https://luckclub.cn/bazi/001/214/",
+          "original": 13,
+          "annotations": 10,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        }
+      ]
+    },
+    {
+      "book": "天元巫咸",
+      "id": 7,
+      "chapters": [
+        {
+          "title": "论丁火篇",
+          "url": "https://tianjihq.com/zh-CN/learn/books/tianyuan-wuxian-jing/14",
+          "original": 12,
+          "annotations": 0,
+          "chapterAnnotations": 0,
+          "oldAnnotations": true,
+          "level": "chapter"
+        },
+        {
+          "title": "丁火时引篇",
+          "url": "https://tianjihq.com/zh-CN/learn/books/tianyuan-wuxian-jing/15",
+          "original": 24,
+          "annotations": 0,
+          "chapterAnnotations": 0,
+          "oldAnnotations": true,
+          "level": "chapter"
+        },
+        {
+          "title": "丁火主用杂断篇",
+          "url": "https://tianjihq.com/zh-CN/learn/books/tianyuan-wuxian-jing/16",
+          "original": 23,
+          "annotations": 0,
+          "chapterAnnotations": 0,
+          "oldAnnotations": true,
+          "level": "chapter"
+        },
+        {
+          "title": "丁火主用诗",
+          "url": "https://tianjihq.com/zh-CN/learn/books/tianyuan-wuxian-jing/17",
+          "original": 14,
+          "annotations": 0,
+          "chapterAnnotations": 0,
+          "oldAnnotations": true,
+          "level": "chapter"
+        }
+      ]
+    },
+    {
+      "book": "神峰通考",
+      "id": 8,
+      "chapters": [
+        {
+          "title": "金不换骨髓歌断",
+          "url": "https://luckclub.cn/bazi/008/058/",
+          "original": 121,
+          "annotations": 5,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "十天干体象全编论 · 丁火",
+          "url": "https://luckclub.cn/bazi/008/059/",
+          "original": 1,
+          "annotations": 0,
+          "chapterAnnotations": 2,
+          "oldAnnotations": false,
+          "level": "stem-section"
+        }
+      ]
+    },
+    {
+      "book": "千里命稿",
+      "id": 9,
+      "chapters": [
+        {
+          "title": "格局篇",
+          "url": "https://luckclub.cn/bazi/003/011/",
+          "original": 276,
+          "annotations": 6,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "六神篇",
+          "url": "https://luckclub.cn/bazi/003/009/",
+          "original": 289,
+          "annotations": 8,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "运限篇",
+          "url": "https://luckclub.cn/bazi/003/013/",
+          "original": 143,
+          "annotations": 6,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        }
+      ]
+    },
+    {
+      "book": "五行精纪",
+      "id": 10,
+      "chapters": [
+        {
+          "title": "五行精纪：第十卷论年月日时胎",
+          "url": "https://luckclub.cn/bazi/013/017/",
+          "original": 174,
+          "annotations": 49,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "五行精纪：第五卷 论干神三",
+          "url": "https://luckclub.cn/bazi/013/007/",
+          "original": 87,
+          "annotations": 26,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "五行精纪：第十二卷论十二月节气",
+          "url": "https://luckclub.cn/bazi/013/019/",
+          "original": 176,
+          "annotations": 4,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "五行精纪：第一卷　论六十甲子上",
+          "url": "https://luckclub.cn/bazi/013/002/",
+          "original": 34,
+          "annotations": 4,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        },
+        {
+          "title": "五行精纪：第二卷　论六十甲子下",
+          "url": "https://luckclub.cn/bazi/013/004/",
+          "original": 431,
+          "annotations": 41,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "chapter"
+        }
+      ]
+    },
+    {
+      "book": "李虚中命书",
+      "id": 11,
+      "chapters": [
+        {
+          "title": "辛巳 · 干支纳音原论",
+          "url": "https://libokang.com/classics/bazi/%E6%9D%8E%E8%99%9A%E4%B8%AD%E5%91%BD%E4%B9%A6/",
+          "original": 1,
+          "annotations": 1,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "paired-passage"
+        },
+        {
+          "title": "丁丑 · 干支纳音原论",
+          "url": "https://libokang.com/classics/bazi/%E6%9D%8E%E8%99%9A%E4%B8%AD%E5%91%BD%E4%B9%A6/",
+          "original": 1,
+          "annotations": 1,
+          "chapterAnnotations": 0,
+          "oldAnnotations": false,
+          "level": "paired-passage"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "scopeBooks": [
+    "穷通宝鉴",
+    "滴天髓",
+    "三命通会",
+    "八字提要",
+    "子平真诠",
+    "渊海子平",
+    "天元巫咸",
+    "神峰通考",
+    "千里命稿",
+    "五行精纪",
+    "李虚中命书"
+  ],
+  "books": 11,
+  "firstCaseEntries": 34,
+  "extendedJobs": 190,
+  "extendedEntries": 271,
+  "extendedErrors": 0,
+  "projectTests": 154,
+  "projectTestFailures": 0,
+  "sourceModernTextBundled": false,
+  "wuxianAnnotationEdition": "随文旧注，非独立现代白话",
+  "allUserDataPreservedInPreview": true
+}

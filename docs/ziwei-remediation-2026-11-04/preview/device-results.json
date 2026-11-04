@@ -1,0 +1,161 @@
+{
+  "installedApk": false,
+  "offline": false,
+  "layouts": [
+    {
+      "width": 320,
+      "dark": false,
+      "palaces": 12,
+      "palaceButtons": 12,
+      "tabs": [
+        "本宫详解",
+        "三方夹拱",
+        "四化飞星",
+        "星系格局",
+        "命身运限"
+      ],
+      "allTabsVisible": true,
+      "overflow": false,
+      "font": "16px",
+      "firstTitle": "天机守命宫",
+      "oldModernCards": 0
+    },
+    {
+      "width": 320,
+      "dark": true,
+      "palaces": 12,
+      "palaceButtons": 12,
+      "tabs": [
+        "本宫详解",
+        "三方夹拱",
+        "四化飞星",
+        "星系格局",
+        "命身运限"
+      ],
+      "allTabsVisible": true,
+      "overflow": false,
+      "font": "16px",
+      "firstTitle": "天机守命宫",
+      "oldModernCards": 0
+    },
+    {
+      "width": 430,
+      "dark": false,
+      "palaces": 12,
+      "palaceButtons": 12,
+      "tabs": [
+        "本宫详解",
+        "三方夹拱",
+        "四化飞星",
+        "星系格局",
+        "命身运限"
+      ],
+      "allTabsVisible": true,
+      "overflow": false,
+      "font": "16px",
+      "firstTitle": "天机守命宫",
+      "oldModernCards": 0
+    },
+    {
+      "width": 430,
+      "dark": true,
+      "palaces": 12,
+      "palaceButtons": 12,
+      "tabs": [
+        "本宫详解",
+        "三方夹拱",
+        "四化飞星",
+        "星系格局",
+        "命身运限"
+      ],
+      "allTabsVisible": true,
+      "overflow": false,
+      "font": "16px",
+      "firstTitle": "天机守命宫",
+      "oldModernCards": 0
+    }
+  ],
+  "sync": {
+    "reader": "财帛",
+    "boardIndex": 6,
+    "readerIndex": 6,
+    "core": "白手积累与信誉求财相连，靠经验、照应和解决问题形成资源；天梁庙陷与天同四化分别改变得财和耗财表现。\n财帛宫本盘合读：天同生年化忌：想保住舒适、稳定的生活，却又为收入与开销反复操心。钱财顾虑容易和享受、照顾关系及日常生活要求连在一起。\n天梁为陷：收入靠辛勤处理事务取得，长辈与现成资源的承接不足，替人操心与实际进账不一定对等。实际做事、分担责任的份量重，取得资源的过程费力。"
+  },
+  "tabResults": [
+    {
+      "tab": "relations",
+      "headings": [
+        "禄马交会 · 财帛宫",
+        "化忌与煞曜同会",
+        "羊陀夹财帛宫"
+      ],
+      "related": 4,
+      "overflow": false
+    },
+    {
+      "tab": "patterns",
+      "headings": [
+        "机月同梁",
+        "武曲七杀",
+        "天同天梁格"
+      ],
+      "related": 0,
+      "overflow": false
+    },
+    {
+      "tab": "hua",
+      "headings": [
+        "太阳化禄 · 关系中的公开支持与付出",
+        "武曲化权在子女宫",
+        "天同化忌 · 安稳与收支的牵挂",
+        "太阴化科 · 专业、文书与资格受到重视",
+        "兄弟宫化权入财帛宫",
+        "夫妻宫化禄入财帛宫",
+        "子女宫化权入财帛宫",
+        "财帛宫化禄入交友宫",
+        "财帛宫化权入父母宫",
+        "财帛宫化科入子女宫",
+        "财帛宫化忌入夫妻宫",
+        "迁移宫化禄入财帛宫",
+        "官禄宫化忌入财帛宫",
+        "田宅宫化科入财帛宫",
+        "父母宫化科入财帛宫"
+      ],
+      "related": 0,
+      "overflow": false
+    }
+  ],
+  "flying": {
+    "count": 11,
+    "techniques": [
+      "别宫飞入",
+      "本宫飞出"
+    ]
+  },
+  "flows": {
+    "cards": [
+      "身宫在福德宫",
+      "来因在官禄宫",
+      "命主 · 贪狼",
+      "身主 · 文昌",
+      "火六局",
+      "流年 · 天同化禄",
+      "流年 · 天机化权",
+      "流年 · 文昌化科",
+      "流年 · 廉贞化忌"
+    ],
+    "flow": 4
+  },
+  "misc": {
+    "expected": 12,
+    "rendered": 12
+  },
+  "timing": {
+    "medianMs": 0.8000000000174623,
+    "maxMs": 17.79999999998836
+  },
+  "protectedDataUnchanged": true,
+  "protectedHash": "bac74e1928ce5300ef78d67913455c7868859c9795238bcbee4f42d856228ad5",
+  "errors": [],
+  "passed": true
+}

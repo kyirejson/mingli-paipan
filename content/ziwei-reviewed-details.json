@@ -1,0 +1,94 @@
+[
+  {
+    "id": "life-tong-strong",
+    "palace": "命宫",
+    "star": "天同",
+    "type": "brightness",
+    "value": "strong",
+    "title": "天同入庙 · 温和与安定感",
+    "text": "待人较温和，重相处舒服与生活安定。做事更愿意采用协调、配合的方式，个人表现重在福气、亲和与日常满足。",
+    "context": "命宫:天同",
+    "quote": "天同入廟肥滿清明，仁慈耿直。",
+    "brightnessValues": [
+      "庙"
+    ]
+  },
+  {
+    "id": "life-liang-strong",
+    "palace": "命宫",
+    "star": "天梁",
+    "type": "brightness",
+    "value": "strong",
+    "title": "天梁庙旺 · 重原则与照应",
+    "text": "做事重公道与原则，愿意替人说明道理、处理难题。稳重、照应他人与承担判断责任，是这颗天梁在命宫的主要表现。",
+    "context": "命宫:天梁",
+    "quote": "厚重清秀，聰明耿直，心無私曲好濟施"
+  },
+  {
+    "id": "children-tong-strong",
+    "palace": "子女",
+    "star": "天同",
+    "type": "brightness",
+    "value": "strong",
+    "title": "天同庙旺 · 子女得福之象",
+    "text": "天同在子女宫庙旺，古法取子女得福、资质较好与育养较顺之象。此宫的重点在子女、晚辈的发展和亲子关系。",
+    "context": "子女:天同",
+    "quote": "天同廟旺五子有貴"
+  },
+  {
+    "id": "health-tong-strong",
+    "palace": "疾厄",
+    "star": "天同",
+    "type": "brightness",
+    "value": "strong",
+    "title": "天同入庙 · 疾厄星义偏平稳",
+    "text": "按古法，天同入庙在疾厄宫取灾扰较少、状态相对平稳之象。",
+    "context": "疾厄:天同",
+    "quote": "天同入廟災少",
+    "brightnessValues": [
+      "庙"
+    ]
+  },
+  {
+    "id": "health-ji-weak",
+    "palace": "疾厄",
+    "star": "天机",
+    "type": "brightness",
+    "value": "weak",
+    "title": "天机落陷 · 头面部位象义",
+    "text": "按古法，天机落陷在疾厄宫，头面是这一条件下的主要部位象义。",
+    "context": "疾厄:天机",
+    "quote": "陷地頭面破相",
+    "brightnessValues": [
+      "陷"
+    ]
+  },
+  {
+    "id": "parents-sun-strong",
+    "palace": "父母",
+    "star": "太阳",
+    "type": "brightness",
+    "value": "strong",
+    "title": "太阳入庙 · 父辈关系的支持面",
+    "text": "太阳在父母宫入庙，古法取父辈关系较顺、庇护较足之象。父辈的支持与长辈关系，是这一宫的有利面。",
+    "context": "父母:太阳",
+    "quote": "太陽入廟無克",
+    "brightnessValues": [
+      "庙"
+    ]
+  },
+  {
+    "id": "parents-moon-strong",
+    "palace": "父母",
+    "star": "太阴",
+    "type": "brightness",
+    "value": "strong",
+    "title": "太阴入庙 · 母辈关系的照应面",
+    "text": "太阴在父母宫入庙，古法取母辈关系较顺、照应较足之象。母辈的照顾与教养支持，是这一宫的有利面。",
+    "context": "父母:太阴",
+    "quote": "太陰入廟無克",
+    "brightnessValues": [
+      "庙"
+    ]
+  }
+]
