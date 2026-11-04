@@ -1,6 +1,6 @@
 {
   "name": "zaohua-yuanyue-recovered",
-  "version": "1.0.24",
+  "version": "1.0.26",
   "private": true,
   "description": "Recovered app assets with explicit APK reconstruction tooling",
   "scripts": {

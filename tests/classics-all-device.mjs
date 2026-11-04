@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {connectBrowser} from './helpers/browser-cdp.mjs';
 const b=await connectBrowser('9331'),installed=process.argv.includes('--installed');
-const out='docs/classics-all-2026-11-04/'+(installed?'installed':'preview');await fs.mkdir(out,{recursive:true});
+const out=process.env.ZAOHUA_CLASSICS_OUTPUT||'docs/classics-all-2026-11-04/'+(installed?'installed':'preview');await fs.mkdir(out,{recursive:true});
 const keys=['wzbz_local_userlist_v14','wzbz_local_notes_v14','wzbz_note_drafts_v1'];
 const read=()=>b.evaluate(`Object.fromEntries(${JSON.stringify(keys)}.map(k=>[k,localStorage.getItem(k)]))`);
 const rows=[];
@@ -38,7 +38,7 @@ try{
   const shot=await b.call('Page.captureScreenshot',{format:'jpeg',quality:85});await fs.writeFile(out+'/book-'+id+'.jpg',Buffer.from(shot.data,'base64'));
  }
  const layouts=await b.evaluate(`(async()=>{const w=document.getElementById('classics-diagnostic').contentWindow,v=w.__classicsView,s=w.BaziPublicClassics.resolve(v),text=await w.BaziPublicClassics.fetchText(s),rows=[];for(const width of [320,430])for(const dark of [false,true]){const f=w.document.createElement('iframe');f.style='position:fixed;left:0;top:0;width:'+width+'px;height:700px;z-index:999999;background:#f5f1e9';const loaded=new Promise(resolve=>f.onload=resolve);f.srcdoc=w.BaziPublicClassics.documentText(text,s,dark);w.document.body.appendChild(f);await loaded;const body=f.contentDocument.body,style=w.getComputedStyle(body);rows.push({width,dark,font:style.fontSize,background:style.backgroundColor,overflow:body.scrollWidth>body.clientWidth+1,notes:body.innerText.includes('随文旧注')||!!body.querySelector('.translation'),original:!!body.querySelector('.original')});f.remove();}return rows})()`);
- for(const row of layouts){assert.equal(row.font,'17px');assert.equal(row.overflow,false);assert.equal(row.notes,true);assert.equal(row.original,true);assert.equal(row.background,row.dark?'rgb(24, 35, 30)':'rgb(245, 241, 233)');}
+ for(const row of layouts){assert.equal(row.font,'18px');assert.equal(row.overflow,false);assert.equal(row.notes,true);assert.equal(row.original,true);assert.equal(row.background,row.dark?'rgb(24, 35, 30)':'rgb(245, 241, 233)');}
  await fs.writeFile(out+'/layouts.json',JSON.stringify(layouts,null,2)+'\n');
  assert.deepEqual(await read(),before);console.log(JSON.stringify({books:11,allSourceChecksPassed:true,userDataUnchanged:true}));
 }finally{await b.evaluate(`document.getElementById('classics-diagnostic')?.remove()`);b.close();}

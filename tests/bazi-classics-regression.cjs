@@ -57,6 +57,22 @@ test('本地格局参考在无旧会员身份时仍发送现有格局设置消�
  visit(ctx.c.render.call(v));const entry=nodes.find(n=>n.data&&n.data.staticClass==='geju-text');
  assert.ok(entry);entry.data.on.click();assert.equal(ctx.messages.at(-1).type,'geju_set');assert.equal(ctx.messages.at(-1).data,true);
 });
+
+test('古籍全部书目和篇目可直接选择，调节字号与阅读模式不重载正文',()=>{
+ const ctx=classicsContext(),v=view(ctx),stored=new Map();
+ ctx.c.localStorage={getItem:k=>stored.get(k)||null,setItem:(k,x)=>stored.set(k,x)};
+ function h(tag,data,children){if(Array.isArray(data)){children=data;data={};}return {tag,data:data||{},children:children||[]};}
+ v.$createElement=h;v._self={_c:h};v.tabs=[{value:'篇一'},{value:'篇二'}];v.bookSrc='blob:existing';v.showBookBox=true;
+ const messages=[];ctx.frame.contentWindow.postMessage=data=>messages.push(data);
+ function all(n,out=[]){if(Array.isArray(n))n.forEach(x=>all(x,out));else if(n&&typeof n==='object'){out.push(n);all(n.children,out);}return out;}
+ const nodes=all(ctx.c.render.call(v)),selects=nodes.filter(n=>n.tag==='select');
+ assert.equal(selects[0].children.length,11);assert.equal(selects[1].children.length,2);
+ let chosen;v.onClickBook=(...args)=>chosen=args;selects[0].data.on.change({target:{value:'10'}});assert.equal(chosen[0].id,11);assert.equal(chosen[3],10);
+ nodes.find(n=>n.data.attrs?.['aria-label']==='放大字号').data.on.click();assert.equal(v.readerFont,20);assert.equal(v.bookSrc,'blob:existing');assert.equal(messages.at(-1).font,20);
+ const modes=nodes.find(n=>n.data.staticClass==='classics-modes').children;modes[2].data.on.click();assert.equal(v.readerMode,'compare');assert.equal(messages.at(-1).mode,'compare');
+ assert.deepEqual(JSON.parse(stored.get('wzbz_classics_preferences_v1')),{mode:'compare',font:20});
+ stored.set('wzbz_classics_preferences_v1','{"mode":"invalid","font":999}');assert.equal(ctx.c.BaziClassicsLayout.preferences().font,18);
+});
 test('全部公开阅读请求不发送guid、生日、登录或会员字段',()=>{
  const ctx=classicsContext(),v=view(ctx);v.tipResult=ctx.reader.match(v,{id:1},ctx.c.api);v.gjData.guid='case&b=99';
  const url=new URL(ctx.reader.request(v));assert.equal(url.hostname,'luckclub.cn');assert.equal(url.search,'');assert.ok(!url.href.includes('case'));

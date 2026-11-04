@@ -1,0 +1,16 @@
+{
+  "active": "liuyao",
+  "rows": 6,
+  "oneScreen": true,
+  "boardHeight": 409.202392578125,
+  "statusesOnChart": 26,
+  "roleColumns": [
+    37,
+    37,
+    37,
+    37,
+    37,
+    37
+  ],
+  "noCellBorders": true
+}

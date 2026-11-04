@@ -4,6 +4,32 @@ function method(name,next){const s=source('fivearts-ui.js'),start=s.indexOf(name
 function h(tag,data,children){if(arguments.length===2){children=data;data={};}return {tag,data,children};}
 function flatten(n,out=[]){if(Array.isArray(n))n.forEach(x=>flatten(x,out));else if(n&&typeof n==='object'){out.push(n);flatten(n.children,out);}return out;}
 
+test('无框双栏六爻逐爻显示状态、动变与五行，六亲和动爻标记分列',()=>{
+ const c={console,Date,Intl,Math,JSON,Map,Set,h};c.window=c;vm.createContext(c);
+ for(const file of ['time-policy.js','fivearts-engine.js','divination-calendar-fix.js'])vm.runInContext(source(file),c);
+ c.E=c.FiveArtsEngine;c.calendarDetails=()=>null;c.renderLiuyaoReading=()=>null;
+ const s=source('fivearts-ui.js');vm.runInContext(s.slice(s.indexOf('  function renderLiuyao(h,r){'),s.indexOf('\n  function renderQimen(')),c);
+ function text(n){if(Array.isArray(n))return n.map(text).join('');return n&&typeof n==='object'?text(n.children):n==null?'':String(n);}
+ for(const config of [{upper:7,lower:8,moving:[]},{upper:7,lower:8,moving:[1]},{upper:7,lower:8,moving:[1,2,3,4,5,6]},{upper:1,lower:8,moving:[2,4]}]){
+  const r=c.E.liuyao('2026-10-29 12:00',{method:'specified',...config}),before=JSON.stringify([r.rows,r.changedRows,r.moving]),v={yongIndex:6,session:{modules:{liuyao:{method:'time'}}}},a=c.E.liuyaoAnnotations(r);
+  const nodes=flatten(c.renderLiuyao.call(v,h,r)),rows=nodes.filter(n=>n.data?.class==='fa-liu-row');assert.deepEqual(rows.map(n=>n.data.attrs['data-line']),[6,5,4,3,2,1]);
+  for(const row of r.rows){
+   const pair=rows.find(n=>n.data.attrs['data-line']===row.index),items=flatten(pair),halves=pair.children.filter(n=>n?.data?.class?.[0]==='fa-liu-cell');assert.equal(halves.length,2);
+   assert.ok(text(pair).includes(row.god));assert.ok(text(halves[0]).includes(row.role+row.ganzhi+row.element));
+   if(row.hidden)assert.ok(text(pair).includes(row.hidden.role+row.hidden.ganzhi+row.hidden.element));
+   const annotation=a.rows[row.index-1],left=flatten(halves[0]),right=flatten(halves[1]);
+   assert.equal(left.find(n=>n.data?.class==='fa-liu-role').children[0],row.role);
+   const glyph=left.find(n=>n.data?.class==='fa-moving-mark');assert.equal(text(glyph),row.moving?(row.yang?'○':'×'):'');
+   assert.equal(glyph.data.class,'fa-moving-mark');assert.notEqual(glyph,left.find(n=>n.data?.class==='fa-liu-role'));
+   assert.equal(text(items.find(n=>n.data?.class==='fa-liu-arrow')),row.moving?'→':'');
+   const leftStates=left.filter(n=>n.data?.class?.[0]==='fa-liu-state').map(text),rightStates=right.filter(n=>n.data?.class?.[0]==='fa-liu-state').map(text);
+   assert.deepEqual(leftStates,Array.from(annotation.tags.concat(annotation.changes)));assert.deepEqual(rightStates,Array.from(annotation.changedTags));
+   assert.ok(left.some(n=>n.data?.class?.[0]==='fa-liu-element'));halves[0].data.on.click();assert.equal(v.yongIndex,row.index);
+  }
+  assert.equal(nodes.filter(n=>n.data?.class==='fa-moving-mark'&&text(n)).length,config.moving.length);assert.equal(JSON.stringify([r.rows,r.changedRows,r.moving]),before);
+ }
+});
+
 test('主题以 body 为来源，同步根变量入口及原生控件配色，支持日夜反复切换',()=>{
  let mode=null,callback,observed,attributes={};
  const body={getAttribute:()=>mode},document={body,documentElement:{setAttribute:(k,v)=>attributes[k]=v,style:{}},addEventListener(){}};

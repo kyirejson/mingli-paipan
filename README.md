@@ -2,15 +2,15 @@
 
 ## 下载与更新
 
-[下载 v1.0.24 安卓完整安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.24/zaohua-v1.0.24.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.24) · [最新版本](https://github.com/kyirejson/mingli-paipan/releases/latest)
+[下载 v1.0.26 安卓完整安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.26/zaohua-v1.0.26.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.26) · [最新版本](https://github.com/kyirejson/mingli-paipan/releases/latest)
 
-v1.0.24 约 36.31 MB。修复八字入口全部11本古籍的取文、章节定位与注解显示，区分原文、原注和白话；天元巫咸目前提供随文旧注。包括紫微解读错判、原文串段、杂曜漏显示与窄屏入口等整改。154项项目回归通过，另完成190组、271条古籍来源提取检查及原签名覆盖升级数据保留核对。详见[古籍验收](docs/2026-11-04_全部八字古籍注解修复与验收.md)和[紫微验收](docs/2026-11-04_紫微解读整改实现与验收.md)。古籍正文按需联网读取。
+v1.0.26 约 36.31 MB。六爻采用无框双栏排版，六亲、纳甲、○／×、世应独立对齐，日月状态与动变说明直接标在对应爻位，五行文字按主题配色。古籍新增直接选书、选篇、原文／解说／对照与字号调整，工具栏固定，正文独立滚动。156项回归及12组六爻日夜窄屏布局检查通过，原签名覆盖安装后命例、笔记、草稿原值保留。详见[六爻验收](docs/2026-11-04_六爻方案一逐爻标注与五行配色.md)和[古籍阅读验收](docs/2026-11-04_古籍阅读与六爻紧凑盘面优化.md)。古籍正文按需联网读取。
 
-同签名的 v1.0.13 至 v1.0.23 可直接覆盖升级，无需依次安装中间版本。从 v1.0.14 及更早版本首次升级前，请先导出一次现有资料。旧盘可在“设置 → 数据备份与恢复 → 找回旧记录”尝试合并仍存在的缓存。应用私有保护副本不代替卸载前的外部备份。
+同签名的 v1.0.13 至 v1.0.25 可直接覆盖升级，无需依次安装中间版本。从 v1.0.14 及更早版本首次升级前，请先导出一次现有资料。旧盘可在“设置 → 数据备份与恢复 → 找回旧记录”尝试合并仍存在的缓存。应用私有保护副本不代替卸载前的外部备份。
 
 构建不依赖历史 APK，每次从空目录装入当前资源。历史安装附件在新版核验后清理，源码标签和历史说明保留。v1.0.7 及更早旧签名版不能直接覆盖新签名版，需要单独迁移；卸载会删除本地应用数据。APP 通过“设置 → 版本更新”检查正式 latest，安装需安卓系统确认。
 
-APK SHA-256：`fccd542796955ba3bc81f2f86c398f03d71e4135a08291b67a1473138c564afe`。
+APK SHA-256：`33302ce55a8983573d71b98cd0b7e36cbc1debe53d7c9d6957354777ff284727`。
 
 ## 开发目录与恢复范围
 
@@ -32,7 +32,7 @@ python scripts/dev-server.py
 
 `npm test` 运行无需外部依赖的 Node 回归。`scripts/build-release.ps1` 执行 D 盘构建，所需外部输入的来源和摘要在 `build-inputs.json` 中；详细命令见整改进展。
 
-发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v` 和 `python -m unittest discover -s tests -p test_build_lifecycle.py -v`。使用 `python scripts/publish-release.py --version 1.0.24 --version-code 25` 可校验本地 APK；增加 `--publish --prune-old-apks` 才会发布并在核验新版后清理历史安装附件。先将源码与同名版本标签推送到仓库。详细步骤与清理边界见 [独立构建说明](docs/build-and-retention.md)。
+发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v` 和 `python -m unittest discover -s tests -p test_build_lifecycle.py -v`。使用 `python scripts/publish-release.py --version 1.0.26 --version-code 27` 可校验本地 APK；增加 `--publish --prune-old-apks` 才会发布并在核验新版后清理历史安装附件。先将源码与同名版本标签推送到仓库。详细步骤与清理边界见 [独立构建说明](docs/build-and-retention.md)。
 
 紫微助手代理使用本机现有的盲派八字 Agent 设置文件读取 DeepSeek 配置；密钥不写入本目录或手机安装包。当前真实请求返回 401，需在本机配置中更新有效凭证并确保账户可用，方能完成真实回答验收。通过模拟接口的测试不代表真实模型已连接成功。
 

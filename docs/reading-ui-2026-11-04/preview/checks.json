@@ -1,0 +1,177 @@
+{
+  "reader": {
+    "books": 11,
+    "chapters": 3,
+    "mode": "compare",
+    "font": 20,
+    "sameDocument": true,
+    "height": 662,
+    "viewport": 842,
+    "overflow": false,
+    "controls": 219.2857208251953,
+    "scripts": 2
+  },
+  "documentChecks": [
+    {
+      "width": 320,
+      "mode": "commentary",
+      "font": "24px",
+      "actual": "commentary",
+      "overflow": false,
+      "original": "none",
+      "translation": "block"
+    },
+    {
+      "width": 320,
+      "mode": "original",
+      "font": "24px",
+      "actual": "original",
+      "overflow": false,
+      "original": "block",
+      "translation": "none"
+    },
+    {
+      "width": 320,
+      "mode": "compare",
+      "font": "24px",
+      "actual": "compare",
+      "overflow": false,
+      "original": "block",
+      "translation": "block"
+    },
+    {
+      "width": 390,
+      "mode": "commentary",
+      "font": "24px",
+      "actual": "commentary",
+      "overflow": false,
+      "original": "none",
+      "translation": "block"
+    },
+    {
+      "width": 390,
+      "mode": "original",
+      "font": "24px",
+      "actual": "original",
+      "overflow": false,
+      "original": "block",
+      "translation": "none"
+    },
+    {
+      "width": 390,
+      "mode": "compare",
+      "font": "24px",
+      "actual": "compare",
+      "overflow": false,
+      "original": "block",
+      "translation": "block"
+    },
+    {
+      "width": 430,
+      "mode": "commentary",
+      "font": "24px",
+      "actual": "commentary",
+      "overflow": false,
+      "original": "none",
+      "translation": "block"
+    },
+    {
+      "width": 430,
+      "mode": "original",
+      "font": "24px",
+      "actual": "original",
+      "overflow": false,
+      "original": "block",
+      "translation": "none"
+    },
+    {
+      "width": 430,
+      "mode": "compare",
+      "font": "24px",
+      "actual": "compare",
+      "overflow": false,
+      "original": "block",
+      "translation": "block"
+    }
+  ],
+  "charts": [
+    {
+      "width": 320,
+      "height": 382.5297546386719,
+      "bottom": 443.42261123657227,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "gods": [
+        "青龙",
+        "玄武",
+        "白虎",
+        "螣蛇",
+        "勾陈",
+        "朱雀"
+      ],
+      "cells": 12,
+      "hidden": 1,
+      "selected": 1,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "width": 390,
+      "height": 382.5297546386719,
+      "bottom": 443.42261123657227,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "gods": [
+        "青龙",
+        "玄武",
+        "白虎",
+        "螣蛇",
+        "勾陈",
+        "朱雀"
+      ],
+      "cells": 12,
+      "hidden": 1,
+      "selected": 1,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "width": 430,
+      "height": 382.5297546386719,
+      "bottom": 443.42261123657227,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "gods": [
+        "青龙",
+        "玄武",
+        "白虎",
+        "螣蛇",
+        "勾陈",
+        "朱雀"
+      ],
+      "cells": 12,
+      "hidden": 1,
+      "selected": 1,
+      "overflow": false,
+      "clipped": []
+    }
+  ]
+}

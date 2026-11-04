@@ -1,0 +1,2246 @@
+{
+  "cases": [
+    {
+      "width": 320,
+      "dark": false,
+      "fixture": "two-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月合",
+            "日生"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月合",
+            "日生"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "旬空",
+            "月生"
+          ],
+          "changed": [
+            "日克"
+          ],
+          "expectedMain": [
+            "旬空",
+            "月生"
+          ],
+          "expectedChanged": [
+            "日克"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生"
+          ],
+          "changed": [
+            "日冲",
+            "日克"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生"
+          ],
+          "expectedChanged": [
+            "日冲",
+            "日克"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "日克",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "",
+        "",
+        "→",
+        "",
+        "→",
+        ""
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "土": "rgb(124, 91, 53)",
+        "木": "rgb(49, 94, 58)",
+        "金": "rgb(138, 90, 21)",
+        "火": "rgb(168, 52, 44)",
+        "水": "rgb(39, 90, 121)"
+      }
+    },
+    {
+      "width": 320,
+      "dark": false,
+      "fixture": "all-moving",
+      "boardHeight": 424.702392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "日生",
+            "化墓"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日生",
+            "化墓"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "changed": [
+            "旬空",
+            "月害",
+            "月生"
+          ],
+          "expectedMain": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "旬空",
+            "月害",
+            "月生"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月克",
+            "日扶"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月克",
+            "日扶"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "回头生"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "日克",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "月克",
+            "临日"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "月克",
+            "临日"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "→",
+        "→",
+        "→",
+        "→",
+        "→",
+        "→"
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "木": "rgb(49, 94, 58)",
+        "土": "rgb(124, 91, 53)",
+        "水": "rgb(39, 90, 121)",
+        "金": "rgb(138, 90, 21)",
+        "火": "rgb(168, 52, 44)"
+      }
+    },
+    {
+      "width": 320,
+      "dark": true,
+      "fixture": "two-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月合",
+            "日生"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月合",
+            "日生"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "旬空",
+            "月生"
+          ],
+          "changed": [
+            "日克"
+          ],
+          "expectedMain": [
+            "旬空",
+            "月生"
+          ],
+          "expectedChanged": [
+            "日克"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生"
+          ],
+          "changed": [
+            "日冲",
+            "日克"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生"
+          ],
+          "expectedChanged": [
+            "日冲",
+            "日克"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "日克",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "",
+        "",
+        "→",
+        "",
+        "→",
+        ""
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "土": "rgb(217, 197, 159)",
+        "木": "rgb(169, 211, 166)",
+        "金": "rgb(224, 206, 149)",
+        "火": "rgb(239, 178, 157)",
+        "水": "rgb(177, 209, 224)"
+      }
+    },
+    {
+      "width": 320,
+      "dark": true,
+      "fixture": "all-moving",
+      "boardHeight": 424.702392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "日生",
+            "化墓"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日生",
+            "化墓"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "changed": [
+            "旬空",
+            "月害",
+            "月生"
+          ],
+          "expectedMain": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "旬空",
+            "月害",
+            "月生"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月克",
+            "日扶"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月克",
+            "日扶"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "回头生"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "日克",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "月克",
+            "临日"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "月克",
+            "临日"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "→",
+        "→",
+        "→",
+        "→",
+        "→",
+        "→"
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "木": "rgb(169, 211, 166)",
+        "土": "rgb(217, 197, 159)",
+        "水": "rgb(177, 209, 224)",
+        "金": "rgb(224, 206, 149)",
+        "火": "rgb(239, 178, 157)"
+      }
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "fixture": "two-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月合",
+            "日生"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月合",
+            "日生"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "旬空",
+            "月生"
+          ],
+          "changed": [
+            "日克"
+          ],
+          "expectedMain": [
+            "旬空",
+            "月生"
+          ],
+          "expectedChanged": [
+            "日克"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生"
+          ],
+          "changed": [
+            "日冲",
+            "日克"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生"
+          ],
+          "expectedChanged": [
+            "日冲",
+            "日克"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "日克",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "",
+        "",
+        "→",
+        "",
+        "→",
+        ""
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "土": "rgb(124, 91, 53)",
+        "木": "rgb(49, 94, 58)",
+        "金": "rgb(138, 90, 21)",
+        "火": "rgb(168, 52, 44)",
+        "水": "rgb(39, 90, 121)"
+      }
+    },
+    {
+      "width": 390,
+      "dark": false,
+      "fixture": "all-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "日生",
+            "化墓"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日生",
+            "化墓"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "changed": [
+            "旬空",
+            "月害",
+            "月生"
+          ],
+          "expectedMain": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "旬空",
+            "月害",
+            "月生"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月克",
+            "日扶"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月克",
+            "日扶"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "回头生"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "日克",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "月克",
+            "临日"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "月克",
+            "临日"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "→",
+        "→",
+        "→",
+        "→",
+        "→",
+        "→"
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "木": "rgb(49, 94, 58)",
+        "土": "rgb(124, 91, 53)",
+        "水": "rgb(39, 90, 121)",
+        "金": "rgb(138, 90, 21)",
+        "火": "rgb(168, 52, 44)"
+      }
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "fixture": "two-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月合",
+            "日生"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月合",
+            "日生"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "旬空",
+            "月生"
+          ],
+          "changed": [
+            "日克"
+          ],
+          "expectedMain": [
+            "旬空",
+            "月生"
+          ],
+          "expectedChanged": [
+            "日克"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生"
+          ],
+          "changed": [
+            "日冲",
+            "日克"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生"
+          ],
+          "expectedChanged": [
+            "日冲",
+            "日克"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "日克",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "",
+        "",
+        "→",
+        "",
+        "→",
+        ""
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "土": "rgb(217, 197, 159)",
+        "木": "rgb(169, 211, 166)",
+        "金": "rgb(224, 206, 149)",
+        "火": "rgb(239, 178, 157)",
+        "水": "rgb(177, 209, 224)"
+      }
+    },
+    {
+      "width": 390,
+      "dark": true,
+      "fixture": "all-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "日生",
+            "化墓"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日生",
+            "化墓"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "changed": [
+            "旬空",
+            "月害",
+            "月生"
+          ],
+          "expectedMain": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "旬空",
+            "月害",
+            "月生"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月克",
+            "日扶"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月克",
+            "日扶"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "回头生"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "日克",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "月克",
+            "临日"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "月克",
+            "临日"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "→",
+        "→",
+        "→",
+        "→",
+        "→",
+        "→"
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "木": "rgb(169, 211, 166)",
+        "土": "rgb(217, 197, 159)",
+        "水": "rgb(177, 209, 224)",
+        "金": "rgb(224, 206, 149)",
+        "火": "rgb(239, 178, 157)"
+      }
+    },
+    {
+      "width": 430,
+      "dark": false,
+      "fixture": "two-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月合",
+            "日生"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月合",
+            "日生"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "旬空",
+            "月生"
+          ],
+          "changed": [
+            "日克"
+          ],
+          "expectedMain": [
+            "旬空",
+            "月生"
+          ],
+          "expectedChanged": [
+            "日克"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生"
+          ],
+          "changed": [
+            "日冲",
+            "日克"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生"
+          ],
+          "expectedChanged": [
+            "日冲",
+            "日克"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "日克",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "",
+        "",
+        "→",
+        "",
+        "→",
+        ""
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "土": "rgb(124, 91, 53)",
+        "木": "rgb(49, 94, 58)",
+        "金": "rgb(138, 90, 21)",
+        "火": "rgb(168, 52, 44)",
+        "水": "rgb(39, 90, 121)"
+      }
+    },
+    {
+      "width": 430,
+      "dark": false,
+      "fixture": "all-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "日生",
+            "化墓"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日生",
+            "化墓"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "changed": [
+            "旬空",
+            "月害",
+            "月生"
+          ],
+          "expectedMain": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "旬空",
+            "月害",
+            "月生"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月克",
+            "日扶"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月克",
+            "日扶"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "回头生"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "日克",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "月克",
+            "临日"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "月克",
+            "临日"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "→",
+        "→",
+        "→",
+        "→",
+        "→",
+        "→"
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "木": "rgb(49, 94, 58)",
+        "土": "rgb(124, 91, 53)",
+        "水": "rgb(39, 90, 121)",
+        "金": "rgb(138, 90, 21)",
+        "火": "rgb(168, 52, 44)"
+      }
+    },
+    {
+      "width": 430,
+      "dark": true,
+      "fixture": "two-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月合",
+            "日生"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月合",
+            "日生"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "旬空",
+            "月生"
+          ],
+          "changed": [
+            "日克"
+          ],
+          "expectedMain": [
+            "旬空",
+            "月生"
+          ],
+          "expectedChanged": [
+            "日克"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日冲",
+            "日克",
+            "化合"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生"
+          ],
+          "changed": [
+            "日冲",
+            "日克"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生"
+          ],
+          "expectedChanged": [
+            "日冲",
+            "日克"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "日克",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "",
+        "",
+        "→",
+        "",
+        "→",
+        ""
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "土": "rgb(217, 197, 159)",
+        "木": "rgb(169, 211, 166)",
+        "金": "rgb(224, 206, 149)",
+        "火": "rgb(239, 178, 157)",
+        "水": "rgb(177, 209, 224)"
+      }
+    },
+    {
+      "width": 430,
+      "dark": true,
+      "fixture": "all-moving",
+      "boardHeight": 409.202392578125,
+      "oneScreen": true,
+      "lines": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "states": [
+        {
+          "line": 6,
+          "main": [
+            "日生",
+            "化墓"
+          ],
+          "changed": [
+            "月扶",
+            "日害"
+          ],
+          "expectedMain": [
+            "日生",
+            "化墓"
+          ],
+          "expectedChanged": [
+            "月扶",
+            "日害"
+          ]
+        },
+        {
+          "line": 5,
+          "main": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "changed": [
+            "旬空",
+            "月害",
+            "月生"
+          ],
+          "expectedMain": [
+            "月克",
+            "临日",
+            "化空",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "旬空",
+            "月害",
+            "月生"
+          ]
+        },
+        {
+          "line": 4,
+          "main": [
+            "临月"
+          ],
+          "changed": [
+            "月克",
+            "日扶"
+          ],
+          "expectedMain": [
+            "临月"
+          ],
+          "expectedChanged": [
+            "月克",
+            "日扶"
+          ]
+        },
+        {
+          "line": 3,
+          "main": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "changed": [
+            "月破",
+            "月扶"
+          ],
+          "expectedMain": [
+            "月合",
+            "日生",
+            "化月破"
+          ],
+          "expectedChanged": [
+            "月破",
+            "月扶"
+          ]
+        },
+        {
+          "line": 2,
+          "main": [
+            "日克",
+            "回头生"
+          ],
+          "changed": [
+            "日生"
+          ],
+          "expectedMain": [
+            "日克",
+            "回头生"
+          ],
+          "expectedChanged": [
+            "日生"
+          ]
+        },
+        {
+          "line": 1,
+          "main": [
+            "月扶",
+            "日害"
+          ],
+          "changed": [
+            "月克",
+            "临日"
+          ],
+          "expectedMain": [
+            "月扶",
+            "日害"
+          ],
+          "expectedChanged": [
+            "月克",
+            "临日"
+          ]
+        }
+      ],
+      "positions": [
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        },
+        {
+          "fa-liu-role": 37,
+          "fa-liu-ganzhi": 64,
+          "fa-moving-mark": 25,
+          "fa-shiying": 105
+        }
+      ],
+      "arrows": [
+        "→",
+        "→",
+        "→",
+        "→",
+        "→",
+        "→"
+      ],
+      "cellBorders": false,
+      "clipped": [],
+      "colors": {
+        "木": "rgb(169, 211, 166)",
+        "土": "rgb(217, 197, 159)",
+        "水": "rgb(177, 209, 224)",
+        "金": "rgb(224, 206, 149)",
+        "火": "rgb(239, 178, 157)"
+      }
+    }
+  ],
+  "actions": {
+    "selected": 1,
+    "links": [
+      "meaning",
+      "huozhulin",
+      "haidiyan",
+      "huangjince"
+    ]
+  },
+  "userDataUnchanged": true
+}
