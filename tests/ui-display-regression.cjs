@@ -12,7 +12,7 @@ test('无框双栏六爻逐爻显示状态、动变与五行，六亲和动爻�
  function text(n){if(Array.isArray(n))return n.map(text).join('');return n&&typeof n==='object'?text(n.children):n==null?'':String(n);}
  for(const config of [{upper:7,lower:8,moving:[]},{upper:7,lower:8,moving:[1]},{upper:7,lower:8,moving:[1,2,3,4,5,6]},{upper:1,lower:8,moving:[2,4]}]){
   const r=c.E.liuyao('2026-10-29 12:00',{method:'specified',...config}),before=JSON.stringify([r.rows,r.changedRows,r.moving]),v={yongIndex:6,session:{modules:{liuyao:{method:'time'}}}},a=c.E.liuyaoAnnotations(r);
-  const nodes=flatten(c.renderLiuyao.call(v,h,r)),rows=nodes.filter(n=>n.data?.class==='fa-liu-row');assert.deepEqual(rows.map(n=>n.data.attrs['data-line']),[6,5,4,3,2,1]);
+  const nodes=flatten(c.renderLiuyao.call(v,h,r)),rows=nodes.filter(n=>n.data?.class?.[0]==='fa-liu-row');assert.deepEqual(rows.map(n=>n.data.attrs['data-line']),[6,5,4,3,2,1]);
   for(const row of r.rows){
    const pair=rows.find(n=>n.data.attrs['data-line']===row.index),items=flatten(pair),halves=pair.children.filter(n=>n?.data?.class?.[0]==='fa-liu-cell');assert.equal(halves.length,2);
    assert.ok(text(pair).includes(row.god));assert.ok(text(halves[0]).includes(row.role+row.ganzhi+row.element));
@@ -24,7 +24,7 @@ test('无框双栏六爻逐爻显示状态、动变与五行，六亲和动爻�
    assert.equal(text(items.find(n=>n.data?.class==='fa-liu-arrow')),row.moving?'→':'');
    const leftStates=left.filter(n=>n.data?.class?.[0]==='fa-liu-state').map(text),rightStates=right.filter(n=>n.data?.class?.[0]==='fa-liu-state').map(text);
    assert.deepEqual(leftStates,Array.from(annotation.tags.concat(annotation.changes)));assert.deepEqual(rightStates,Array.from(annotation.changedTags));
-   assert.ok(left.some(n=>n.data?.class?.[0]==='fa-liu-element'));halves[0].data.on.click();assert.equal(v.yongIndex,row.index);
+   assert.ok(left.some(n=>n.data?.class?.[0]==='fa-liu-element'));halves[0].data.on.click();assert.equal(v.liuyaoSelected,row.index);assert.equal(v.liuyaoSide,'main');assert.equal(v.yongIndex,6);halves[1].data.on.click();assert.equal(v.liuyaoSide,'changed');assert.equal(v.yongIndex,6);
   }
   assert.equal(nodes.filter(n=>n.data?.class==='fa-moving-mark'&&text(n)).length,config.moving.length);assert.equal(JSON.stringify([r.rows,r.changedRows,r.moving]),before);
  }

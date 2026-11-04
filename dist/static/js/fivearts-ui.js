@@ -187,7 +187,7 @@
       script.src=new URL('static/js/fivearts-readings.js',document.baseURI).href;
       script.onload=function(){
         var data=global.FiveArtsReadingsData;
-        if(!data||data.version!==1||Object.keys(data.hexagrams||{}).length!==64){script.remove();reject(Error('解卦资料不完整，请重试'));return;}
+        if(!data||data.version!==1||Object.keys(data.hexagrams||{}).length!==64||!['huozhulin','haidiyan','huangjince'].every(function(id){return data.books&&data.books[id]&&Array.isArray(data.books[id].sections)&&data.books[id].sections.length;})){script.remove();reject(Error('解卦资料不完整，请重试'));return;}
         readingData=data;resolve(data);
       };
       script.onerror=function(){script.remove();reject(Error('解卦资料加载失败，请重试'));};
@@ -200,12 +200,42 @@
     ui.editor={kind:'gua',value:gua.value,position:position,moving:moving||0,line:line||moving||1,tab:line?'lines':'meaning',limit:60,context:context||''};
     loadReadings().catch(function(){});
   }
-  function openClassic(owner,session,id,result,yongIndex) {
+  function openClassic(owner,session,id,result,yongIndex,selection) {
     V.set(session,'liuyaoReference',id);saveSession(session);
     open(owner,'reading',session);
-    var row=result.rows[yongIndex-1];
-    ui.editor={kind:'book',book:id,chapter:0,query:'',limit:60,context:result.main.name+' → '+result.changed.name+' · '+result.main.palace.trigram+'宫',term:row.role,detail:'当前用神：'+row.index+'爻 '+row.role+row.ganzhi+row.element+'；'+(row.moving?'动爻':'静爻')+'，'+row.season+(row.void?'，日空':'')};
+    var index=selection&&selection.index||yongIndex,side=selection&&selection.side||'main';
+    ui.editor={kind:'book',book:id,chapter:0,query:'',limit:60,chart:global.LiuyaoReading.snapshot(result),yongIndex:yongIndex,selectedIndex:index,selectedSide:side,bookTab:'analysis',topic:'all',manualUse:!!(selection&&selection.manualUse),anchor:-1};
     loadReadings().catch(function(){});
+  }
+  function renderLiuyaoClassicReading(h,d){
+    var L=global.LiuyaoReading,c=d.chart,book=readingData.books[d.book],selected=d.selectedSide==='changed'?c.changedRows[d.selectedIndex-1]:c.rows[d.selectedIndex-1];
+    var report=L.analyze(c,{book:d.book,index:d.selectedIndex,side:d.selectedSide,yongIndex:d.yongIndex,manualUse:d.manualUse,topic:d.topic},readingData);
+    function showSource(ref){if(ref.book)d.book=ref.book;d.bookTab='original';d.chapter=ref.chapter;d.query='';d.anchor=ref.paragraph;d.limit=Math.max(60,ref.paragraph+1);V.nextTick(function(){var node=document.querySelector('[data-source-paragraph="'+ref.paragraph+'"]');if(node)node.scrollIntoView({block:'center'});});}
+    function chooseBook(id){d.book=id;d.chapter=0;d.query='';d.limit=60;d.anchor=-1;V.set(ui.scope,'liuyaoReference',id);saveSession(ui.scope);}
+    function evidence(card){return h('details',{class:'fa-classic-facts fa-classic-citation'},[h('summary',['盘面依据与出处（'+card.references.length+'条）']),h('ul',{class:'fa-classic-evidence'},card.evidence.map(function(x){return h('li',[x]);}))].concat(card.references.map(function(ref){return h('div',[h('blockquote',[ref.quote]),button(h,(ref.book===d.book?'本书':'旁参')+' · 《'+ref.name+'》· '+ref.chapterTitle+' · 查看原文',function(){showSource(ref);},'fa-classic-source-link')]);})));}
+    function prose(text){return text.split(/\n\n/).filter(Boolean).map(function(p){return h('p',{class:'fa-classic-meaning'},[p]);});}
+    function finding(card){return h('article',{key:report.signature+'|'+card.id,class:'fa-classic-finding',attrs:{'data-finding':card.id}},[h('h3',[card.title]),h('p',{class:'fa-classic-verdict'},[card.verdict])].concat(prose(card.meaning),[evidence(card)]));}
+    var header=[h('div',{class:'fa-reading-context fa-classic-context'},[h('strong',[report.overview]),h('small',['月建'+c.annotations.month+' · 日辰'+c.annotations.day+' · 日空'+c.calendar.dayVoid]),h('small',[report.focus+(report.useIndex?' · 指定用神：本卦'+L.lineName(report.useIndex):'')])]),
+      h('div',{class:'fa-classic-pickers'},[
+        h('label',[h('span',['古籍']),h('select',{attrs:{'aria-label':'解读古籍'},domProps:{value:d.book},on:{change:function(e){chooseBook(e.target.value);}}},[['huozhulin','火珠林'],['haidiyan','海底眼'],['huangjince','黄金策']].map(function(p){return h('option',{attrs:{value:p[0]}},[p[1]]);}))]),
+        h('label',[h('span',['参看爻']),h('select',{attrs:{'aria-label':'解读爻位'},domProps:{value:d.selectedSide+'|'+d.selectedIndex},on:{change:function(e){var pair=e.target.value.split('|');d.selectedSide=pair[0];d.selectedIndex=Number(pair[1]);}}},['main','changed'].map(function(side){return [1,2,3,4,5,6].map(function(i){return h('option',{attrs:{value:side+'|'+i}},[(side==='main'?'本卦':'变卦')+' · '+L.lineName(i)]);});}))])
+      ]),
+      choices(h,[['analysis','本盘解读'],['original','原文对照'],['search','全书检索']],d.bookTab,function(tab){d.bookTab=tab;d.limit=60;d.anchor=-1;},'fa-classic-mode-tabs')];
+    if(d.bookTab==='analysis')return header.concat([
+      h('details',{class:'fa-classic-method'},[h('summary',[report.bookName+' · '+report.profile.title]),h('p',[report.profile.text])]),
+      h('label',{class:'fa-classic-topic'},[h('span',['阅读内容']),h('select',{attrs:{'aria-label':'阅读内容'},domProps:{value:d.topic},on:{change:function(e){d.topic=e.target.value;}}},[['all','全卦与各类占事'],['structure','只看全卦结构']].concat(report.topics.map(function(t){return [t.id,t.title];})).map(function(x){return h('option',{attrs:{value:x[0]}},[x[1]]);}))]),
+      d.topic==='all'||d.topic==='structure'?h('section',{class:'fa-classic-overview'},[h('h3',['全卦要点']),h('p',[report.summary])]):null,
+      h('details',{class:'fa-classic-facts'},[h('summary',['全卦排盘依据']),h('ul',report.facts.map(function(x){return h('li',[x]);}))]),
+      d.topic==='all'||d.topic==='structure'?h('section',{class:'fa-classic-findings'},report.cards.slice(0,4).map(finding).concat(report.cards.length>4?[h('details',{class:'fa-classic-more'},[h('summary',['其余结构判断（'+(report.cards.length-4)+'项）'])].concat(report.cards.slice(4).map(finding)))]:[])):null,
+      d.topic!=='structure'?h('section',{class:'fa-classic-topics'},[h('h3',['按占事看本卦'])].concat(report.topics.filter(function(t){return d.topic==='all'||d.topic===t.id;}).map(function(t){return h('details',{key:report.signature+'|topic-'+t.id,class:'fa-classic-topic-reading',attrs:{open:d.topic!=='all','data-topic':t.id}},[h('summary',[h('strong',[t.title]),h('span',[t.verdict])])].concat(prose(t.meaning),[evidence(t)]));}))):null,
+      report.supplementary.length&&(d.topic==='all'||d.topic==='structure')?h('details',{class:'fa-classic-more fa-classic-supplementary'},[h('summary',['其他古籍旁参（'+report.supplementary.length+'项）'])].concat(report.supplementary.map(finding))):null
+    ]);
+    var chapter=book.sections[d.chapter]||book.sections[0],query=d.query.trim(),matches=query?book.sections.flatMap(function(s,ci){return s.paragraphs.map(function(p,pi){return {book:d.book,chapter:ci,paragraph:pi,title:s.title,text:p};}).filter(function(x){return x.text.includes(query);});}):[];
+    if(d.bookTab==='search')return header.concat([h('div',{class:'fa-reading-search'},[h('input',{attrs:{type:'search',placeholder:'在《'+report.bookName+'》中检索'},domProps:{value:d.query},on:{input:function(e){d.query=e.target.value;d.limit=60;}}}),button(h,'搜'+selected.role,function(){d.query=selected.role;d.limit=60;},'fa-small-button')]),
+      h('p',{class:'fa-caption'},[query?'找到 '+matches.length+' 段':'输入关键词检索原文']),h('div',{class:'fa-classic-search-results'},matches.slice(0,d.limit).map(function(m){return h('article',[h('h4',[m.title]),h('p',[m.text]),button(h,'定位此段',function(){showSource(m);},'fa-classic-source-link')]);})),matches.length>d.limit?button(h,'继续显示',function(){d.limit+=60;},'fa-button fa-load-more'):null]);
+    return header.concat([h('p',{class:'fa-caption'},[book.edition]),h('label',{class:'fa-input-row'},[h('span',['章节']),h('select',{domProps:{value:d.chapter},on:{change:function(e){d.chapter=Number(e.target.value);d.limit=60;d.anchor=-1;}}},book.sections.map(function(s,i){return h('option',{attrs:{value:i}},[(i+1)+' · '+s.title]);}))]),
+      h('article',{class:'fa-reading-prose'},[heading(h,chapter.title)].concat(chapter.paragraphs.slice(0,d.limit).map(function(p,i){return h('p',{class:{'is-cited':i===d.anchor},attrs:{'data-source-paragraph':i}},[p]);}))),chapter.paragraphs.length>d.limit?button(h,'继续阅读原文',function(){d.limit+=100;},'fa-button fa-load-more'):null,
+      h('p',{class:'fa-reading-source'},[typeof book.source==='string'&&book.source.startsWith('https:')?sourceLink(h,'原文出处',book.source):book.source])]);
   }
   function sourceLink(h,label,url){return h('a',{attrs:{href:url,target:'_blank',rel:'noopener noreferrer'}},[label]);}
   function readingParagraphs(h,paragraphs,limit){return paragraphs.slice(0,limit).map(function(text,i){return h('p',{key:i},[text]);});}
@@ -213,20 +243,7 @@
     var d=ui.editor;
     if(ui.readingStatus==='error')return[h('p',{class:'fa-error'},[ui.error]),button(h,'重新加载',function(){ui.error='';loadReadings().catch(function(){});},'fa-primary')];
     if(!readingData||ui.readingStatus==='loading')return[h('p',{class:'fa-loading'},['正在打开离线资料…'])];
-    if(d.kind==='book'){
-      var book=readingData.books[d.book],query=d.query.trim(),sections=book.sections;
-      var matches=query?sections.flatMap(function(s){return s.paragraphs.filter(function(p){return p.includes(query);}).map(function(p){return{chapter:s.title,text:p};});}):[];
-      var chapter=sections[d.chapter]||sections[0],paragraphs=query?matches.map(function(m){return m.chapter+' · '+m.text;}):chapter.paragraphs;
-      return[h('div',{class:'fa-reading-context'},[h('strong',[d.context]),h('small',[d.detail])]),
-        choices(h,[['huozhulin','火珠林'],['haidiyan','海底眼'],['huangjince','黄金策']],d.book,function(id){d.book=id;d.chapter=0;d.query='';d.limit=60;V.set(ui.scope,'liuyaoReference',id);saveSession(ui.scope);}),
-        h('p',{class:'fa-caption'},[book.edition]),h('label',{class:'fa-input-row'},[h('span',['章节']),h('select',{domProps:{value:d.chapter},on:{change:function(e){d.chapter=Number(e.target.value);d.query='';d.limit=60;}}},sections.map(function(s,i){return h('option',{attrs:{value:i}},[(i+1)+' · '+s.title]);}))]),
-        h('div',{class:'fa-reading-search'},[h('input',{attrs:{type:'search',placeholder:'在本书中搜索'},domProps:{value:d.query},on:{input:function(e){d.query=e.target.value;d.limit=60;}}}),button(h,'搜用神',function(){d.query=d.term;d.limit=60;},'fa-small-button')]),
-        h('div',{class:'fa-reading-prose'},[heading(h,query?'找到 '+matches.length+' 段':chapter.title)].concat(readingParagraphs(h,paragraphs,d.limit))),
-        query&&!paragraphs.length?h('p',{class:'fa-caption'},['本书没有匹配段落，可以切换关键词或按章节阅读。']):null,
-        paragraphs.length>d.limit?button(h,'继续显示（余 '+(paragraphs.length-d.limit)+' 段）',function(){d.limit+=100;},'fa-button fa-load-more'):null,
-        h('p',{class:'fa-reading-source'},[typeof book.source==='string'&&book.source.startsWith('https:')?sourceLink(h,'原文出处',book.source):book.source]),
-        h('p',{class:'fa-caption'},['典籍条文供对照查阅；上方用神和旺衰取自本盘。'])];
-    }
+    if(d.kind==='book')return renderLiuyaoClassicReading(h,d);
     var g=readingData.hexagrams[String(d.value)],hex=E.hexagram(d.value),selected=g.lines[d.line-1];
     var relative=[1,2,3,4,5,6].map(function(n){return guaLineStructure(hex,n);});
     return[h('div',{class:'fa-reading-intro'},[h('span',{class:'fa-reading-kicker'},[d.position+' · 第'+g.number+'卦 · '+g.upper+'上'+g.lower+'下']),h('h3',[g.name]),d.context?h('p',{class:'fa-caption'},[d.context]):null]),
@@ -542,12 +559,13 @@
   }
   function renderLiuyao(h,r){
     var self=this,roles=E.yongshen(r.rows,this.yongIndex),annotations=E.liuyaoAnnotations(r),selected=r.rows[this.yongIndex-1],selectedInfo=annotations.rows[this.yongIndex-1];
+    var focusIndex=this.liuyaoSelected||this.yongIndex,focusSide=this.liuyaoSide||'main',focus=focusSide==='main'?r.rows[focusIndex-1]:r.changedRows[focusIndex-1];
     var elements={'木':'wood','火':'fire','土':'soil','金':'gold','水':'water'};
     function element(text){return h('span',{class:['fa-liu-element','is-'+elements[text]]},[text]);}
     function half(x,row,isMain){
       var role=roles[row.index-1],a=annotations.rows[row.index-1],tags=isMain?a.tags.concat(a.changes):a.changedTags;
       var roleClass=role==='用'||role==='用神'?'is-yong':role==='元'||role==='元神'?'is-yuan':role==='忌'||role==='忌神'?'is-ji':role==='仇'||role==='仇神'?'is-chou':'is-xian';
-      return h(isMain?'button':'div',{class:['fa-liu-cell',{'is-selected':isMain&&self.yongIndex===row.index}],attrs:isMain?{type:'button','aria-label':'第'+row.index+'爻 '+x.role+x.ganzhi+x.element+'，选为用神','aria-pressed':String(self.yongIndex===row.index)}:{},on:isMain?{click:function(){self.yongIndex=row.index;}}:{}},[
+      return h('button',{class:['fa-liu-cell',{'is-selected':focusIndex===row.index&&focusSide===(isMain?'main':'changed')}],attrs:{type:'button','aria-label':'查看'+(isMain?'本卦':'变卦')+'第'+row.index+'爻 '+x.role+x.ganzhi+x.element,'aria-pressed':String(focusIndex===row.index&&focusSide===(isMain?'main':'changed'))},on:{click:function(){self.liuyaoSelected=row.index;self.liuyaoSide=isMain?'main':'changed';}}},[
         h('div',{class:'fa-liu-najia'},[
           h('span',{class:['fa-yao',{'is-yang':!!x.yang,'is-moving':isMain&&row.moving}],attrs:{'aria-hidden':'true'}},[h('i'),h('i')]),
           h('b',{class:'fa-moving-mark'},[isMain&&row.moving?(row.yang?'○':'×'):'']),
@@ -563,11 +581,11 @@
       h('div',{class:'fa-liu-meta'},[h('p',[r.calendar.pillars.join('　')]),h('p',['月建 '+annotations.month+'　日辰 '+annotations.day+'　日空 '+r.calendar.dayVoid])]),
       h('div',{class:'fa-liu-board'},[
         h('div',{class:'fa-liu-board-head'},[h('span',['六神']),h('div',[h('strong',[r.main.name]),h('small',['本卦 · '+r.main.palace.trigram+'宫'+r.main.palace.element+' · '+r.main.palace.kind])]),h('span'),h('div',[h('strong',[r.changed.name]),h('small',['变卦 · '+r.changed.palace.trigram+'宫'+r.changed.palace.element+' · '+r.changed.palace.kind])])]),
-        r.rows.slice().reverse().map(function(row){return h('div',{key:row.index,class:'fa-liu-row',attrs:{'data-line':row.index}},[h('div',{class:'fa-liu-god'},[h('small',[['初爻','二爻','三爻','四爻','五爻','上爻'][row.index-1]]),h('span',[row.god])]),half(row,row,true),h('span',{class:'fa-liu-arrow',attrs:{'aria-hidden':'true'}},[row.moving?'→':'']),half(r.changedRows[row.index-1],row,false)]);})
+        r.rows.slice().reverse().map(function(row){return h('div',{key:row.index,class:['fa-liu-row',{'is-focused':row.index===focusIndex}],attrs:{'data-line':row.index}},[h('div',{class:'fa-liu-god'},[h('small',[['初爻','二爻','三爻','四爻','五爻','上爻'][row.index-1]]),h('span',[row.god])]),half(row,row,true),h('span',{class:'fa-liu-arrow',attrs:{'aria-hidden':'true'}},[row.moving?'→':'']),half(r.changedRows[row.index-1],row,false)]);})
       ]),
-      h('div',{class:'fa-liu-selection',attrs:{'aria-live':'polite'}},[h('strong',['用神 · 第'+this.yongIndex+'爻 '+selected.role+selected.ganzhi]),element(selected.element),h('span',[' · 日长生 '+selectedInfo.dayLife+' / 变 '+selectedInfo.changedDayLife])]),
+      h('div',{class:'fa-liu-selection',attrs:{'aria-live':'polite'}},[h('strong',['选中 '+(focusSide==='main'?'本卦':'变卦')+' · 第'+focusIndex+'爻 '+focus.role+focus.ganzhi]),element(focus.element),focusSide==='main'&&this.yongIndex!==focusIndex?h('button',{class:'fa-liu-set-use',attrs:{type:'button'},on:{click:function(){self.yongIndex=focusIndex;self.liuyaoManualUse=true;}}},['设为用神']):null,h('small',{class:'fa-liu-use-caption'},['用神：本卦第'+this.yongIndex+'爻 '+selected.role+selected.ganzhi+selected.element+' · 日长生 '+selectedInfo.dayLife])]),
       h('details',{class:'fa-liu-reference-panel'},[h('summary',['历法与神煞参考']),calendarDetails(h,r.calendar),h('div',{class:'fa-liuyao-calendar-extra'},[h('p',['四柱旬空：'+annotations.voids.join(' / ')+'（年 / 月 / 日 / 时）']),h('p',['节气：'+annotations.term.name+' '+annotations.term.time]),h('p',['变卦六亲按本卦'+r.main.palace.trigram+'宫五行排列'])]),h('div',{class:'fa-liuyao-references'},E.liuyaoReferences(r).map(function(ref){var basis=ref.basis==='年支'?'农历年支':ref.basis;return h('span',{attrs:{title:'取法：'+basis}},[h('b',[ref.name]),' '+ref.value,h('small',['（'+basis+'）'])]);}))]),
-      h('nav',{class:'fa-liu-reading-links',attrs:{'aria-label':'六爻解卦资料'}},[['meaning','卦爻详解'],['huozhulin','火珠林'],['haidiyan','海底眼'],['huangjince','黄金策']].map(function(item){return h('button',{attrs:{type:'button'},on:{click:function(){if(item[0]==='meaning')openGua(self.owner,self.session,r.main,'本卦',0,null,r.main.name+' → '+r.changed.name);else openClassic(self.owner,self.session,item[0],r,self.yongIndex);}}},[item[1]+' ›']);})),
+      h('nav',{class:'fa-liu-reading-links',attrs:{'aria-label':'六爻解卦资料'}},[['meaning','卦爻详解'],['huozhulin','火珠林'],['haidiyan','海底眼'],['huangjince','黄金策']].map(function(item){return h('button',{attrs:{type:'button'},on:{click:function(){if(item[0]==='meaning')openGua(self.owner,self.session,r.main,'本卦',0,null,r.main.name+' → '+r.changed.name);else openClassic(self.owner,self.session,item[0],r,self.yongIndex,{index:self.liuyaoSelected||self.yongIndex,side:self.liuyaoSide||'main',manualUse:!!self.liuyaoManualUse});}}},[item[1]+' ›']);})),
       renderLiuyaoReading.call(this,h,r,annotations)
     ]);
   }
@@ -838,6 +856,9 @@
           session: null,
           sourceKey: "",
           yongIndex: 6,
+          liuyaoSelected: 6,
+          liuyaoManualUse: false,
+          liuyaoSide: "main",
           qimenPalace: 0,
           ziweiPalace: -1,
           ziweiFlying: false,
@@ -1027,6 +1048,9 @@
           this.active = ui.preferences.defaultChart;
           this._cache.clear();
           this.yongIndex = 6;
+          this.liuyaoSelected = 6;
+          this.liuyaoManualUse = false;
+          this.liuyaoSide = "main";
           this._scrollPositions = {};
           this.ziweiMoreFlows = false;
           this.flowScope = "";

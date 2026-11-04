@@ -2,15 +2,15 @@
 
 ## 下载与更新
 
-[下载 v1.0.26 安卓完整安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.26/zaohua-v1.0.26.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.26) · [最新版本](https://github.com/kyirejson/mingli-paipan/releases/latest)
+[下载 v1.0.28 安卓完整安装包](https://github.com/kyirejson/mingli-paipan/releases/download/v1.0.28/zaohua-v1.0.28.apk) · [本版发布说明](https://github.com/kyirejson/mingli-paipan/releases/tag/v1.0.28) · [最新版本](https://github.com/kyirejson/mingli-paipan/releases/latest)
 
-v1.0.26 约 36.31 MB。六爻采用无框双栏排版，六亲、纳甲、○／×、世应独立对齐，日月状态与动变说明直接标在对应爻位，五行文字按主题配色。古籍新增直接选书、选篇、原文／解说／对照与字号调整，工具栏固定，正文独立滚动。156项回归及12组六爻日夜窄屏布局检查通过，原签名覆盖安装后命例、笔记、草稿原值保留。详见[六爻验收](docs/2026-11-04_六爻方案一逐爻标注与五行配色.md)和[古籍阅读验收](docs/2026-11-04_古籍阅读与六爻紧凑盘面优化.md)。古籍正文按需联网读取。
+v1.0.28 约36.36 MB。六爻新增本卦／变卦选中爻位标记，查看爻位与指定用神分别操作。三本古籍解读先显示全卦要点，再展开求财、求职、婚约、文书、出行、失物六类占事，原文依据可定位与跨书查看。正文与摘要左对齐，窄屏及深色阅读检查通过。同签名覆盖安装后，命例、笔记、草稿及五术记录原值和原生备份核对通过。详见[六爻三书解读与交付审核](docs/2026-11-04_六爻三书实盘解读重做与交付审核.md)。
 
-同签名的 v1.0.13 至 v1.0.25 可直接覆盖升级，无需依次安装中间版本。从 v1.0.14 及更早版本首次升级前，请先导出一次现有资料。旧盘可在“设置 → 数据备份与恢复 → 找回旧记录”尝试合并仍存在的缓存。应用私有保护副本不代替卸载前的外部备份。
+同签名的 v1.0.13 至 v1.0.27 可直接覆盖升级，无需依次安装中间版本。从 v1.0.14 及更早版本首次升级前，请先导出一次现有资料。旧盘可在“设置 → 数据备份与恢复 → 找回旧记录”尝试合并仍存在的缓存。应用私有保护副本不代替卸载前的外部备份。
 
-构建不依赖历史 APK，每次从空目录装入当前资源。历史安装附件在新版核验后清理，源码标签和历史说明保留。v1.0.7 及更早旧签名版不能直接覆盖新签名版，需要单独迁移；卸载会删除本地应用数据。APP 通过“设置 → 版本更新”检查正式 latest，安装需安卓系统确认。
+构建不依赖历史 APK，每次从空目录装入当前资源。历史安装附件可在新版核验后按需清理，源码标签和历史说明保留。v1.0.7 及更早旧签名版不能直接覆盖新签名版，需要单独迁移；卸载会删除本地应用数据。APP 通过“设置 → 版本更新”检查正式 latest，安装需安卓系统确认。
 
-APK SHA-256：`33302ce55a8983573d71b98cd0b7e36cbc1debe53d7c9d6957354777ff284727`。
+APK SHA-256：`c0d0fc595c8b08284c5a4ab7589045df7088530478d0f11b43f0edb0becbd2b1`。
 
 ## 开发目录与恢复范围
 
@@ -32,11 +32,13 @@ python scripts/dev-server.py
 
 `npm test` 运行无需外部依赖的 Node 回归。`scripts/build-release.ps1` 执行 D 盘构建，所需外部输入的来源和摘要在 `build-inputs.json` 中；详细命令见整改进展。
 
-发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v` 和 `python -m unittest discover -s tests -p test_build_lifecycle.py -v`。使用 `python scripts/publish-release.py --version 1.0.26 --version-code 27` 可校验本地 APK；增加 `--publish --prune-old-apks` 才会发布并在核验新版后清理历史安装附件。先将源码与同名版本标签推送到仓库。详细步骤与清理边界见 [独立构建说明](docs/build-and-retention.md)。
+发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v` 和 `python -m unittest discover -s tests -p test_build_lifecycle.py -v`。使用 `python scripts/publish-release.py --version 1.0.26 --version-code 29` 可校验本地 APK；增加 `--publish --prune-old-apks` 才会发布并在核验新版后清理历史安装附件。先将源码与同名版本标签推送到仓库。详细步骤与清理边界见 [独立构建说明](docs/build-and-retention.md)。
 
 紫微助手代理使用本机现有的盲派八字 Agent 设置文件读取 DeepSeek 配置；密钥不写入本目录或手机安装包。当前真实请求返回 401，需在本机配置中更新有效凭证并确保账户可用，方能完成真实回答验收。通过模拟接口的测试不代表真实模型已连接成功。
 
 ## 资料来源
+
+六爻《火珠林》采用维基文库文本；《海底眼》增加怡然斋藏版64节、203段古文转录，正文与《易隐》《断易天机》引文分别标识；《黄金策》采用随包正文及注释。海底眼独发、多动依所据版本分开取法，其他书的条文作为旁参明确列出处。当前自动解读覆盖六类占事及已实现结构规则，三书全部章法尚未全部程序化。
 
 v1.0.24修复八字入口全部11本古籍的原文、原注和白话显示，使用独立公开底本的真实篇目，保留来源标注。章节按需联网读取；天元巫咸目前提供随文旧注，未提供独立现代译文。详情见[全部古籍修复与验收](docs/2026-11-04_全部八字古籍注解修复与验收.md)。
 

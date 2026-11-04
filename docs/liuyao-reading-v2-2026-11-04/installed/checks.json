@@ -1,0 +1,88 @@
+{
+  "selections": {
+    "first": {
+      "index": 3,
+      "side": "main",
+      "use": 6,
+      "pressed": 1,
+      "color": "rgb(226, 233, 218)",
+      "mark": "\"›\""
+    },
+    "second": {
+      "index": 4,
+      "side": "changed",
+      "use": 3,
+      "pressed": 1,
+      "caption": "选中 变卦 · 第4爻 父母辛未土用神：本卦第3爻 妻财乙卯木 · 日长生 沐浴"
+    }
+  },
+  "books": [
+    {
+      "book": "huozhulin",
+      "tab": "analysis",
+      "side": "changed",
+      "index": 4,
+      "findings": [
+        "fire-wealth",
+        "fire-office",
+        "manual-use",
+        "change-2",
+        "middle-moving",
+        "change-4",
+        "hidden-1"
+      ],
+      "text": "天地否 → 风水涣月建戌 · 日辰子 · 日空申酉参看变卦 四爻 父母辛未土 · 指定用神：本卦三爻古籍火珠林海底眼黄金策参看爻本卦 · 初爻本卦 · 二爻本卦 · 三爻本卦 · 四爻本卦 · 五爻本卦 · 上爻变卦 · 初爻变卦 · 二爻变卦 · 三爻变卦 · 四爻变卦 · 五爻变卦 · 上爻本盘解读原文对照全书检索火珠林 · 财官取用与飞伏财以子孙为辅助，官以父母为辅助；对照本卦财官、飞伏与世应列断语。阅读内容全卦与各类占事只看全卦结构求财与交易工作、",
+      "searchPresent": false
+    },
+    {
+      "book": "haidiyan",
+      "tab": "analysis",
+      "side": "changed",
+      "index": 4,
+      "findings": [
+        "haidi-multiple",
+        "hidden-1",
+        "manual-use",
+        "middle-moving"
+      ],
+      "text": "天地否 → 风水涣月建戌 · 日辰子 · 日空申酉参看变卦 四爻 父母辛未土 · 指定用神：本卦三爻古籍火珠林海底眼黄金策参看爻本卦 · 初爻本卦 · 二爻本卦 · 三爻本卦 · 四爻本卦 · 五爻本卦 · 上爻变卦 · 初爻变卦 · 二爻变卦 · 三爻变卦 · 四爻变卦 · 五爻变卦 · 上爻本盘解读原文对照全书检索海底眼 · 日辰、世应与独发乱动本卦多动，依所据版本乱动篇取本卦旺相有情，不采用变卦逐爻动化断语。阅读内容全卦与各类占事只看全卦结构求财与交",
+      "searchPresent": false
+    },
+    {
+      "book": "huangjince",
+      "tab": "analysis",
+      "side": "changed",
+      "index": 4,
+      "findings": [
+        "manual-use",
+        "change-2",
+        "middle-moving",
+        "change-4",
+        "hidden-1"
+      ],
+      "text": "天地否 → 风水涣月建戌 · 日辰子 · 日空申酉参看变卦 四爻 父母辛未土 · 指定用神：本卦三爻古籍火珠林海底眼黄金策参看爻本卦 · 初爻本卦 · 二爻本卦 · 三爻本卦 · 四爻本卦 · 五爻本卦 · 上爻变卦 · 初爻变卦 · 二爻变卦 · 三爻变卦 · 四爻变卦 · 五爻变卦 · 上爻本盘解读原文对照全书检索黄金策 · 旺衰、动变与成败救应合看日月、实际动变、空破及救应；再依不同占事取相应六亲。阅读内容全卦与各类占事只看全卦结构求财与交易工作、求",
+      "searchPresent": false
+    }
+  ],
+  "changed": {
+    "singlePair": 1,
+    "boundary": 0,
+    "signature": "[32,33,[\"丙午\",\"戊戌\",\"壬午\",\"丙午\"],[1],4,\"changed\",null,\"haidiyan\",\"all\"]"
+  },
+  "cross": {
+    "before": "huangjince",
+    "after": "haidiyan",
+    "label": "旁参 · 《海底眼》· 正文·求财 · 查看原文",
+    "cited": true,
+    "text": "占财旺相喜持世，出现生扶司秉劳，脱货求财要用兴，开张生意方得利。（眉批：最忌空亡临财，飞爻克伏，徒为费力。）"
+  },
+  "topicCheck": {
+    "ids": [
+      "finance"
+    ],
+    "open": true,
+    "paragraphs": 1
+  },
+  "darkOverflow": [],
+  "userDataUnchanged": true
+}
