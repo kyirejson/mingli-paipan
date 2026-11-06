@@ -8,8 +8,7 @@
 
 一处起盘，五术切换。看盘面，读古籍，留下自己的判断。
 
-[![Android](https://img.shields.io/badge/Android-安卓应用-23483B?style=flat-square&logo=android&logoColor=white)](https://github.com/kyirejson/mingli-paipan/releases/latest)
-[![Release](https://img.shields.io/github/v/release/kyirejson/mingli-paipan?style=flat-square&color=23483B&label=最新版本)](https://github.com/kyirejson/mingli-paipan/releases/latest)
+**Android · 简体中文**
 
 [**下载 APK**](https://github.com/kyirejson/mingli-paipan/releases/latest)　·　[内容亮点](#内容亮点)　·　[安装说明](docs/INSTALL.md)　·　[问题反馈](https://github.com/kyirejson/mingli-paipan/issues)
 
