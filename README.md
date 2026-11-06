@@ -2,89 +2,96 @@
 
 ![造化元钥 · 五术一览，纸上青山](docs/media/banner.svg)
 
-# 造化元钥 · 命理排盘 APP
+# 造化元钥 · 命理排盘
 
 **八字 · 紫微斗数 · 奇门遁甲 · 六爻纳甲 · 梅花易数**
 
-一份时间信息，切换五种命盘；把排盘、古籍阅读与断事笔记放在一起。
+一处起盘，五术切换。看盘面，读古籍，留下自己的判断。
 
 [![Android](https://img.shields.io/badge/Android-安卓应用-23483B?style=flat-square&logo=android&logoColor=white)](https://github.com/kyirejson/mingli-paipan/releases/latest)
 [![Release](https://img.shields.io/github/v/release/kyirejson/mingli-paipan?style=flat-square&color=23483B&label=最新版本)](https://github.com/kyirejson/mingli-paipan/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/kyirejson/mingli-paipan/total?style=flat-square&color=B66E58&label=下载)](https://github.com/kyirejson/mingli-paipan/releases)
 
-[**下载安卓 APK**](https://github.com/kyirejson/mingli-paipan/releases/latest) · [功能介绍](#五种排盘一个入口) · [安装与更新](#安装与更新) · [反馈问题](https://github.com/kyirejson/mingli-paipan/issues)
-
-简体中文 / Chinese · Android · Bazi / Zi Wei Dou Shu / Qimen Dunjia / Liuyao / Meihua Yishu
+[**下载 APK**](https://github.com/kyirejson/mingli-paipan/releases/latest)　·　[内容亮点](#内容亮点)　·　[安装说明](docs/INSTALL.md)　·　[问题反馈](https://github.com/kyirejson/mingli-paipan/issues)
 
 </div>
 
-## 五种排盘，一个入口
+## 五种盘式，一次输入
 
-造化元钥（命理排盘 / `mingli-paipan`）是一款面向传统术数学习与命例整理的安卓排盘工具。首页填写时间、性别等信息，排盘后可切换八字、紫微、奇门、六爻和梅花，支持设置默认盘面和切换顺序。
+造化元钥是一款把**排盘、盘面解读、古籍注解、命例记录与题库练习**放在一起的中文安卓 APP。输入时间、性别等信息后，可滑动切换五种盘式，也可自行安排默认盘面和切换顺序。
 
-| 盘式 | 可以查看和使用的内容 |
+| 盘式 | 功能与盘面内容 |
 | --- | --- |
-| **八字四柱** | 出生信息、四柱排盘、专业细盘、五行与旺衰参考、古籍阅读、断事笔记 |
-| **紫微斗数** | 三合、钦天、飞星盘式，十二宫星曜、四化与运限；按当前盘面匹配已实现的详解规则 |
-| **奇门遁甲** | 默认时家拆补法转盘；可在起局设置中选择其他已支持的起局方式 |
-| **六爻纳甲** | 默认时间起卦，也可自定义；六神、纳甲、六亲、世应、动变、伏神及日月状态 |
-| **梅花易数** | 默认时间起卦，也可自定义；本卦、互卦、变卦、综卦、错卦及体用关系 |
+| **八字四柱** | 公历、农历与四柱输入；基本信息、四柱排盘、专业细盘、五行与旺衰参考，衔接古籍阅读和断事笔记 |
+| **紫微斗数** | 三合、钦天、飞星三种盘式；十二宫星曜、三方四正、四化箭头与大限流年；盘面下方可读对应解读 |
+| **奇门遁甲** | 默认时家拆补法转盘；起局设置支持拆补、置闰、茅山等取法，查看九宫星、门、神与干支 |
+| **六爻纳甲** | 时间起卦与自定义起卦；本卦、变卦双栏，纳甲、六亲、六神、世应、伏神、动变与日月状态逐爻对应 |
+| **梅花易数** | 时间起卦与自定义起卦；本卦、互卦、变卦、综卦、错卦并看，结合体用、五行生克与卦爻详解阅读 |
 
-### 盘面与阅读
+## 内容亮点
 
-- **纸上青山**：米白纸色、青绿主色与五行配色，统一盘面、设置及阅读界面。
-- **紧凑六爻盘**：本卦与变卦并列，六亲与动爻标记分列，日冲、月合等说明对应爻位显示。
-- **三书对照**：《火珠林》《海底眼》《黄金策》先列全卦结构，再展开不同占事的规则解读，可回到具体原文。
-- **古籍注解**：八字入口提供多本古籍的原文、原注与已收录白话；部分章节按需联网读取。
-- **命例整理**：本地记录、统一断事笔记、备份与恢复、名人命例参考。
-- **题库练习**：知识与习题入口，便于学习后回到盘面核对。
+### 01 · 八字古籍，按盘查阅
 
-## 安装与更新
+八字古籍入口收录 **11 本书的阅读与篇目匹配**，可按当前命局相关条目查阅，切换原文、注解与对照阅读，调整字号。
 
-1. 打开 [最新正式版](https://github.com/kyirejson/mingli-paipan/releases/latest)，在 **Assets** 下载 `zaohua-v版本号.apk`。
-2. 在安卓手机上打开 APK，按系统提示允许该下载来源安装。
-3. 后续可在 APP 的 **设置 → 版本更新** 检查更新，下载后由系统确认安装。
-
-**当前版本：v1.0.29。** 本版将六爻用神、元神、忌神、仇神、闲神移至六神下方的固定位置，完整名称对齐显示，用神突出标识。查看爻位与设置用神仍分别操作。详见 [本版更新说明](docs/releases/v1.0.29.md)。
-
-同签名的 v1.0.13 及后续版本可直接覆盖升级，不必依次安装中间版本。**保留旧版直接安装新版，不要先卸载或清除数据。** 从 v1.0.14 及更早版本首次升级前，先导出资料；仍存在的旧缓存可通过“设置 → 数据备份与恢复 → 找回旧记录”尝试合并。
-
-v1.0.7 及更早版本采用旧签名，需要单独迁移。应用私有备份不能替代卸载前的外部备份。发布页同时提供 `update.json` 和 `SHA256SUMS.txt`，便于检查更新与校验文件。
-
-### 常见问题
-
-**苹果手机可以直接安装吗？** 目前正式分发的是 Android APK，不能直接安装到 iPhone；仓库尚未提供正式 iOS 安装包。
-
-**全部功能都能离线使用吗？** 部分古籍章节、八字基础接口及可选助手依赖联网。不能将本项目视为完整离线应用。
-
-**解读是否由大模型生成？** 当前紫微预编解读与六爻三书解读使用已实现的程序规则和资料条目；可选紫微助手是另一项功能，需要配置可用的模型服务。三书全部章法与所有流派技法尚未全部程序化。
-
-**数据保存在哪里？** 命例与笔记主要保存在本机，沿用应用数据保护机制；不要通过卸载来更新。反馈问题时请隐去姓名、出生信息等个人资料。
-
-## 开发与资料
-
-本仓库包含从早期安装包恢复并持续维护的 Web 资源、安卓运行外壳、资料构建和测试脚本。原始开发工程曾丢失，恢复范围与依赖在开发文档中说明。
-
-```powershell
-python scripts/dev-server.py
-```
-
-本地预览地址为 `http://127.0.0.1:9988`。Node.js 22 或更高版本可运行 `npm test`；安卓构建命令、外部工具、签名与数据保留要求见下方文档。
-
-| 文档 | 内容 |
+| 书目 | 阅读侧重点 |
 | --- | --- |
-| [开发与资料来源](docs/DEVELOPMENT.md) | 项目恢复范围、调试、构建、助手配置、古籍与上游来源 |
-| [独立构建与更新](docs/build-and-retention.md) | 构建输入、发布步骤、数据保留及历史附件边界 |
-| [六爻三书解读审核](docs/2026-11-04_六爻三书实盘解读重做与交付审核.md) | 三书差异、规则范围与验证证据 |
-| [全部八字古籍修复](docs/2026-11-04_全部八字古籍注解修复与验收.md) | 原文、注解和阅读入口的处理范围 |
-| [历史版本](https://github.com/kyirejson/mingli-paipan/releases) | APK、版本说明及校验附件 |
+| 《穷通宝鉴》《滴天髓》 | 日干体象、月令、五行与体用相关篇目 |
+| 《三命通会》《八字提要》 | 日时、日干、月令与时柱对应条目 |
+| 《子平真诠》《渊海子平》 | 格局、用神、取运及十干体象等篇目 |
+| 《神峰通考》《千里命稿》 | 歌诀、六神、格局与运限等原章 |
+| 《五行精纪》《李虚中命书》《天元巫咸》 | 干支、节气、纳音古法、十干论篇及随文旧注 |
 
-古籍底本、转录与第三方代码各有来源和许可；编辑白话与程序规则不冒充古籍原文。学习传统术数时，可通过原文对照核实取法。
+原文、原有评注与已收录白话分层显示，保留来源入口。部分章节按需联网读取；《天元巫咸》提供随文旧注。
 
-## English overview
+### 02 · 六爻三书，带着卦读
 
-**Zaohua Yuanyao** is a Chinese-language Android app for **Bazi (Four Pillars), Zi Wei Dou Shu, Qimen Dunjia, Liuyao / Na Jia, and Meihua Yishu**. It combines chart switching, classical-text reading, rule-based chart explanations, local case records and notes. Download the Android APK from [GitHub Releases](https://github.com/kyirejson/mingli-paipan/releases/latest). Some content and optional services require a network connection; no official iOS build is currently distributed.
+《**火珠林**》《**海底眼**》《**黄金策**》可直接从六爻盘打开。先看全卦关键结构，再展开**求财、求职、婚约、文书、出行、失物**六类占事；查看依据时，可定位到原文的章节和段落。
 
----
+- **火珠林**：财官辅助、世应与飞伏等结构。
+- **海底眼**：按所据版本区分静卦、独发和多动，正文与别书引文分开阅读。
+- **黄金策**：日月旺衰、空破、动变、回头生克与救应等关系。
 
-同一作者的另一款应用：[Uncover · 自重训练 APP](https://github.com/kyirejson/calisthenics-app) — 自重健身、训练记录、跑步与 AI 助手。
+盘面采用紧凑双栏：六亲与动爻标记对齐，日冲、月合、化破等说明放在对应爻位；**用神、元神、忌神、仇神、闲神**固定显示。点选爻位可查看位置，另行指定用神后关系同步更新。
+
+### 03 · 紫微解读，跟着本盘看
+
+围绕**十二宫、星曜、三方会照、四化飞星、星系格局和命身运限**组织解读，内容随本盘的宫位、星曜与组合匹配。三合、钦天与飞星盘面可切换，命盘与大限流年放在同一页查看。
+
+紫微与六爻解读采用已收录资料和已实现的程序规则；具体取法、来源与覆盖范围见[内容说明](docs/DEVELOPMENT.md#资料来源)。
+
+### 04 · 从学习到复盘
+
+- **题库练习**：查阅基础知识、完成习题，把学到的概念带回盘面核对。
+- **命例与名人资料**：保存自己的命例，也可浏览名人命例作参考。
+- **统一断事笔记**：多种盘式共用对应命例的笔记，方便整理判断与后续反馈。
+- **备份与恢复**：本地记录可备份，提供旧记录找回入口。
+
+### 05 · 纸上青山
+
+米白纸色、青绿主色与五行配色贯穿排盘和阅读。盘面强调对齐与紧凑，正文保留清楚的层次，支持深色阅读。
+
+## 下载与使用
+
+1. 打开 [最新正式版](https://github.com/kyirejson/mingli-paipan/releases/latest)，在 **Assets** 下载 APK。
+2. 在安卓手机上打开安装，输入信息后开始排盘。
+3. 后续进入 **设置 → 版本更新** 检查新版，直接覆盖安装。
+
+**更新时保留旧应用，不要先卸载或清除数据。** 历史签名迁移、备份和联网功能说明见[安装与数据说明](docs/INSTALL.md)。目前分发 Android 安装包。
+
+<details>
+<summary><strong>开发、资料来源与更新记录</strong></summary>
+
+- [开发与资料来源](docs/DEVELOPMENT.md)
+- [独立构建与数据保留](docs/build-and-retention.md)
+- [六爻三书取法与验证](docs/2026-11-04_六爻三书实盘解读重做与交付审核.md)
+- [八字古籍阅读与匹配说明](docs/2026-11-04_全部八字古籍注解修复与验收.md)
+- [版本更新记录](https://github.com/kyirejson/mingli-paipan/releases)
+
+</details>
+
+<details>
+<summary><strong>English · About this app</strong></summary>
+
+**Zaohua Yuanyao** is a Chinese-language Android app for **Bazi / Four Pillars, Zi Wei Dou Shu, Qimen Dunjia, Liuyao / Na Jia, and Meihua Yishu**. Highlights include five-chart switching, eleven Bazi classical-text reading entries, three Liuyao classics with source references, rule-based Ziwei chart explanations, quizzes, local case records and notes. Download the Android APK from [Releases](https://github.com/kyirejson/mingli-paipan/releases/latest).
+
+</details>
