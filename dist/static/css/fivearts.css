@@ -158,12 +158,15 @@ html.pf-theme #app .fa-qimen-cell>div{width:100%}
 .fa-liu-board-head,.fa-liu-row{display:grid;grid-template-columns:28px minmax(0,1fr) 14px minmax(0,1fr);column-gap:3px}
 .fa-liu-board-head{align-items:center;border-bottom:1px solid var(--pf-line);color:var(--pf-accent);padding-bottom:4px}
 .fa-liu-board-head>span{font-size:10px;text-align:center}
+.fa-liu-side-heading small{display:block;font-size:10px;font-weight:400;color:var(--pf-caption)}
 .fa-liu-board-head>div{padding:4px 0;text-align:center;min-width:0}
 .fa-liu-board-head strong{font:600 17px/1.5 var(--pf-serif);display:block}
 .fa-liu-board-head small{display:block;font-size:10px;line-height:1.5;color:var(--pf-caption)}
 .fa-liu-row{border:0;min-height:52px;align-items:start;padding:6px 0}
 .fa-liu-god{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:1px;padding-top:1px;color:var(--pf-clay);font-size:12px;line-height:1.5}
 .fa-liu-god small{font-size:10px;color:var(--pf-caption)}
+.fa-liu-god .fa-role-tag{display:block;box-sizing:border-box;width:100%;padding:0;font-size:11px;font-style:normal;font-weight:400;line-height:1.5;text-align:center;white-space:nowrap}
+.fa-liu-god .fa-role-tag.is-yong{font-weight:700;background:var(--pf-tint);border-radius:3px}
 html.pf-theme #app .fa-liu-cell{box-sizing:border-box;min-width:0;padding:3px 0;display:flex;flex-direction:column;gap:3px;justify-content:flex-start;border:0;border-radius:0;background:transparent;color:var(--pf-ink);text-align:left;font:13px/1.4 var(--pf-sans);cursor:default}
 html.pf-theme #app button.fa-liu-cell{cursor:pointer}
 html.pf-theme #app .fa-liu-cell.is-selected{background:var(--pf-tint);box-shadow:inset 2px 0 var(--pf-accent)}
@@ -181,8 +184,6 @@ html.pf-theme #app .fa-liu-najia .fa-yao.is-moving{color:var(--pf-danger)}
 .fa-liu-status{display:flex;flex-wrap:wrap;align-items:baseline;gap:1px 5px;min-height:17px;font-size:11px;line-height:1.5;color:var(--pf-clay);overflow-wrap:anywhere}
 .fa-liu-state{white-space:nowrap}
 .fa-liu-state.is-alert{color:var(--pf-danger)}
-.fa-liu-status em{font-style:normal;font-size:10px;line-height:1.5}
-.fa-liu-status .is-yong{font-weight:700}
 .fa-liu-strength{color:var(--pf-caption);font-size:10px}
 .fa-liu-arrow{font-size:14px;line-height:1.4;padding-top:4px;text-align:center;color:var(--pf-accent)}
 .fa-liu-hidden{font-size:10px;color:var(--pf-caption);line-height:1.5;display:flex;gap:1px;flex-wrap:wrap}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">造化元钥 · 命理排盘</title>
+  <desc id="desc">米白纸色与青绿山形，八字、紫微、奇门、六爻、梅花五术排盘。</desc>
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#FAF7F0"/><stop offset="1" stop-color="#EAE7DC"/></linearGradient>
+    <linearGradient id="mountain" x2="0" y2="1"><stop stop-color="#23483B" stop-opacity=".25"/><stop offset="1" stop-color="#23483B" stop-opacity=".05"/></linearGradient>
+  </defs>
+  <rect width="1200" height="330" rx="18" fill="url(#paper)"/>
+  <path d="M690 330 834 135 897 211 971 77 1104 232 1200 156V330Z" fill="url(#mountain)"/>
+  <path d="m746 330 109-141 74 74 79-103 118 170" fill="none" stroke="#23483B" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="1050" cy="83" r="35" fill="#B66E58" opacity=".17"/>
+  <g transform="translate(76 90)" fill="none" stroke="#23483B">
+    <rect width="136" height="136" rx="30" fill="#23483B"/>
+    <circle cx="68" cy="68" r="45" stroke="#F5F1E9" stroke-opacity=".7"/>
+    <path d="m68 25 17 43-17 43-17-43Z" stroke="#F5F1E9" stroke-width="2"/>
+    <path d="m25 68 43-17 43 17-43 17Z" stroke="#F5F1E9" stroke-width="2"/>
+    <circle cx="68" cy="68" r="7" fill="#B66E58" stroke="none"/>
+  </g>
+  <text x="248" y="141" fill="#23483B" font-size="54" font-weight="700" letter-spacing="10" font-family="'Noto Serif CJK SC','Microsoft YaHei',serif">造化元钥</text>
+  <text x="251" y="183" fill="#54675C" font-size="20" letter-spacing="3" font-family="'Microsoft YaHei',sans-serif">五术一览 · 纸上青山</text>
+  <path d="M251 208H690" stroke="#23483B" opacity=".17"/>
+  <text x="251" y="243" fill="#23483B" font-size="17" letter-spacing="2" font-family="'Microsoft YaHei',sans-serif">八字 / 紫微 / 奇门 / 六爻 / 梅花</text>
+  <text x="78" y="294" fill="#6B786F" font-size="11" letter-spacing="3" font-family="sans-serif">ZAOHUA YUANYAO · ANDROID</text>
+</svg>
