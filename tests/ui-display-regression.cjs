@@ -92,3 +92,40 @@ test('宫位详读逐宫保留当前盘式星曜、运限和年龄，切宫不�
  assert.equal(ui.editor.palaces[0].stars[0].flowMutagen,'流禄');
  let tree=c.renderPalaceReading(h,ui.editor);flatten(tree).find(n=>n.tag==='choices').change(10);assert.equal(ui.editor.selected,10);assert.equal(JSON.stringify({chart,session}),original);
 });
+
+test('六爻状态三色分流、主次爻行标记、首屏纳甲要点与静爻折叠保留全部六爻资料',()=>{
+ const c={console,Date,Intl,Math,JSON,Map,Set,h};c.window=c;c.global=c;vm.createContext(c);
+ for(const file of ['time-policy.js','fivearts-engine.js','divination-calendar-fix.js','fivearts-readings.js','liuyao-reading.js'])vm.runInContext(source(file),c);
+ c.E=c.FiveArtsEngine;c.readingData=c.FiveArtsReadingsData;c.readingPromise=null;c.ui={readingStatus:'ready'};
+ c.heading=(h,t)=>h('h3',{},[t]);c.button=(h,l,fn,cls)=>h('button',{class:cls,on:{click:fn}},[l]);c.sourceLink=(h,l,u)=>h('a',{attrs:{href:u}},[l]);c.openGua=()=>{};c.openClassic=()=>{};c.calendarDetails=()=>null;c.V={set(o,k,v){o[k]=v;}};c.saveSession=()=>{};
+ const s=source('fivearts-ui.js');vm.runInContext(s.slice(s.indexOf('  function guaLineStructure'),s.indexOf('\n  function renderQimen(')),c);
+ function text(n){if(Array.isArray(n))return n.map(text).join('');return n&&typeof n==='object'?text(n.children):n==null?'':String(n);}
+ const r=c.E.liuyao('2026-10-29 12:00',{method:'specified',upper:1,lower:8,moving:[2,5]}),view={yongIndex:2,liuyaoSelected:2,liuyaoSide:'main',liuyaoManualUse:true,liuyaoTopic:'all',session:{liuyaoReference:'huangjince',modules:{liuyao:{method:'specified'}}}};
+ const tree=c.renderLiuyao.call(view,h,r),nodes=flatten(tree);
+ const rows=nodes.filter(n=>n.data?.class?.[0]==='fa-liu-row');assert.equal(rows.length,6);
+ const yongRow=rows.find(n=>n.data.attrs['data-line']===2);assert.equal(yongRow.data.class[1]['is-yong-row'],true);assert.equal(yongRow.data.class[1]['is-moving-row'],true);
+ const states=nodes.filter(n=>n.data?.class?.[0]==='fa-liu-state');assert.ok(states.some(n=>n.data.class[1]['is-boost']));assert.ok(states.some(n=>n.data.class[1]['is-alert']));
+ const najia=nodes.find(n=>n.data?.class==='fa-liuyao-najia-summary');assert.ok(najia);assert.match(text(najia),/本盘纳甲要点 · 黄金策/);assert.match(text(najia),/【应期参考】.*第2爻/);
+ const lineArticles=nodes.filter(n=>n.data?.class?.[0]==='fa-liuyao-line-reading');assert.equal(lineArticles.length,6);
+ const quietDetails=nodes.find(n=>n.data?.class==='fa-liuyao-quiet-lines');assert.ok(quietDetails);assert.equal(flatten(quietDetails).filter(n=>n.data?.class?.[0]==='fa-liuyao-line-reading').length,3);
+});
+
+test('紫微三合盘保留天厨等全部杂曜，本宫详解同步合成总括与当前运限叠宫且无重复ID',()=>{
+ const {setup}=require('./helpers/ziwei-reading.cjs'),{c,data}=setup();
+ let comp;c.WZBZReading.register({component:(k,o)=>comp=o});
+ const s=source('fivearts-ui.js');vm.runInContext(s.slice(s.indexOf('  function ziweiPalaceStars('),s.indexOf('  function getCachedTransformations(')),c);
+ const r=c.FiveArtsEngine.ziwei('1990-05-15 10:30','男'),horo=r.chart.horoscope('2026-11-08',5);
+ const allSanheStars=r.chart.palaces.flatMap((p,i)=>c.ziweiPalaceStars(p,'sanhe',horo.yearly,i).map(x=>x.name));
+ const allAdjective=r.chart.palaces.flatMap(p=>p.adjectiveStars.map(x=>x.name));
+ for(const name of allAdjective)assert.ok(allSanheStars.includes(name),'missing star: '+name);
+ function text(n){if(Array.isArray(n))return n.map(text).join('');return n&&typeof n==='object'?text(n.children):n==null?'':String(n);}
+ const inst={enabled:true,chart:r.chart,selected:0,mode:'sanhe',flights:[],flow:horo.yearly,flowScope:'yearly',flowDate:'2026-11-08',bank:data,status:'ready',error:'',near:true,tab:'palace',allPalaces:true};
+ inst.view=comp.computed.view.call(inst);
+ const tree=comp.render.call(inst,h),nodes=flatten(tree);
+ const summaries=nodes.filter(n=>n.data?.class==='zr-palace-summary'),flows=nodes.filter(n=>n.data?.class==='zr-flow-banner');
+ assert.equal(summaries.length,12);assert.equal(flows.length,12);
+ summaries.forEach(n=>assert.match(text(n),/【本宫总括】/));
+ flows.forEach(n=>assert.match(text(n),/【当前流年叠宫】.*2026-11-08/));
+ const ids=nodes.filter(n=>n.data?.attrs?.['data-reading-id']).map(n=>n.data.attrs['data-reading-id']);
+ assert.equal(new Set(ids).size,ids.length);
+});
