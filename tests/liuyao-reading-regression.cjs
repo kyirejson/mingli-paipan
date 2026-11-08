@@ -92,3 +92,52 @@ test('通用世克应不再冒充主动权，未命中结构时用具体占事�
 test('变爻空破必须指明变出何物，避免把阻碍变成笼统的全事凶断',()=>{
  const r=report(chart([3]),'huozhulin'),t=topic(r,'finance');assert.match(t.meaning,/变出的兄弟.*旬空.*分耗争执未落实/);assert.match(t.verdict,/变兄弟旬空/);
 });
+
+test('黄金策单爻动变384局零遗漏，财化兄回克不被火珠林截胡，火珠林独发优先于财官通论',()=>{
+ for(let u=1;u<=8;u++)for(let l=1;l<=8;l++)for(let i=1;i<=6;i++){
+  const r=report(chart([i],u,l),'huangjince');
+  assert.ok(r.cards.some(x=>x.id==='change-'+i),`missing change-${i} for ${u}-${l}`);
+ }
+ const c=chart([3]);
+ const gold=report(c,'huangjince'),fire=report(c,'huozhulin');
+ assert.ok(gold.cards.some(x=>x.id==='change-3'&&x.title.includes('回头克')));
+ assert.equal(fire.cards[0].id,'change-3');
+});
+
+test('手动指定用神在黄金策、火珠林、海底眼三书中均置顶且识别元忌动生克',()=>{
+ const c=chart([2,5],2,5,'2026-11-08 14:00');
+ for(const book of ['huangjince','huozhulin','haidiyan']){
+  const r=report(c,book,{yongIndex:2,manualUse:true});
+  assert.equal(r.cards[0].id,'manual-use');
+  assert.equal(r.cards[0].reference.book,book);
+ }
+});
+
+test('三合成局、旁爻动生克世位与六冲六合游魂归魂卦象按书目规则生成',()=>{
+ const qian=report(chart([],1,1),'huangjince'),tai=report(chart([],8,1),'huangjince'),jin=report(chart([],3,8),'huozhulin'),dayou=report(chart([],3,1),'haidiyan');
+ assert.ok(qian.cards.some(x=>x.id==='hexagram-pattern'&&x.title.includes('六冲')));
+ assert.ok(tai.cards.some(x=>x.id==='hexagram-pattern'&&x.title.includes('六合')));
+ assert.ok(jin.cards.some(x=>x.id==='hexagram-pattern'&&x.title.includes('游魂')));
+ assert.ok(dayou.cards.some(x=>x.id==='hexagram-pattern'&&x.title.includes('归魂')));
+ const sanheVoid=L.snapshot(E.liuyao('2026-05-20 12:00',{method:'specified',upper:1,lower:1,moving:[1,3,5]})),sanheChart=L.snapshot(E.liuyao('2026-11-08 14:00',{method:'specified',upper:1,lower:1,moving:[1,3,5]}));
+ const sanheGold=report(sanheChart,'huangjince'),sanheSea=report(sanheChart,'haidiyan');
+ assert.ok(!report(sanheVoid,'huangjince').cards.some(x=>x.id==='sanhe-水'));
+ assert.ok(sanheGold.cards.some(x=>x.id==='sanhe-水'));
+ assert.ok(!sanheSea.cards.some(x=>x.id.startsWith('sanhe-')));
+});
+
+test('反吟伏吟、动墓世墓、三书六神发动准确识别，火珠林财官结构卡与分占正文去重',()=>{
+ const fuyin=report(chart([2,3,5,6],1,1),'huangjince'),fanyin=report(chart([2,3,5,6],8,8),'huangjince');
+ assert.ok(fuyin.cards.some(x=>x.id==='fuyin-pattern'&&x.title==='卦变伏吟'));
+ assert.ok(fanyin.cards.some(x=>x.id==='fanyin-pattern'&&x.title==='卦变反吟'));
+ const tombMov=report(chart([1],1,1,'2026-11-02 12:00'),'huangjince'),tombShi=report(chart([],1,3,'2026-11-02 12:00'),'huangjince');
+ assert.ok(tombMov.cards.some(x=>x.id==='tomb-moving'));
+ assert.ok(tombShi.cards.some(x=>x.id==='tomb-shi'&&x.title.includes('随鬼')||x.id==='tomb-shi'));
+ const dragonFire=report(chart([4],1,4,'2026-11-01 12:00'),'huozhulin'),seaSolo=report(chart([1],1,8,'2026-10-29 12:00'),'haidiyan');
+ assert.ok(dragonFire.cards.some(x=>x.id==='six-god-move'&&x.title.includes('青龙')));
+ assert.ok(seaSolo.cards.some(x=>x.id==='six-god-move'&&x.reference.chapterTitle==='正文·六神发动'));
+ const fw=dragonFire.cards.find(x=>x.id==='fire-wealth'),fo=dragonFire.cards.find(x=>x.id==='fire-office');
+ assert.notEqual(fw.meaning,topic(dragonFire,'finance').meaning);
+ assert.notEqual(fo.meaning,topic(dragonFire,'work').meaning);
+ assert.match(dragonFire.summary,/世居.*应居/);
+});

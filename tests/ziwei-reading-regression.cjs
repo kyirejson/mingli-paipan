@@ -116,3 +116,19 @@ test('固定上游代码与MIT许可随包保留，解读技法入口及运限�
  const pin=JSON.parse(fs.readFileSync('vendor/ziwei-doushu/UPSTREAM.json','utf8'));assert.equal(c.WZBZPatternRules.commit,pin.commit);assert.ok(fs.readFileSync('dist/static/licenses/ziwei-doushu.txt','utf8').includes('MIT License'));
  const html=fs.readFileSync('dist/index.html','utf8'),ui=fs.readFileSync('dist/static/js/fivearts-ui.js','utf8');assert.ok(html.indexOf('ziwei-patterns.js')<html.indexOf('ziwei-interpretation.js'));assert.ok(ui.includes('flow:flow,flowScope:this.flowScope,flowDate:this.flowDate'));
 });
+
+test('本宫首卡去除本盘合读重复，补齐三奇嘉会、单禄存、混杂多煞、大限流年三层叠宫与流曜',()=>{
+ const x=add(add(chart(),'命宫','紫微','庙','权'),'财帛','天梁','旺','禄');
+ add(x,'官禄','左辅','','科',true);add(x,'迁移','禄存','','',true);add(x,'财帛','擎羊','','',true);add(x,'官禄','火星','','',true);
+ const r=row(x,'命宫'),v=result(x,'命宫');
+ assert.ok(!r.cards[0].text.includes('本盘合读：'));assert.match(r.cards[0].extra||'',/本盘耦合/);
+ assert.ok(v.relations.some(p=>p.id==='rel-sanqi-命宫'));
+ assert.ok(v.relations.some(p=>p.id==='rel-lucun-命宫'));
+ assert.ok(v.relations.some(p=>p.id==='rel-mixsha-命宫'));
+ const real=c.FiveArtsEngine.ziwei('1990-05-15 10:30','男').chart,h=real.horoscope('2026-11-08',5);
+ const fv=api.analyse(data,real,{mode:'sanhe',flow:h.yearly,flowScope:'yearly',flowDate:'2026-11-08',horoscope:h});
+ const fc=api.flow(data,fv.rows,{flow:h.yearly,flowScope:'yearly',flowDate:'2026-11-08'});assert.equal(fc.length,4);assert.match(fc[3].extra||'',/直冲对宫本命/);
+ assert.ok(fv.life.some(p=>p.id==='flow-axis-yearly'));assert.ok(fv.life.some(p=>p.id==='flow-stars-yearly'));
+ const bodyCard=fv.life.find(p=>p.id==='body'),bodyRow=fv.rows.find(p=>p.body);
+ assert.notEqual(bodyCard.text,bodyRow.cards[0].text);
+});

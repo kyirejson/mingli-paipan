@@ -217,7 +217,9 @@ html.pf-theme #app .fa-liu-element.is-water{color:var(--pf-water)}
 .fa-liuyao-najia-summary{background:var(--pf-surface);border:1px solid var(--pf-line);border-radius:7px;padding:10px 11px;margin-bottom:12px}
 .fa-najia-head{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;margin-bottom:7px}
 .fa-najia-head h3{font:600 15px/1.35 var(--pf-serif);color:var(--pf-accent);margin:0}
-.fa-najia-books{display:flex;gap:4px}
+.fa-najia-books{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.fa-result-host .fa-najia-full-btn{border:0;background:transparent;color:var(--pf-accent);padding:2px 4px;font-size:11.5px;font-weight:600;min-height:24px;cursor:pointer}
+.fa-palace-reading .fa-palace-jump{margin-top:12px;width:100%;justify-content:center}
 .fa-result-host .fa-najia-book-btn{border:1px solid var(--pf-line);background:var(--pf-paper);color:var(--pf-caption);border-radius:4px;padding:2px 6px;font-size:11px;min-height:24px}
 .fa-result-host .fa-najia-book-btn.is-active{background:var(--pf-accent);color:var(--pf-on-accent);border-color:var(--pf-accent);font-weight:600}
 .fa-najia-topics{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
@@ -371,3 +373,19 @@ html[data-theme=dark] .fa-ziwei{--zw-red:var(--pf-fire);--zw-blue:var(--pf-water
 .fa-palace-reading-stars small{font-size:11.5px;color:var(--pf-caption);margin-left:4px}
 .fa-result-host,.fa-portals{--fa-yong:#0b5794;--fa-yuan:#2e603d;--fa-ji:#aa302d;--fa-chou:#792345;--fa-xian:#46514a}
 html[data-theme=dark] .fa-result-host,html[data-theme=dark] .fa-portals{--fa-yong:#8ac7f2;--fa-yuan:#9bcf9d;--fa-ji:#ffb4ab;--fa-chou:#efb2cc;--fa-xian:var(--pf-ink)}
+
+.fa-najia-cite {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--pf-gold);
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+}
+.fa-najia-cite:hover {
+  text-decoration: underline;
+}

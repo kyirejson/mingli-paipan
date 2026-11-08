@@ -196,9 +196,14 @@
       var x=changed(r),ch=changes(r),st=state(r),pair=PAIRS[r.role+x.role],ev=[status(r),'变出'+x.role+x.ganzhi+x.element+'：'+(a.rows[r.index-1].changedTags.join('、')||'无日月冲合空破标记')],refs=[],title,verdict,meaning,score=60;
       if(book==='haidiyan'&&moving.length===1){
         refs.push(ref('haidiyan',pair[0]));title=lineName(r.index)+'独发 · '+pair[1];verdict=pair[1].split('：')[1];meaning=pair[2];score=95;
-      }else if(['父母妻财','妻财父母','妻财兄弟','兄弟妻财'].includes(r.role+x.role)){
+      }else if(book==='huozhulin'&&['父母妻财','妻财父母','妻财兄弟','兄弟妻财'].includes(r.role+x.role)){
         var q={'父母妻财':'父母化财，先难后易','妻财父母':'财化父母，先易后难','妻财兄弟':'财化兄弟，先聚后散','兄弟妻财':'兄弟化财，先散后聚'}[r.role+x.role];
-        refs.push(ref('huozhulin',q));title=lineName(r.index)+' · '+r.role+'化'+x.role;verdict=q.split('，')[1];meaning=pair[2];score=96;
+        refs.push(ref('huozhulin',q));title=lineName(r.index)+' · '+r.role+'化'+x.role;verdict=q.split('，')[1];meaning=pair[2];score=104;
+      }else if(book==='huozhulin'&&moving.length===1){
+        var soloQ={父母:'父母独发，重迭艰辛',子孙:'子孙独发，为退为散',兄弟:'兄弟独发，为诈为虚',官鬼:'官鬼独发，为欺为盗',妻财:'妻财独发，生鬼伤父'}[r.role];
+        refs.push(ref('huozhulin',soloQ));title=lineName(r.index)+' · '+r.role+'独发';score=102;
+        verdict=r.role==='父母'?(st.usable?'旺相独发，文书手续可成':'父母独发，办事手续繁重'):r.role==='子孙'?(st.usable?'旺相独发，解忧且利求财':'子孙独发，利退散而不利求官'):r.role==='兄弟'?'兄弟独发，防虚诈与钱财破耗':r.role==='官鬼'?(st.usable?'官鬼有气独发，利求职任用':'官鬼独发，防欺瞒与烦忧'):'妻财独发，利交易而损文书';
+        meaning=r.role+r.ganzhi+r.element+'一爻独发，变出'+x.role+x.ganzhi+x.element+'。'+pair[2]+(st.usable?'本爻得生扶无空破，按旺相有气断。':'');
       }else if(ch.includes('回头克')){
         refs.push(ref('huangjince','戒回头之克我'));title=lineName(r.index)+' · '+r.role+'化回头克';score=90;
       verdict=r.role==='官鬼'?'解忧有利，求官受阻':r.role==='兄弟'?'同辈分争受制，求财分耗减轻':'事情先动，后续受克';
@@ -215,6 +220,8 @@
       var harms=ch.filter(function(t){return /化空|化月破|化墓|化绝/.test(t);});verdict=harms.join('、')+'，事情收尾受阻';meaning=r.role+r.ganzhi+r.element+'发动，变出'+x.role+x.ganzhi+x.element+'，见'+harms.join('、')+'。'+harms.map(function(t){return ({化空:'化空：后续所指之事未落实。',化月破:'化月破：变爻受月建冲破，后续受阻。',化墓:'化墓：本爻入变支之墓，事情被收住、难继续。',化绝:'化绝：本爻到变支绝地，事情后续断续、难成。'})[t];}).join('');
       }else if(ch.includes('化合')||has(r,'日合')||has(r,'月合')){
       refs.push(ref('huangjince','动值合而绊住'));title=lineName(r.index)+' · 动而逢合';score=58;verdict='事情已动，却被关系或约定绊住';meaning=r.role+r.ganzhi+r.element+'发动，又'+(ch.includes('化合')?'与变支相合':'与日月相合')+'。动合为绊，事情进行中被关系、约定牵住，原定进度拖延。';
+      }else if(book==='huangjince'&&pair){
+      refs.push(ref('huangjince','占事以动爻为事之始，以变出爻为事之终'));title=lineName(r.index)+' · '+pair[1].split('：')[0];verdict=pair[1].split('：')[1];meaning=r.role+r.ganzhi+r.element+'发动为始，变出'+x.role+x.ganzhi+x.element+'为终。'+pair[2];score=62;
       }else{return;}
       var future=a.rows[r.index-1].changedTags,changedMatter=({兄弟:'同辈分耗与争执',妻财:'钱款到账',父母:'文件手续',子孙:'财源或解忧',官鬼:'职位或烦忧'})[x.role];
       var pureHarm=!ch.includes('回头克')&&!ch.includes('回头生')&&!ch.includes('化进')&&!ch.includes('化退')&&ch.some(function(t){return ['化空','化月破'].includes(t);});
@@ -251,6 +258,85 @@
       if(shi.void&&ying.void)add('shi-ying-empty','世应俱空','双方未实定，口头约定难兑现','世位'+shi.ganzhi+'、应位'+ying.ganzhi+'同逢空亡。问合作、婚约、往来，双方都未实定，口头约定难兑现。',[status(shi),status(ying)],[ref('huangjince','世应俱空，人无准实')],88);
     var lo=Math.min(shi.index,ying.index),hi=Math.max(shi.index,ying.index),middle=moving.filter(function(r){return r.index>lo&&r.index<hi;});
       if(middle.length)add('middle-moving','间爻发动：双方之间有阻隔','中间人或往来手续阻事',list(middle)+'位于世应之间且发动。按间发阻隔论，双方往来受中间人、传话、递件或手续拖延。',[middle.map(status).join('；')],[ref('huangjince','事阻隔兮间发')],61);
+    var sideHit=moving.filter(function(r){return r.index!==shi.index&&state(r).usable&&relation(r.element,shi.element)==='克';}),sideHelp=moving.filter(function(r){return r.index!==shi.index&&state(r).usable&&relation(r.element,shi.element)==='生';});
+    if(sideHit.length){
+      var allWealthHit=sideHit.every(function(r){return r.role==='妻财';});
+      var hitRefs=[book==='huozhulin'?ref('huozhulin',allWealthHit&&!shi.moving?'若世安静，财爻发动，生我、克我，此财来逐我之象':'应与动爻，不克方是'):book==='haidiyan'?ref('haidiyan','动爻克世路艰难'):ref('huangjince',allWealthHit&&!shi.moving?'杀生身莫将吉断，用克世勿作凶看':'忌神发动，凡事不利')];
+      add('moving-to-shi',allWealthHit&&!shi.moving?'财爻发动就世':'旁爻有力克世',allWealthHit&&!shi.moving?'问求财取财来就我，问文书出行受牵制':ss.support.length?'外事动而克世，赖日月生扶解救':'动爻有力克世，自身办事受阻',
+        list(sideHit)+'得气发动，五行直克世位'+shi.ganzhi+shi.element+'。'+(allWealthHit&&!shi.moving?'世爻安静而财爻动来克世，问求财属财来逐我、易得之象；问文书审批、远行办事，仍防财动破文与行程受牵制。':(ss.support.length?'世位另得'+ss.support.join('、')+'生扶，虽受外事施压仍有凭依，办事费力方成。':'世位缺少日月直接生扶，动爻克静爻，外事或他人施压明显，宜守不宜强进。')),sideHit.map(status).concat([status(shi)]),hitRefs,84);
+    }else if(sideHelp.length){
+      var allGhostHelp=sideHelp.every(function(r){return r.role==='官鬼';});
+      var helpRefs=[book==='huozhulin'?ref('huozhulin','发动要生世'):book==='haidiyan'?ref('haidiyan','扶事生身所作主'):ref('huangjince','杀生身莫将吉断，用克世勿作凶看')];
+      add('moving-to-shi',allGhostHelp?'官鬼发动生世':'旁爻发动生世',allGhostHelp?'问求职得职位相扶，问病讼防官事牵连':'动爻有气生世，办事得外力相助',
+        list(sideHelp)+'得气发动，五行来生世位'+shi.ganzhi+shi.element+'。'+(allGhostHelp?'官鬼动而生世，问求职、升迁得职位与上官相扶；问解忧、词讼或病体，按杀生身莫将吉断，仍防官事压力缠身。':'旁爻有根气而动生世位，所谋之事得外力或相应人事扶助。'),sideHelp.map(status).concat([status(shi)]),helpRefs,76);
+    }
+    if(book!=='haidiyan'){
+      [{b:['申','子','辰'],e:'水',n:'申子辰'},{b:['寅','午','戌'],e:'火',n:'寅午戌'},{b:['巳','酉','丑'],e:'金',n:'巳酉丑'},{b:['亥','卯','未'],e:'木',n:'亥卯未'}].forEach(function(g){
+        var picked=g.b.map(function(br){return rows.find(function(r){return r.branch===br&&r.moving&&!state(r).broken&&!state(r).empty;})||rows.find(function(r){return r.branch===br&&!state(r).broken&&!state(r).empty;});});
+        if(picked.every(Boolean)&&picked.filter(function(r){return r.moving;}).length>=2){
+          var relPalace=relation(c.main.palace.element,g.e),roleName=relPalace==='比和'?'兄弟':relPalace==='生'?'子孙':relPalace==='克'?'妻财':relPalace==='受克'?'官鬼':'父母',relShi=relation(g.e,shi.element);
+          add('sanhe-'+g.e,'三合成局 · '+g.n+'合'+roleName+g.e+'局',relShi==='生'||relShi==='比和'?'合局生扶世位，合力助事':relShi==='克'?(roleName==='妻财'?'三合财局克世，利求财而滞文书':'合局克制世位，外方合力施压'):'三合成'+roleName+'局，所主之事聚力成形',
+            list(picked)+'三支齐见且两爻以上发动、无空破，构成'+g.n+'三合'+roleName+g.e+'局。'+(relShi==='生'||relShi==='比和'?'合局五行'+relShi+'世位'+shi.ganzhi+shi.element+'，多方力量汇聚扶助自身。':relShi==='克'?'合局五行克世位'+shi.ganzhi+shi.element+'，'+(roleName==='妻财'?'问求财主财气汇聚就我，问文书官事则受财局牵制。':'多方人事合力施压，办事阻力较重。'):'合局聚起'+roleName+'之气，问'+roleName+'所主事项力量集中而持久。'),picked.map(status),[book==='huozhulin'?ref('huozhulin','申子辰三合也'):ref('huangjince','三合成局')],book==='huozhulin'?101:92);
+        }
+      });
+    }
+    var clash6={子:'午',午:'子',丑:'未',未:'丑',寅:'申',申:'寅',卯:'酉',酉:'卯',辰:'戌',戌:'辰',巳:'亥',亥:'巳'},harm6={子:'丑',丑:'子',寅:'亥',亥:'寅',卯:'戌',戌:'卯',辰:'酉',酉:'辰',巳:'申',申:'巳',午:'未',未:'午'};
+    var mainChong=[0,1,2].every(function(i){return clash6[rows[i].branch]===rows[i+3].branch;}),mainHe=[0,1,2].every(function(i){return harm6[rows[i].branch]===rows[i+3].branch;});
+    var chgChong=useChanges&&moving.length>0&&[0,1,2].every(function(i){return clash6[c.changedRows[i].branch]===c.changedRows[i+3].branch;}),chgHe=useChanges&&moving.length>0&&[0,1,2].every(function(i){return harm6[c.changedRows[i].branch]===c.changedRows[i+3].branch;});
+    var pKind=c.main.palace.kind;
+    if((mainChong||mainHe)&&(book==='huangjince'||mainChong&&pKind==='本宫')){
+      var patRef=book==='huangjince'?ref('huangjince',mainChong?'六冲则难而又凶':'六合则易而且吉'):book==='huozhulin'?ref('huozhulin','八纯主宾不和'):ref('haidiyan','八纯之卦，不宜远行');
+      add('hexagram-pattern',mainChong?(chgHe?'本卦六冲变六合':chgChong?'本变俱为六冲卦':'本卦六冲（'+c.main.name+'）'):(chgChong?'本卦六合变六冲':'本卦六合（'+c.main.name+'）'),
+        mainChong?(chgHe?'先冲后合，历波折而后成':'主宾不投，利散忧解约而不利聚事'):(chgChong?'先合后冲，始顺而终散':'人事投契，利合作定约而忌病讼缠绵'),
+        mainChong?'本卦初四、二五、三上爻地支两两相冲。'+(chgHe?'变卦转为六合，事情起初冲突阻滞，后续经协调得以合拢。':'六冲主散、主急，问解约、散忧易散，问聚财、婚约、远行合作则难聚易散。'):'本卦初四、二五、三上爻地支两两相合。'+(chgChong?'但动而变为六冲卦，前期商谈投契，后期防中途生变拆散。':'六合主和顺凝聚，问合作、交易、婚约易得配合；问词讼、病体则缠绵难结。'),['本卦'+c.main.name+'（'+pKind+'）'+(moving.length?'，变卦'+c.changed.name:'')],[patRef],63);
+    }else if(pKind==='游魂'||pKind==='归魂'){
+      var soulYou=pKind==='游魂',soulRef=book==='huangjince'?ref('huangjince',soulYou?'卦得游魂，漂泊他方无定迹':'凡遇归魂卦，人有还乡意'):book==='huozhulin'?ref('huozhulin',soulYou?'游魂主忘返':'归魂主自归'):ref('haidiyan',soulYou?'绝命游魂休举步':'归魂不久还乡井');
+      add('hexagram-pattern',soulYou?'游魂之卦（'+c.main.name+'）':'归魂之卦（'+c.main.name+'）',soulYou?'心意浮动，事多迁改或往外奔波':'事归原位，宜守熟地旧业而不宜远求',
+        soulYou?'本卦属'+c.main.palace.trigram+'宫游魂卦。游魂主变更、外移与心意不定，问驻守、定约易生反复，问出行、行人多在外流连。':'本卦属'+c.main.palace.trigram+'宫归魂卦。归魂主收敛回返，问行人、失物易归原处，问经营宜守成，问远行拓新则受拘束。',['本卦'+c.main.name+' · '+c.main.palace.trigram+'宫'+pKind],[soulRef],59);
+    }
+    if(useChanges&&moving.length>0){
+      var fuyinRows=moving.filter(function(r){return changes(r).includes('伏吟');}),fanyinRows=moving.filter(function(r){return changes(r).includes('反吟');});
+      if(fuyinRows.length){
+        var fyInner=[0,1,2].every(function(i){return rows[i].branch===c.changedRows[i].branch;}),fyOuter=[3,4,5].every(function(i){return rows[i].branch===c.changedRows[i].branch;}),fyFull=fyInner&&fyOuter||fyInner&&fuyinRows.some(function(r){return r.index<=3;})||fyOuter&&fuyinRows.some(function(r){return r.index>3;}),fyKey=fuyinRows.some(function(r){return r.shi==='世'||options.manualUse&&r.index===yong;});
+        add('fuyin-pattern',fyFull?'卦变伏吟':'动爻化伏吟（'+list(fuyinRows)+'）',fyFull?'内外停滞呻吟，欲动难移':'动而复归原支，进展迟滞不前',
+          list(fuyinRows)+'发动而变出同支'+fuyinRows.map(function(r){return changed(r).ganzhi;}).join('、')+'，构成'+(fyFull?'卦变伏吟':'爻变伏吟')+'。按化自身或卦变伏吟无用之条，所谋之事困守原地、呻吟难展，须待冲开伏吟地支之日方见转机。',fuyinRows.map(status),[ref('huangjince','化自身或卦变伏吟无用')],fyKey||fyFull?85:73);
+      }
+      if(fanyinRows.length){
+        var fanInner=[0,1,2].every(function(i){return clash6[rows[i].branch]===c.changedRows[i].branch;}),fanOuter=[3,4,5].every(function(i){return clash6[rows[i].branch]===c.changedRows[i].branch;}),fanFull=fanInner&&fanOuter||fanInner&&fanyinRows.some(function(r){return r.index<=3;})||fanOuter&&fanyinRows.some(function(r){return r.index>3;}),fanKey=fanyinRows.some(function(r){return r.shi==='世'||options.manualUse&&r.index===yong;});
+        add('fanyin-pattern',fanFull?'卦变反吟':'动爻化反吟（'+list(fanyinRows)+'）',fanFull?'卦势往返冲荡，事多成而复变':'动变六冲反吟，过程反复折腾',
+          list(fanyinRows)+'发动而变支'+fanyinRows.map(function(r){return changed(r).ganzhi;}).join('、')+'两两对冲，构成'+(fanFull?'卦变反吟':'爻变反吟')+'。动变相冲主往返拉锯、定而复改，办事防半途反复，待合住冲支方得安定。',fanyinRows.map(status),[ref('huangjince','动逢冲而事散')],fanKey||fanFull?85:73);
+      }
+    }
+    var movTomb=moving.filter(function(r){return a.rows[r.index-1].dayLife==='墓'&&!state(r).broken;});
+    if(movTomb.length&&book!=='haidiyan'){
+      add('tomb-moving','动爻入于日墓（'+list(movTomb)+'）','动爻入墓受困，当前难施生克',
+        list(movTomb)+'发动，于'+a.day+'日逢十二长生墓地。按动爻入墓难克之条，本爻虽动却被日墓收束，当前难去生扶或克制他爻，须待冲开墓库之日方能发力。',movTomb.map(function(r){return status(r)+' · 日墓';}),[book==='huozhulin'?ref('huozhulin','墓，藏也；绝，止也'):ref('huangjince','入墓难克')],77);
+    }
+    if(a.rows[shi.index-1].dayLife==='墓'&&!ss.strong&&!ss.broken){
+      var shiGhost=shi.role==='官鬼',shiTombRef=book==='haidiyan'?ref('haidiyan',shiGhost?'鬼爻入墓吉丰隆':'更嫌身世入墓内犹重'):book==='huozhulin'?ref('huozhulin','墓，藏也；绝，止也'):ref('huangjince',shiGhost?'世随鬼入墓':'墓中人不冲不发');
+      add('tomb-shi',shiGhost?'世临官鬼入日墓':'世位休囚入日墓',shiGhost?'世随鬼爻入墓，谨防困顿纠缠':'世爻入墓沉滞，诸事待冲方发',
+        '世位'+shi.role+shi.ganzhi+shi.element+'本月'+shi.season+'，又于'+a.day+'日落入墓库。'+(shiGhost?(book==='haidiyan'?'官鬼持世逢日墓，问散忧除患取鬼入墓收敛，问本身进取、病体与词讼则防身世受困。':'官鬼持世而失令入日墓，按世随鬼入墓论，问病讼、行事主沉滞受困，不宜强行冒进。'):'世爻休囚入墓主暗昧沉滞、行动受拘，须待冲破墓库之日方得舒展。'),[status(shi)+' · 日墓'],[shiTombRef],79);
+    }
+    var godMov=options.manualUse&&rows[yong-1].moving?rows[yong-1]:moving.length===1?moving[0]:shi.moving?shi:moving[0];
+    if(godMov&&book==='haidiyan'&&(moving.length===1||shi.moving)){
+      var hdGod={
+        青龙:['青龙发动万物通','青龙发动，主喜庆进益与和顺','青龙属木主喜庆仁和，本爻得气则进财旺禄、化凶生吉；唯临金爻受克或落旬空时喜力减损。'],
+        朱雀:['朱雀交重文印旺','朱雀发动，利文书而防口舌争执','朱雀属火主文书言辞，文印得气则利公门书信；若并凶煞或克世，防因言语招惹是非口舌。'],
+        勾陈:['勾陈发动忧田主','勾陈发动，主田土旧事牵连迟滞','勾陈属土主田产与牵连，发动多主旧事盘桓、进展迟缓；唯临木爻制土或落旬空时反得脱洒。'],
+        螣蛇:['蛇发动忧索绊','螣蛇发动，防虚惊牵绊与思虑反复','螣蛇主惊疑索绊，发动易生意外挂碍或心神不宁；若临木爻或逢旬空则虚惊自散。'],
+        白虎:['白虎交重惊怪事','白虎发动，势急刚猛，求官临鬼反利','白虎属金主刚猛迅疾，问求官任用临旺官反主威权显达；问常事克世受伤则防惊扰耗损。'],
+        玄武:['玄武动摇多闇昧','玄武发动，防暗昧隐情与私下耗失','玄武属水主幽暗不明，发动多有隐情遮蔽或财物失脱之防；逢土爻制水或旬空则邪暗难侵。']
+      }[godMov.god];
+      if(hdGod)add('six-god-move',lineName(godMov.index)+' · '+godMov.god+'临'+godMov.role+'发动',hdGod[1],lineName(godMov.index)+godMov.role+godMov.ganzhi+'带'+godMov.god+'发动。'+hdGod[2],[status(godMov)+' · 六神'+godMov.god],[ref('haidiyan',hdGod[0])],71);
+    }else if(book==='huozhulin'){
+      var dragonChild=moving.filter(function(r){return r.role==='子孙'&&r.god==='青龙';}),tigerWealth=wealth.filter(function(r){return r.god==='白虎';});
+      if(dragonChild.length)add('six-god-move','青龙加子孙发动（'+list(dragonChild)+'）','喜神辅财源发动，求谋进财大吉',list(dragonChild)+'子孙带青龙发动。按《火珠林》求财章，子孙为财源，再加青龙吉神同发，财路亨通而解烦忧，利经营谋望。',dragonChild.map(function(r){return status(r)+' · 青龙';}),[ref('huozhulin','若加青龙发动，不问财爻衰旺，决可求谋')],91);
+      else if(tigerWealth.length&&tigerWealth.some(function(r){return r.moving||r.shi==='应';}))add('six-god-move','白虎临财（'+list(tigerWealth)+'）','财带刚煞，交涉初期防先起嗔争',list(tigerWealth)+'妻财临白虎'+(tigerWealth.some(function(r){return r.shi==='应';})?'居应位':'发动')+'。按原书白虎临财先嗔之条，求财交涉初期对方言辞生硬或条件苛急，比和得生时尚可徐图。',tigerWealth.map(function(r){return status(r)+' · 白虎';}),[ref('huozhulin','白虎临财已先嗔')],70);
+    }else if(godMov&&book==='huangjince'){
+      var hjGod={青龙:'青龙主喜庆礼仪与酒食和悦',朱雀:'朱雀主文书契约、音信与口舌争辩',勾陈:'勾陈主田土房产、旧事盘桓与牵连',螣蛇:'螣蛇主虚惊疑虑、怪异挂碍与反复',白虎:'白虎主刚猛急迫、惊扰刑伤与威权',玄武:'玄武主暗昧隐情、私谋遮蔽与遗失'}[godMov.god],gmUsable=state(godMov).usable;
+      add('six-god-move',lineName(godMov.index)+' · '+godMov.god+'附'+godMov.role+'发动',gmUsable?'本爻得气发动，参'+godMov.god+'辨事类细节':'本爻休囚受制，防'+godMov.god+'所主负面事象',
+        lineName(godMov.index)+godMov.role+godMov.ganzhi+'临'+godMov.god+'发动。《黄金策》论六神重在附助五行生克以辨事象：'+hjGod+'。本爻'+(gmUsable?'得生扶有气，从正向取其事类之应。':'见空破或衰伤，宜防其所主阻滞与烦扰。'),[status(godMov)+' · 六神'+godMov.god],[ref('huangjince','大体神杀有附助的作用')],57);
+    }
     var hiddenViews={};
     rows.filter(function(r){return !!r.hidden;}).forEach(function(r){
       var f=r.hidden,rr=relation(r.element,f.element),empty=has(r,'旬空');
@@ -372,21 +458,33 @@
       finance.meaning+='\n\n《火珠林》以子孙辅助财爻，代表财源。'+(offspring.length?offspring.map(function(r){return label(r)+'，'+(state(r).usable?'得生扶且无空破，财源有助':note(r)+'财源受其所列状态影响');}).join('；'):'本卦明爻无子孙；'+rows.filter(function(r){return r.hidden&&r.hidden.role==='子孙';}).map(function(r){return '子孙'+r.hidden.ganzhi+r.hidden.element+'伏在'+lineName(r.index)+r.role+r.ganzhi+'下，'+hiddenViews[r.index].verdict;}).join('；'))+'。';
       finance.references.push(ref('huozhulin','用妻财以子孙辅之'));
       rows.filter(function(r){return r.hidden&&r.hidden.role==='子孙';}).forEach(function(r){finance.references=finance.references.concat(hiddenViews[r.index].references);});
-      add('fire-wealth','财用结构 · 妻财与子孙',finance.verdict,finance.meaning,finance.evidence.concat(offspring.map(status)),finance.references,112);
-      add('fire-office','官用结构 · 官鬼与父母',work.verdict,work.meaning,work.evidence,[ref('huozhulin','用官鬼以父母辅之'),ref('huozhulin','官与文书俱旺相')],110);
+      var goodW=wealth.filter(function(r){return state(r).usable;}),goodC=offspring.filter(function(r){return state(r).usable;});
+      var fwVerdict=goodW.length&&goodC.length?'财福两旺，财源与财爻相生有气':goodW.length&&!offspring.length?'明财有气，唯子孙财源伏藏':goodW.length?'妻财有气而子孙受制，利现财乏续源':goodC.length&&wealth.length?'子孙财源有气，妻财受困待扶':!wealth.length&&goodC.length?'明财未现而子孙得气，源头尚存':'财福俱弱或受制，财源与收款两阻';
+      var fwMeaning='《火珠林》论财首重子孙生财之源。本局'+(wealth.length?'妻财见'+list(wealth)+'（'+(goodW.length?'得生扶有气':'逢空破或休囚受制')+'）':'明爻不见妻财，财星藏于伏神')+'；'+(offspring.length?'子孙见'+list(offspring)+'（'+(goodC.length?'有气生财，源头相续':'失令受伤，生财乏力')+'）':'明爻无子孙，财源伏于飞爻之下')+'。'+(brotherBad.length&&!childGood.length?'局中兄弟'+list(brotherBad)+'发动劫财而无子孙通关，防分夺耗损。':fatherBad.length?'局中父母'+list(fatherBad)+'发动克制子孙，防文书手续截断财源。':'参看妻财对世位'+shi.ganzhi+shi.element+'之向背定得失。');
+      add('fire-wealth','财用结构 · 子孙财源与妻财',fwVerdict,fwMeaning,wealth.concat(offspring).length?wealth.concat(offspring).map(status):[status(shi)],[ref('huozhulin','用妻财以子孙辅之'),ref('huozhulin','财来扶世，求之不难')],89);
+      var foVerdict=goodOff.length&&goodPaper.length?'官印相生俱旺，名位与凭据齐备':goodOff.length?'官鬼有气而父母乏力，有位缺文凭相辅':goodPaper.length?'父母文书有气而官鬼弱，手续备而名位难立':'官鬼与父母失气或藏伏，官印两缺';
+      var foMeaning='《火珠林》论官必兼察官鬼与父母印绶。本局'+(official.length?'官鬼见'+list(official)+'（'+(goodOff.length?'得气可用':'休囚或逢空破受制')+'）':'明爻不见官鬼，官星藏于伏神')+'；'+(papers.length?'父母见'+list(papers)+'（'+(goodPaper.length?'有气护官主文书顺遂':'受制乏力，文凭难凭')+'）':'明爻无父母，印绶伏藏')+'。'+(jobChild.length?'局中子孙'+list(jobChild)+'发动克官，不利求名任用。':jobWealth.length?'局中妻财'+list(jobWealth)+'发动克父，文书印信受阻。':'参看官父两爻与世位'+shi.ganzhi+shi.element+'之生克定成败。');
+      add('fire-office','官用结构 · 官鬼与父母相辅',foVerdict,foMeaning,official.concat(papers).length?official.concat(papers).map(status):[status(shi)],[ref('huozhulin','用官鬼以父母辅之'),ref('huozhulin','官与文书俱旺相')],87);
     }
       if(book==='huangjince'&&fatherBad.length&&brotherBad.length&&!childGood.length){finance.verdict='父兄同动，财源与财款俱伤；'+finance.verdict;finance.meaning+='\n\n父母、兄弟均有力发动，又无有力子孙发动通关。本书求财篇取父克子、兄克财，财源与财款同时受损，求财不利。';finance.references.push(ref('huangjince','父兄皆动，无殊缘木以求鱼'));}
     if(book==='huangjince'&&moving.length===6)work.references.push(ref('huangjince','六爻竞发，功名恍惚以难成'));
     var ownTopicQuotes={huozhulin:{finance:'财来扶世，求之不难',work:'官与文书俱旺相',relationship:'喜合婚姻，世应宜静',papers:'占官必用父母',travel:'世空去不成',lost:'但看财爻伏何爻之下'},haidiyan:{finance:'占财旺相喜持世',work:'官旺文书有气前',relationship:'娶妻先向财中觅',papers:'文书不动及时辰',travel:'动爻克世路艰难',lost:'财爻不动宜寻觅'},huangjince:{finance:'要问吉凶，但看财福',work:'父爻旺相，文成掷地金声',relationship:'世为己，应为人',papers:'究父母，推为体统',travel:'世如衰弱，那堪水宿风餐',lost:'世合世冲，须用遣人寻觅'}};
     topics.forEach(function(t){t.references=unique([ref(book,ownTopicQuotes[book][t.id])].concat(t.references));t.reference=t.references[0];});
-      if(options.manualUse){var chosen=rows[yong-1],cs=state(chosen);add('manual-use','指定用神 · '+label(chosen),cs.clean?'用神得助无伤，所求有利':cs.broken?'用神月破，当前所求受阻':cs.empty?cs.strong?'用神旺空，所求未落实':'用神弱空，当前所求难成':cs.futureBad?'用神变端受伤，办事后续受阻':'用神有衰伤，所求不顺',note(chosen),[status(chosen)],[ref('huangjince','用爻有气无他故，所作皆成')],100);}
+      if(options.manualUse){
+        var chosen=rows[yong-1],cs=state(chosen),yuanMov=moving.filter(function(r){return r.index!==chosen.index&&state(r).usable&&relation(r.element,chosen.element)==='生';}),jiMov=moving.filter(function(r){return r.index!==chosen.index&&state(r).usable&&relation(r.element,chosen.element)==='克';});
+        var useQuote=book==='huozhulin'?'旺爻即用神也':book==='haidiyan'?'若见用爻生得地，无刑无克方有气':'用爻有气无他故，所作皆成';
+        var useVerdict=jiMov.length&&!yuanMov.length?'忌神动而克用，所求受阻':cs.clean?(yuanMov.length?'用神得气且元神动生，所求有利':'用神得助无伤，所求有利'):cs.broken?'用神月破，当前所求受阻':cs.empty?(cs.strong?'用神旺空，所求未落实':'用神弱空，当前所求难成'):cs.futureBad?'用神变端受伤，办事后续受阻':yuanMov.length?'用神虽弱而元神动生，困中有救':'用神有衰伤，所求不顺';
+        var useMeaning=note(chosen)+(yuanMov.length?'卦中元神'+list(yuanMov)+'得气发动生扶用神，源头有力。':'')+(jiMov.length?'卦中忌神'+list(jiMov)+'得气发动克制用神，'+(yuanMov.length?'赖元神通关化忌生用。':'宜防阻滞伤损。'):'');
+        add('manual-use','指定用神 · '+label(chosen),useVerdict,useMeaning,[status(chosen)].concat(yuanMov.map(status),jiMov.map(status)),[ref(book,useQuote)],125);
+      }
     // Keep other books visibly separate: a book name cannot turn another book's rule into its own.
     cards.forEach(function(card){card.references.sort(function(x,y){return Number(y.book===book)-Number(x.book===book);});card.reference=card.references[0]||null;if(card.references.some(function(r){return r.book===book;}))card.score+=1000;});
     cards.sort(function(x,y){return y.score-x.score||x.id.localeCompare(y.id);});
     var supplementary=cards.filter(function(card){return !card.references.some(function(r){return r.book===book;});});
     cards=cards.filter(function(card){return card.references.some(function(r){return r.book===book;});});
       if(!cards.length){add('finance-basis','按求财看本卦',finance.verdict,finance.meaning,finance.evidence,finance.references,10);add('work-basis','按求职看本卦',work.verdict,work.meaning,work.evidence,work.references,9);}
-    var top=cards.slice(0,3),summary=top.map(function(card){return (card.title.includes('：')?card.title.split('：')[0]+'，':card.title+'，')+card.verdict+'。';}).join('');
+    var leadCard=cards[0],bookFocus=book==='huozhulin'?'《火珠林》重财福官印相辅与飞伏根源：':book==='haidiyan'?'《海底眼》重日辰旺衰、世应向背与动静分途：':'《黄金策》重日月纲领、动变救应与分占主用：';
+    var summary=c.main.name+(moving.length?'变'+c.changed.name+'（'+moving.length+'爻动）':'六爻安静')+'，世居'+lineName(shi.index)+shi.role+shi.ganzhi+'（'+(ss.broken?'月破':ss.empty?'旬空':ss.strong?'得月令':'本月'+shi.season)+'），应居'+lineName(ying.index)+ying.role+ying.ganzhi+'。'+bookFocus+(leadCard?leadCard.verdict+'。':'参看分占六亲。');
     var focus='参看'+(side==='main'?'本卦':'变卦')+' '+label(view),overview=c.main.name+(moving.length?' → '+c.changed.name:'（静卦）');
     var facts=['世：'+status(shi),'应：'+status(ying),'月建'+a.month+'，日辰'+a.day+'，日空'+c.calendar.dayVoid,moving.length?'动爻：'+moving.map(label).join('；'):'六爻无明动','本宫'+c.main.palace.trigram+'宫'+c.main.palace.element];
     if(side==='changed'&&!rows[n-1].moving)facts.push('参看位置本爻未动，其变卦纳甲为随全卦重排的位置。');

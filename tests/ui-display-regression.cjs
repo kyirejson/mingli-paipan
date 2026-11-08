@@ -129,3 +129,28 @@ test('紫微三合盘保留天厨等全部杂曜，本宫详解同步合成总�
  const ids=nodes.filter(n=>n.data?.attrs?.['data-reading-id']).map(n=>n.data.attrs['data-reading-id']);
  assert.equal(new Set(ids).size,ids.length);
 });
+
+test('紫微三方摘要网格去重、流年叠宫含大限与流曜，六爻顶栏去重且伏神应期与梅花阶段准确输出',()=>{
+ const {setup}=require('./helpers/ziwei-reading.cjs'),{c,data}=setup();
+ let comp;c.WZBZReading.register({component:(k,o)=>comp=o});
+ function text(n){if(Array.isArray(n))return n.map(text).join('');return n&&typeof n==='object'?text(n.children):n==null?'':String(n);}
+ const zr=c.FiveArtsEngine.ziwei('1990-05-15 10:30','男'),horo=zr.chart.horoscope('2026-11-08',5);
+ const inst={enabled:true,chart:zr.chart,selected:0,mode:'sanhe',flights:[],flow:horo.yearly,flowScope:'yearly',flowDate:'2026-11-08',horoscope:horo,bank:data,status:'ready',error:'',near:true,tab:'relations',allPalaces:true};
+ inst.view=comp.computed.view.call(inst);
+ const relNodes=flatten(comp.render.call(inst,h)),grid=relNodes.find(n=>n.data?.class==='zr-related-grid');
+ assert.ok(grid);assert.ok(!text(grid).includes(inst.view.current.cards[0].text));
+ inst.tab='palace';const palNodes=flatten(comp.render.call(inst,h)),flows=palNodes.filter(n=>n.data?.class==='zr-flow-banner');
+ flows.forEach(n=>assert.match(text(n),/在大限叠「大限/));assert.ok(flows.some(n=>/流曜同度：/.test(text(n))));
+ const lc={console,Date,Intl,Math,JSON,Map,Set,h};lc.window=lc;lc.global=lc;vm.createContext(lc);
+ for(const file of ['time-policy.js','fivearts-engine.js','divination-calendar-fix.js','fivearts-readings.js','liuyao-reading.js'])vm.runInContext(source(file),lc);
+ lc.E=lc.FiveArtsEngine;lc.readingData=lc.FiveArtsReadingsData;lc.readingPromise=null;lc.ui={readingStatus:'ready'};
+ lc.heading=(h,t)=>h('h3',{},[t]);lc.button=(h,l,fn,cls)=>h('button',{class:cls,on:{click:fn}},[l]);lc.sourceLink=(h,l,u)=>h('a',{attrs:{href:u}},[l]);lc.openGua=()=>{};lc.openClassic=()=>{};lc.calendarDetails=()=>null;lc.V={set(o,k,v){o[k]=v;}};lc.saveSession=()=>{};
+ const s=source('fivearts-ui.js');lc.methodLabel=()=>'时间';vm.runInContext(s.slice(s.indexOf('  function hexLines('),s.indexOf('\n  function renderQimen(')),lc);
+ const lr=lc.E.liuyao('2026-10-29 12:00',{method:'specified',upper:1,lower:7,moving:[2]}),lv={yongIndex:2,liuyaoSelected:2,liuyaoSide:'main',liuyaoManualUse:false,liuyaoTopic:'finance',session:{liuyaoReference:'huangjince',modules:{liuyao:{method:'specified'}}}};
+ const lnodes=flatten(lc.renderLiuyao.call(lv,h,lr));
+ assert.ok(!lnodes.some(n=>n.data?.class==='fa-liu-reading-links'));
+ assert.ok(lnodes.some(n=>n.data?.class==='fa-najia-full-btn'));
+ const timing=lnodes.find(n=>n.data?.class==='fa-najia-timing');assert.ok(timing);assert.match(text(timing),/伏神妻财.*藏于第\d爻飞神/);
+ const mr=lc.E.meihua('2026-10-29 12:00',{method:'time'}),mnodes=flatten(lc.renderMeihua.call({session:{modules:{meihua:{method:'time'}}}},h,mr));
+ assert.match(text(mnodes),/初段本卦.*中段互卦.*终局变卦/);
+});

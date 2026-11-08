@@ -256,7 +256,7 @@
   function openPalaceReading(host, result, mode, flow, horoscope, yearBase, birthYear, birthBranch, selected) {
     var chart=result.chart;
     open(host.owner,'palace',host.session);
-    ui.editor={selected:selected,mode:{sanhe:'三合',qintian:'钦天·四化',feixing:'飞星'}[mode],palaces:chart.palaces.map(function(p,index){
+    ui.editor={selected:selected,onJump:function(idx){host.ziweiPalace=idx;host.ziweiFlying=true;if(typeof closeModal==='function')closeModal();if(host.$el&&host.$el.querySelector){var el=host.$el.querySelector('.ziwei-reading');if(el&&el.scrollIntoView)el.scrollIntoView({behavior:'smooth',block:'start'});}},mode:{sanhe:'三合',qintian:'钦天·四化',feixing:'飞星'}[mode],palaces:chart.palaces.map(function(p,index){
       var year=yearBase+(E.ZHI.indexOf(p.earthlyBranch)-(yearBase-4)%12+12)%12;
       var annualAge=(E.ZHI.indexOf(p.earthlyBranch)-birthBranch+12)%12+1;
       return {name:p.name==='仆役'?'交友':p.name,ganzhi:p.heavenlyStem+p.earthlyBranch,
@@ -279,7 +279,8 @@
       choices(h,d.palaces.map(function(p,i){return [i,p.name];}),d.selected,function(index){d.selected=index;}),
       h('h3',[palace.name+' · '+palace.ganzhi+' · '+d.mode]),
       h('div',{class:'fa-palace-reading-stars'},palace.stars.length?palace.stars.map(function(star){return h('span',[star.name,h('small',[[star.brightness,star.mutagen?'生年化'+star.mutagen:'',star.flowMutagen].filter(Boolean).join(' · ')])]);}):[h('span',['本宫无所选盘式星曜'])]),
-      h('dl',palace.rows.map(function(row){return h('div',[h('dt',[row[0]]),h('dd',[row[1]])]);}))
+      h('dl',palace.rows.map(function(row){return h('div',[h('dt',[row[0]]),h('dd',[row[1]])]);})),
+      typeof d.onJump==='function'?h('button',{class:'fa-small-button fa-palace-jump',attrs:{type:'button'},on:{click:function(){d.onJump(d.selected);}}},['跳至本宫深度解读 ›']):null
     ])];
   }
   function modalContents(h) {
@@ -509,6 +510,8 @@
   }
   function renderMeihua(h, r) {
     var self=this,context='本盘体用：'+r.ti.name+r.ti.element+'为体，'+r.yong.name+r.yong.element+'为用，'+r.relation,items = [["本卦", r.main], ["互卦", r.mutual], ["变卦", r.changed], ["综卦", r.reverse], ["错卦", r.opposite]], month = r.calendar.eight.getMonthZhi();
+    var mhFive=['木','火','土','金','水'],mhRel=function(yEl,tEl){var xi=mhFive.indexOf(yEl),yi=mhFive.indexOf(tEl);return xi===yi?'体用比和（顺遂得助）':(xi+1)%5===yi?'用生体（进益得助）':(yi+1)%5===xi?'体生用（耗泄费力）':(yi+2)%5===xi?'体克用（可成但费力）':'用克体（受阻不利）';};
+    var tiState=E.seasonState(r.ti.element,month),huYong=(r.moving<=3?r.mutual.lower:r.mutual.upper).element,huTi=(r.moving<=3?r.mutual.upper:r.mutual.lower).element,bianYong=(r.moving<=3?r.changed.lower:r.changed.upper).element;
     return h("div", { class: "fa-meihua" }, [calendarDetails(h, r.calendar), h("p", { class: "fa-method-meta" }, ["起卦：" + methodLabel("meihua", this.session.modules.meihua) + " · 动爻：" + r.moving + "爻"]), heading(h, "梅花易数卦象列表"), h("div", { class: "fa-five-gua" }, items.map(function(item, i) {
       return h("section", [h("h4", [item[0]]), hexLines(h, item[1], i === 0 ? [r.moving] : null,function(line){openGua(self.owner,self.session,item[1],item[0],i===0?r.moving:0,line,context);}), button(h, item[1].name, function() {
         openGua(self.owner,self.session,item[1],item[0],i===0?r.moving:0,null,context);
@@ -526,7 +529,7 @@
       return h("td", [(r.moving <= 3 ? item[1].lower : item[1].upper).element]);
     }))), h("tr", [h("th", ["体卦"])].concat(items.map(function(item) {
       return h("td", [(r.moving <= 3 ? item[1].upper : item[1].lower).element]);
-    })))])]), h("p", { class: "fa-relation-summary" }, [r.ti.name + r.ti.element + "为体 · " + r.yong.name + r.yong.element + "为用 · " + r.relation])]);
+    })))])]), h("p", { class: "fa-relation-summary" }, [r.ti.name + r.ti.element + "为体（月令" + tiState + "） · " + r.yong.name + r.yong.element + "为用 · 初段本卦" + r.relation + " → 中段互卦" + mhRel(huYong, huTi) + " → 终局变卦" + mhRel(bianYong, r.ti.element)])]);
   }
   function guaLineStructure(hex,n){
     var yang=!!hex.lines[n-1],proper=yang===(n%2===1),opposite=n<=3?n+3:n-3,respond=yang!==!!hex.lines[opposite-1];
@@ -540,9 +543,19 @@
     var g=readingData.hexagrams[r.main.value],roles=E.yongshen(r.rows,this.yongIndex),context=r.main.name+' → '+r.changed.name;
     var L=global.LiuyaoReading,bookId=(this.session&&this.session.liuyaoReference)||'huangjince',activeTopic=this.liuyaoTopic||'all',report=null;
     try{if(L)report=L.analyze(L.snapshot(r),{book:bookId,index:this.liuyaoSelected||this.yongIndex,side:this.liuyaoSide||'main',yongIndex:this.yongIndex,manualUse:!!this.liuyaoManualUse,topic:activeTopic},readingData);}catch(_){}
-    var yRow=r.rows[this.yongIndex-1],cRow=r.changedRows[this.yongIndex-1],yInfo=annotations.rows[this.yongIndex-1],clashMap={子:'午',午:'子',丑:'未',未:'丑',寅:'申',申:'寅',卯:'酉',酉:'卯',辰:'戌',戌:'辰',巳:'亥',亥:'巳'},yBranch=yRow.ganzhi.slice(-1),cBranch=clashMap[yBranch]||'',chBranch=cRow.ganzhi.slice(-1);
-    var yHead='用神（第'+this.yongIndex+'爻'+yRow.role+yRow.ganzhi+'）';
-    var timingText=yInfo.tags.includes('旬空')?yHead+'旬空，待出空填实（'+yBranch+'日）或冲空（'+cBranch+'日）应事。':yInfo.tags.includes('月破')?yHead+'月破，待出月建、实破（'+yBranch+'日）或逢合之期。':yRow.moving&&(yInfo.changes.includes('化空')||yInfo.changedTags.includes('旬空'))?yHead+'动而变爻'+cRow.ganzhi+'旬空，待变支填实（'+chBranch+'日）或冲空应事。':yRow.moving&&(yInfo.changes.includes('化月破')||yInfo.changedTags.includes('月破'))?yHead+'动而变爻'+cRow.ganzhi+'月破，变端受冲，待出月或变支实破（'+chBranch+'日）方有转机。':yRow.moving&&yInfo.changes.includes('回头克')?yHead+'动化'+cRow.role+cRow.ganzhi+'回头克，后事受制，须防'+chBranch+'日生变或待冲克神（'+(clashMap[chBranch]||'')+'日）解救。':yRow.moving&&(yInfo.changes.includes('化合')||yInfo.tags.includes('日合')||yInfo.tags.includes('月合'))?yHead+'动而逢合绊，待冲开合局（'+cBranch+'日）应事。':yRow.moving?yHead+'发动，参看本爻临值（'+yBranch+'日）或变支（'+chBranch+'日）交接应事。':yInfo.tags.includes('日冲')?yHead+'静逢日冲，当日已受催起，参看临值（'+yBranch+'日）或逢合应事。':yHead+'安静，静而逢冲则动，参看冲起（'+cBranch+'日）或临值（'+yBranch+'日）应事。';
+    var tPrimaryMap={finance:'妻财',lost:'妻财',work:'官鬼',papers:'父母'},tPrimary=!this.liuyaoManualUse&&activeTopic!=='all'?tPrimaryMap[activeTopic]||null:null,shiRow=r.rows.find(function(x){return x.shi==='世';})||r.rows[this.yongIndex-1];
+    var visTarget=tPrimary?(r.rows.find(function(x){return x.role===tPrimary&&x.moving;})||r.rows.find(function(x){return x.role===tPrimary;})):null,hidCarrier=!visTarget&&tPrimary?r.rows.find(function(x){return x.hidden&&x.hidden.role===tPrimary;}):null;
+    var tTarget=this.liuyaoManualUse||activeTopic==='all'?r.rows[this.yongIndex-1]:(visTarget||shiRow);
+    var tIdx=tTarget.index,yRow=r.rows[tIdx-1],cRow=r.changedRows[tIdx-1],yInfo=annotations.rows[tIdx-1],clashMap={子:'午',午:'子',丑:'未',未:'丑',寅:'申',申:'寅',卯:'酉',酉:'卯',辰:'戌',戌:'辰',巳:'亥',亥:'巳'},yBranch=yRow.ganzhi.slice(-1),cBranch=clashMap[yBranch]||'',chBranch=cRow.ganzhi.slice(-1);
+    var yHead=(this.liuyaoManualUse?'指定用神':activeTopic!=='all'?'占事主用':'用神')+'（第'+tIdx+'爻'+yRow.role+yRow.ganzhi+'）';
+    function jumpClassicRef(ref){if(!ref)return;openClassic(self.owner,self.session,ref.book||bookId,r,self.yongIndex,{index:self.liuyaoSelected||self.yongIndex,side:self.liuyaoSide||'main',manualUse:!!self.liuyaoManualUse});if(ui&&ui.editor){ui.editor.bookTab='original';ui.editor.chapter=ref.chapter;ui.editor.anchor=ref.paragraph;ui.editor.limit=Math.max(60,ref.paragraph+1);}}
+    var timingText;
+    if(hidCarrier&&!this.liuyaoManualUse){
+      var hid=hidCarrier.hidden,fly=hidCarrier,flyB=fly.ganzhi.slice(-1),hidB=hid.ganzhi.slice(-1),flyC=clashMap[flyB]||'',hidC=clashMap[hidB]||'',flyVoid=annotations.rows[fly.index-1].tags.includes('旬空'),hidVoid=r.calendar.dayVoid.includes(hidB),flyRel=L?L.relation(fly.element,hid.element):'';
+      timingText='本卦主爻不见'+hid.role+'，伏神'+hid.role+hid.ganzhi+'藏于第'+fly.index+'爻飞神'+fly.role+fly.ganzhi+'下：'+(hidVoid?'伏神旬空，待出空填实（'+hidB+'日）或冲空（'+hidC+'日）透出应事。':flyVoid?'飞神旬空易于引拔，待冲飞（'+flyC+'日）或伏神值日（'+hidB+'日）应事。':flyRel==='克'?'飞神压克伏神，待冲克飞神（'+flyC+'日破飞露伏）或伏神值日（'+hidB+'日）应事。':'待冲开飞神（'+flyC+'日引拔）或伏神临值透出（'+hidB+'日）应事。');
+    }else{
+      timingText=yInfo.tags.includes('旬空')?yHead+'旬空，待出空填实（'+yBranch+'日）或冲空（'+cBranch+'日）应事。':yInfo.tags.includes('月破')?yHead+'月破，待出月建、实破（'+yBranch+'日）或逢合之期。':yRow.moving&&(yInfo.changes.includes('化空')||yInfo.changedTags.includes('旬空'))?yHead+'动而变爻'+cRow.ganzhi+'旬空，待变支填实（'+chBranch+'日）或冲空应事。':yRow.moving&&(yInfo.changes.includes('化月破')||yInfo.changedTags.includes('月破'))?yHead+'动而变爻'+cRow.ganzhi+'月破，变端受冲，待出月或变支实破（'+chBranch+'日）方有转机。':yRow.moving&&yInfo.changes.includes('回头克')?yHead+'动化'+cRow.role+cRow.ganzhi+'回头克，后事受制，须防'+chBranch+'日生变或待冲克神（'+(clashMap[chBranch]||'')+'日）解救。':yRow.moving&&yInfo.changes.includes('伏吟')?yHead+'动化伏吟困守原地，待冲开伏吟地支（'+cBranch+'日）应事。':yRow.moving&&yInfo.changes.includes('反吟')?yHead+'动化反吟往返拉锯，待合住冲支或临值（'+yBranch+'日）定局。':yRow.moving&&(yInfo.changes.includes('化合')||yInfo.tags.includes('日合')||yInfo.tags.includes('月合'))?yHead+'动而逢合绊，待冲开合局（'+cBranch+'日）应事。':yInfo.dayLife==='墓'&&!['旺','相'].includes(yRow.season)?yHead+'休囚入于日墓，墓中人不冲不发，待冲开墓库（'+(clashMap[annotations.day]||cBranch)+'日）或冲本爻（'+cBranch+'日）应事。':yRow.moving?yHead+'发动，参看本爻临值（'+yBranch+'日）或变支（'+chBranch+'日）交接应事。':yInfo.tags.includes('日冲')?yHead+'静逢日冲，当日已受催起，参看临值（'+yBranch+'日）或逢合应事。':yHead+'安静，静而逢冲则动，参看冲起（'+cBranch+'日）或临值（'+yBranch+'日）应事。';
+    }
     function toneClass(verdict){return /受阻|难成|不利|空|破|伤|受克|分耗|绊住|未实|反复|难寻|劳顿/.test(verdict)?'is-warn':/利|易得|得助|有气|渐增|可成|有救|顺利/.test(verdict)?'is-good':'is-core';}
     var topicEntry=report&&activeTopic!=='all'?report.topics.find(function(t){return t.id===activeTopic;}):null;
     var najiaSummary=report?h('section',{class:'fa-liuyao-najia-summary'},[
@@ -550,7 +563,7 @@
         h('h3',['本盘纳甲要点 · '+report.bookName]),
         h('div',{class:'fa-najia-books'},[['huangjince','黄金策'],['huozhulin','火珠林'],['haidiyan','海底眼']].map(function(b){
           return h('button',{key:b[0],class:['fa-najia-book-btn',{'is-active':bookId===b[0]}],attrs:{type:'button'},on:{click:function(){V.set(self.session,'liuyaoReference',b[0]);saveSession(self.session);}}},[b[1]]);
-        }))
+        }).concat([h('button',{key:'full',class:'fa-najia-full-btn',attrs:{type:'button'},on:{click:function(){openClassic(self.owner,self.session,bookId,r,self.yongIndex,{index:self.liuyaoSelected||self.yongIndex,side:self.liuyaoSide||'main',manualUse:!!self.liuyaoManualUse});if(ui&&ui.editor&&activeTopic!=='all')ui.editor.topic=activeTopic;}}},['全书详批与检索 ›'])]))
       ]),
       h('div',{class:'fa-najia-topics'},[['all','综合']].concat(report.topics.map(function(t){return [t.id,t.title.slice(0,2)];})).map(function(item){
         return h('button',{key:item[0],class:['fa-najia-topic-pill',{'is-active':activeTopic===item[0]}],attrs:{type:'button'},on:{click:function(){self.liuyaoTopic=item[0];}}},[item[1]]);
@@ -559,14 +572,16 @@
         h('article',{class:['fa-najia-card',toneClass(topicEntry.verdict)]},[
           h('h5',[topicEntry.title+'：'+topicEntry.verdict]),
           h('p',[topicEntry.meaning]),
-          topicEntry.evidence&&topicEntry.evidence.length?h('small',{class:'fa-najia-evidence'},['依据：'+topicEntry.evidence.join('；')]):null
+          topicEntry.evidence&&topicEntry.evidence.length?h('small',{class:'fa-najia-evidence'},['依据：'+topicEntry.evidence.join('；')]):null,
+          topicEntry.reference?h('button',{class:'fa-najia-cite',attrs:{type:'button'},on:{click:function(){jumpClassicRef(topicEntry.reference);}}},['《'+topicEntry.reference.name+'》· '+topicEntry.reference.chapterTitle+'：「'+topicEntry.reference.quote+'」 ›']):null
         ])
       ]):h('div',{class:'fa-najia-body'},[
         h('p',{class:'fa-najia-overview'},[h('strong',['【世应与格局】']),report.facts[0]+'；'+report.facts[1]+'。'+report.profile.text]),
         report.cards.slice(0,3).map(function(card){
           return h('article',{key:card.id,class:['fa-najia-card',toneClass(card.verdict)]},[
             h('h5',[card.title+'：'+card.verdict]),
-            h('p',[card.meaning])
+            h('p',[card.meaning]),
+            card.reference?h('button',{class:'fa-najia-cite',attrs:{type:'button'},on:{click:function(){jumpClassicRef(card.reference);}}},['《'+card.reference.name+'》· '+card.reference.chapterTitle+'：「'+card.reference.quote+'」 ›']):null
           ]);
         })
       ]),
@@ -594,7 +609,7 @@
         h('p',{class:'fa-reading-kicker'},['第'+g.number+'卦 · '+g.upper+'上'+g.lower+'下 · '+r.main.palace.trigram+'宫'+r.main.palace.element+' · '+r.main.palace.kind]),
         h('h4',['卦辞']),h('blockquote',[g.judgment]),h('h4',['现代白话']),h('p',[g.plain]),h('h4',['大象']),h('blockquote',[g.image]),
         h('p',{class:'fa-liuyao-reading-context'},['本盘'+(r.moving.length?'动爻：'+r.moving.map(function(n){return g.lines[n-1].label;}).join('、')+'，变为'+r.changed.name:'为静卦，本卦与变卦相同')+'。世爻在第'+r.main.palace.shi+'爻；用神选在第'+this.yongIndex+'爻。']),
-        button(h,'展开经传与完整解说',function(){openGua(self.owner,self.session,r.main,'本卦',0,null,context);},'fa-small-button')
+        button(h,'阅读周易经传原文 ›',function(){openGua(self.owner,self.session,r.main,'本卦',0,null,context);if(ui&&ui.editor)ui.editor.tab='canonical';},'fa-small-button')
       ]),heading(h,'各爻位详解'),focusLines.map(lineArticle),quietLines.length?h('details',{class:'fa-liuyao-quiet-lines'},[h('summary',['展开其余静爻详解（'+quietLines.length+'爻）'])].concat(quietLines.map(lineArticle))):null,h('p',{class:'fa-reading-source'},[sourceLink(h,'卦爻白话与资料出处',g.reference)]),h('p',{class:'fa-caption'},['爻辞白话与本盘纳甲分别列示；纳甲关系随起卦时间、动爻及用神更新。日长生采用五行顺行、土随水。'])
     ]);
   }
@@ -630,7 +645,6 @@
       ]),
       h('div',{class:'fa-liu-selection',attrs:{'aria-live':'polite'}},[h('strong',['选中 '+(focusSide==='main'?'本卦':'变卦')+' · 第'+focusIndex+'爻 '+focus.role+focus.ganzhi]),element(focus.element),focusSide==='main'&&this.yongIndex!==focusIndex?h('button',{class:'fa-liu-set-use',attrs:{type:'button'},on:{click:function(){self.yongIndex=focusIndex;self.liuyaoManualUse=true;}}},['设为用神']):null,h('small',{class:'fa-liu-use-caption'},['用神：本卦第'+this.yongIndex+'爻 '+selected.role+selected.ganzhi+selected.element+' · 日长生 '+selectedInfo.dayLife])]),
       h('details',{class:'fa-liu-reference-panel'},[h('summary',['历法与神煞参考']),calendarDetails(h,r.calendar),h('div',{class:'fa-liuyao-calendar-extra'},[h('p',['四柱旬空：'+annotations.voids.join(' / ')+'（年 / 月 / 日 / 时）']),h('p',['节气：'+annotations.term.name+' '+annotations.term.time]),h('p',['变卦六亲按本卦'+r.main.palace.trigram+'宫五行排列'])]),h('div',{class:'fa-liuyao-references'},E.liuyaoReferences(r).map(function(ref){var basis=ref.basis==='年支'?'农历年支':ref.basis;return h('span',{attrs:{title:'取法：'+basis}},[h('b',[ref.name]),' '+ref.value,h('small',['（'+basis+'）'])]);}))]),
-      h('nav',{class:'fa-liu-reading-links',attrs:{'aria-label':'六爻解卦资料'}},[['meaning','卦爻详解'],['huozhulin','火珠林'],['haidiyan','海底眼'],['huangjince','黄金策']].map(function(item){return h('button',{attrs:{type:'button'},on:{click:function(){if(item[0]==='meaning')openGua(self.owner,self.session,r.main,'本卦',0,null,r.main.name+' → '+r.changed.name);else openClassic(self.owner,self.session,item[0],r,self.yongIndex,{index:self.liuyaoSelected||self.yongIndex,side:self.liuyaoSide||'main',manualUse:!!self.liuyaoManualUse});}}},[item[1]+' ›']);})),
       renderLiuyaoReading.call(this,h,r,annotations)
     ]);
   }
@@ -827,8 +841,8 @@
     return h('div',{class:['fa-ziwei','fa-ziwei-'+mode]},[
       h('div',{class:'fa-ziwei-board'},[directions,h('div',{class:'fa-ziwei-grid'},jsx.concat([h('div',{class:'fa-ziwei-center'},center),h('FiveArtsFlightLayer',{props:{items:lines}})]))]),
       this.renderZiweiFlows(h,r,mode==='sanhe'),
-      h('div',{class:'fa-ziwei-modebar'},[choices(h,[['feixing','飞星'],['sanhe','三合'],['qintian','钦天·四化']],mode,function(v){self.session.ziweiMode=v;saveSession(self.session);}),button(h,'本命',function(){self.flowScope='';},'fa-ziwei-natal'),button(h,'宫位详读',function(){openPalaceReading(self,r,mode,flow,horoscope,flowYearBase,birthYear,birthBranch,selected);},'fa-small-button fa-palace-read'),button(h,'紫微助手',function(){self.assistantOpen=true;},'fa-ziwei-assistant-entry')]),
-      h('ZiweiReading',{props:{enabled:this.active==='ziwei',chart:chart,selected:selected,mode:mode,flights:flights,flow:flow,flowScope:this.flowScope,flowDate:this.flowDate},on:{select:function(index){self.ziweiPalace=index;self.ziweiFlying=true;}}})
+      h('div',{class:'fa-ziwei-modebar'},[choices(h,[['feixing','飞星'],['sanhe','三合'],['qintian','钦天·四化']],mode,function(v){self.session.ziweiMode=v;saveSession(self.session);}),button(h,'本命',function(){self.flowScope='';},'fa-ziwei-natal'),button(h,'宫位参数',function(){openPalaceReading(self,r,mode,flow,horoscope,flowYearBase,birthYear,birthBranch,selected);},'fa-small-button fa-palace-read'),button(h,'紫微助手',function(){self.assistantOpen=true;},'fa-ziwei-assistant-entry')]),
+      h('ZiweiReading',{props:{enabled:this.active==='ziwei',chart:chart,selected:selected,mode:mode,flights:flights,flow:flow,flowScope:this.flowScope,flowDate:this.flowDate,horoscope:horoscope},on:{select:function(index){self.ziweiPalace=index;self.ziweiFlying=true;}}})
     ]);
   }
 

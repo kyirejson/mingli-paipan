@@ -72,14 +72,14 @@
     });
     r.stars.forEach(function(s){var text=d.auxiliary[s.name]&&d.auxiliary[s.name][r.name];if(text)out.push(trace(card('aux-'+r.name+'-'+s.name,'辅曜煞曜',s.name+'在'+r.title,text,r.title+'实际坐守'+s.name,['quanshu','minor']),d,['aux:'+r.name+':'+s.name]));});
     if(r.major.length&&out[0]){
-      var modifiers=[];
+      var modTags=[],hasStrong=false,hasWeak=false,hasJi=false,hasGoodHua=false;
       r.stars.filter(function(s){return r.major.includes(s.name);}).forEach(function(s){
         var level=['庙','旺'].includes(s.brightness)?'strong':['不','陷'].includes(s.brightness)?'weak':null;
         var bright=level&&d.details.find(function(o){return o.type==='brightness'&&o.palace===r.name&&o.star===s.name&&o.value===level&&(!o.brightnessValues||o.brightnessValues.includes(s.brightness));});
-        if(bright){modifiers.push(s.name+'为'+s.brightness+'：'+bright.text);out[0].trace.push(d.provenance['detail:'+bright.id]);}
-        if(s.mutagen){var detail=d.details.find(function(o){return o.type==='mutagen'&&o.palace===r.name&&o.star===s.name&&o.value===s.mutagen;});modifiers.push(s.name+'生年化'+s.mutagen+'：'+(detail?detail.text:d.starMutagens[s.name+s.mutagen]+' '+d.hua[r.name][s.mutagen]));out[0].trace.push(d.provenance[detail?'detail:'+detail.id:'mutagen:'+s.name+s.mutagen]);}
+        if(level==='strong')hasStrong=true;if(level==='weak')hasWeak=true;if(level)modTags.push(s.name+s.brightness);if(bright)out[0].trace.push(d.provenance['detail:'+bright.id]);
+        if(s.mutagen){if(s.mutagen==='忌')hasJi=true;else hasGoodHua=true;modTags.push(s.name+'生年化'+s.mutagen);var detail=d.details.find(function(o){return o.type==='mutagen'&&o.palace===r.name&&o.star===s.name&&o.value===s.mutagen;});out[0].trace.push(d.provenance[detail?'detail:'+detail.id:'mutagen:'+s.name+s.mutagen]);}
       });
-      if(modifiers.length)out[0].text+='\n'+r.title+'本盘合读：'+modifiers.join('\n');
+      if((hasStrong||hasWeak)&&(hasJi||hasGoodHua))out[0].extra='本盘耦合：'+modTags.join('、')+'。'+(hasWeak&&hasJi?'主星失地又逢生年化忌，本宫事项阻力与消耗偏重，分项释义见下方专卡。':hasStrong&&hasJi?'主星得庙旺有根基，但带生年化忌仍多反复牵挂，分项释义见下方专卡。':hasWeak&&hasGoodHua?'主星虽处陷地，得生年吉化引动调和，劳中见成，分项释义见下方专卡。':'主星得庙旺且逢生年吉化，本宫星系正向发挥更稳固，分项释义见下方专卡。');
     }
     return out;
   }
@@ -107,6 +107,12 @@
     if(lu.length&&sf.some(function(q){return has(q,'天马');})&&!sf.some(function(q){return has(q,'禄存');}))out.push(card('rel-hualu-ma-'+r.name,'禄马关系','化禄会天马','增加的资源与行动相连，机会需要经过走动、流通或环境变化取得；这里的禄来自实际化曜，与禄存的本钱之义分开。',lu.join('；')+'；'+sf.filter(function(q){return has(q,'天马');}).map(function(q){return '天马在'+q.title;}).join('、'),['mutagen','minor']));
     var ji=sf.flatMap(function(q){return q.stars.filter(function(s){return s.mutagen==='忌';}).map(function(s){return s.name+'化忌在'+q.title;});}),sha=sf.flatMap(function(q){return q.stars.filter(function(s){return SHA.includes(s.name);}).map(function(s){return s.name+'在'+q.title;});});
     if(ji.length&&sha.length)out.push(card('rel-shaji-'+r.name,'煞忌合参','化忌与煞曜同会','牵挂与实际阻力进入同一阅读范围。化忌强调在意与反复，煞曜分别带来直接冲突、拖延、急变或耗损，二者不能用吉星数量简单抵消。',ji.concat(sha).join('；'),['quanshu','mutagen']));
+    var sanqi=['禄','权','科'].map(function(m){var q=sf.find(function(x){return x.stars.some(function(s){return s.mutagen===m;});});if(!q)return null;var st=q.stars.find(function(s){return s.mutagen===m;});return st.name+'化'+m+'在'+q.title;});
+    if(sanqi.every(Boolean))out.push(card('rel-sanqi-'+r.name,'三方四正','科权禄会照 · '+r.title,'生年化禄、化权、化科齐会'+r.title+'三方四正，资源机缘、执掌力度与声誉贵人相互呼应，对本宫事项形成联动支持。',sanqi.join('；'),['quanshu','mutagen']));
+    var lucunAt=sf.filter(function(q){return has(q,'禄存');});
+    if(lucunAt.length&&!sf.some(function(q){return has(q,'天马');}))out.push(card('rel-lucun-'+r.name,'三方四正','禄存拱照 · '+r.title,'三方四正见禄存而未会天马，偏重稳健蓄积与既有条件守成，推进本宫事务宜循序渐进、厚积薄发。',lucunAt.map(function(q){return '禄存在'+q.title+'（'+(q===r?'同宫':q===r.opposite?'对拱':'三合')+'）';}).join('；'),['quanshu','minor']));
+    var hasPairedSha=out.some(function(c){return /^rel-.*-(擎羊|火星|地空)$/.test(c.id);}),sfSha=sf.flatMap(function(q){return q.stars.filter(function(s){return SHA.includes(s.name);}).map(function(s){return {star:s.name,palace:q.title};});});
+    if(sfSha.length>=2&&!hasPairedSha)out.push(card('rel-mixsha-'+r.name,'三方四正','多煞会照 · '+r.title,'三方四正虽未凑齐同组双煞，但同时交会多颗煞曜（'+unique(sfSha.map(function(x){return x.star;})).join('、')+'），刚猛冲撞、突发变动或耗损压力并见，处事宜留足缓冲余地。',sfSha.map(function(x){return x.star+'在'+x.palace;}).join('；'),['quanshu','minor']));
     [['左辅','右弼','辅弼','两侧有协助与配合，本宫事务能得到邻近关系的支持。'],['文昌','文曲','昌曲','文字、才艺与表达从两侧形成支持，本宫事务与学习、文书及表现联系加强。'],['天魁','天钺','魁钺','两侧有引荐与照应，本宫能通过长辈、前辈和有经验者取得支持。'],['紫微','天府','紫府','两侧有主导与资源支持，本宫较重身份、秩序和现有条件的承接。'],['太阳','太阴','日月','公开带领与细致照应从两侧作用，外在支持与内在感受共同影响本宫。'],['擎羊','陀罗','羊陀','两侧有直接阻力与拖延，本宫事务承受夹制，不能把会到一颗煞星误当此结构。'],['火星','铃星','火铃','两侧有急变与隐性压力，本宫事务容易带突发性与紧绷感。'],['地空','地劫','空劫','两侧有落空与耗损，本宫投入与实际留存之间的落差较明显。']].forEach(function(g){
       var left=r.neighbors[0],right=r.neighbors[1];
       if(has(left,g[0])&&has(right,g[1])||has(left,g[1])&&has(right,g[0]))out.push(card('flank-'+r.name+'-'+g[0],'夹宫',g[2]+'夹'+r.title,g[3],left.title+'：'+left.stars.filter(function(s){return g.slice(0,2).includes(s.name);}).map(function(s){return s.name;}).join('、')+'；'+right.title+'：'+right.stars.filter(function(s){return g.slice(0,2).includes(s.name);}).map(function(s){return s.name;}).join('、'),['quanshu','pattern']));
@@ -131,9 +137,9 @@
       var locations=unique((p.palaces||['命宫']).map(name)).map(function(n){return rows.find(function(r){return r.name===n;});}).filter(Boolean);
       var anchor=locations.length===1?locations[0]:null;
       var localPair=anchor&&anchor.major.length===2&&['紫府同宫','廉贞天相格','武曲七杀','天同天梁格','日月同宫','巨日同宫'].includes(p.name);
-      var text=p.readingText||(localPair?anchor.title+'的'+anchor.major.join('、')+'同宫：'+describe(d,anchor):d.patternMeanings[p.name]);
-      if(!text&&p.name.endsWith('化禄入命')){var note=d.starMutagens[p.name.replace('入命','').replace('化','')];text=(note?note+'\n':'')+d.hua['命宫']['禄'];}
-      if(!text&&/化忌入[命迁]$/.test(p.name)){var n=p.name.endsWith('入命')?'命宫':'迁移',detail=d.starMutagens[p.name.replace(/入[命迁]$/,'').replace('化','')];text=(detail?detail+'\n':'')+d.hua[n]['忌'];}
+      var text=p.readingText||(localPair?anchor.title+'（'+anchor.ganzhi+'）'+anchor.major.join('、')+'同度成格，聚焦'+d.palaceNotes[anchor.name].replace(/^看|。$/g,'')+'。'+describe(d,anchor).split('。')[0]+'。'+(anchor.name==='命宫'?'双星同坐命宫直立个人主轴格局，成色高低视三方吉辅与煞忌轻重而定。':'此格落于'+anchor.title+'，按该宫三方四正会照条件评定专项助力与阻力。'):d.patternMeanings[p.name]);
+      if(!text&&p.name.endsWith('化禄入命')){var lStar=p.name.replace('化禄入命','');text=lStar+'生年化禄坐守命宫（'+ming.ganzhi+'），全盘生年禄元归入命垣，个人切入事务较易获得顺势机缘与人缘支持；三方四正若少煞忌冲破，则财官联动更为稳固。';}
+      if(!text&&/化忌入[命迁]$/.test(p.name)){var jStar=p.name.replace(/化忌入[命迁]$/,''),inMing=p.name.endsWith('入命');text=inMing?jStar+'生年化忌坐守命宫（'+ming.ganzhi+'）并直冲对宫迁移宫（'+ming.opposite.ganzhi+'），构成命迁轴线带忌格局，主行事执着操心、凡事亲历而外缘变动较多，宜凭专长一艺深耕。':jStar+'生年化忌落迁移宫（'+ming.opposite.ganzhi+'）并由外向内直冲命宫（'+ming.ganzhi+'），主外出奔波或外部环境交接易生周折，宜稳守内功而不宜盲目远求冒进。';}
       if(!text)return null;
       var evidence=(p.conditions&&p.conditions.required||[]).join('；');
       evidence+='；实际涉及：'+locations.map(function(r){return r.title+' '+r.ganzhi+'（'+r.major.join('、')+'）';}).join('、');
@@ -180,16 +186,17 @@
       var c=trace(card('flow-'+scope+'-'+star,'运限四化',label+' · '+star+'化'+mut,text,(options.flowDate||'')+' · '+label+title(flowName)+'叠本命'+target.title+' '+target.ganzhi,['mutagen','palace']),d,['mutagen:'+star+mut,'hua:'+flowName+':'+mut]);
       c.layer=scope;c.ruleId='flow:'+scope+':'+mut;c.conditions={star:star,mutagen:mut,natalPalace:target.name,flowPalace:flowName};
       var n=target.stars.find(function(s){return s.name===star&&s.mutagen;});if(n)c.overlay='生年'+n.mutagen+'与'+label+mut+'同在'+star+'：本命层与所选运限层并存，不改写原生年四化。';
+      if(mut==='忌'&&target.opposite){var oppF=name(flow.palaceNames[target.opposite.index]);c.extra=label+'化忌落本命'+target.title+'，直冲对宫本命'+target.opposite.title+'（'+target.opposite.ganzhi+(PALACES.includes(oppF)?' · '+label+title(oppF):'')+'）；坐忌宫防反复纠缠，受冲对宫尤防突发变动与外力冲击。';}
       c.index=target.index;out.push(c);
     });return out;
   }
   function lifeCards(d,rows,chart,options){
     var out=[],ming=rows.find(function(r){return r.name==='命宫';}),body=rows.find(function(r){return r.body;}),original=rows.find(function(r){return r.original;});
-    if(body)out.push(card('body','命身合读',body===ming?'命身同宫':'身宫在'+body.title,body===ming?'先天行事方式与后天投入集中在同一宫，个人特质与实际行动较一致。':'后天较多精力投入'+body.title+'所代表的事务。\n'+(describe(d,body)||d.palaceNotes[body.name]),'命宫：'+ming.ganzhi+'；身宫：'+body.title+' '+body.ganzhi,['palace']));
+    if(body)out.push(card('body','命身合读',body===ming?'命身同宫':'身宫在'+body.title,body===ming?'命宫与身宫同坐'+ming.ganzhi+'（'+(ming.major.join('、')||'空宫借'+ming.opposite.major.join('、'))+'），先天行事取向与后天投入重心合一，中晚年仍沿个人主轴深耕，较少中途转向。':'先天命宫在'+ming.ganzhi+'（'+(ming.major.join('、')||'空宫借'+ming.opposite.major.join('、'))+'），后天身宫落入'+body.title+'（'+body.ganzhi+'，'+(body.major.join('、')||'空宫借'+body.opposite.major.join('、'))+'）。'+d.palaceNotes[body.name].replace(/^看/,'中晚年精力与现实重心渐归于')+(body.stars.some(function(s){return !!s.mutagen;})?'身宫带生年'+body.stars.filter(function(s){return !!s.mutagen;}).map(function(s){return s.name+'化'+s.mutagen;}).join('、')+'，该宫事务对人生后半程牵引尤深。':'命身互为体用，随阅历增长行事更重'+body.title+'得失。'),'命宫：'+ming.ganzhi+'；身宫：'+body.title+' '+body.ganzhi,['palace']));
     if(options.mode==='qintian'&&original)out.push(card('original','来因宫','来因在'+original.title,'生年四化的发端在此宫，阅读时把这一宫代表的人事关系与四化去向合看。\n'+d.palaceNotes[original.name],original.title+' '+original.ganzhi+' · 本盘来因标记',['mutagen']));
-    [['soul','命主'],['body','身主']].forEach(function(g){var star=name(chart[g[0]]);if(!star)return;var at=rows.find(function(r){return has(r,star);});if(at)out.push(card('master-'+g[0],'命主身主',g[1]+' · '+star,g[1]+'是按命盘规则取出的代表星名称，实际'+star+'位于'+at.title+' '+at.ganzhi+'。\n'+(d.profiles[star]?d.profiles[star][at.name]:d.auxiliary[star]?d.auxiliary[star][at.name]:d.misc[star]||''),g[1]+'与身宫是不同字段；此处没有把'+star+'移到命宫或身宫。',['palace','stars']));});
+    [['soul','命主'],['body','身主']].forEach(function(g){var star=name(chart[g[0]]);if(!star)return;var at=rows.find(function(r){return has(r,star);});if(at){var st=at.stars.find(function(s){return s.name===star;});out.push(card('master-'+g[0],'命主身主',g[1]+' · '+star,g[1]+'按排盘定为「'+star+'」，实盘落入'+at.title+'（'+at.ganzhi+(st&&st.brightness?'，亮度'+st.brightness:'')+(st&&st.mutagen?'，生年化'+st.mutagen:'')+'）。'+(g[0]==='soul'?'命主代表先天底气与内在驱动取向':'身主代表后天处世依托与现实承受面')+'，落于'+at.title+'提示'+d.palaceNotes[at.name].replace(/^看/,'其作用多借由').replace(/。$/,'来显现。'),g[1]+'与身宫是不同字段；此处按'+star+'在'+at.title+'的实际落位参看。',['palace','stars']));}});
     if(chart.fiveElementsClass)out.push(card('five-elements','五行局',chart.fiveElementsClass,'本盘采用'+chart.fiveElementsClass+'，用于紫微星定位与大限起始年龄。'+(ming.decadal&&ming.decadal.range?'首个大限为'+ming.decadal.range.join('—')+'虚岁。':''),'读取本盘五行局与命宫大限字段',['palace']));
-    return out.concat(flowCards(d,rows,options));
+    return out.concat(flowExtraCards(d,rows,options),flowCards(d,rows,options));
   }
   function analyse(d,chart,options){
     options=options||{};var facts=cachedFacts(d,chart);if(!facts)return null;var rows=facts.rows;
@@ -206,5 +213,42 @@
     var old=factsCache.get(chart);if(old&&old.bank===d&&old.fingerprint===fingerprint)return old;
     var rows=makeRows(d,chart),facts={bank:d,fingerprint:fingerprint,rows:rows,patterns:patternCards(d,rows),relations:{},flights:{},edges:null};factsCache.set(chart,facts);return facts;
   }
-  global.WZBZInterpretation=Object.freeze({validate:validate,validChart:validChart,match:makeRows,analyse:analyse,relations:relationCards,patterns:patternCards,flights:flightCards,flow:flowCards,title:title});
+  function flowStarNote(names){
+    var notes=[];(names||[]).forEach(function(n){
+      if(/禄$/.test(n))notes.push('添财源机缘');else if(/马$/.test(n))notes.push('主动迁奔走');else if(/羊$/.test(n))notes.push('防刚急争执');else if(/陀$/.test(n))notes.push('防拖延纠缠');else if(/[昌曲]$/.test(n))notes.push('利文书考学');else if(/[魁钺]$/.test(n))notes.push('得贵人提携');else if(/[鸾喜]$/.test(n))notes.push('添人缘喜庆');else if(/解$/.test(n))notes.push('助排忧解厄');
+    });return unique(notes).join('、');
+  }
+  function flowExtraCards(d,rows,options){
+    var scope=options.flowScope,flow=options.flow;if(!scope||!flow||!Array.isArray(flow.palaceNames)||flow.palaceNames.length!==12)return [];
+    var label=flow.name||({decadal:'大限',yearly:'流年',monthly:'流月',daily:'流日',hourly:'流时',age:'小限'})[scope]||'运限',out=[];
+    var fMingIdx=flow.palaceNames.findIndex(function(x){return name(x)==='命宫';}),fMing=rows.find(function(r){return r.index===fMingIdx;});
+    var dec=options.horoscope&&options.horoscope.decadal;
+    if(fMing&&dec&&scope!=='decadal'&&Array.isArray(dec.palaceNames)&&dec.palaceNames.length===12){
+      var dMingIdx=dec.palaceNames.findIndex(function(x){return name(x)==='命宫';}),dMing=rows.find(function(r){return r.index===dMingIdx;}),dRole=name(dec.palaceNames[fMingIdx]);
+      var dJi=Array.isArray(dec.mutagen)&&dec.mutagen[3],fJi=Array.isArray(flow.mutagen)&&flow.mutagen[3],dJiAt=dJi&&rows.find(function(r){return has(r,dJi);}),fJiAt=fJi&&rows.find(function(r){return has(r,fJi);});
+      var jiNote=dJiAt&&fJiAt?(dJiAt.index===fJiAt.index||dJiAt.opposite.index===fJiAt.index?'大限'+dJi+'化忌（本命'+dJiAt.title+'）与'+label+fJi+'化忌（本命'+fJiAt.title+'）同轴交冲，此轴线事务须格外谨守防变。':'大限'+dJi+'化忌在本命'+dJiAt.title+'，'+label+fJi+'化忌在本命'+fJiAt.title+'（冲'+fJiAt.opposite.title+'），留意两处压力呼应。'):'';
+      var ax=card('flow-axis-'+scope,'运限叠宫','大限与'+label+' · 三层叠宫主轴','十年大限命宫叠本命'+(dMing?dMing.title+'（'+dMing.ganzhi+'）':'命盘')+'，十年基调重在'+(dMing?d.palaceNotes[dMing.name].replace(/^看|。$/g,''):'本命主轴')+'。\n当期'+label+'命宫落本命'+fMing.title+'（'+fMing.ganzhi+'），同时叠作「大限'+(PALACES.includes(dRole)?title(dRole):'重点宫')+'」，即以本命'+fMing.title+'所主人事回应大限'+(PALACES.includes(dRole)?title(dRole):'阶段')+'课题。'+(jiNote?'\n'+jiNote:''),(options.flowDate||'')+' · 大限命叠'+(dMing?dMing.title:'—')+'，'+label+'命叠'+fMing.title+'（大限'+(PALACES.includes(dRole)?title(dRole):'—')+'）',['palace','mutagen']);
+      ax.layer=scope;out.push(ax);
+    }else if(fMing){
+      var roles=['财帛','官禄','迁移'].map(function(rn){var idx=flow.palaceNames.findIndex(function(x){return name(x)===rn;}),at=rows.find(function(r){return r.index===idx;});return at?label+title(rn)+'叠本命'+at.title:'';}).filter(Boolean);
+      var ax2=card('flow-axis-'+scope,'运限叠宫',label+'命迁财官叠宫主轴',label+'命宫叠本命'+fMing.title+'（'+fMing.ganzhi+'，'+(fMing.major.join('、')||'空宫借'+fMing.opposite.major.join('、'))+'），当期重心转向'+d.palaceNotes[fMing.name].replace(/^看|。$/g,'')+'；三方同步牵动：'+roles.join('、')+'。',(options.flowDate||'')+' · '+label+'命宫在'+fMing.ganzhi,['palace']);
+      ax2.layer=scope;out.push(ax2);
+    }
+    if(Array.isArray(flow.stars)&&flow.stars.length===12){
+      var hits=[],evList=[];
+      rows.forEach(function(r){
+        var sList=(flow.stars[r.index]||[]).map(function(s){return s&&s.name;}).filter(Boolean);if(!sList.length)return;
+        var fRole=name(flow.palaceNames[r.index]),fTitle=PALACES.includes(fRole)?label+title(fRole):r.title;
+        var shaStack=sList.some(function(n){return /[羊陀]$/.test(n);})&&(r.stars.some(function(s){return SHA.includes(s.name)||s.mutagen==='忌';})),luMa=sList.some(function(n){return /禄$/.test(n);})&&(sList.some(function(n){return /马$/.test(n);})||has(r,'天马')||has(r,'禄存')),luanXi=sList.some(function(n){return /[鸾喜]$/.test(n);})&&['命宫','迁移','夫妻','子女'].includes(fRole);
+        if(['命宫','财帛','官禄','迁移','夫妻'].includes(fRole)||shaStack||luMa||luanXi){
+          var hint=flowStarNote(sList);
+          hits.push(fTitle+'（本命'+r.title+'）见'+sList.join('、')+(shaStack?'，叠原局煞忌须防突发冲撞耗损':luMa?'，禄马同度利走动求财开拓':hint?'，'+hint:''));
+          evList.push(r.title+'：'+sList.join('、'));
+        }
+      });
+      if(hits.length){var sc=card('flow-stars-'+scope,'运限流曜',label+'流曜重点落宫',hits.slice(0,5).join('；')+'。',evList.slice(0,6).join('；'),['minor','palace']);sc.layer=scope;out.push(sc);}
+    }
+    return out;
+  }
+  global.WZBZInterpretation=Object.freeze({validate:validate,validChart:validChart,match:makeRows,analyse:analyse,relations:relationCards,patterns:patternCards,flights:flightCards,flow:flowCards,flowStarNote:flowStarNote,title:title});
 })(window);

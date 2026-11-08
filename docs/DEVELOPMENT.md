@@ -22,7 +22,7 @@ python scripts/dev-server.py
 
 `npm test` 运行无需外部依赖的 Node 回归。`scripts/build-release.ps1` 执行 D 盘构建，所需外部输入的来源和摘要在 `build-inputs.json` 中；详细命令见整改进展。
 
-发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v` 和 `python -m unittest discover -s tests -p test_build_lifecycle.py -v`。使用 `python scripts/publish-release.py --version 1.0.31 --version-code 32` 可校验本地 APK；增加 `--publish` 才会发布；`--prune-old-apks` 是核验新版后清理历史安装附件的可选参数。先将源码与同名版本标签推送到仓库。详细步骤与清理边界见 [独立构建说明](build-and-retention.md)。
+发布前运行 `python -m unittest discover -s tests -p test_release_contract.py -v` 和 `python -m unittest discover -s tests -p test_build_lifecycle.py -v`。使用 `python scripts/publish-release.py --version 1.0.32 --version-code 33` 可校验本地 APK；增加 `--publish` 才会发布；`--prune-old-apks` 是核验新版后清理历史安装附件的可选参数。先将源码与同名版本标签推送到仓库。详细步骤与清理边界见 [独立构建说明](build-and-retention.md)。
 
 紫微助手代理使用本机现有的盲派八字 Agent 设置文件读取 DeepSeek 配置；密钥不写入本目录或手机安装包。此前真实请求出现过鉴权或账户不可用问题；使用前需在本机配置有效凭证并确保账户可用，方能完成真实回答验收。通过模拟接口的测试不代表真实模型已连接成功。
 
