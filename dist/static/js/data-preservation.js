@@ -3,7 +3,7 @@
   var CASES='wzbz_local_userlist_v14',CONFLICTS='wzbz_recovery_conflicts_v1',VERSIONS='wzbz_local_revision_v1';
   var storage=global.localStorage,proto=global.Storage?global.Storage.prototype:storage;
   var original={get:proto.getItem,set:proto.setItem,remove:proto.removeItem,clear:proto.clear};
-  var active=false,internal=false,timer=null,queue=Promise.resolve(),queuedData='',revision=0;
+  var active=false,internal=false,timer=null,queue=Promise.resolve(),queuedData='',revision=0,flushedRevision=-1;
   var status={ready:false,native:false,error:'',recovered:0};
   var nonce=null;
   if(global.crypto&&global.crypto.getRandomValues){var bytes=new Uint8Array(32);global.crypto.getRandomValues(bytes);nonce=Array.from(bytes,function(n){return n.toString(16).padStart(2,'0');}).join('');}
@@ -64,16 +64,18 @@
   function flush(){
     if(timer){clearTimeout(timer);timer=null;}
     if(!active)return ready.then(flush);
-    var data=collect(),fingerprint=JSON.stringify(data),seq=revision;
-    if(fingerprint===queuedData)return queue;
+    var seq=revision;
+    if(status.ready&&seq===flushedRevision&&queuedData)return queue;
+    var data=collect(),fingerprint=JSON.stringify(data);
+    if(fingerprint===queuedData){flushedRevision=seq;return queue;}
     queuedData=fingerprint;
     var payload=snapshot(data),native=plugin();
     var operation=queue.catch(function(){}).then(function(){
       if(native)return native.save({token:nonce,payload:payload}).then(function(result){if(!result||result.ok!==true)throw Error('本机保护备份未确认写入');});
       // Browser preview protection only. Android uses app-private native storage.
       set('zaohua_web_vault_previous_v1',get('zaohua_web_vault_v1')||'');set('zaohua_web_vault_v1',payload);
-    }).then(function(){if(seq===revision)status.error='';});
-    queue=operation;operation.catch(function(error){if(queue===operation)queuedData='';errorState(error);});return operation;
+    }).then(function(){flushedRevision=seq;if(seq===revision)status.error='';});
+    queue=operation;operation.catch(function(error){if(queue===operation){queuedData='';flushedRevision=-1;}errorState(error);});return operation;
   }
   function schedule(){revision++;if(!active)return;if(timer)clearTimeout(timer);timer=setTimeout(function(){timer=null;flush().catch(function(){});},350);}
   function checkWrite(key,value){
@@ -83,8 +85,9 @@
       if(before.some(function(item){return item&&item.guid!=null&&!ids.has(String(item.guid));}))throw Error('已阻止覆盖或清空已有命盘，请使用合并恢复');
     }
     if(/^wzbz_local_notes|^wzbz_note_drafts|^wzbz_fivearts_record/.test(key)){
-      var previous=parse(old,'object'),after=parse(value,'object');
-      if(Object.keys(previous).some(function(id){return !Object.prototype.hasOwnProperty.call(after,id);}))throw Error('已阻止移除已有笔记或排盘记录');
+      var previous=parse(old,'object'),after=parse(value,'object'),savedNotes=null;
+      if(/^wzbz_note_drafts/.test(key)){try{savedNotes=parse(get('wzbz_local_notes_v14')||'{}','object');}catch(_){savedNotes={};}}
+      if(Object.keys(previous).some(function(id){return !Object.prototype.hasOwnProperty.call(after,id)&&!(savedNotes&&Object.prototype.hasOwnProperty.call(savedNotes,id));}))throw Error('已阻止移除已有笔记或排盘记录');
     }
   }
   proto.setItem=function(key,value){

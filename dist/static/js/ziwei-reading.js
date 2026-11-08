@@ -21,7 +21,7 @@
       methods:{ensure:function(){var self=this;if(!this.enabled||!this.near||this.bank||this.status==='loading'||this.status==='error')return;this.status='loading';this.error='';load().then(function(d){if(!self._isDestroyed){self.bank=d;self.status='ready';}}).catch(function(error){if(global.console)global.console.warn('[ZiweiReading]',error);if(!self._isDestroyed){self.status='error';self.error='本地解读资料未能打开，请重新读取';}});},retry:function(){this.status='idle';this.near=true;this.ensure();},choose:function(i){this.$emit('select',i);}},
       render:function(h){
         var self=this,mode={sanhe:'三合',qintian:'钦天四化',feixing:'飞星'}[this.mode]||'三合';
-        var children=[h('header',{class:'zr-header'},[h('div',[h('p',{class:'zr-eyebrow'},['星曜 · 宫位 · 四化 · 会照']),h('h3',['盘面详解'])]),h('span',{class:'zr-mode'},[mode+' · 本命'])])];
+        var children=[h('header',{class:'zr-header'},[h('div',[h('p',{class:'zr-eyebrow'},['星曜 · 宫位 · 四化 · 会照']),h('h3',['盘面详解'])]),h('span',{class:'zr-mode'},[mode+' · '+(this.flowScope?({decadal:'大限',yearly:'流年',monthly:'流月',daily:'流日',hourly:'流时',age:'小限'}[this.flowScope]||'运限'):'本命')])])];
         if(!this.bank){children.push(h('p',{attrs:{role:this.error?'alert':'status'}},[this.error||'正在读取本地解读…']),this.error?h('button',{class:'zr-retry',attrs:{type:'button'},on:{click:this.retry}},['重新打开']):null);return h('section',{class:'ziwei-reading'},children);}
         if(!this.view){children.push(h('p',{attrs:{role:'alert'}},['命盘宫位或星曜数据异常，暂未生成解读，请重新排盘。']));return h('section',{class:'ziwei-reading'},children);}
         var view=this.view,current=view.current;

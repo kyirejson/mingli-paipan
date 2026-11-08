@@ -951,7 +951,7 @@
           var key='wzbz_note_drafts_v1', drafts=read(key,{}), old=drafts[guid]&&typeof drafts[guid].content==='string'?drafts[guid].content:String(note.content||'');
           var text=old+(old?'\n\n':'')+'【紫微助手】\n'+item.text+'\n当前选中宫位：'+item.evidence;
           if(text.length>20000){this.assistantError='笔记长度已达上限，请先整理笔记';return;}
-          drafts[guid]={content:text,updatedAt:Date.now()};
+          var entry={content:text,updatedAt:Date.now()};if(drafts[guid]&&drafts[guid].fields)entry.fields=drafts[guid].fields;drafts[guid]=entry;
           if(!write(key,drafts)){this.assistantError='笔记草稿写入失败';return;}
           this.assistantOpen=false;this.change('bazi');this.owner.onTab(3);notify('已加入断事笔记草稿，请查看并保存');
         },
@@ -974,7 +974,8 @@
           this.assistantQuestion='';this.assistantError='';this.assistantBusy=true;
           this.assistantMessages.push({role:'user',text:text});
           try{
-            var response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:text,chart:snapshot,history:history}),signal:AbortSignal.timeout(65000)});
+            var ctrl=typeof AbortController==='function'?new AbortController():null,timer=ctrl?setTimeout(function(){ctrl.abort(new Error('请求超时，请稍后重试'));},65000):null;
+            var response;try{response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:text,chart:snapshot,history:history}),signal:ctrl?ctrl.signal:undefined});}finally{clearTimeout(timer);}
             var result=await response.json();if(!response.ok)throw Error(result.error||'助手暂时不可用');
             if(sourceKey!==this.sourceKey)return;
             var palace=snapshot.palaces[snapshot.selectedPalace];
@@ -1070,7 +1071,7 @@
           var options = s.modules[type] || {}, time = options.time || s.baseTime, key = type + "|" + time + "|" + JSON.stringify(options) + "|" + s.sex;
           var cached = this._cache.get(key);
           if (cached) return cached;
-          var r = type === "ziwei" ? E.ziwei(s.baseTime, Number(s.sex) === 0 ? "女" : "男") : E[type](time, options);
+          var r = type === "ziwei" ? E.ziwei(s.baseTime, Number(s.sex) === 0 ? "女" : "男", options) : E[type](time, options);
           this._cache.set(key, r);
           if (this._cache.size > 40) this._cache.delete(this._cache.keys().next().value);
           return r;

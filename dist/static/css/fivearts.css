@@ -221,7 +221,7 @@ html.pf-theme #app .fa-liu-element.is-water{color:var(--pf-water)}
 .fa-line-structure{color:var(--pf-caption);font-size:12px}
 /* Twelve-palace layouts transcribed from the three Wenmo reference screens. */
 .fa-slide-ziwei .fa-other-content{padding:4px 0 0;overflow-anchor:none}
-.fa-ziwei{display:flex;flex-direction:column;width:100%;max-width:520px;margin:0 auto;height:auto;min-height:100%;--zw-red:#b43329;--zw-blue:#235f91;--zw-purple:#743187;--zw-grid:color-mix(in srgb,var(--pf-ink) 55%,transparent)}
+.fa-ziwei{display:flex;flex-direction:column;width:100%;max-width:520px;margin:0 auto;height:auto;min-height:100%;--zw-red:#b43329;--zw-blue:#235f91;--zw-purple:#743187;--zw-grid:#7a867d;--zw-grid:color-mix(in srgb,var(--pf-ink) 55%,transparent)}
 .fa-ziwei-board{position:relative;flex:none;width:100%;padding:14px;border:1px solid var(--zw-grid);min-height:0;overflow:hidden}
 .fa-ziwei-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr));width:100%;height:auto;aspect-ratio:4/5;position:relative;border-top:1px solid var(--zw-grid);border-left:1px solid var(--zw-grid)}
 .fa-result-host button.fa-ziwei-palace{border:0;border-right:1px solid var(--zw-grid);border-bottom:1px solid var(--zw-grid);border-radius:0;background:transparent;text-align:left;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;min-width:0;min-height:0;padding:4px 2px 0;position:relative;overflow:hidden;line-height:1.15}
@@ -233,19 +233,19 @@ html.pf-theme #app .fa-liu-element.is-water{color:var(--pf-water)}
 .fa-ziwei-star.fa-star-major strong{color:var(--zw-red)}
 html[data-theme=dark] .fa-ziwei{--zw-red:var(--pf-fire);--zw-blue:var(--pf-water);--zw-purple:#d8b6e5}
 .fa-ziwei-star.fa-star-tough strong,.fa-ziwei-star.fa-star-lucun strong,.fa-ziwei-star.fa-star-tianma strong{color:var(--zw-purple)}
-.fa-ziwei-star small{font:8px/1.3 var(--pf-sans);color:var(--pf-caption)}
+.fa-ziwei-star small{font:9px/1.3 var(--pf-sans);color:var(--pf-caption)}
 .fa-ziwei-star .fa-mutagen{display:block;font:10px/1.2 var(--pf-sans);font-style:normal;background:var(--fa-mutagen-color);color:#fff;border-radius:2px;margin-top:1px;padding:0 1px}
-.fa-ziwei-star .fa-flow-mutagen{font:8px/10px var(--pf-sans);font-style:normal;white-space:nowrap}.fa-star-mutagens{display:flex;flex-direction:column;align-items:center}.fa-ziwei-qintian .fa-star-mutagens,.fa-ziwei-feixing .fa-star-mutagens{flex-direction:row;align-items:flex-start;gap:1px}
-.fa-palace-meta{flex:none;min-width:0;display:flex;flex-direction:column;gap:0}.fa-palace-age-lists{height:18px;display:flex;flex-direction:column;align-items:center;color:var(--pf-caption);font:7px/1.3 var(--pf-sans);letter-spacing:-.2px;margin-bottom:0}
+.fa-ziwei-star .fa-flow-mutagen{font:9px/10px var(--pf-sans);font-style:normal;white-space:nowrap}.fa-star-mutagens{display:flex;flex-direction:column;align-items:center}.fa-ziwei-qintian .fa-star-mutagens,.fa-ziwei-feixing .fa-star-mutagens{flex-direction:row;align-items:flex-start;gap:1px}
+.fa-palace-meta{flex:none;min-width:0;display:flex;flex-direction:column;gap:0}.fa-palace-age-lists{height:18px;display:flex;flex-direction:column;align-items:center;color:var(--pf-caption);font:9px/1.2 var(--pf-sans);letter-spacing:-.2px;margin-bottom:0}
 .fa-palace-age-lists small{font:inherit;white-space:nowrap}
 .fa-palace-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:1px;height:31px;flex:none}
-.fa-palace-gods{display:flex;flex-direction:column;color:var(--pf-caption);font:8px/1.2 var(--pf-sans);white-space:nowrap}
+.fa-palace-gods{display:flex;flex-direction:column;color:var(--pf-caption);font:9px/1.2 var(--pf-sans);white-space:nowrap}
 .fa-palace-gods span:first-child{color:var(--pf-water)}
 .fa-palace-title{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:0 0 2px;white-space:nowrap}
 .fa-palace-title>small{font:10px/1.2 var(--pf-sans)}
 .fa-palace-name{font:600 12px/1.2 var(--pf-sans);color:var(--zw-red);white-space:nowrap}
 .fa-palace-branch{display:flex;flex-direction:column;align-items:center}
-.fa-palace-branch>small{font:8px/1.2 var(--pf-sans);color:var(--pf-caption)}
+.fa-palace-branch>small{font:9px/1.2 var(--pf-sans);color:var(--pf-caption)}
 .fa-palace-ganzhi{writing-mode:vertical-rl;font:600 15px/1.05 var(--pf-sans);letter-spacing:1px}
 .fa-palace-tags{position:absolute;right:3px;top:43%;display:flex;gap:2px}
 .fa-palace-tag{writing-mode:vertical-rl;font:9px/1.1 var(--pf-sans);padding:2px 1px;border:1px solid var(--zw-red);border-radius:2px;color:var(--zw-red)}
@@ -276,14 +276,14 @@ html[data-theme=dark] .fa-ziwei{--zw-red:var(--pf-fire);--zw-blue:var(--pf-water
 .fa-flight-layer text{font-family:var(--pf-sans);font-weight:600}
 .fa-flight-label{paint-order:stroke fill;stroke:var(--pf-paper);stroke-width:3px;stroke-linejoin:round}
 .fa-flight-head{stroke:none}
-.fa-ziwei-directions{position:absolute;inset:0;pointer-events:none;color:var(--pf-caption);font:8px/1 var(--pf-sans)}
+.fa-ziwei-directions{position:absolute;inset:0;pointer-events:none;color:var(--pf-caption);font:9px/1 var(--pf-sans)}
 .fa-direction-top,.fa-direction-bottom{position:absolute;left:14px;right:14px;display:flex;justify-content:space-evenly;height:16px;align-items:center}
 .fa-direction-top{top:0}.fa-direction-bottom{bottom:0}
 .fa-direction-left,.fa-direction-right{position:absolute;top:17px;bottom:17px;display:flex;flex-direction:column;justify-content:space-around;width:13px;align-items:center}
 .fa-direction-left{left:0}.fa-direction-right{right:0}
 .fa-direction-left>span,.fa-direction-right>span{writing-mode:vertical-rl}
 .fa-ziwei-feixing .fa-ziwei-stars{flex-direction:row-reverse;justify-content:flex-start;gap:2px}
-.fa-ziwei-feixing .fa-ziwei-star strong,.fa-ziwei-qintian .fa-ziwei-star strong{font-size:clamp(12px,3.9vw,22px);font-weight:600}
+.fa-ziwei-feixing .fa-ziwei-star strong,.fa-ziwei-qintian .fa-ziwei-star strong{font-size:clamp(10px,min(3.6vw,calc((min(100vw,520px) - 54px) / 4 / max(var(--fa-stars-count,4),4))),20px);font-weight:600}
 .fa-ziwei-feixing .fa-ziwei-star:not(.fa-star-major) strong{color:var(--zw-purple)}
 .fa-ziwei-star .fa-flight-highlight{background:var(--fa-mutagen-color);color:#fff!important;border-radius:2px;padding:0 1px}
 .fa-ziwei-feixing .fa-ziwei-star .fa-mutagen{font-size:14px}

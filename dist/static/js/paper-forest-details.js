@@ -1,6 +1,7 @@
 (function(global) {
   'use strict';
-  var NOTES='wzbz_local_notes_v14', LEGACY='wzbz_fivearts_record_data_v1', DRAFTS='wzbz_note_drafts_v1';
+  var NOTES='wzbz_local_notes_v14', LEGACY='wzbz_fivearts_record_data_v1', DRAFTS='wzbz_note_drafts_v1', _tempNotesRaw=null, _tempNotesCache=[];
+  function temporaryNotes(){try{var raw=localStorage.getItem(NOTES);if(!raw){_tempNotesRaw=null;_tempNotesCache=[];return _tempNotesCache;}if(raw===_tempNotesRaw)return _tempNotesCache;var all=read(NOTES,{});_tempNotesRaw=raw;_tempNotesCache=Object.values(all).filter(function(n){return n&&n.temporary&&n.content;});return _tempNotesCache;}catch(_){return [];}}
   function read(key, fallback) {
     var raw=localStorage.getItem(key);
     if(!raw) return fallback;
@@ -138,11 +139,11 @@
     }
     this.contentVal=noteContent(this.noteData);
     this.noteStatus=draft?'草稿待保存':'已保存';
-    if(this.$watch&&!this._noteFieldsWatch)this._noteFieldsWatch=this.$watch(function(){return JSON.stringify([self.selects||[],self.selectsX||[]]);},function(){if(!self._restoringNoteDraft&&!self.noteSaving)changeNote(self,self.contentVal);});
+    if(this.$watch&&!this._noteFieldsWatch)this._noteFieldsWatch=this.$watch(function(){function sig(list){return (list||[]).map(function(x){return x?(x.rname||x.name||'')+'='+(typeof x.data==='string'?x.data:JSON.stringify(x.data??'')):'';}).join('\u0001');}return sig(self.selects)+'\u0002'+sig(self.selectsX);},function(){if(!self._restoringNoteDraft&&!self.noteSaving)changeNote(self,self.contentVal);});
     if(this.$nextTick)this.$nextTick(function(){self._restoringNoteDraft=false;});else this._restoringNoteDraft=false;
   }
   function noteFields(view){
-    function rows(list){return (list||[]).map(function(item){return {name:item.rname||item.name,data:JSON.parse(JSON.stringify(item.data==null?'':item.data))};});}
+    function rows(list){return (list||[]).map(function(item){var d=item.data==null?'':item.data;return {name:item.rname||item.name,data:typeof d==='object'?JSON.parse(JSON.stringify(d)):d};});}
     return {feedback:rows(view.selects),judgment:rows(view.selectsX)};
   }
   function changeNote(view,text){
@@ -184,7 +185,7 @@
       return h('label',{class:'pf-note-field'},[h('span',[item.name+(item.sname||'')]),Number(item.type)===1?button(h,item.data||'请选择',function(){t.tabIndex=scope;t.onSelectOption(scope,scope===1?100+list.indexOf(item):list.indexOf(item));},'pf-note-select'):
         h('textarea',{attrs:{rows:2,placeholder:'填写'+item.name,disabled:!editable},domProps:{value:typeof item.data==='string'?item.data:''},on:{input:function(e){item.data=e.target.value;changeNote(t,t.contentVal);}}})]);
     }))]);}
-    var temporary=[];try{var all=read(NOTES,{});temporary=Object.values(all).filter(function(n){return n.temporary&&n.content;});}catch(_){}
+    var temporary=temporaryNotes();
     return h('section',{class:'note_wrapper pf-unified-notes'},[
       h('header',{class:'pf-notes-heading'},[h('h2',['断事笔记']),h('p',[(t.infoData||{}).name||'当前命例',' · 五术同参'])]),
       editable?h('div',{class:'pf-note-editor'},[

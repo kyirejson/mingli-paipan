@@ -16,7 +16,7 @@
     if([2,5,6,9].includes(book.id)&&api&&api['getGuji'+book.id+'_branch'])raw=api['getGuji'+book.id+'_branch'](b,geju)||[];
     if(book.id===1&&stem>=0&&month>=0)put('004',qiong[stem][month]);
     else if(book.id===2){
-      put('007','天干','stemSection',b[4]+elements[stem]);
+      if(stem>=0)put('007','天干','stemSection',b[4]+elements[stem]);
       if(/官|杀|煞/.test(geju))put('007','官杀');if(/伤官/.test(geju))put('007','伤官');
       put('007','体用');put('007','月令');
     }else if(book.id===5){
@@ -28,12 +28,12 @@
         var plain=t.value.replace(/^论/,'');var entry=data.books['001'].find(function(e){return e.title===t.value||e.title===plain+'论'||e.title.replace(/^(?:内|外)十八格-/,'')===plain;});
         if(entry)put('001',entry.chapter);
       });
-      put('001','十干体象','stemSection',b[4]+elements[stem]);put('001','论月令');if(month>=0)put('001',203+month);
-    }else if(book.id===7){
+      if(stem>=0)put('001','十干体象','stemSection',b[4]+elements[stem]);put('001','论月令');if(month>=0)put('001',203+month);
+    }else if(book.id===7&&stem>=0){
       var token=b[4]+elements[stem];
       (data.books.tianyuan||[]).filter(function(e){return e.title.includes(token);}).forEach(function(e){put('tianyuan',e.chapter,'tianyuan');});
       if(b[4]==='戊')put('tianyuan',20,'tianyuan');
-    }else if(book.id===8){put('008','金不换骨髓歌断');put('008','十天干体象全编论','stemSection',b[4]+elements[stem]);
+    }else if(book.id===8){put('008','金不换骨髓歌断');if(stem>=0)put('008','十天干体象全编论','stemSection',b[4]+elements[stem]);
     }else if(book.id===9){
       if(/禄|刃|比|劫/.test(geju))put('003','比劫禄刃篇');put('003','格局篇');put('003','六神篇');put('003','运限篇');
     }else if(book.id===10){

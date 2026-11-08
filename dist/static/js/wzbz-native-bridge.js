@@ -1293,7 +1293,7 @@
     var target;
     try { target = new URL(String(cfg.url || ''), cfg.baseURL || window.location.href).hostname; } catch (_) { target = ''; }
     var corePath;try { corePath=new URL(String(cfg.url||''),cfg.baseURL||window.location.href).pathname; }catch(_){corePath='';}
-    if (/(^|\.)(iwzbz|iwzwh)\.com$/i.test(target) && !(target==='bzapi3.iwzbz.com'&&corePath==='/getbasebz8.php')) {
+    if (/(^|\.)(iwzbz|iwzwh)\.com$/i.test(target) && !((target==='bzapi3.iwzbz.com'||target==='bzapi1800.iwzbz.com')&&corePath==='/getbasebz8.php')) {
       return okResponse(cfg, {code:501,data:null,isSuccess:false,localOnly:true,message:'此功能尚未完成本地适配，未向原第三方服务发送数据。'});
     }
 

@@ -35,3 +35,15 @@ test('结构化笔记与正文一起存草稿，并能恢复到编辑器',()=>{
  function walk(n){if(!n)return;if(Array.isArray(n))return n.forEach(walk);if(typeof n!=='object')return;if(n.tag==='textarea'&&n.data.attrs.placeholder==='填写职业')field=n;walk(n.children)}walk(tree);field.data.on.input({target:{value:'教师'}});
  let draft=JSON.parse(data.get('wzbz_note_drafts_v1'))['case-1'];assert.equal(draft.content,'正文');assert.equal(draft.fields.feedback[0].data,'教师');let next=view();p.initNotes.call(next);assert.equal(next.selects[0].data,'教师');assert.equal(next.contentVal,'正文');
 });
+test('晚子时八字校正同步更新时柱纳音与时干十神，六爻纯化空不重复拼接断语',()=>{
+ const {c}=context(['lunar.js','time-policy.js','fivearts-engine.js','divination-calendar-fix.js','fivearts-readings.js','liuyao-reading.js']);
+ const solar=c.Solar.fromYmdHms(2026,10,29,23,30,0),eight=solar.getLunar().getEightChar();
+ c.WZBZTimePolicy.correctEightChar(solar,eight,true);
+ assert.equal(eight.getTime(),'戊子');
+ assert.equal(eight.getTimeNaYin(),c.LunarUtil.NAYIN['戊子']);
+ assert.equal(eight.getTimeShiShenGan(),c.LunarUtil.SHI_SHEN[eight.getDayGan()+'戊']);
+ const r=c.LiuyaoReading.snapshot(c.FiveArtsEngine.liuyao('2026-10-29 12:00',{method:'specified',upper:1,lower:8,moving:[1,6]}));
+ const reading=c.LiuyaoReading.analyze(r,{book:'huangjince',index:1,yongIndex:1},c.FiveArtsReadingsData);
+ for(const card of reading.cards){assert.equal(/旬空[^。]*旬空|月破[^。]*月破/.test(card.meaning||''),false);}
+
+});

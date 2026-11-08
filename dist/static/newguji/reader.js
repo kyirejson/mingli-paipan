@@ -46,7 +46,7 @@
     if(view._lastBlobUrl){URL.revokeObjectURL(view._lastBlobUrl);view._lastBlobUrl=null;}
   }
   // Sanitized local reader document runs in an opaque sandbox; only size is sent.
-  var heightScript='<script>(function(){function send(){var h=Math.ceil(Math.max(document.body?document.body.scrollHeight:0,document.documentElement.scrollHeight));if(h>0)parent.postMessage({type:"smartbooks_iframeheight",data:h},"*")}window.addEventListener("load",send);document.addEventListener("load",send,true);if(window.ResizeObserver&&document.body)new ResizeObserver(send).observe(document.body);send()})();<\/script>';
+  var heightScript='<script>(function(){var last=0;function send(){var h=Math.ceil(Math.max(document.body?document.body.scrollHeight:0,document.documentElement.scrollHeight));if(h>0&&Math.abs(h-last)>1){last=h;parent.postMessage({type:"smartbooks_iframeheight",data:h},"*")}}window.addEventListener("load",send);document.addEventListener("load",send,true);if(window.ResizeObserver&&document.body)new ResizeObserver(send).observe(document.body);send()})();<\/script>';
   function documentText(text){
     if(!/<head\b/i.test(text)||!/<\/head\s*>/i.test(text))throw Error('服务未返回可阅读的古籍页面');
     return /<\/body\s*>/i.test(text)?text.replace(/<\/body\s*>/i,heightScript+'</body>'):text+heightScript;

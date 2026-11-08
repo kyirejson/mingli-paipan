@@ -92,3 +92,12 @@ test('原名人资料 58 条完整保留、按需加载；失败后可以重试'
  let calls=0;const c={AbortController,setTimeout,clearTimeout,fetch:async()=>{calls++;return calls===1?{ok:false,status:503}:{ok:true,text:async()=>csv};}};c.window=c;vm.createContext(c);vm.runInContext(fs.readFileSync('dist/static/js/celebrity-library.js','utf8'),c);
  assert.equal(calls,0);await assert.rejects(c.WZBZCelebrityLibrary.load());assert.equal(await c.WZBZCelebrityLibrary.load(),csv.trim().split(/[\r\n]+/).join('\n'));await c.WZBZCelebrityLibrary.load();assert.equal(calls,2);
 });
+test('笔记正式保存后允许清理对应草稿，未保存草稿仍受防删保护且无变更 flush 不重复写盘',async()=>{
+ const ctx=boot(new Map([[CASES,JSON.stringify([row('a'),row('b')])],[NOTES,JSON.stringify({a:{content:'已存正式笔记'}})],['wzbz_note_drafts_v1',JSON.stringify({a:{content:'待清理草稿'},b:{content:'未保存草稿'}})]]));
+ await ctx.guard.ready;
+ assert.throws(()=>ctx.c.localStorage.setItem('wzbz_note_drafts_v1',JSON.stringify({a:{content:'待清理草稿'}})),/阻止/);
+ ctx.c.localStorage.setItem('wzbz_note_drafts_v1',JSON.stringify({b:{content:'未保存草稿'}}));
+ assert.deepEqual(Object.keys(JSON.parse(ctx.data.get('wzbz_note_drafts_v1'))),['b']);
+ await ctx.guard.flush();const countAfterSave=ctx.saved.length;
+ await ctx.guard.flush();assert.equal(ctx.saved.length,countAfterSave);
+});

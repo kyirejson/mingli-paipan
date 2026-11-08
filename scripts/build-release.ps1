@@ -24,8 +24,9 @@ try{
   $decoded=Join-Path $taskRoot 'decoded';$framework=Join-Path $WorkRoot 'framework'
   & python (Join-Path $PSScriptRoot 'prepare-runtime.py') --destination $decoded --version $Version --version-code $VersionCode;CheckExit 'Repository native runtime'
   Copy-Item -Path (Join-Path $projectRoot 'dist\*') -Destination (Join-Path $decoded 'assets\public') -Recurse -Force
+  Remove-Item -LiteralPath (Join-Path $decoded 'assets\public\static\data\tiku_tilin_all.json') -Force -ErrorAction SilentlyContinue
   & python (Join-Path $PSScriptRoot 'build-data-vault.py') --decoded $decoded --work (Join-Path $taskRoot 'vault-plugin') --java-home $JavaHome --build-tools $BuildTools --android (Join-Path (Split-Path -Parent (Split-Path -Parent $BuildTools)) 'platforms\android-34\android.jar');CheckExit 'Data vault plugin'
-  @{version=$Version;versionCode=$VersionCode;repository='https://github.com/kyirejson/mingli-paipan'} | ConvertTo-Json -Compress | Set-Content -LiteralPath (Join-Path $decoded 'assets\public\static\update-info.json') -Encoding utf8NoBOM
+  [System.IO.File]::WriteAllText((Join-Path $decoded 'assets\public\static\update-info.json'), (@{version=$Version;versionCode=$VersionCode;repository='https://github.com/kyirejson/mingli-paipan'} | ConvertTo-Json -Compress), [System.Text.UTF8Encoding]::new($false))
   $unsigned=Join-Path $taskRoot 'unsigned.apk';$aligned=Join-Path $taskRoot 'aligned.apk';$signed=Join-Path $taskRoot 'signed.apk'
   & $java "-Djava.io.tmpdir=$($env:TEMP)" -jar $apktool b -p $framework $decoded -o $unsigned;CheckExit 'Rebuild'
   & (Join-Path $BuildTools 'zipalign.exe') -f -p 4 $unsigned $aligned;CheckExit 'Alignment'

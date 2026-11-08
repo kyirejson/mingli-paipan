@@ -77,16 +77,16 @@
   margin: 0 0.08rem !important;
 }
 
-* { --img_shuiyin: none !important; --img_shuiyin_dark: none !important; background-image: none !important; }
+:root, [data-theme=dark] { --img_shuiyin: none !important; --img_shuiyin_dark: none !important; }
 
 /* User custom: Beige background & hide title/guide-bar */
 .guji-main-root .title { display: none !important; }
 .guji-guide-bar { display: none !important; }
-.guji-main-root, body, html { background-color: #faf7f2 !important; }
-.guji-main-root .box-swipe { background-color: #faf7f2 !important; margin-top: 0 !important; height: 3.5rem !important; }
+.guji-main-root, body, html { background-color: var(--paper, #f5f1e9) !important; }
+.guji-main-root .box-swipe { background-color: var(--paper, #f5f1e9) !important; margin-top: 0 !important; height: 3.5rem !important; }
 .guji-main-root .box-swipe .book-swipe-item { padding-top: 0.2rem !important; }
-.guji-main-root .box-tips { background-color: #f4efe4 !important; border: 1px solid #e3d9c8 !important; border-radius: 0.2rem !important; margin: 0.2rem 0.4rem 0.4rem !important; }
-.guji-main-root .guji-box-tabs { background-color: #faf7f2 !important; }
-.guji-main-root .box-content { background-color: #faf7f2 !important; }
-.guji-main-root .box-content .tipss { background-color: #faf7f2 !important; }
-.guji-arrow-btn { background: #faf7f2 !important; border-color: #b2955d !important; }
+.guji-main-root .box-tips { background-color: var(--surface, #fbf8f1) !important; border: 1px solid var(--line, #e3d9c8) !important; border-radius: 0.2rem !important; margin: 0.2rem 0.4rem 0.4rem !important; }
+.guji-main-root .guji-box-tabs { background-color: var(--paper, #f5f1e9) !important; }
+.guji-main-root .box-content { background-color: var(--paper, #f5f1e9) !important; }
+.guji-main-root .box-content .tipss { background-color: var(--paper, #f5f1e9) !important; }
+.guji-arrow-btn { background: var(--paper, #f5f1e9) !important; border-color: #b2955d !important; }

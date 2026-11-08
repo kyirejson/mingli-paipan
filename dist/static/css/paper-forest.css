@@ -24,15 +24,15 @@ html[data-theme=dark] {
   --woodColor:#93b891; --fireColor:#df9b83; --soilColor:#c4af85; --goldColor:#d3be81; --waterColor:#96bac8;
 }
 /* Legacy settings write element colors inline; strengthen text without changing saved preferences. */
-html.pf-theme .woodColor{color:color-mix(in srgb,var(--woodColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme .woodColor{color:var(--pf-wood)!important;color:color-mix(in srgb,var(--woodColor) 60%,var(--pf-ink) 40%)!important}
 html.pf-theme[data-theme=dark] .woodColor{color:var(--pf-wood)!important}
-html.pf-theme .fireColor{color:color-mix(in srgb,var(--fireColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme .fireColor{color:var(--pf-fire)!important;color:color-mix(in srgb,var(--fireColor) 60%,var(--pf-ink) 40%)!important}
 html.pf-theme[data-theme=dark] .fireColor{color:var(--pf-fire)!important}
-html.pf-theme .soilColor{color:color-mix(in srgb,var(--soilColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme .soilColor{color:var(--pf-soil)!important;color:color-mix(in srgb,var(--soilColor) 60%,var(--pf-ink) 40%)!important}
 html.pf-theme[data-theme=dark] .soilColor{color:var(--pf-soil)!important}
-html.pf-theme .goldColor{color:color-mix(in srgb,var(--goldColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme .goldColor{color:var(--pf-gold)!important;color:color-mix(in srgb,var(--goldColor) 60%,var(--pf-ink) 40%)!important}
 html.pf-theme[data-theme=dark] .goldColor{color:var(--pf-gold)!important}
-html.pf-theme .waterColor{color:color-mix(in srgb,var(--waterColor) 60%,var(--pf-ink) 40%)!important}
+html.pf-theme .waterColor{color:var(--pf-water)!important;color:color-mix(in srgb,var(--waterColor) 60%,var(--pf-ink) 40%)!important}
 html.pf-theme[data-theme=dark] .waterColor{color:var(--pf-water)!important}
 html.pf-theme, html.pf-theme body { background:var(--pf-paper);color:var(--pf-ink);font-family:var(--pf-sans); }
 html.pf-theme body { margin:0; -webkit-tap-highlight-color:transparent; }
@@ -376,7 +376,7 @@ html.pf-theme .van-dialog__confirm,html.pf-theme .van-picker__confirm { color:va
 html.pf-theme .van-picker__cancel { color:var(--pf-caption); }
 html.pf-theme .van-picker__mask { background-image:linear-gradient(180deg,var(--pf-surface),transparent),linear-gradient(0deg,var(--pf-surface),transparent); }
 html.pf-theme .van-picker-column__item--selected { color:var(--pf-accent);font-weight:600; }
-html.pf-theme .van-picker__frame { background:color-mix(in srgb,var(--pf-tint) 50%,transparent);z-index:-1; }
+html.pf-theme .van-picker__frame { background:var(--pf-tint);background:color-mix(in srgb,var(--pf-tint) 50%,transparent);z-index:-1; }
 html.pf-theme .van-toast { background:var(--pf-accent);color:var(--pf-on-accent);border-radius:7px; }
 html.pf-theme .van-search,html.pf-theme .van-search__content { background:var(--pf-muted); }
 html.pf-theme .van-nav-bar,html.pf-theme .van-tabs__nav { background:var(--pf-paper); }

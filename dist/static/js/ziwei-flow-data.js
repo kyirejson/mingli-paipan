@@ -15,7 +15,7 @@
     var rows=[{scope:'decadal',label:'大限',items:s.decadeItems},{scope:'yearly',label:'流年',items:years}];
     if(full){
       var months=cached(s.years,year+'|'+ruleKey,4,function(){return chart.monthlyList(year).map(function(m){return {label:(m.isLeapMonth?'闰':'')+m.month+'月'+(m.part==='normal'?'':m.part==='first'?'前':'后'),gz:m.heavenlyStem+m.earthlyBranch,date:E.lunarSolar(year,m.isLeapMonth?-m.month:m.month,m.dayRange[0]),month:m.month,isLeap:m.isLeapMonth,dayRange:m.dayRange.slice()};});});
-      var current=months.find(function(m){return m.month===Math.abs(month)&&m.isLeap===(month<0)&&day>=m.dayRange[0]&&day<=m.dayRange[1];}),days=current?current.dayRange[1]:30;
+      var current=months.find(function(m){return m.month===Math.abs(month)&&m.isLeap===(month<0)&&day>=m.dayRange[0]&&day<=m.dayRange[1];}),days=current?current.dayRange[1]:(function(){try{E.lunarSolar(year,month,30);return 30;}catch(_){return 29;}})();
       var daily=cached(s.daily,[year,month,days,hour,ruleKey].join('|'),6,function(){return Array.from({length:days},function(_,i){var date=E.lunarSolar(year,month,i+1),gz=E.ziweiFlowGanzhi(date,hour,rules);return {label:i+1+'日',gz:gz.daily.join(''),date:date,dayNum:i+1};});});
       var hourly=cached(s.hourly,date+'|'+ruleKey,16,function(){return Array.from({length:13},function(_,i){return {label:i===12?'晚子':E.ZHI[i]+'时',gz:E.ziweiFlowGanzhi(date,i,rules).hourly.join(''),hour:i,date:date};});});
       rows.push({scope:'monthly',label:'流月',items:months.map(function(m){return Object.assign({},m,{current:m===current});})},{scope:'daily',label:'流日',items:daily},{scope:'hourly',label:'流时',items:hourly});

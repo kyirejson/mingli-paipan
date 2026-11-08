@@ -15,7 +15,7 @@
     send(view);
   }
   function render(){
-    var v=this,h=v.$createElement||v._self._c,books=[];
+    var v=this,h=v.$createElement||v._self._c,books=[];if(typeof document!=='undefined'&&document.documentElement)document.documentElement.setAttribute('data-theme',v.isDark?'dark':'light');
     v.books.forEach(function(group,g){group.forEach(function(book,i){books.push({book:book,g:g,i:i,index:books.length});});});
     var current=books[v.selBookDex]||books[0],height=620;
     try{height=Math.max(380,Math.min(700,global.parent.innerHeight-180));}catch(_){}

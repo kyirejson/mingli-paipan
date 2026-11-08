@@ -11,6 +11,10 @@
     var xun='甲'+zhi[(Math.floor(index/10)*10)%12],empty=['戌亥','申酉','午未','辰巳','寅卯','子丑'][Math.floor(index/10)];
     eight.getTime=function(){return gz;};eight.getTimeGan=function(){return stem;};eight.getTimeZhi=function(){return '子';};
     eight.getTimeXun=function(){return xun;};eight.getTimeXunKong=function(){return empty;};
+    if(global.LunarUtil){
+      if(global.LunarUtil.NAYIN&&global.LunarUtil.NAYIN[gz])eight.getTimeNaYin=function(){return global.LunarUtil.NAYIN[gz];};
+      if(global.LunarUtil.SHI_SHEN&&global.LunarUtil.SHI_SHEN[eight.getDayGan()+stem])eight.getTimeShiShenGan=function(){return global.LunarUtil.SHI_SHEN[eight.getDayGan()+stem];};
+    }
     return eight;
   }
   function chartTime(info){return String(info&&(info.sunTime||info.strSunTime||info.solarTime)||'');}

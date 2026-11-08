@@ -35,7 +35,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
         if self.path != '/api/ziwei-assistant': return self.send_json(404,{'error':'接口不存在'})
         origin=self.headers.get('Origin','')
-        if origin not in ('http://localhost:9988','http://127.0.0.1:9988'):
+        if origin not in ('http://localhost:9988','http://127.0.0.1:9988','https://localhost','capacitor://localhost'):
             return self.send_json(403,{'error':'请求来源不受支持'})
         try:
             length=int(self.headers.get('Content-Length','0'))
@@ -44,7 +44,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             chart=body.get('chart')
             if not question or len(question)>1000 or not isinstance(chart,dict):
                 return self.send_json(400,{'error':'请填写问题并确认命盘'})
-            settings=json.loads(SETTINGS.read_text(encoding='utf-8'))
+            try: settings=json.loads(SETTINGS.read_text(encoding='utf-8'))
+            except OSError: settings={'api_provider':'deepseek','api_key':os.environ.get('DEEPSEEK_API_KEY','')}
             if settings.get('api_provider')!='deepseek' or not settings.get('api_key'):
                 return self.send_json(503,{'error':'请先配置 DeepSeek 密钥'})
             system=('你是紫微斗数助手。只能依据用户提供的结构化命盘讨论，不得自行推算、编造星曜或宫位。'

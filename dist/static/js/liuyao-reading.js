@@ -217,7 +217,8 @@
       refs.push(ref('huangjince','动值合而绊住'));title=lineName(r.index)+' · 动而逢合';score=58;verdict='事情已动，却被关系或约定绊住';meaning=r.role+r.ganzhi+r.element+'发动，又'+(ch.includes('化合')?'与变支相合':'与日月相合')+'。动合为绊，事情进行中被关系、约定牵住，原定进度拖延。';
       }else{return;}
       var future=a.rows[r.index-1].changedTags,changedMatter=({兄弟:'同辈分耗与争执',妻财:'钱款到账',父母:'文件手续',子孙:'财源或解忧',官鬼:'职位或烦忧'})[x.role];
-      if(future.includes('月破')||future.includes('旬空')){
+      var pureHarm=!ch.includes('回头克')&&!ch.includes('回头生')&&!ch.includes('化进')&&!ch.includes('化退')&&ch.some(function(t){return ['化空','化月破'].includes(t);});
+      if(!pureHarm&&(future.includes('月破')||future.includes('旬空'))){
         var futureState=future.filter(function(t){return t==='月破'||t==='旬空';}).join('、');
         meaning+='变出的'+x.role+x.ganzhi+'见'+futureState+'，所指'+changedMatter+(future.includes('旬空')?'未落实':'受月建冲阻')+'。';
         verdict+='；变'+x.role+futureState+'，后事'+(future.includes('旬空')?'未实':'受冲');
