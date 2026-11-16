@@ -26,7 +26,7 @@
         if(!this.bank){children.push(h('p',{attrs:{role:this.error?'alert':'status'}},[this.error||'正在读取本地解读…']),this.error?h('button',{class:'zr-retry',attrs:{type:'button'},on:{click:this.retry}},['重新打开']):null);return h('section',{class:'ziwei-reading'},children);}
         if(!this.view){children.push(h('p',{attrs:{role:'alert'}},['命盘宫位或星曜数据异常，暂未生成解读，请重新排盘。']));return h('section',{class:'ziwei-reading'},children);}
         var view=this.view,current=view.current;
-        children.push(h('details',{class:'zr-policy'},[h('summary',['阅读取法与出处']),h('p',[view.policy.focus]),h('p',['按实际星位、宫职与命中条件生成。白话为编辑整理；每条可展开核对出处与对应古籍原段，尚未完成全部转述的独立审校。']),view.policy.pending?h('p',{class:'zr-source-note'},['未接入：'+view.policy.pending.join('、')+'。']):null]));
+        children.push(h('details',{class:'zr-policy'},[h('summary',['阅读取法与出处']),h('p',[view.policy.focus]),h('p',['按实际星位、宫职与命中条件生成；每条可展开核对出处与对应《紫微斗数全书》原段。']),view.policy.pending?h('p',{class:'zr-source-note'},['未接入：'+view.policy.pending.join('、')+'。']):null]));
         function sourceNode(refs,contexts,traces){
           traces=(traces||[]).filter(Boolean);var keys=Array.from(new Set(traces.flatMap(function(t){return t.contextKeys;})));
           var originals=(contexts||[]).concat(keys.map(function(k){return self.bank.contexts[k];})).filter(function(c,i,x){return c&&x.findIndex(function(o){return o&&o.id===c.id;})===i;});
@@ -35,7 +35,7 @@
         function cardTone(c){
           var head=(c.title||'')+' '+(c.technique||'');
           if(['运限四化','运限叠宫','运限流曜'].includes(c.technique))return 'is-tone-flow';
-          if((c.breaking&&c.breaking.length)||/化忌|落陷|煞忌|离心|空劫|羊陀|火铃/.test(head))return 'is-tone-warn';
+          if((c.breaking&&c.breaking.length)||/化忌|落陷|煞忌|离心|空劫|羊陀|火铃|忌冲/.test(head))return 'is-tone-warn';
           if((c.bonus&&c.bonus.length)||/化禄|化科|入庙|居旺|辅弼|昌曲|魁钺|禄马|庆会|明珠|朝垣/.test(head))return 'is-tone-good';
           return 'is-tone-core';
         }
@@ -60,7 +60,9 @@
         function palaceFlowNode(r){
           if(!self.flowScope||!self.flow||!Array.isArray(self.flow.palaceNames))return null;
           var rawFp=self.flow.palaceNames[r.index]||'',fpTitle=rawFp?global.WZBZInterpretation.title(rawFp.replace(/宫$/,'')):scopeLabel;
-          var dec=self.horoscope&&self.horoscope.decadal,rawDp=dec&&self.flowScope!=='decadal'&&Array.isArray(dec.palaceNames)?dec.palaceNames[r.index]||'':'',dpTitle=rawDp?'在大限叠「大限'+global.WZBZInterpretation.title(rawDp.replace(/宫$/,''))+'」，':'';
+          var dec=self.horoscope&&self.horoscope.decadal,yr=self.horoscope&&self.horoscope.yearly;
+          var rawDp=dec&&self.flowScope!=='decadal'&&Array.isArray(dec.palaceNames)?dec.palaceNames[r.index]||'':'',dpTitle=rawDp?'在大限叠「大限'+global.WZBZInterpretation.title(rawDp.replace(/宫$/,''))+'」，':'';
+          var rawYp=['monthly','daily','hourly'].includes(self.flowScope)&&yr&&Array.isArray(yr.palaceNames)?yr.palaceNames[r.index]||'':'',ypTitle=rawYp?'在流年叠「流年'+global.WZBZInterpretation.title(rawYp.replace(/宫$/,''))+'」，':'';
           var direct=view.life.filter(function(c){return c.technique==='运限四化'&&c.index===r.index;}),opp=r.opposite?view.life.filter(function(c){return c.technique==='运限四化'&&c.index===r.opposite.index;}):[];
           var oppJi=opp.filter(function(c){return /化忌$/.test(c.title);}),oppGood=opp.filter(function(c){return !/化忌$/.test(c.title);});
           var fStars=Array.isArray(self.flow.stars)&&Array.isArray(self.flow.stars[r.index])?self.flow.stars[r.index].map(function(s){return s&&s.name;}).filter(Boolean):[];
@@ -68,17 +70,18 @@
           return h('section',{class:'zr-palace-flow'},[
             h('p',{class:'zr-flow-banner'},[
               h('strong',['【当前'+scopeLabel+'叠宫】']),
-              '本命'+r.title+'（'+r.ganzhi+'）'+dpTitle+'在所选'+scopeLabel+(self.flowDate?'（'+self.flowDate+'）':'')+'叠作「'+(self.flow.name||scopeLabel)+fpTitle+'」'+
-              (direct.length?'，受'+direct.map(function(c){return c.title;}).join('、')+'直接引动：'+direct.map(function(c){return c.text.split('\n').slice(1,3).filter(Boolean).join(' ');}).join(' '):'')+
+              '本命'+r.title+'（'+r.ganzhi+'）'+dpTitle+ypTitle+'在所选'+scopeLabel+(self.flowDate?'（'+self.flowDate+'）':'')+'叠作「'+(self.flow.name||scopeLabel)+fpTitle+'」'+
+              (direct.length?'，受'+direct.map(function(c){return c.title;}).join('、')+'直接引动：'+direct.map(function(c){return c.text.split('\n')[1]||'';}).filter(Boolean).join(' '):'')+
               (oppJi.length?'；对宫受'+oppJi.map(function(c){return c.title;}).join('、')+'直冲，宜防突发变动与外力冲击':oppGood.length&&!direct.length?'，对宫得'+oppGood.map(function(c){return c.title;}).join('、')+'拱照':'')+
               (!direct.length&&!opp.length?'，本宫无流四化直落，参看原局星系。':'。')+
               (fStars.length?' 流曜同度：'+fStars.join('、')+(fHint?'（'+fHint+'）':'')+'。':'')
             ])
           ]);
         }
-        function palaceNode(r){return h('article',{key:r.index,class:'zr-palace',attrs:{'data-palace-index':r.index,'data-palace-name':r.name}},[h('header',{class:'zr-palace-heading'},[h('h4',[r.title]),h('span',[r.ganzhi+(r.body?' · 身宫':'')])]),h('p',{class:'zr-stars'},[r.stars.map(function(s){return s.name+(s.brightness?'（'+s.brightness+'）':'')+(s.mutagen?'化'+s.mutagen:'');}).join('、')||'无十四主星']),palaceSummaryNode(r),palaceFlowNode(r),r.cards.map(cardNode),r.natal.length?h('section',{class:'zr-section'},[h('h4',['本宫生年四化']),r.natal.map(cardNode)]):null,r.major.length===2?h('details',{class:'zr-star-detail'},[h('summary',['分别理解两颗主星'])].concat(r.major.map(function(n){return h('section',{key:n},[h('h6',[n+'在'+r.title]),h('p',[self.bank.profiles[n][r.name]])]);}))):null,r.misc.length?h('details',{class:'zr-star-detail',attrs:{'data-misc-palace':r.name}},[h('summary',['杂曜细读 · '+r.misc.length+'项'])].concat(r.misc.map(cardNode))):null,r.cycles.length?h('details',{class:'zr-star-detail'},[h('summary',['长生与神煞 · '+r.cycles.length+'组']),h('p',{class:'zr-source-note'},['以下为出生盘的辅助层，不替代主星与四化；同名星按所属系统分开。'])].concat(r.cycles.map(function(o){return h('p',{key:o.system},[o.label+'：'+o.star+' · '+o.text]);}),[sourceNode(['cycles'])])):null,sourceNode(['quanshu'],r.contexts)]);}
+        function palaceNode(r){return h('article',{key:r.index,class:'zr-palace',attrs:{'data-palace-index':r.index,'data-palace-name':r.name}},[h('header',{class:'zr-palace-heading'},[h('h4',[r.title]),h('span',[r.ganzhi+(r.body?' · 身宫':'')])]),h('p',{class:'zr-stars'},[r.stars.map(function(s){return s.name+(s.brightness?'（'+s.brightness+'）':'')+(s.mutagen?'化'+s.mutagen:'');}).join('、')||'无十四主星']),palaceSummaryNode(r),palaceFlowNode(r),r.cards.map(cardNode),r.natal.length?h('section',{class:'zr-section'},[h('h4',['本宫生年四化']),r.natal.map(cardNode)]):null,r.major.length===2?h('details',{class:'zr-star-detail'},[h('summary',['分别理解两颗主星'])].concat(r.major.map(function(n){return h('section',{key:n},[h('h6',[n+'在'+r.title]),h('p',[self.bank.profiles[n][r.name]])]);}))):null,r.misc.length?h('details',{class:'zr-star-detail',attrs:{'data-misc-palace':r.name}},[h('summary',['杂曜细读 · '+r.misc.length+'项'])].concat(r.misc.map(cardNode))):null,r.cycles.length?h('details',{class:'zr-star-detail'},[h('summary',['长生与神煞 · '+r.cycles.length+'组']),h('p',{class:'zr-source-note'},['以下为出生盘的辅助层，不替代主星与四化；同名星按所属系统分开。'])].concat(r.cycles.map(function(o){return h('p',{key:o.system},[o.label+'：'+o.star+' · '+o.text]);}),[sourceNode(['cycles'])])):null,r.name==='疾厄'?h('p',{class:'zr-source-note'},['注：疾厄宫解读仅展示传统斗数星曜五行与脏腑部位象义，供日常起居调养参考，不作为医学诊断依据。']):null,sourceNode(['quanshu'],r.contexts)]);}
         children.push(h('p',{class:'zr-layer-note'},[this.flowScope?'当前选中'+scopeLabel+' '+(this.flowDate||'')+'；本宫顶部已同步当前运限叠宫，全盘运限总览见“命身运限”。':'本命解读 · 随盘面实际星位与条件生成。']));
-        children.push(h('nav',{class:'zr-tabs',attrs:{'aria-label':'选择解读技法'}},TABS.map(function(t){return h('button',{key:t[0],class:{'is-selected':self.tab===t[0]},attrs:{type:'button','aria-pressed':String(self.tab===t[0])},on:{click:function(){self.tab=t[0];}}},[t[1]]);})),h('nav',{class:'zr-palaces',attrs:{'aria-label':'选择解读宫位'}},view.rows.map(function(r){return h('button',{key:r.index,class:{'is-selected':r.index===current.index},attrs:{type:'button','aria-pressed':String(r.index===current.index)},on:{click:function(){self.choose(r.index);}}},[r.name==='仆役'?'交友':r.name]);})));
+        var showPalaceNav=(this.tab==='palace'&&!this.allPalaces)||this.tab==='relations'||this.tab==='hua';
+        children.push(h('nav',{class:'zr-tabs',attrs:{'aria-label':'选择解读技法'}},TABS.map(function(t){return h('button',{key:t[0],class:{'is-selected':self.tab===t[0]},attrs:{type:'button','aria-pressed':String(self.tab===t[0])},on:{click:function(){self.tab=t[0];}}},[t[1]]);})),showPalaceNav?h('nav',{class:'zr-palaces',attrs:{'aria-label':'选择解读宫位'}},view.rows.map(function(r){return h('button',{key:r.index,class:{'is-selected':r.index===current.index},attrs:{type:'button','aria-pressed':String(r.index===current.index)},on:{click:function(){self.choose(r.index);}}},[r.name==='仆役'?'交友':r.name]);})):null);
         if(this.tab==='palace'){
           children.push(h('div',{class:'zr-section-heading'},[h('h4',[this.allPalaces?'十二宫通览':current.title+' · 星系与修正']),h('button',{class:'zr-text-button',attrs:{type:'button','aria-pressed':String(this.allPalaces)},on:{click:function(){self.allPalaces=!self.allPalaces;}}},[this.allPalaces?'只读本宫':'十二宫通览'])]),(this.allPalaces?view.rows:[current]).map(palaceNode));
         }else if(this.tab==='relations'){
@@ -86,10 +89,14 @@
         }else if(this.tab==='hua'){
           children.push(h('section',{class:'zr-section'},[h('h4',['生年四化 · 全盘落点']),view.rows.flatMap(function(r){return r.natal;}).map(cardNode)]));
           if(this.mode!=='sanhe')children.push(h('section',{class:'zr-section'},[h('h4',[current.title+' · 宫干飞化与自化']),view.flights.map(cardNode)]));
+          else{
+            var sfPal=[current].concat(current.trines,[current.opposite]),sfNatal=sfPal.flatMap(function(q){var rel=q===current?'本宫坐守':q===current.opposite?'对宫冲照':'三合会照';return q.stars.filter(function(s){return !!s.mutagen;}).map(function(s){return rel+'：'+s.name+'生年化'+s.mutagen+'在'+q.title+'（'+q.ganzhi+'）';});});
+            children.push(h('section',{class:'zr-section'},[h('h4',[current.title+' · 三方四正生年四化联动']),h('div',{class:'zr-palace-summary'},[sfNatal.length?sfNatal.join('；')+'。':current.title+'三方四正未见生年四化直落，主要依本宫与三方星系定局。']),h('p',{class:'zr-source-note'},['提示：宫干飞化与自化属飞星/钦天四化技法，切换上方盘面模式至「飞星」或「钦天·四化」即可查看 '+current.title+' 宫干飞化轨迹。'])]));
+          }
         }else if(this.tab==='patterns'){
           children.push(h('section',{class:'zr-section'},[h('h4',['本盘星系与格局']),view.patterns.length?view.patterns.map(cardNode):h('p',['本盘已匹配的星系释义见各宫详解。'])]));
         }else{
-          children.push(h('section',{class:'zr-section'},[h('h4',['命身与运限叠读']),view.life.map(cardNode),h('details',{class:'zr-star-detail'},[h('summary',['本命大限分布'])].concat(view.rows.filter(function(r){return r.decadal&&Array.isArray(r.decadal.range);}).slice().sort(function(a,b){return a.decadal.range[0]-b.decadal.range[0];}).map(function(r){return h('p',{key:r.index,class:'zr-decadal'},[r.decadal.range.join('—')+'虚岁 · '+r.title+' '+r.ganzhi+' · '+(r.major.join('、')||'空宫')]);})))]));
+          children.push(h('section',{class:'zr-section'},[h('h4',['命身与运限叠读']),view.life.map(cardNode),h('details',{class:'zr-star-detail'},[h('summary',['本命大限分布'])].concat(view.rows.filter(function(r){return r.decadal&&Array.isArray(r.decadal.range);}).slice().sort(function(a,b){return a.decadal.range[0]-b.decadal.range[0];}).map(function(r){return h('p',{key:r.index,class:'zr-decadal'},[r.decadal.range.join('—')+'虚岁 · '+r.title+' '+r.ganzhi+' · '+(r.major.join('、')||'空宫（借'+(r.opposite&&r.opposite.major.length?r.opposite.major.join('、'):'对宫')+'）')]);})))]));
         }
         function describeRelated(r){
           var majors=r.major.length?r.major.map(function(m){var s=r.stars.find(function(x){return x.name===m;});return m+(s&&s.brightness?'（'+s.brightness+'）':'')+(s&&s.mutagen?'化'+s.mutagen:'');}).join('、'):'空宫（借'+(r.opposite&&r.opposite.major.length?r.opposite.major.join('、'):'对宫')+'）';

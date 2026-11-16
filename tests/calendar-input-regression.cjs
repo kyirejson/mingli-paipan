@@ -73,3 +73,18 @@ test('命例历法类型允许公历0、农历1、四柱2，拒绝无效类型',
  for(const value of [3,-1,'solar',true,[2]])assert.throws(()=>context.buildLocalCase({...base,timetype:value},null,'test'),/历法类型/);
  assert.equal(context.buildLocalCase({},context.buildLocalCase({...base,timetype:2},null,'test'),'test').timetype,2);
 });
+
+test('首页时间与地点选择器异步分包（98/99）及 manifest 全部 101 个分包完整存在',()=>{
+ const manifest=fs.readFileSync('dist/static/js/manifest.79b86b6f2b52848d3421.js','utf8');
+ const start=manifest.indexOf('{0:'),end=manifest.indexOf('}[e]',start)+1;
+ const map=vm.runInNewContext('('+manifest.slice(start,end)+')');
+ assert.equal(Object.keys(map).length,101);
+ for(const [id,hash] of Object.entries(map)){
+  const file=`dist/static/js/${id}.${hash}.js`;
+  assert.ok(fs.existsSync(file),`missing webpack chunk: ${file}`);
+ }
+ const chunk98=fs.readFileSync(`dist/static/js/98.${map[98]}.js`,'utf8');
+ const chunk99=fs.readFileSync(`dist/static/js/99.${map[99]}.js`,'utf8');
+ assert.ok(chunk98.includes('"1gxk"')&&chunk98.includes('WZBZCalendarInput.renderDatetime'));
+ assert.ok(chunk99.includes('Ryog:function'));
+});

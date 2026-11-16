@@ -58,10 +58,10 @@ for palace, h in zip(PALACES, headings):
     # Whole subject blocks are preserved. Do not infer inherited conditions
     # from punctuation as the retired 550-fragment matcher did.
     positions, seen = [], set()
-    subjects = TRAD + EXTRA_TRAD
+    subjects = ['左輔右弼', '魁鉞'] + TRAD + EXTRA_TRAD
     # The 命宫 chapter interleaves poems that begin with another major's name.
     # Only the actual element/introduction lines start independent subjects.
-    pattern = r'(?m)^('+'|'.join(subjects)+r')(?!同)'
+    pattern = r'(?m)^('+'|'.join(subjects)+r')(?!同(?!左右))'
     for match in re.finditer(pattern, text):
         if palace == '命宫':
             rest = text[match.end():].split('\n', 1)[0]
@@ -69,16 +69,19 @@ for palace, h in zip(PALACES, headings):
                 continue
         if match.group(1) not in seen:
             seen.add(match.group(1)); positions.append((match.start(), match.group(1)))
+    subject_map = dict(zip(TRAD + EXTRA_TRAD, MAJORS + EXTRA_NAMES))
     for j, (start, star) in enumerate(positions):
         body = re.sub(r'\s+', '', text[start:positions[j+1][0] if j+1 < len(positions) else len(text)])
         if body:
-            modern = dict(zip(subjects, MAJORS+EXTRA_NAMES))[star]
-            contexts[palace+':'+modern] = {
-                'text': body, 'chapter': h.get_text(' ', strip=True).replace('[ 編輯 ]', '').strip(),
-                'anchor': h.get('id'), 'star': modern,
-                'id': 'quanshu2:'+palace+':'+modern,
-                'source': 'quanshu', 'sourceStar': star, 'start': start,
-                'end': positions[j+1][0] if j+1 < len(positions) else len(text)}
+            targets = ['天魁', '天钺'] if star == '魁鉞' else ['左辅', '右弼'] if star == '左輔右弼' else [subject_map[star]]
+            for modern in targets:
+                if palace+':'+modern not in contexts:
+                    contexts[palace+':'+modern] = {
+                        'text': body, 'chapter': h.get_text(' ', strip=True).replace('[ 編輯 ]', '').strip(),
+                        'anchor': h.get('id'), 'star': modern,
+                        'id': 'quanshu2:'+palace+':'+modern,
+                        'source': 'quanshu', 'sourceStar': star, 'start': start,
+                        'end': positions[j+1][0] if j+1 < len(positions) else len(text)}
 
 data = {
     'schemaVersion': 4, 'contentVersion': meta.pop('version'), 'palaceOrder': PALACES,
@@ -102,8 +105,22 @@ assert len(contexts) >= 140
 # Every editorial text gets an addressable record and explicit review status.
 # A source page or adjacent ancient passage is not proof of a modern assertion.
 provenance = {}
+SHARED_CONTEXT_FALLBACK = {
+    ('财帛', '七杀'): ['财帛:武曲', '财帛:廉贞'],
+    ('田宅', '七杀'): ['田宅:廉贞', '田宅:武曲'],
+    ('疾厄', '贪狼'): ['疾厄:武曲', '疾厄:廉贞'],
+    ('疾厄', '天梁'): ['疾厄:天同', '疾厄:天机'],
+    ('福德', '天梁'): ['福德:天同', '福德:天机'],
+}
 def trace(key, palace=None, stars=(), refs=('quanshu',), conditions=None):
-    passages = [palace+':'+s for s in stars if palace+':'+s in contexts] if palace else []
+    passages = []
+    if palace:
+        for s in stars:
+            if palace+':'+s in contexts:
+                passages.append(palace+':'+s)
+            elif (palace, s) in SHARED_CONTEXT_FALLBACK:
+                passages.extend(k for k in SHARED_CONTEXT_FALLBACK[(palace, s)] if k in contexts)
+    passages = list(dict.fromkeys(passages))
     provenance[key] = {'id': key, 'version': data['contentVersion'], 'school': 'shared',
         'layer': 'natal', 'palace': palace, 'stars': list(stars),
         'conditions': conditions or {}, 'exclusions': [], 'center': palace,

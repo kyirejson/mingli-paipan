@@ -312,7 +312,7 @@ function detectShaPoLang(chart            , ming        , patterns           ) {
     name: '杀破狼',
     level: breaking.length ? 'caution' : 'good',
     description: '七杀、破军、贪狼三星会命，开创闯荡之命格。一生变动多、不甘平凡，宜创业、军警、业务、销售。中年后才能稳定守成，年轻时易因冲动失利。',
-    palaces: getSanFangPalaces(chart).filter(p => has.includes(getMajorStarNames(p)[0])).map(p => p.name),
+    palaces: getSanFangPalaces(chart).filter(p => has.some(s => getMajorStarNames(p).includes(s))).map(p => p.name),
     conditions: { required, bonus, breaking },
     source: '《紫微斗数全书·杀破狼》',
   });
@@ -699,7 +699,7 @@ function detectHuaJiRuMingQian(chart            , patterns           ) {
   const qianBranch = (chart.mingGongBranch + 6) % 12;
   for (const palace of chart.palaces) {
     if (palace.branch !== chart.mingGongBranch && palace.branch !== qianBranch) continue;
-    const jiStar = palace.stars.find(s => s.siHua === '忌' && s.type === 'major');
+    const jiStar = palace.stars.find(s => s.siHua === '忌');
     if (!jiStar) continue;
 
     const inMing = palace.branch === chart.mingGongBranch;
@@ -860,7 +860,7 @@ function detectLuCunShouShen(chart            , patterns           ) {
     description: inMing
       ? '禄存坐命，主一生衣食无忧、财禄稳定。性格保守，善积累，但羊陀夹禄须防小人。最宜配化禄、左辅右弼方为大格。'
       : '禄存入身宫，主中年后财源稳定、得禄自享。倪师说「禄存入身，财气近身」——配偶或事业方向能带来稳定财禄。',
-    palaces: [inMing ? '命宫' : '身宫'],
+    palaces: [luCunPalace.name],
     conditions: { required: [inMing ? '禄存入命宫' : '禄存入身宫'] },
     source: '《紫微斗数全书·禄存星》',
   });
@@ -923,14 +923,14 @@ function detectHuaKeRuMingShen(chart            , patterns           ) {
   const shen = chart.palaces.find(p => p.branch === chart.shenGongBranch);
   const target = [ming, shen].filter((p)              => Boolean(p));
   for (const p of target) {
-    const keStar = p.stars.find(s => s.type === 'major' && s.siHua === '科');
+    const keStar = p.stars.find(s => s.siHua === '科');
     if (!keStar) continue;
     const isMing = p.branch === chart.mingGongBranch;
     patterns.push({
       name: isMing ? '化科入命' : '化科入身',
       level: 'good',
       description: `${keStar.name}化科入${isMing ? '命' : '身'}宫，主名声、文书、学术运。倪师讲化科是「贵人星」——${keStar.name}化科带来的是被人看重的特质，宜从事文书、教育、研究、咨询、文创等“以名取利”的方向。`,
-      palaces: [isMing ? '命宫' : '身宫'],
+      palaces: [p.name],
       conditions: { required: [`${keStar.name}化科入${isMing ? '命' : '身'}宫`] },
       source: '《紫微斗数全书·四化论》',
     });
@@ -1129,5 +1129,5 @@ function getMingGongSummary(chart            )
 
 function localSurroundingStars(chart            , branch        ) { return new Set(chart.palaces.filter(p => [0,4,6,8].includes((p.branch-branch+12)%12)).flatMap(p => p.stars.map(s => s.name))); }
 
-global.WZBZPatternRules=Object.freeze({detect:detectPatterns,commit:"a600484a49255039d0725f1ba9e11ca81a948f97",localCorrections:["detectZiFu","detectLianXiang","detectTongLiang","detectRiYueTongGong","detectWuTan","detectKeQuanShuangHui"]});
+global.WZBZPatternRules=Object.freeze({detect:detectPatterns,commit:"a600484a49255039d0725f1ba9e11ca81a948f97",localCorrections:["detectZiFu","detectLianXiang","detectTongLiang","detectRiYueTongGong","detectWuTan","detectKeQuanShuangHui","detectShaPoLang","detectLuCunShouShen","detectHuaKeRuMingShen","detectHuaJiRuMingQian"]});
 })(window);

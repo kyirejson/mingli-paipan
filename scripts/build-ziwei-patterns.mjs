@@ -23,6 +23,11 @@ fix('detectRiYueTongGong',"sanFangAllStars(chart).has('文昌') && sanFangAllSta
 fix('detectWuTan',"sanFangAllStars(chart).has('火星') || sanFangAllStars(chart).has('铃星')","localSurroundingStars(chart, tan.branch).has('火星') || localSurroundingStars(chart, tan.branch).has('铃星')");
 fix('detectKeQuanShuangHui',"if (s.type === 'major' && s.siHua === '科')","if (s.siHua === '科')");
 fix('detectKeQuanShuangHui',"if (s.type === 'major' && s.siHua === '权')","if (s.siHua === '权')");
+fix('detectShaPoLang',"has.includes(getMajorStarNames(p)[0])","has.some(s => getMajorStarNames(p).includes(s))");
+fix('detectLuCunShouShen',"palaces: [inMing ? '命宫' : '身宫']","palaces: [luCunPalace.name]");
+fix('detectHuaKeRuMingShen',"const keStar = p.stars.find(s => s.type === 'major' && s.siHua === '科');","const keStar = p.stars.find(s => s.siHua === '科');");
+fix('detectHuaKeRuMingShen',"palaces: [isMing ? '命宫' : '身宫']","palaces: [p.name]");
+fix('detectHuaJiRuMingQian',"const jiStar = palace.stars.find(s => s.siHua === '忌' && s.type === 'major');","const jiStar = palace.stars.find(s => s.siHua === '忌');");
 source+='\nfunction localSurroundingStars(chart: ZiweiChart, branch: number) { return new Set(chart.palaces.filter(p => [0,4,6,8].includes((p.branch-branch+12)%12)).flatMap(p => p.stars.map(s => s.name))); }\n';
 source=stripTypeScriptTypes(source,{mode:'strip'}).replace(/^export function /gm,'function ');
 if(/^import\s/m.test(source)||/^export\s/m.test(source))throw Error('Unexpected runtime dependency in pattern source');

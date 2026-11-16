@@ -59,3 +59,23 @@ test('钦天和飞星有明确分工，四套辅助神煞按实际字段分开',
  assert.ok(a.life.some(c=>c.id==='original'));assert.ok(!b.life.some(c=>c.id==='original'));
  assert.notEqual(a.policy.focus,b.policy.focus);for(const r of a.rows){assert.equal(r.cycles.length,4);for(const o of r.cycles)assert.equal(o.star,x.palaces[r.index][o.system]);}
 });
+
+test('主星168原段与魁钺辅弼合段齐全，疾厄宫具五行脏腑实义，去除平得利废卡与推诿套话',()=>{
+ for(const star of data.majorNames)for(const pal of data.palaceOrder){
+  const p=data.provenance[`profile:${pal}:${star}`];
+  assert.ok(p&&p.contextKeys.length>0,`missing contextKeys for ${pal}:${star}`);
+  assert.doesNotMatch(data.profiles[star][pal],/须看庙陷|需合看|还要看禄与空劫|不据此确认|不推疾病/);
+ }
+ assert.ok(data.contexts['迁移:紫微']);assert.ok(data.contexts['财帛:天魁']);assert.ok(data.contexts['财帛:天钺']);assert.ok(data.contexts['财帛:右弼']);
+ for(const star of data.majorNames)assert.match(data.profiles[star]['疾厄'],/木|火|土|金|水/);
+ const x=real('1962-03-07 04:30','男'),v=view(x);
+ assert.ok(!v.rows.some(r=>r.cards.some(c=>c.technique==='亮度定位')));
+ const spl=v.patterns.find(p=>p.title==='杀破狼');assert.ok(spl&&spl.palaces.length>0&&!spl.evidence.endsWith('实际涉及：'));
+ const lcss=view(real('1968-09-25 16:30','男')).patterns.find(p=>p.title==='禄存守身');assert.ok(lcss&&lcss.palaces.length===1&&data.palaceOrder.includes(lcss.palaces[0]));
+ const minorKe=add(chart(),'命宫','文昌','','科',true),vk=api.analyse(data,minorKe,{mode:'sanhe'});
+ assert.ok(vk.patterns.some(p=>p.title==='化科入命'&&p.palaces.includes('命宫')));
+ const tf=add(add(chart(),'财帛','天府','庙'),'财帛','禄存','','',true),rtf=api.match(data,tf).find(r=>r.name==='财帛');
+ assert.match(rtf.cards[0].extra||'',/实库/);
+ const clashChart=real('1960-01-01 00:30','男'),vc=api.analyse(data,clashChart,{selected:0,mode:'feixing'});
+ assert.ok(vc.rows.some(r=>api.analyse(data,clashChart,{selected:r.index,mode:'feixing'}).flights.some(f=>f.technique==='飞忌冲宫')));
+});
